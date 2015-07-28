@@ -1,0 +1,8 @@
+obj
+Uploads
+bin
+*.user
+*.suo
+/LuckyYu.Web/Web.Debug.config
+/LuckyYu.Web/Web.Release.config
+Logs
