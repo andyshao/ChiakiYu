@@ -6,3 +6,5 @@ bin
 /LuckyYu.Web/Web.Debug.config
 /LuckyYu.Web/Web.Release.config
 Logs
+/ChiakiYu.Web/Web.Debug.config
+/ChiakiYu.Web/Web.Release.config
