@@ -19,20 +19,23 @@ namespace ChiakiYu.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            AutofacRegister();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AutofacRegister();
+            DatabaseInitialize();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
+        
+
         /// <summary>
-        /// Autofac注册
+        ///     Autofac注册
         /// </summary>
         private static void AutofacRegister()
         {
             var builder = new ContainerBuilder();
             builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>));
-            var baseType = typeof(IDependency);
+            var baseType = typeof (IDependency);
             var path = AppDomain.CurrentDomain.RelativeSearchPath;
             var assemblies = Directory.GetFiles(path, "*.dll").Select(m => Assembly.LoadFrom(m)).ToArray();
             builder.RegisterAssemblyTypes(assemblies)
@@ -46,6 +49,14 @@ namespace ChiakiYu.Web
             builder.RegisterFilterProvider();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+        }
+
+        private static void DatabaseInitialize()
+        {
+            var file = HttpContext.Current.Server.MapPath("bin/ChiakiYu.Mapper.dll");
+            var assembly = Assembly.LoadFrom(file);
+            DatabaseInitializer.AddMapperAssembly(assembly);
+            DatabaseInitializer.Initialize();
         }
     }
 }

@@ -185,6 +185,10 @@
       <Project>{8517D39B-FA3F-43E3-BC2A-70BFE05B3D08}</Project>
       <Name>ChiakiYu.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ChiakiYu.Mapper\ChiakiYu.Mapper.csproj">
+      <Project>{33f014db-5b4a-4c40-aac0-f25c68d0e52a}</Project>
+      <Name>ChiakiYu.Mapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChiakiYu.Model\ChiakiYu.Model.csproj">
       <Project>{7008a0e9-baf7-4d54-af61-be7c738b6307}</Project>
       <Name>ChiakiYu.Model</Name>

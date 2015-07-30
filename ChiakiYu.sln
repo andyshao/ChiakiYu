@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1F9D08
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiakiYu.Model", "ChiakiYu.Model\ChiakiYu.Model.csproj", "{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiakiYu.Mapper", "ChiakiYu.Mapper\ChiakiYu.Mapper.csproj", "{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

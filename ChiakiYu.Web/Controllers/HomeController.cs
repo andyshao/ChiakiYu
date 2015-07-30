@@ -10,18 +10,18 @@ namespace ChiakiYu.Web.Controllers
     {
         public ActionResult Index()
         {
-            User user = new User
-            {
-                UserName = "1233",
-                Password = "1232",
-                NickName = "1231",
-                CreatedTime = DateTime.Now
-            };
-            using (var context = new CodeFirstDbContext())
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
+            //User user = new User
+            //{
+            //    UserName = "1233",
+            //    Password = "1232",
+            //    NickName = "1231",
+            //    CreatedTime = DateTime.Now
+            //};
+            //using (var context = new CodeFirstDbContext())
+            //{
+            //    context.Users.Add(user);
+            //    context.SaveChanges();
+            //}
 
             return View();
         }

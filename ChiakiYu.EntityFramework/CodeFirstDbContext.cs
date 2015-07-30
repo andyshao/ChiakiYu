@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.Model.Users;
 
@@ -11,6 +10,10 @@ namespace ChiakiYu.EntityFramework
     /// </summary>
     public class CodeFirstDbContext : DbContext, IDependency
     {
+        public CodeFirstDbContext()
+            : base("Default")
+        {
+        }
 
         public virtual DbSet<User> Users { get; set; }
 
@@ -19,7 +22,12 @@ namespace ChiakiYu.EntityFramework
             //移除一对多的级联删除
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            modelBuilder.Entity<User>().ToTable("Sys_User");
+            //注册实体配置信息
+            var entityMappers = DatabaseInitializer.EntityMappers;
+            foreach (var mapper in entityMappers)
+            {
+                mapper.RegistTo(modelBuilder.Configurations);
+            }
         }
     }
 }
