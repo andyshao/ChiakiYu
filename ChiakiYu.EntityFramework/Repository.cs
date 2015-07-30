@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using ChiakiYu.Core.Data;
+using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.EntityFramework
 {
@@ -15,6 +16,7 @@ namespace ChiakiYu.EntityFramework
 
         public int Insert(TEntity entity)
         {
+            
             throw new NotImplementedException();
         }
 

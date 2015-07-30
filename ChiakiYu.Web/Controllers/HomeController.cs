@@ -10,13 +10,16 @@ namespace ChiakiYu.Web.Controllers
     {
         public ActionResult Index()
         {
-            //User user = new User
-            //{
-            //    UserName = "1233",
-            //    Password = "1232",
-            //    NickName = "1231",
-            //    CreatedTime = DateTime.Now
-            //};
+            var user = new User
+            {
+                UserName = "123",
+                Password = "123",
+                NickName = "123",
+                PasswordFormat = UserPasswordFormat.Clear,
+                IsEmailVerified = false,
+                IsMobileVerified = false
+            };
+
             //using (var context = new CodeFirstDbContext())
             //{
             //    context.Users.Add(user);

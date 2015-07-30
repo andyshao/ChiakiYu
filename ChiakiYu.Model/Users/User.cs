@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System;
+using System.ComponentModel.DataAnnotations;
 using ChiakiYu.Core.Data;
 
 namespace ChiakiYu.Model.Users
@@ -13,6 +15,7 @@ namespace ChiakiYu.Model.Users
             Avatar = "avatar_default";
             IsActive = true;
             IsDeleted = false;
+            CreatedTime = DateTime.Now;
         }
 
         public bool IsDeleted { get; set; }

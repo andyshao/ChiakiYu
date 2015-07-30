@@ -11,6 +11,7 @@ using Autofac.Integration.Mvc;
 using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.EntityFramework;
+using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Web
 {
@@ -24,6 +25,9 @@ namespace ChiakiYu.Web
             DatabaseInitialize();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            
+
         }
 
         
