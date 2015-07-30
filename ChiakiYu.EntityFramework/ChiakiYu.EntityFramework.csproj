@@ -67,13 +67,16 @@
     <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChiakiYu.Core\ChiakiYu.Core.csproj">
       <Project>{51E84891-C753-484D-929E-7C177F54431A}</Project>
       <Name>ChiakiYu.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChiakiYu.Model\ChiakiYu.Model.csproj">
+      <Project>{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}</Project>
+      <Name>ChiakiYu.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using ChiakiYu.EntityFramework;
+using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Web.Controllers
 {
@@ -10,6 +10,19 @@ namespace ChiakiYu.Web.Controllers
     {
         public ActionResult Index()
         {
+            User user = new User
+            {
+                UserName = "1233",
+                Password = "1232",
+                NickName = "1231",
+                CreatedTime = DateTime.Now
+            };
+            using (var context = new CodeFirstDbContext())
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
+
             return View();
         }
 

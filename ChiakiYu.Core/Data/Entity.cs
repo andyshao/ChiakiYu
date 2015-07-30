@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ChiakiYu.Core.Data
 {
@@ -12,6 +13,7 @@ namespace ChiakiYu.Core.Data
         /// <summary>
         ///     泛型主键
         /// </summary>
+        [Key]
         public virtual TPrimaryKey Id { get; set; }
 
         /// <summary>

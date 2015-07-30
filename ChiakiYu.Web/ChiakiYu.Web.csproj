@@ -53,6 +53,14 @@
       <HintPath>..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -64,7 +72,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -165,7 +172,24 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ChiakiYu.Common\ChiakiYu.Common.csproj">
+      <Project>{c2c9481f-0590-40b7-90c8-7fea4f6b783a}</Project>
+      <Name>ChiakiYu.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChiakiYu.Core\ChiakiYu.Core.csproj">
+      <Project>{51E84891-C753-484D-929E-7C177F54431A}</Project>
+      <Name>ChiakiYu.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChiakiYu.EntityFramework\ChiakiYu.EntityFramework.csproj">
+      <Project>{8517D39B-FA3F-43E3-BC2A-70BFE05B3D08}</Project>
+      <Name>ChiakiYu.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChiakiYu.Model\ChiakiYu.Model.csproj">
+      <Project>{7008a0e9-baf7-4d54-af61-be7c738b6307}</Project>
+      <Name>ChiakiYu.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

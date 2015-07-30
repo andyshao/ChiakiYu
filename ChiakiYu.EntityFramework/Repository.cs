@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using ChiakiYu.Core.Data;
 
 namespace ChiakiYu.EntityFramework
 {
-    public class Repository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey> where TEntity : Entity<TPrimaryKey>
+    public class Repository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
+        where TEntity : Entity<TPrimaryKey>
     {
         public IUnitOfWork UnitOfWork { get; private set; }
         public IQueryable<TEntity> Entities { get; private set; }
+
         public int Insert(TEntity entity)
         {
             throw new NotImplementedException();
@@ -102,7 +103,8 @@ namespace ChiakiYu.EntityFramework
             throw new NotImplementedException();
         }
 
-        public Task<bool> CheckExistsAsync(Expression<Func<TEntity, bool>> predicate, TPrimaryKey id = default(TPrimaryKey))
+        public Task<bool> CheckExistsAsync(Expression<Func<TEntity, bool>> predicate,
+            TPrimaryKey id = default(TPrimaryKey))
         {
             throw new NotImplementedException();
         }
