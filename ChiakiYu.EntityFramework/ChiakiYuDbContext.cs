@@ -1,21 +1,18 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ChiakiYu.Core.Dependency;
-using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.EntityFramework
 {
     /// <summary>
     ///     EntityFramework-CodeFirst数据上下文
     /// </summary>
-    public class CodeFirstDbContext : DbContext, IDependency
+    public class ChiakiYuDbContext : DbContext, IDependency
     {
-        public CodeFirstDbContext()
+        public ChiakiYuDbContext()
             : base("Default")
         {
         }
-
-        public virtual DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,10 +20,10 @@ namespace ChiakiYu.EntityFramework
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             //注册实体配置信息
-            var entityMappers = DatabaseInitializer.EntityMappers;
-            foreach (var mapper in entityMappers)
+            var assemblys = DatabaseInitializer.MapperAssemblies;
+            foreach (var assembly in assemblys)
             {
-                mapper.RegistTo(modelBuilder.Configurations);
+                modelBuilder.Configurations.AddFromAssembly(assembly);
             }
         }
     }

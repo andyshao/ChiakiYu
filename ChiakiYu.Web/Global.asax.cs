@@ -8,14 +8,15 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
-using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Dependency;
+using ChiakiYu.Core.Domain;
+using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.EntityFramework;
 using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Web
 {
-    public class MvcApplication : HttpApplication
+    public class Global : HttpApplication
     {
         protected void Application_Start()
         {
@@ -25,12 +26,7 @@ namespace ChiakiYu.Web
             DatabaseInitialize();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            
-
         }
-
-        
 
         /// <summary>
         ///     Autofac注册

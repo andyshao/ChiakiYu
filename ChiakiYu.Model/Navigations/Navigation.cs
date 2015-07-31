@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ChiakiYu.Core.Data;
+using ChiakiYu.Core.Domain.Entities;
 
 namespace ChiakiYu.Model.Navigations
 {
     /// <summary>
     ///     导航
     /// </summary>
-    public class Navigation : Entity<int>, ISoftDelete
+    public class Navigation : FullEntity<int>
     {
-
         #region 持久化属性
+
         /// <summary>
         ///     导航名称
         /// </summary>
@@ -53,8 +53,7 @@ namespace ChiakiYu.Model.Navigations
         ///     是否启用
         /// </summary>
         public bool IsEnabled { get; set; }
-        #endregion
 
-        public bool IsDeleted { get; set; }
+        #endregion
     }
 }

@@ -9,5 +9,6 @@ namespace ChiakiYu.Mapper.Navigations
         {
             ToTable("Sys_Navigations");
         }
+        
     }
 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using ChiakiYu.Core.Data;
-using ChiakiYu.Model.Users;
+using ChiakiYu.Core.Domain.Entities;
+using ChiakiYu.Core.Domain.Repositories;
+using ChiakiYu.Core.Domain.UnitOfWork;
 
 namespace ChiakiYu.EntityFramework
 {
@@ -16,7 +17,6 @@ namespace ChiakiYu.EntityFramework
 
         public int Insert(TEntity entity)
         {
-            
             throw new NotImplementedException();
         }
 

@@ -1,24 +1,18 @@
-﻿
-using System;
-using System.ComponentModel.DataAnnotations;
-using ChiakiYu.Core.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using ChiakiYu.Core.Domain.Entities;
 
 namespace ChiakiYu.Model.Users
 {
     /// <summary>
     ///     用户
     /// </summary>
-    public class User : Entity<long>, ISoftDelete
+    public class User : FullEntity<long>
     {
         public User()
         {
             Avatar = "avatar_default";
             IsActive = true;
-            IsDeleted = false;
-            CreatedTime = DateTime.Now;
         }
-
-        public bool IsDeleted { get; set; }
 
         #region 需持久化属性
 

@@ -15,30 +15,22 @@ namespace ChiakiYu.EntityFramework
     /// </summary>
     public class DatabaseInitializer
     {
-        private static readonly ICollection<Assembly> MapperAssemblies = new List<Assembly>();
-
-        /// <summary>
-        ///     获取 数据实体映射配置信息集合
-        /// </summary>
-        public static ICollection<IEntityMapper> EntityMappers
-        {
-            get { return GetAllEntityMapper(); }
-        }
+        public static readonly ICollection<Assembly> MapperAssemblies = new List<Assembly>();
 
         /// <summary>
         ///     设置数据库初始化，策略为自动迁移到最新版本
         /// </summary>
         public static void Initialize()
         {
-            var context = new CodeFirstDbContext();
-            IDatabaseInitializer<CodeFirstDbContext> initializer;
+            var context = new ChiakiYuDbContext();
+            IDatabaseInitializer<ChiakiYuDbContext> initializer;
             if (!context.Database.Exists())
             {
-                initializer = new CreateDatabaseIfNotExists<CodeFirstDbContext>();
+                initializer = new CreateDatabaseIfNotExists<ChiakiYuDbContext>();
             }
             else
             {
-                initializer = new MigrateDatabaseToLatestVersion<CodeFirstDbContext, Configuration>();
+                initializer = new MigrateDatabaseToLatestVersion<ChiakiYuDbContext, Configuration>();
             }
             Database.SetInitializer(initializer);
 
@@ -51,7 +43,7 @@ namespace ChiakiYu.EntityFramework
         }
 
         /// <summary>
-        ///     添加需要搜索实体映射的程序集到检索集合中
+        ///     添加需要搜索实体映射的程序集到集合中
         /// </summary>
         public static void AddMapperAssembly(Assembly assembly)
         {
@@ -60,20 +52,6 @@ namespace ChiakiYu.EntityFramework
             {
                 MapperAssemblies.Add(assembly);
             }
-        }
-
-        /// <summary>
-        /// 获取所有的映射配置类
-        /// </summary>
-        /// <returns></returns>
-        private static ICollection<IEntityMapper> GetAllEntityMapper()
-        {
-            var baseType = typeof(IEntityMapper);
-            var mapperTypes = MapperAssemblies.SelectMany(assembly => assembly.GetTypes())
-                .Where(type => baseType.IsAssignableFrom(type) && type != baseType && !type.IsAbstract).ToArray();
-            ICollection<IEntityMapper> result =
-                mapperTypes.Select(type => Activator.CreateInstance(type) as IEntityMapper).ToList();
-            return result;
         }
     }
 }

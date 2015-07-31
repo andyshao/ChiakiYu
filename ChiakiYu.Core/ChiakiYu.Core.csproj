@@ -40,13 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Entity.cs" />
-    <Compile Include="Data\IEntity.cs" />
-    <Compile Include="Data\IRepository.cs">
+    <Compile Include="Domain\Entities\Entity.cs" />
+    <Compile Include="Domain\Entities\FullEntity.cs" />
+    <Compile Include="Domain\Entities\IEntity.cs" />
+    <Compile Include="Domain\Repositories\IRepository.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\ISoftDelete.cs" />
-    <Compile Include="Data\IUnitOfWork.cs">
+    <Compile Include="Domain\Entities\ISoftDelete.cs" />
+    <Compile Include="Domain\UnitOfWork\IUnitOfWork.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Dependency\IDependency.cs" />

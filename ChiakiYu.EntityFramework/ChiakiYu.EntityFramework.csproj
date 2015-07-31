@@ -53,19 +53,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeFirstDbContext.cs" />
+    <Compile Include="ChiakiYuDbContext.cs" />
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="EntityConfiguration.cs" />
-    <Compile Include="IEntityMapper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs">
@@ -79,10 +72,6 @@
     <ProjectReference Include="..\ChiakiYu.Core\ChiakiYu.Core.csproj">
       <Project>{51E84891-C753-484D-929E-7C177F54431A}</Project>
       <Name>ChiakiYu.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ChiakiYu.Model\ChiakiYu.Model.csproj">
-      <Project>{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}</Project>
-      <Name>ChiakiYu.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

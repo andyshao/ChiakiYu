@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using ChiakiYu.EntityFramework;
+﻿using System.Web.Mvc;
 using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Web.Controllers
@@ -20,9 +17,9 @@ namespace ChiakiYu.Web.Controllers
                 IsMobileVerified = false
             };
 
-            //using (var context = new CodeFirstDbContext())
+            //using (var context = new ChiakiYuDbContext())
             //{
-            //    context.Users.Add(user);
+            //    context.Set<User>().Add(user);
             //    context.SaveChanges();
             //}
 

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using ChiakiYu.Core.Dependency;
+using ChiakiYu.Core.Domain.Entities;
+using ChiakiYu.Core.Domain.UnitOfWork;
 
-namespace ChiakiYu.Core.Data
+namespace ChiakiYu.Core.Domain.Repositories
 {
     public interface IRepository<TEntity, TPrimaryKey> : IDependency where TEntity : Entity<TPrimaryKey>
     {

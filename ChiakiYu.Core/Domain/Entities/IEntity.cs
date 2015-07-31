@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ChiakiYu.Core.Data
+namespace ChiakiYu.Core.Domain.Entities
 {
     /// <summary>
     /// 泛型主键

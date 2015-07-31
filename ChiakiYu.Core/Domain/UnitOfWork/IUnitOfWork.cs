@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ChiakiYu.Core.Dependency;
 
-namespace ChiakiYu.Core.Data
+namespace ChiakiYu.Core.Domain.UnitOfWork
 {
     public interface IUnitOfWork : IDependency
     {

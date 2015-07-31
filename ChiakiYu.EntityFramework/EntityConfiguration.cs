@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Configuration;
-using ChiakiYu.Core.Data;
+using ChiakiYu.Core.Domain.Entities;
 
 namespace ChiakiYu.EntityFramework
 {
@@ -9,17 +9,9 @@ namespace ChiakiYu.EntityFramework
     /// </summary>
     /// <typeparam name="TEntity">动态实体类型</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
-    public abstract class EntityConfiguration<TEntity, TPrimaryKey> : EntityTypeConfiguration<TEntity>, IEntityMapper
+    public abstract class EntityConfiguration<TEntity, TPrimaryKey> : EntityTypeConfiguration<TEntity>
         where TEntity : Entity<TPrimaryKey>
     {
-        /// <summary>
-        ///     将当前实体映射对象注册到当前数据访问上下文实体映射配置注册器中
-        /// </summary>
-        /// <param name="configurations">实体映射配置注册器</param>
-        public void RegistTo(ConfigurationRegistrar configurations)
-        {
-            configurations.Add(this);
-        }
     }
 
     /// <summary>
@@ -27,16 +19,8 @@ namespace ChiakiYu.EntityFramework
     /// </summary>
     /// <typeparam name="TComplex">动态复合实体类型</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
-    public abstract class ComplexConfiguration<TComplex,TPrimaryKey> : ComplexTypeConfiguration<TComplex>, IEntityMapper
+    public abstract class ComplexConfiguration<TComplex, TPrimaryKey> : ComplexTypeConfiguration<TComplex>
         where TComplex : Entity<TPrimaryKey>
     {
-        /// <summary>
-        ///     将当前实体映射对象注册到当前数据访问上下文实体映射配置注册器中
-        /// </summary>
-        /// <param name="configurations">实体映射配置注册器</param>
-        public void RegistTo(ConfigurationRegistrar configurations)
-        {
-            configurations.Add(this);
-        }
     }
 }
