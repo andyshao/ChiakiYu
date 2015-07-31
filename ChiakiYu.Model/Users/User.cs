@@ -11,7 +11,7 @@ namespace ChiakiYu.Model.Users
         public User()
         {
             Avatar = "avatar_default";
-            IsActive = true;
+            IsActived = true;
         }
 
         #region 需持久化属性
@@ -79,7 +79,7 @@ namespace ChiakiYu.Model.Users
         /// <summary>
         ///     是否激活
         /// </summary>
-        public bool IsActive { get; set; }
+        public bool IsActived { get; set; }
 
         #endregion
     }

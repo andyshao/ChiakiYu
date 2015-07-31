@@ -13,7 +13,6 @@ namespace ChiakiYu.Core.Domain.Entities
         protected FullEntity()
         {
             IsDeleted = false;
-            DeletedTime = DateTime.Now;
         }
 
         /// <summary>
@@ -24,6 +23,6 @@ namespace ChiakiYu.Core.Domain.Entities
         /// <summary>
         /// 删除时间
         /// </summary>
-        public DateTime DeletedTime { get; set; }
+        public DateTime? DeletedTime { get; set; }
     }
 }

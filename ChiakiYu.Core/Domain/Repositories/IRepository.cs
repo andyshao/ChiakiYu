@@ -9,31 +9,71 @@ using ChiakiYu.Core.Domain.UnitOfWork;
 
 namespace ChiakiYu.Core.Domain.Repositories
 {
-    public interface IRepository<TEntity, TPrimaryKey> : IDependency where TEntity : Entity<TPrimaryKey>
+    /// <summary>
+    /// 实体仓储模型的数据标准操作
+    /// </summary>
+    /// <typeparam name="TEntity">实体类型</typeparam>
+    /// <typeparam name="TPrimaryKey">主键类型</typeparam>
+    public interface IRepository<TEntity, TPrimaryKey> : IDependency where TEntity : class, IEntity<TPrimaryKey>
     {
-        #region 属性
 
         /// <summary>
         /// 获取 当前单元操作对象
         /// </summary>
         IUnitOfWork UnitOfWork { get; }
 
+        #region Get&Gets
+
         /// <summary>
         /// 获取 当前实体类型的查询数据集
         /// </summary>
-        IQueryable<TEntity> Entities { get; }
+        IQueryable<TEntity> GetAll();
+
+        /// <summary>
+        /// 查找指定主键的实体
+        /// </summary>
+        /// <param name="id">实体主键</param>
+        /// <returns>符合主键的实体，不存在时返回null</returns>
+        TEntity Get(TPrimaryKey id);
+
+        /// <summary>
+        /// 异步查找指定主键的实体
+        /// </summary>
+        /// <param name="id">实体主键</param>
+        /// <returns>符合主键的实体，不存在时返回null</returns>
+        Task<TEntity> GetAsync(TPrimaryKey id);
 
         #endregion
 
-
-        #region 方法
+        #region Insert
 
         /// <summary>
         /// 插入实体
         /// </summary>
         /// <param name="entity">实体对象</param>
-        /// <returns>操作影响的行数</returns>
-        int Insert(TEntity entity);
+        /// <returns>实体对象</returns>
+        TEntity Insert(TEntity entity);
+
+        /// <summary>
+        /// 异步插入实体
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>实体</returns>
+        Task<TEntity> InsertAsync(TEntity entity);
+
+        /// <summary>
+        /// 插入实体（如果存在则更新）
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>实体对象</returns>
+        TEntity InsertOrUpdate(TEntity entity);
+
+        /// <summary>
+        /// 异步插入实体（如果存在则更新）
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>实体对象</returns>
+        Task<TEntity> InsertOrUpdateAsync(TEntity entity);
 
         /// <summary>
         /// 批量插入实体
@@ -43,62 +83,95 @@ namespace ChiakiYu.Core.Domain.Repositories
         int Insert(IEnumerable<TEntity> entities);
 
         /// <summary>
+        /// 异步批量插入实体
+        /// </summary>
+        /// <param name="entities">实体对象集合</param>
+        /// <returns>操作影响的行数</returns>
+        Task<int> InsertAsync(IEnumerable<TEntity> entities);
+
+
+
+        #endregion
+
+        #region Update
+
+        /// <summary>
+        /// 更新实体对象
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>更新后的实体对象</returns>
+        TEntity Update(TEntity entity);
+
+        /// <summary>
+        /// 异步更新实体对象
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>更新后的实体对象</returns>
+        Task<TEntity> UpdateAsync(TEntity entity);
+
+        #endregion
+
+        #region Delete
+
+        /// <summary>
         /// 删除实体
         /// </summary>
         /// <param name="entity">实体对象</param>
+        /// <returns>成功与否</returns>
+        bool Delete(TEntity entity);
+
+        /// <summary>
+        /// 异步删除实体
+        /// </summary>
+        /// <param name="entity">实体对象</param>
         /// <returns>操作影响的行数</returns>
-        int Delete(TEntity entity);
+        Task<bool> DeleteAsync(TEntity entity);
 
         /// <summary>
         /// 删除指定编号的实体
         /// </summary>
-        /// <param name="key">实体编号</param>
+        /// <param name="id">实体编号</param>
         /// <returns>操作影响的行数</returns>
-        int Delete(TPrimaryKey key);
+        bool Delete(TPrimaryKey id);
+
+        /// <summary>
+        /// 异步删除指定编号的实体
+        /// </summary>
+        /// <param name="id">实体编号</param>
+        /// <returns>操作影响的行数</returns>
+        Task<bool> DeleteAsync(TPrimaryKey id);
 
         /// <summary>
         /// 删除所有符合特定条件的实体
         /// </summary>
         /// <param name="predicate">查询条件谓语表达式</param>
         /// <returns>操作影响的行数</returns>
-        int Delete(Expression<Func<TEntity, bool>> predicate);
+        void Delete(Expression<Func<TEntity, bool>> predicate);
+
+        /// <summary>
+        /// 异步删除所有符合特定条件的实体
+        /// </summary>
+        /// <param name="predicate">查询条件谓语表达式</param>
+        /// <returns>操作影响的行数</returns>
+        Task DeleteAsync(Expression<Func<TEntity, bool>> predicate);
 
         /// <summary>
         /// 批量删除删除实体
         /// </summary>
         /// <param name="entities">实体对象集合</param>
         /// <returns>操作影响的行数</returns>
-        int Delete(IEnumerable<TEntity> entities);
-
+        void Delete(IEnumerable<TEntity> entities);
 
         /// <summary>
-        /// 更新实体对象
+        /// 异步批量删除删除实体
         /// </summary>
-        /// <param name="entity">更新后的实体对象</param>
+        /// <param name="entities">实体对象集合</param>
         /// <returns>操作影响的行数</returns>
-        int Update(TEntity entity);
+        Task DeleteAsync(IEnumerable<TEntity> entities);
 
+        #endregion
 
-        /// <summary>
-        /// 查找指定主键的实体
-        /// </summary>
-        /// <param name="key">实体主键</param>
-        /// <returns>符合主键的实体，不存在时返回null</returns>
-        TEntity Get(TPrimaryKey key);
-
-        /// <summary>
-        /// 获取贪婪加载导航属性的查询数据集
-        /// </summary>
-        /// <param name="path">属性表达式，表示要贪婪加载的导航属性</param>
-        /// <returns>查询数据集</returns>
-        IQueryable<TEntity> GetInclude<TProperty>(Expression<Func<TEntity, TProperty>> path);
-
-        /// <summary>
-        /// 获取贪婪加载多个导航属性的查询数据集
-        /// </summary>
-        /// <param name="paths">要贪婪加载的导航属性名称数组</param>
-        /// <returns>查询数据集</returns>
-        IQueryable<TEntity> GetIncludes(params string[] paths);
+        #region 创建一个原始 SQL 查询，该查询将返回此集中的实体
 
         /// <summary>
         /// 创建一个原始 SQL 查询，该查询将返回此集中的实体。 
@@ -110,71 +183,7 @@ namespace ChiakiYu.Core.Domain.Repositories
         /// <returns></returns>
         IEnumerable<TEntity> SqlQuery(string sql, bool trackEnabled = true, params object[] parameters);
 
-        /// <summary>
-        /// 异步插入实体
-        /// </summary>
-        /// <param name="entity">实体对象</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> InsertAsync(TEntity entity);
-
-        /// <summary>
-        /// 异步批量插入实体
-        /// </summary>
-        /// <param name="entities">实体对象集合</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> InsertAsync(IEnumerable<TEntity> entities);
-
-        /// <summary>
-        /// 异步删除实体
-        /// </summary>
-        /// <param name="entity">实体对象</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> DeleteAsync(TEntity entity);
-
-        /// <summary>
-        /// 异步删除指定编号的实体
-        /// </summary>
-        /// <param name="key">实体编号</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> DeleteAsync(TPrimaryKey key);
-
-        /// <summary>
-        /// 异步删除所有符合特定条件的实体
-        /// </summary>
-        /// <param name="predicate">查询条件谓语表达式</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> DeleteAsync(Expression<Func<TEntity, bool>> predicate);
-
-        /// <summary>
-        /// 异步批量删除删除实体
-        /// </summary>
-        /// <param name="entities">实体对象集合</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> DeleteAsync(IEnumerable<TEntity> entities);
-
-        /// <summary>
-        /// 异步更新实体对象
-        /// </summary>
-        /// <param name="entity">更新后的实体对象</param>
-        /// <returns>操作影响的行数</returns>
-        Task<int> UpdateAsync(TEntity entity);
-
-        /// <summary>
-        /// 异步检查实体是否存在
-        /// </summary>
-        /// <param name="predicate">查询条件谓语表达式</param>
-        /// <param name="id">编辑的实体标识</param>
-        /// <returns>是否存在</returns>
-        Task<bool> CheckExistsAsync(Expression<Func<TEntity, bool>> predicate, TPrimaryKey id = default(TPrimaryKey));
-
-        /// <summary>
-        /// 异步查找指定主键的实体
-        /// </summary>
-        /// <param name="key">实体主键</param>
-        /// <returns>符合主键的实体，不存在时返回null</returns>
-        Task<TEntity> GetByKeyAsync(TPrimaryKey key);
-
-
         #endregion
+
     }
 }

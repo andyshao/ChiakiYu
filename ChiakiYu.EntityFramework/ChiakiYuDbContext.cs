@@ -1,13 +1,14 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ChiakiYu.Core.Dependency;
+using ChiakiYu.Core.Domain.UnitOfWork;
 
 namespace ChiakiYu.EntityFramework
 {
     /// <summary>
     ///     EntityFramework-CodeFirst数据上下文
     /// </summary>
-    public class ChiakiYuDbContext : DbContext, IDependency
+    public class ChiakiYuDbContext : DbContext,IUnitOfWork, IDependency
     {
         public ChiakiYuDbContext()
             : base("Default")
@@ -26,5 +27,7 @@ namespace ChiakiYu.EntityFramework
                 modelBuilder.Configurations.AddFromAssembly(assembly);
             }
         }
+
+        public bool TransactionEnabled { get; set; }
     }
 }

@@ -2,6 +2,9 @@
 
 namespace ChiakiYu.Core.Domain.Entities
 {
+    /// <summary>
+    /// 软删除
+    /// </summary>
     public interface ISoftDelete
     {
         /// <summary>
@@ -12,7 +15,7 @@ namespace ChiakiYu.Core.Domain.Entities
         /// <summary>
         /// 删除时间
         /// </summary>
-        DateTime DeletedTime { get; set; }
+        DateTime? DeletedTime { get; set; }
 
     }
 }

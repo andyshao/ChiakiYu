@@ -10,7 +10,7 @@ namespace ChiakiYu.EntityFramework
     /// <typeparam name="TEntity">动态实体类型</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
     public abstract class EntityConfiguration<TEntity, TPrimaryKey> : EntityTypeConfiguration<TEntity>
-        where TEntity : Entity<TPrimaryKey>
+        where TEntity : class, IEntity<TPrimaryKey>
     {
     }
 
@@ -20,7 +20,7 @@ namespace ChiakiYu.EntityFramework
     /// <typeparam name="TComplex">动态复合实体类型</typeparam>
     /// <typeparam name="TPrimaryKey">主键类型</typeparam>
     public abstract class ComplexConfiguration<TComplex, TPrimaryKey> : ComplexTypeConfiguration<TComplex>
-        where TComplex : Entity<TPrimaryKey>
+        where TComplex : class, IEntity<TPrimaryKey>
     {
     }
 }
