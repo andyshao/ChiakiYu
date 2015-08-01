@@ -3,7 +3,7 @@ using ChiakiYu.Model.Navigations;
 
 namespace ChiakiYu.Mapper.Navigations
 {
-    public class NavigationMapper : EntityConfiguration<Navigation,int>
+    public class NavigationMapper : EntityConfiguration<Navigation, long>
     {
         public NavigationMapper()
         {

@@ -1017,7 +1017,7 @@ intellisense.annotate(jQuery.fn, {
   },
   'children': function() {
     /// <signature>
-    ///   <summary>Get the children of each element in the set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole the children of each element in the set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
@@ -1091,7 +1091,7 @@ intellisense.annotate(jQuery.fn, {
     /// </signature>
   },
   'contents': function() {
-    /// <summary>Get the children of each element in the set of matched elements, including text and comment nodes.</summary>
+    /// <summary>GetRole the children of each element in the set of matched elements, including text and comment nodes.</summary>
     /// <returns type="jQuery" />
   },
   'context': function() {
@@ -1358,17 +1358,17 @@ intellisense.annotate(jQuery.fn, {
   },
   'find': function() {
     /// <signature>
-    ///   <summary>Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</summary>
+    ///   <summary>GetRole the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</summary>
+    ///   <summary>GetRole the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</summary>
     ///   <param name="jQuery object" type="Object">A jQuery object to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</summary>
+    ///   <summary>GetRole the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.</summary>
     ///   <param name="element" type="Element">An element to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
@@ -1572,11 +1572,11 @@ intellisense.annotate(jQuery.fn, {
     /// </signature>
   },
   'innerHeight': function() {
-    /// <summary>Get the current computed height for the first element in the set of matched elements, including padding but not border.</summary>
+    /// <summary>GetRole the current computed height for the first element in the set of matched elements, including padding but not border.</summary>
     /// <returns type="Number" />
   },
   'innerWidth': function() {
-    /// <summary>Get the current computed width for the first element in the set of matched elements, including padding but not border.</summary>
+    /// <summary>GetRole the current computed width for the first element in the set of matched elements, including padding but not border.</summary>
     /// <returns type="Number" />
   },
   'input': function() {
@@ -1831,7 +1831,7 @@ intellisense.annotate(jQuery.fn, {
   },
   'next': function() {
     /// <signature>
-    ///   <summary>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.</summary>
+    ///   <summary>GetRole the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
@@ -1852,20 +1852,20 @@ intellisense.annotate(jQuery.fn, {
   },
   'nextAll': function() {
     /// <signature>
-    ///   <summary>Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole all following siblings of each element in the set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
   'nextUntil': function() {
     /// <signature>
-    ///   <summary>Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.</summary>
+    ///   <summary>GetRole all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to indicate where to stop matching following sibling elements.</param>
     ///   <param name="filter" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Get all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.</summary>
+    ///   <summary>GetRole all following siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object passed.</summary>
     ///   <param name="element" type="Element">A DOM node or jQuery object indicating where to stop matching following sibling elements.</param>
     ///   <param name="filter" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
@@ -1948,7 +1948,7 @@ intellisense.annotate(jQuery.fn, {
     /// </signature>
   },
   'offsetParent': function() {
-    /// <summary>Get the closest ancestor element that is positioned.</summary>
+    /// <summary>GetRole the closest ancestor element that is positioned.</summary>
     /// <returns type="jQuery" />
   },
   'on': function() {
@@ -2000,41 +2000,41 @@ intellisense.annotate(jQuery.fn, {
   },
   'outerHeight': function() {
     /// <signature>
-    ///   <summary>Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px") representation of the value or null if called on an empty set of elements.</summary>
+    ///   <summary>GetRole the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px") representation of the value or null if called on an empty set of elements.</summary>
     ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the calculation.</param>
     ///   <returns type="Number" />
     /// </signature>
   },
   'outerWidth': function() {
     /// <signature>
-    ///   <summary>Get the current computed width for the first element in the set of matched elements, including padding and border.</summary>
+    ///   <summary>GetRole the current computed width for the first element in the set of matched elements, including padding and border.</summary>
     ///   <param name="includeMargin" type="Boolean">A Boolean indicating whether to include the element's margin in the calculation.</param>
     ///   <returns type="Number" />
     /// </signature>
   },
   'parent': function() {
     /// <signature>
-    ///   <summary>Get the parent of each element in the current set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole the parent of each element in the current set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
   'parents': function() {
     /// <signature>
-    ///   <summary>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
   'parentsUntil': function() {
     /// <signature>
-    ///   <summary>Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
+    ///   <summary>GetRole the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to indicate where to stop matching ancestor elements.</param>
     ///   <param name="filter" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
+    ///   <summary>GetRole the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
     ///   <param name="element" type="Element">A DOM node or jQuery object indicating where to stop matching ancestor elements.</param>
     ///   <param name="filter" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
@@ -2044,7 +2044,7 @@ intellisense.annotate(jQuery.fn, {
     /// <summary>Selects all elements of type password.</summary>
   },
   'position': function() {
-    /// <summary>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</summary>
+    /// <summary>GetRole the current coordinates of the first element in the set of matched elements, relative to the offset parent.</summary>
     /// <returns type="Object" />
   },
   'prepend': function() {
@@ -2069,27 +2069,27 @@ intellisense.annotate(jQuery.fn, {
   },
   'prev': function() {
     /// <signature>
-    ///   <summary>Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
   'prevAll': function() {
     /// <signature>
-    ///   <summary>Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
   },
   'prevUntil': function() {
     /// <signature>
-    ///   <summary>Get all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
+    ///   <summary>GetRole all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to indicate where to stop matching preceding sibling elements.</param>
     ///   <param name="filter" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>
     /// <signature>
-    ///   <summary>Get all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
+    ///   <summary>GetRole all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.</summary>
     ///   <param name="element" type="Element">A DOM node or jQuery object indicating where to stop matching preceding sibling elements.</param>
     ///   <param name="filter" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
@@ -2320,7 +2320,7 @@ intellisense.annotate(jQuery.fn, {
   },
   'siblings': function() {
     /// <signature>
-    ///   <summary>Get the siblings of each element in the set of matched elements, optionally filtered by a selector.</summary>
+    ///   <summary>GetRole the siblings of each element in the set of matched elements, optionally filtered by a selector.</summary>
     ///   <param name="selector" type="String">A string containing a selector expression to match elements against.</param>
     ///   <returns type="jQuery" />
     /// </signature>

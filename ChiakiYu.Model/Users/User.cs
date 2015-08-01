@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using ChiakiYu.Common.Data;
 using ChiakiYu.Core.Domain.Entities;
 
 namespace ChiakiYu.Model.Users
@@ -82,5 +85,14 @@ namespace ChiakiYu.Model.Users
         public bool IsActived { get; set; }
 
         #endregion
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<UserRole> Roles { get; set; }
+
+        /// <summary>
+        ///     基于角色的权限列表
+        /// </summary>
+        [ForeignKey("UserId")]
+        public virtual ICollection<UserPermission> Permissions { get; set; } //基于角色的权限列表
     }
 }

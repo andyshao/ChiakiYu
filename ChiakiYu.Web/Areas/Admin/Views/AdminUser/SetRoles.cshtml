@@ -1,0 +1,41 @@
+﻿@using ChiakiYu.Model.Users
+@model List<ChiakiYu.Service.Roles.Dto.RoleDto>
+@{
+    List<UserRole> list = ViewData["UserRoleList"] as List<UserRole>;
+    long userId = Convert.ToInt64(ViewData["UserId"]);
+}
+
+<div style="width:250px">
+    <div class="panel-body">
+        <form action="@Url.Action(MVC.Admin.AdminUser.SetRoles())" role="form">
+            @Html.Hidden("userId", userId)
+            <fieldset>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        string isChecked = string.Empty;
+                        if (list != null && list.Count > 0)
+                        {
+                            isChecked = list.Any(n => n.RoleId == item.Id) ? "checked" : string.Empty;
+                        }
+                        <div>
+                            <label>
+                                <input type="checkbox" name="roleId" value="@item.Id" @isChecked>
+                                @item.DisplayName
+                                @if (item.IsDefault)
+                                {
+                                    <i title="默认角色" class="fa fa-star fa-color-red"></i>
+                                }
+                            </label>
+                        </div>
+                    }
+                }
+                <div class="text-center btn-dialog">
+                    <button type="submit" class="btn btn-success" plugin="ajaxSubmit">保存</button>
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+</div>

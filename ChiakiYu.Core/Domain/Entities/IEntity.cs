@@ -3,9 +3,9 @@
 namespace ChiakiYu.Core.Domain.Entities
 {
     /// <summary>
-    /// 泛型主键
+    /// 泛型实体接口
     /// </summary>
-    /// <typeparam name="TPrimaryKey"></typeparam>
+    /// <typeparam name="TPrimaryKey">泛型主键</typeparam>
     public interface IEntity<TPrimaryKey>
     {
         /// <summary>

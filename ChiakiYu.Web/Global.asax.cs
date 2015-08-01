@@ -12,7 +12,11 @@ using ChiakiYu.Core.Dependency;
 using ChiakiYu.Core.Domain;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.EntityFramework;
+using ChiakiYu.Model.Roles;
 using ChiakiYu.Model.Users;
+using ChiakiYu.Service;
+using ChiakiYu.Service.Roles.Dto;
+using ChiakiYu.Service.Users.Dto;
 
 namespace ChiakiYu.Web
 {
@@ -24,8 +28,9 @@ namespace ChiakiYu.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AutofacRegister();
             DatabaseInitialize();
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            DtoMappers.MapperRegister();
         }
 
         /// <summary>
@@ -35,7 +40,7 @@ namespace ChiakiYu.Web
         {
             var builder = new ContainerBuilder();
             builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>));
-            var baseType = typeof (IDependency);
+            var baseType = typeof(IDependency);
             var path = AppDomain.CurrentDomain.RelativeSearchPath;
             var assemblies = Directory.GetFiles(path, "*.dll").Select(m => Assembly.LoadFrom(m)).ToArray();
             builder.RegisterAssemblyTypes(assemblies)
@@ -53,7 +58,7 @@ namespace ChiakiYu.Web
 
         private static void DatabaseInitialize()
         {
-            var file = HttpContext.Current.Server.MapPath("bin/ChiakiYu.Mapper.dll");
+            var file = HttpContext.Current.Server.MapPath("/bin/ChiakiYu.Mapper.dll");
             var assembly = Assembly.LoadFrom(file);
             DatabaseInitializer.AddMapperAssembly(assembly);
             DatabaseInitializer.Initialize();

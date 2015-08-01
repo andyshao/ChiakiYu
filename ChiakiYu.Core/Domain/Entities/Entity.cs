@@ -20,7 +20,7 @@ namespace ChiakiYu.Core.Domain.Entities
         ///     泛型主键
         /// </summary>
         [Key]
-        public TPrimaryKey Id { get; set; }
+        public virtual TPrimaryKey Id { get; set; }
 
         /// <summary>
         /// 创建时间

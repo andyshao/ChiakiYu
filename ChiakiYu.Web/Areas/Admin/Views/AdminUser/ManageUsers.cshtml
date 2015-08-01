@@ -1,0 +1,103 @@
+﻿@using ChiakiYu.Common.Extensions
+@using ChiakiYu.Common.Extensions.Html
+@model ChiakiYu.Common.Dto.PagingOutput<ChiakiYu.Service.Users.Dto.UserDto>
+@{
+    ViewBag.ActiveMenu = "用户管理";
+    ViewBag.Title = "用户管理 - 管理后台";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+
+    string nameKeyWords = Request.QueryString.Get<string>("NameKeyWords", string.Empty);
+    string emailAddress = Request.QueryString.Get<string>("EmailAddress", string.Empty);
+    bool? isActive = Request.QueryString.Get<bool?>("IsActive", null);
+
+}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        @*<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">用户管理</h1>
+                </div>
+            </div><!-- /.row -->*@
+        <div class="row">
+            <div class="col-lg-12">
+                <form class="form-inline page-header" role="form">
+                    <div class="row">
+                        <div class="form-group col-md-3">
+                            <label for="NameKeyWords">关键字：</label>
+                            <input class="form-control" placeholder="用户名/昵称" id="NameKeyWords" name="NameKeyWords" type="text" value="@nameKeyWords" />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="EmailAddress">邮箱：</label>
+                            <input class="form-control" placeholder="邮箱" id="EmailAddress" name="EmailAddress" type="text" value="@emailAddress" />
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>是否激活：</label>@Html.DropDownList("IsActive", null, "全部", new RouteValueDictionary { { "class", "form-control" } })
+                        </div>
+                        <div class="form-group col-md-3">
+                            <button type="submit" class="btn btn-primary">搜索</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div><!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>用户名</th>
+                                <th>昵称</th>
+                                <th>真实姓名</th>
+                                <th>邮箱</th>
+                                <th>手机号</th>
+                                <th>是否激活</th>
+                                <th>创建日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.Items.Count > 0)
+                            {
+                                int num = 1;
+                                foreach (var user in Model.Items)
+                                {
+                                    num++;
+                                    <tr>
+                                        <td>@user.UserName</td>
+                                        <td>@user.NickName</td>
+                                        <td>@user.TrueName</td>
+                                        <td><i class="@(user.IsEmailVerified ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i> @user.AccountEmail</td>
+                                        <td><i class="@(user.IsMobileVerified ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i> @user.AccountMobile</td>
+                                        <td><i class="@(user.IsActive ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i></td>
+                                        <td>@user.CreatedTime.ToString("yyyy-MM-dd")</td>
+                                        <td>
+                                            <div class="@(num >= Model.Items.Count && num>2 ? "dropup" : "dropdown")">
+                                                <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    操作
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-right" style="min-width:80px;">
+                                                    <li>
+                                                        <a href="javascript:;" data-href="@Url.Action(MVC.Admin.AdminUser.EidtUser(user.Id))" plugin="dialog" title="编辑 - @(user.NickName)">编辑</a>
+                                                    </li>
+                                                    <li><a href="#">删除</a></li>
+                                                    <li>
+                                                        <a href="javascript:;" data-href="@Url.Action(MVC.Admin.AdminUser.SetRoles(user.Id))" plugin="dialog" title="设置角色 - @(user.NickName)">设置角色</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    @Html.PagingButton(Model, PaginationMode.NumericNextPrevious, 3)
+                </div>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div><!-- /#page-wrapper -->

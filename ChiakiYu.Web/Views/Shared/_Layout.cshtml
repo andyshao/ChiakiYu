@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("应用程序名称", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink("应用程序名称", "Home", "Channel", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                    <li>@Html.ActionLink("关于", "About", "Home")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("主页", "Home", "Channel")</li>
+                    <li>@Html.ActionLink("关于", "About", "Channel")</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Channel")</li>
                 </ul>
             </div>
         </div>

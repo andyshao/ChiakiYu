@@ -1,0 +1,62 @@
+﻿@{
+    int roleId = Convert.ToInt32(ViewData["RoleId"]);
+}
+<style>
+    #treePermissions a {
+        text-decoration: none !important;
+    }
+</style>
+
+<div style="width:350px;min-height:350px;">
+    <div class="panel-body">
+        <form action="@Url.Action(MVC.Admin.AdminUser.ChangePermissions())" role="form">
+            <fieldset>
+                <div>
+                    <ul id="treePermissions" class="ztree"></ul>
+                </div>
+                <div class="text-center btn-dialog" hidden>
+                    <button type="submit" class="btn btn-success" id="btnChangePermission">保存</button>
+                </div>
+            </fieldset>
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    var setting = {
+        check: {
+            enable: true
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        }
+    };
+    $(function () {
+        var url = "@Url.Action("GetPermissions","AdminUser")";
+        $.get(url, { roleId: '@roleId' }, function (data) {
+            var data = eval("(" + data + ")");
+            $.fn.zTree.init($("#treePermissions"), setting, data);
+            $("#btnChangePermission").parent().show();
+
+        });
+
+        $("#btnChangePermission").click(function (e) {
+            e.preventDefault();
+            var form = $(this).parents("form");
+            var url = form.attr("action");
+            var permissionName = "";
+            var zTree = $.fn.zTree.getZTreeObj("treePermissions");
+            $.each(zTree.getCheckedNodes(true), function (i, node) {
+                permissionName = permissionName + node.permissionName + ",";
+            });
+
+            var data = { roleId: '@roleId', permissionName: permissionName };
+            $.Yu.ajaxSubmitForm(url, data);
+           
+        });
+
+
+    });
+</script>

@@ -1,12 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using ChiakiYu.Core.Domain.Entities;
+using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Model.Navigations
 {
     /// <summary>
     ///     导航
     /// </summary>
-    public class Navigation : FullEntity<int>
+    public class Navigation : FullEntity<long>
     {
         #region 持久化属性
 
