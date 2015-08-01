@@ -3,7 +3,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using ChiakiYu.Common.Data;
-using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.Model.Navigations;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Navigations;
@@ -20,14 +19,10 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         private readonly IUserService _userService;
         private readonly INavigationService _navigationService;
 
-        private readonly IRepository<User, long> _repository;
-
-        public AdminController(INavigationService navigationService, IUserService userService,
-            IRepository<User, long> repository)
+        public AdminController(INavigationService navigationService, IUserService userService)
         {
             _navigationService = navigationService;
             _userService = userService;
-            _repository = repository;
         }
 
         #endregion
@@ -67,8 +62,6 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         [HttpGet]
         public virtual ActionResult ManageLogin()
         {
-            var users = _repository.GetAll().ToList();
-            var userss = _userService.GetAll().ToList();
             return View();
         }
 
@@ -140,8 +133,6 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         public virtual ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-
-            //AuthenticationManager.SignOut();
             return RedirectToAction(MVC.Admin.Admin.ManageLogin());
         }
 

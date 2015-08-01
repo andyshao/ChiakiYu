@@ -63,7 +63,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             #region 组装搜索下拉列表
 
             var activatedValues = new Dictionary<bool, string> {{true, "已激活"}, {false, "未激活"}};
-            ViewData["IsActive"] =
+            ViewData["IsActived"] =
                 new SelectList(activatedValues.Select(n => new {text = n.Value, value = n.Key.ToString().ToLower()}),
                     "value", "text", input.IsActive);
 
@@ -118,7 +118,6 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             var user = _userService.GetUser(userId);
 
             var roles = _roleService.GetRoles();
-            //new GetUserRolesInput {UserId = userId};
             var list = user.Roles.ToList();
 
             ViewData["UserId"] = userId;

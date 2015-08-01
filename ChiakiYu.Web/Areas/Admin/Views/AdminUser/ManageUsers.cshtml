@@ -32,7 +32,7 @@
                             <input class="form-control" placeholder="邮箱" id="EmailAddress" name="EmailAddress" type="text" value="@emailAddress" />
                         </div>
                         <div class="form-group col-md-3">
-                            <label>是否激活：</label>@Html.DropDownList("IsActive", null, "全部", new RouteValueDictionary { { "class", "form-control" } })
+                            <label>是否激活：</label>@Html.DropDownList("IsActived", null, "全部", new RouteValueDictionary { { "class", "form-control" } })
                         </div>
                         <div class="form-group col-md-3">
                             <button type="submit" class="btn btn-primary">搜索</button>
@@ -71,7 +71,7 @@
                                         <td>@user.TrueName</td>
                                         <td><i class="@(user.IsEmailVerified ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i> @user.AccountEmail</td>
                                         <td><i class="@(user.IsMobileVerified ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i> @user.AccountMobile</td>
-                                        <td><i class="@(user.IsActive ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i></td>
+                                        <td><i class="@(user.IsActived ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i></td>
                                         <td>@user.CreatedTime.ToString("yyyy-MM-dd")</td>
                                         <td>
                                             <div class="@(num >= Model.Items.Count && num>2 ? "dropup" : "dropdown")">

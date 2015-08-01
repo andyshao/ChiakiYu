@@ -3,10 +3,8 @@ using System.Linq;
 using ChiakiYu.Common.Data;
 using ChiakiYu.Common.Dto;
 using ChiakiYu.Common.Extensions;
-using ChiakiYu.Core;
 using ChiakiYu.Core.AutoMapper;
 using ChiakiYu.Core.Domain.Repositories;
-using ChiakiYu.Core.Domain.UnitOfWork;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Users.Dto;
 
@@ -53,7 +51,7 @@ namespace ChiakiYu.Service.Users
                 PageSize = input.PageSize,
                 TotalCount = enumerable.Count(),
                 Items =
-                    enumerable.Skip((input.PageIndex - 1) * input.PageSize)
+                    enumerable.Skip((input.PageIndex - 1)*input.PageSize)
                         .Take(input.PageSize)
                         .OrderBy(n => n.Id)
                         .MapTo<List<UserDto>>()

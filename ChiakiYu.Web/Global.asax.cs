@@ -9,14 +9,9 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
 using ChiakiYu.Core.Dependency;
-using ChiakiYu.Core.Domain;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.EntityFramework;
-using ChiakiYu.Model.Roles;
-using ChiakiYu.Model.Users;
 using ChiakiYu.Service;
-using ChiakiYu.Service.Roles.Dto;
-using ChiakiYu.Service.Users.Dto;
 
 namespace ChiakiYu.Web
 {
@@ -39,8 +34,8 @@ namespace ChiakiYu.Web
         private static void AutofacRegister()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>));
-            var baseType = typeof(IDependency);
+            builder.RegisterGeneric(typeof (Repository<,>)).As(typeof (IRepository<,>));
+            var baseType = typeof (IDependency);
             var path = AppDomain.CurrentDomain.RelativeSearchPath;
             var assemblies = Directory.GetFiles(path, "*.dll").Select(m => Assembly.LoadFrom(m)).ToArray();
             builder.RegisterAssemblyTypes(assemblies)
