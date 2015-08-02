@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ChiakiYu.Core.Dependency;
+using ChiakiYu.Model.Permissions;
 using ChiakiYu.Model.Roles;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Authorization.Dto;
@@ -33,5 +34,8 @@ namespace ChiakiYu.Service.Authorization
         string AddRolePermission(RolePermission rolePermission);
 
         List<RolePermission> GetRolePermissions(string name, int roleId);
+
+
+        List<PermissionAll> GetPermissionAll();
     }
 }

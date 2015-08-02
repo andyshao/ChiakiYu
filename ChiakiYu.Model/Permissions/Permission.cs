@@ -7,7 +7,7 @@ namespace ChiakiYu.Model.Permissions
     /// <summary>
     ///     权限
     /// </summary>
-    public class Permission : FullEntity<string>
+    public class Permission : Entity<string>
     {
         public Permission()
         {

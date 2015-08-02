@@ -7,11 +7,11 @@
     }
 </style>
 
-<div style="width:350px;min-height:350px;">
+<div style="">
     <div class="panel-body">
         <form action="@Url.Action(MVC.Admin.AdminUser.ChangePermissions())" role="form">
             <fieldset>
-                <div>
+                <div style="width: 300px; height: 350px; overflow-x: hidden;">
                     <ul id="treePermissions" class="ztree"></ul>
                 </div>
                 <div class="text-center btn-dialog" hidden>
@@ -34,9 +34,9 @@
         }
     };
     $(function () {
-        var url = "@Url.Action("GetPermissions","AdminUser")";
-        $.get(url, { roleId: '@roleId' }, function (data) {
-            var data = eval("(" + data + ")");
+        var url = "@Url.Action(MVC.Admin.AdminUser.GetPermissions(roleId))";
+        $.get(url, function (data) {
+            data = $.parseJSON(data);
             $.fn.zTree.init($("#treePermissions"), setting, data);
             $("#btnChangePermission").parent().show();
 
@@ -54,7 +54,7 @@
 
             var data = { roleId: '@roleId', permissionName: permissionName };
             $.Yu.ajaxSubmitForm(url, data);
-           
+
         });
 
 

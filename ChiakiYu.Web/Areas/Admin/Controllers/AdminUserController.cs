@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using System.Xml;
+using ChiakiYu.Common.Data;
 using ChiakiYu.Common.Extensions;
 using ChiakiYu.Model.Roles;
 using ChiakiYu.Model.Users;
@@ -62,9 +63,9 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
 
             #region 组装搜索下拉列表
 
-            var activatedValues = new Dictionary<bool, string> {{true, "已激活"}, {false, "未激活"}};
+            var activatedValues = new Dictionary<bool, string> { { true, "已激活" }, { false, "未激活" } };
             ViewData["IsActived"] =
-                new SelectList(activatedValues.Select(n => new {text = n.Value, value = n.Key.ToString().ToLower()}),
+                new SelectList(activatedValues.Select(n => new { text = n.Value, value = n.Key.ToString().ToLower() }),
                     "value", "text", input.IsActive);
 
             #endregion
@@ -83,7 +84,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         [HttpPost]
         public virtual JsonResult EidtUser()
         {
-            return Json(new {MessageType = 1, MessageContent = "设置成功"});
+            return Json(new { MessageType = 1, MessageContent = "设置成功" });
         }
 
         #endregion
@@ -135,18 +136,18 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             var userId = Request.Form.Get<long>("userId", 0);
             if (userId <= 0)
             {
-                return Json(new {MessageType = 0, MessageContent = "请选择某个用户设置角色！"});
+                return Json(new { MessageType = 0, MessageContent = "请选择某个用户设置角色！" });
             }
             var roleIdStr = Request.Form.Get("roleId");
 
-            if (string.IsNullOrEmpty(roleIdStr)) return Json(new {MessageType = 0, MessageContent = "请至少分配一项角色！"});
+            if (string.IsNullOrEmpty(roleIdStr)) return Json(new { MessageType = 0, MessageContent = "请至少分配一项角色！" });
             var roleIds = roleIdStr.Split(',');
             _authorizationService.DeleteUserRole(userId);
             foreach (var userRole in roleIds.Select(item => new UserRole(userId, Convert.ToInt32(item))))
             {
                 _authorizationService.AddUserRole(userRole); //todo 处理单个数据异常情况
             }
-            return Json(new {MessageType = 1, MessageContent = "设置成功"});
+            return Json(new { MessageType = 1, MessageContent = "设置成功" });
         }
 
         #endregion
@@ -165,52 +166,70 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        ///     获取站点权限列表组装json  todo:封装、处理下初始化的时机
+        ///     获取站点权限列表组装json
         /// </summary>
         /// <param name="roleId"></param>
         /// <returns></returns>
         public virtual ContentResult GetPermissions(int roleId)
         {
             var role = _roleService.GetRole(roleId);
-
-            var result = string.Empty;
-            const string xmlFile = "permission.config";
-            var doc = new XmlDocument();
-            var filename = AppDomain.CurrentDomain.BaseDirectory + xmlFile;
-            doc.Load(filename);
-            var xn = doc.SelectSingleNode("Permissions");
-            if (xn == null || !xn.HasChildNodes) return Content(result);
-            var sb = new StringBuilder();
-            sb.Append("[");
-            for (var i = 0; i < xn.ChildNodes.Count; i++)
+            var rolePermissions = role.Permissions;
+            var permissionAll = _authorizationService.GetPermissionAll();
+            foreach (var item in permissionAll)
             {
-                var xmlNode = xn.ChildNodes.Item(i);
-                if (xmlNode != null)
-                {
-                    if (xmlNode.Attributes != null)
-                    {
-                        var id = xmlNode.Attributes["id"].Value;
-                        var pId = xmlNode.Attributes["pId"].Value;
-                        var permissionName = xmlNode.Attributes["permissionName"].Value;
-                        var name = xmlNode.Attributes["name"].Value;
-                        var isChecked = "false";
-                        if (role != null && role.Permissions != null &&
-                            role.Permissions.Any(n => n.Name == permissionName))
-                            isChecked = "true";
-                        var isOpen = "true";
-                        if (id.Length > 2)
-                            isOpen = "false";
-                        sb.Append("{");
-                        sb.AppendFormat(
-                            "id: {0}, pId: {1}, name: \"{2}\", permissionName: \"{3}\",open: {4}, checked:{5}",
-                            id, pId, name, permissionName, isOpen, isChecked);
-                    }
-                }
-                sb.Append("},");
+                item.Checked = rolePermissions.Any(n => n.Name == item.PermissionName);
+                item.Open = item.Id < 100;
             }
-            result = sb.ToString().TrimEnd(',') + "]";
+            var result = JsonHelper.ToJson(permissionAll)
+                .Replace("Id", "id")
+                .Replace("Pid", "pId")
+                .Replace("Name", "name")
+                .Replace("Open", "open")
+                .Replace("Permissionname", "permissionName")
+                .Replace("Checked", "checked");
+
+            #region 原xml处理方式
+            //var result = string.Empty;
+            //const string xmlFile = "App_Data/permission.config";
+            //var doc = new XmlDocument();
+            //var filename = AppDomain.CurrentDomain.BaseDirectory + xmlFile;
+            //doc.Load(filename);
+            //var xn = doc.SelectSingleNode("Permissions");
+
+            //if (xn == null || !xn.HasChildNodes) return Content(result);
+            //var sb = new StringBuilder();
+            //sb.Append("[");
+            //for (var i = 0; i < xn.ChildNodes.Count; i++)
+            //{
+            //    var xmlNode = xn.ChildNodes.Item(i);
+            //    if (xmlNode != null)
+            //    {
+            //        if (xmlNode.Attributes != null)
+            //        {
+            //            var id = xmlNode.Attributes["id"].Value;
+            //            var pId = xmlNode.Attributes["pId"].Value;
+            //            var permissionName = xmlNode.Attributes["permissionName"].Value;
+            //            var name = xmlNode.Attributes["name"].Value;
+            //            var isChecked = "false";
+            //            if (role != null && role.Permissions != null &&
+            //                role.Permissions.Any(n => n.Name == permissionName))
+            //                isChecked = "true";
+            //            var isOpen = "true";
+            //            if (id.Length > 2)
+            //                isOpen = "false";
+            //            sb.Append("{");
+            //            sb.AppendFormat(
+            //                "id: {0}, pId: {1}, name: \"{2}\", permissionName: \"{3}\",open: {4}, checked:{5}",
+            //                id, pId, name, permissionName, isOpen, isChecked);
+            //        }
+            //    }
+            //    sb.Append("},");
+            //}
+            //result = sb.ToString().TrimEnd(',') + "]"; 
+            #endregion
 
             return Content(result);
+            //return Content(result);
         }
 
         /// <summary>
@@ -223,27 +242,27 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             var roleId = Request.Form.Get("roleId", 0);
             if (roleId <= 0)
             {
-                return Json(new {MessageType = 0, MessageContent = "请选择某个角色更改权限！"});
+                return Json(new { MessageType = 0, MessageContent = "请选择某个角色更改权限！" });
             }
             var permissionNameStr = Request.Form.Get("permissionName");
 
 
-            if (string.IsNullOrEmpty(permissionNameStr)) return Json(new {MessageType = 0, MessageContent = "设置失败"});
+            if (string.IsNullOrEmpty(permissionNameStr)) return Json(new { MessageType = 0, MessageContent = "设置失败" });
             var permissionNames = permissionNameStr.Split(',');
             _authorizationService.DeleteRolePermission(roleId);
 
             foreach (var rp in from item in permissionNames
-                where !string.IsNullOrEmpty(item)
-                select new RolePermission
-                {
-                    RoleId = roleId,
-                    Name = item
-                })
+                               where !string.IsNullOrEmpty(item)
+                               select new RolePermission
+                               {
+                                   RoleId = roleId,
+                                   Name = item
+                               })
             {
                 _authorizationService.AddRolePermission(rp); //todo 处理单个数据异常情况
             }
 
-            return Json(new {MessageType = 1, MessageContent = "设置成功"});
+            return Json(new { MessageType = 1, MessageContent = "设置成功" });
         }
 
         #endregion

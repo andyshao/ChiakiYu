@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Navigations\NavigationMapper.cs" />
+    <Compile Include="Permissions\PermissionAllMapper.cs" />
     <Compile Include="Permissions\PermissionMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\RoleMapper.cs" />

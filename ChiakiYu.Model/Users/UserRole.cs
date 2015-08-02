@@ -8,7 +8,7 @@ namespace ChiakiYu.Model.Users
     /// <summary>
     ///     用户角色
     /// </summary>
-    public class UserRole : FullEntity<string>
+    public class UserRole : Entity<string>
     {
         public UserRole()
         {

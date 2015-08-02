@@ -8,7 +8,7 @@ namespace ChiakiYu.Model.Roles
     /// <summary>
     ///     角色
     /// </summary>
-    public class Role : FullEntity<int>
+    public class Role : Entity<int>
     {
         /// <summary>
         ///     角色名称

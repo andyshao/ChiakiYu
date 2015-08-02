@@ -51,14 +51,14 @@
 
                     dialogLoading.close().remove();
 
-                    if (data.result.messageType === 1) {
+                    if (data.MessageType === 1) {
                         dialog.get("dialogForm").close().remove();
                     }
-                    $.Yu.tips(data.result.messageContent, data.result.messageType);
+                    $.Yu.tips(data.MessageContent, data.MessageType);
                 },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                error: function (xmlHttpRequest, textStatus, errorThrown) {
                     dialogLoading.close().remove();
-                    $.Yu.tips("抱歉，系统出现错误，错误码：" + XMLHttpRequest.status, -1, 3000);
+                    $.Yu.tips("抱歉，系统出现错误，错误码：" + xmlHttpRequest.status, -1, 3000);
                 }
             });
         },

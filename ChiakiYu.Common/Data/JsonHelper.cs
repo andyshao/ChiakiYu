@@ -29,11 +29,11 @@ namespace ChiakiYu.Common.Data
         /// <summary>
         ///     把对象序列化成Json字符串格式
         /// </summary>
-        /// <param name="object"></param>
+        /// <param name="o"></param>
         /// <returns></returns>
-        public static string ToJson(object @object)
+        public static string ToJson(object o)
         {
-            var json = JsonConvert.SerializeObject(@object);
+            var json = JsonConvert.SerializeObject(o);
             return JsonDateTimeFormat(json);
         }
 
