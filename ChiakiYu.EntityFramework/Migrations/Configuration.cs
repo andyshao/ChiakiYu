@@ -12,6 +12,8 @@ namespace ChiakiYu.EntityFramework.Migrations
 
         protected override void Seed(ChiakiYuDbContext context)
         {
+
+
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

@@ -11,6 +11,7 @@ using Autofac.Integration.Mvc;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.EntityFramework;
+using ChiakiYu.EntityFramework.Migrations;
 using ChiakiYu.Service;
 
 namespace ChiakiYu.Web
@@ -24,7 +25,6 @@ namespace ChiakiYu.Web
             AutofacRegister();
             DatabaseInitialize();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
             DtoMappers.MapperRegister();
         }
 
@@ -34,8 +34,8 @@ namespace ChiakiYu.Web
         private static void AutofacRegister()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterGeneric(typeof (Repository<,>)).As(typeof (IRepository<,>));
-            var baseType = typeof (IDependency);
+            builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>));
+            var baseType = typeof(IDependency);
             var path = AppDomain.CurrentDomain.RelativeSearchPath;
             var assemblies = Directory.GetFiles(path, "*.dll").Select(m => Assembly.LoadFrom(m)).ToArray();
             builder.RegisterAssemblyTypes(assemblies)
@@ -53,6 +53,10 @@ namespace ChiakiYu.Web
 
         private static void DatabaseInitialize()
         {
+
+            CreateDatabaseIfNotExistsWithSeed.SeedActions.Add(new DataInit());
+
+
             var file = HttpContext.Current.Server.MapPath("/bin/ChiakiYu.Mapper.dll");
             var assembly = Assembly.LoadFrom(file);
             DatabaseInitializer.AddMapperAssembly(assembly);

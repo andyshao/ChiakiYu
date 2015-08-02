@@ -54,6 +54,8 @@
     <Compile Include="EntityConfiguration.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\CreateDatabaseIfNotExistsWithSeed.cs" />
+    <Compile Include="Migrations\ISeedAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
   </ItemGroup>

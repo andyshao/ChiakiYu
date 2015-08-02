@@ -11,6 +11,7 @@ namespace ChiakiYu.Model.Navigations
     /// </summary>
     public class Navigation : FullEntity<long>
     {
+
         #region 持久化属性
 
         /// <summary>

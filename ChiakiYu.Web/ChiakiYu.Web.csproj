@@ -133,10 +133,9 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="App_Start\DataInit.cs" />
     <Compile Include="T4MVC\Admin.AdminController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -242,8 +241,8 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Images\404.xcf" />
-    <Content Include="log4net.config" />
-    <Content Include="permission.config" />
+    <Content Include="App_Data\log4net.config" />
+    <Content Include="App_Data\permission.config" />
     <Content Include="Content\toastr.less" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Scripts\bower_components\bootstrap-social\.bower.json" />

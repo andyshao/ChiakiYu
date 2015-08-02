@@ -1,4 +1,5 @@
-﻿using ChiakiYu.EntityFramework;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using ChiakiYu.EntityFramework;
 using ChiakiYu.Model.Navigations;
 
 namespace ChiakiYu.Mapper.Navigations
@@ -8,6 +9,8 @@ namespace ChiakiYu.Mapper.Navigations
         public NavigationMapper()
         {
             ToTable("Sys_Navigations");
+           HasKey(n=>n.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
         }
         
     }

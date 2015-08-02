@@ -26,7 +26,7 @@ namespace ChiakiYu.EntityFramework
             IDatabaseInitializer<ChiakiYuDbContext> initializer;
             if (!context.Database.Exists())
             {
-                initializer = new CreateDatabaseIfNotExists<ChiakiYuDbContext>();
+                initializer = new CreateDatabaseIfNotExistsWithSeed();
             }
             else
             {
