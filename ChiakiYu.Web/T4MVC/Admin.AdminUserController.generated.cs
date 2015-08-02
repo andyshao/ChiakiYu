@@ -58,9 +58,9 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
 
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ContentResult GetPermissions()
+        public virtual System.Web.Mvc.JsonResult GetPermissions()
         {
-            return new T4MVC_System_Web_Mvc_ContentResult(Area, Name, ActionNames.GetPermissions);
+            return new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.GetPermissions);
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -262,12 +262,12 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         }
 
         [NonAction]
-        partial void GetPermissionsOverride(T4MVC_System_Web_Mvc_ContentResult callInfo, int roleId);
+        partial void GetPermissionsOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, int roleId);
 
         [NonAction]
-        public override System.Web.Mvc.ContentResult GetPermissions(int roleId)
+        public override System.Web.Mvc.JsonResult GetPermissions(int roleId)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ContentResult(Area, Name, ActionNames.GetPermissions);
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.GetPermissions);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "roleId", roleId);
             GetPermissionsOverride(callInfo, roleId);
             return callInfo;

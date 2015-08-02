@@ -36,6 +36,13 @@
     $(function () {
         var url = "@Url.Action(MVC.Admin.AdminUser.GetPermissions(roleId))";
         $.get(url, function (data) {
+            data = data.replace(/Id/g, "id")
+                    .replace(/Pid/g, "pId")
+                    .replace(/Name/g, "name")
+                    .replace(/Open/g, "open")
+                    .replace(/Permissionname/g, "permissionName")
+                    .replace(/Checked/g, "checked");
+            //console.log(data);
             data = $.parseJSON(data);
             $.fn.zTree.init($("#treePermissions"), setting, data);
             $("#btnChangePermission").parent().show();

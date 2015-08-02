@@ -170,7 +170,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         /// </summary>
         /// <param name="roleId"></param>
         /// <returns></returns>
-        public virtual ContentResult GetPermissions(int roleId)
+        public virtual JsonResult GetPermissions(int roleId)
         {
             var role = _roleService.GetRole(roleId);
             var rolePermissions = role.Permissions;
@@ -180,13 +180,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
                 item.Checked = rolePermissions.Any(n => n.Name == item.PermissionName);
                 item.Open = item.Id < 100;
             }
-            var result = JsonHelper.ToJson(permissionAll)
-                .Replace("Id", "id")
-                .Replace("Pid", "pId")
-                .Replace("Name", "name")
-                .Replace("Open", "open")
-                .Replace("Permissionname", "permissionName")
-                .Replace("Checked", "checked");
+            var result = JsonHelper.ToJson(permissionAll);
 
             #region 原xml处理方式
             //var result = string.Empty;
@@ -228,7 +222,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             //result = sb.ToString().TrimEnd(',') + "]"; 
             #endregion
 
-            return Content(result);
+            return Json(result, JsonRequestBehavior.AllowGet);
             //return Content(result);
         }
 
