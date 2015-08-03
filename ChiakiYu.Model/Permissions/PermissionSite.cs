@@ -3,7 +3,7 @@ using ChiakiYu.Core.Domain.Entities;
 
 namespace ChiakiYu.Model.Permissions
 {
-    public class PermissionAll : Entity<int>
+    public class PermissionSite : Entity<int>
     {
         /// <summary>
         /// 父级Id

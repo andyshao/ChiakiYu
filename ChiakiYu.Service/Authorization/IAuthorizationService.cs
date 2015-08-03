@@ -36,6 +36,6 @@ namespace ChiakiYu.Service.Authorization
         List<RolePermission> GetRolePermissions(string name, int roleId);
 
 
-        List<PermissionAll> GetPermissionAll();
+        List<PermissionSite> GetPermissionAll();
     }
 }

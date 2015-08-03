@@ -14,13 +14,13 @@ namespace ChiakiYu.Service.Authorization
         private readonly IRepository<UserPermission, string> _userPermissionRepository;
         private readonly IRepository<UserRole, string> _userRoleRepository;
 
-        private readonly IRepository<PermissionAll, int> _permissionAllRepository;
+        private readonly IRepository<PermissionSite, int> _permissionAllRepository;
 
         public AuthorizationService
             (IRepository<UserRole, string> userRoleRepository,
                 IRepository<RolePermission, string> rolePermissionRepository,
                 IRepository<UserPermission, string> userPermissionRepository,
-                IRepository<PermissionAll, int> permissionAllRepository)
+                IRepository<PermissionSite, int> permissionAllRepository)
         {
             _userRoleRepository = userRoleRepository;
             _rolePermissionRepository = rolePermissionRepository;
@@ -28,7 +28,7 @@ namespace ChiakiYu.Service.Authorization
             _permissionAllRepository = permissionAllRepository;
         }
 
-        public List<PermissionAll> GetPermissionAll()
+        public List<PermissionSite> GetPermissionAll()
         {
             var query = _permissionAllRepository.GetAll();
             return query.ToList();

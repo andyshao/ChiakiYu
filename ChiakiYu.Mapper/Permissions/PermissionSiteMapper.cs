@@ -4,11 +4,11 @@ using ChiakiYu.Model.Permissions;
 
 namespace ChiakiYu.Mapper.Permissions
 {
-    public class PermissionAllMapper : EntityConfiguration<PermissionAll, int>
+    public class PermissionSiteMapper : EntityConfiguration<PermissionSite, int>
     {
-        public PermissionAllMapper()
+        public PermissionSiteMapper()
         {
-            ToTable("Sys_PermissionsAll");
+            ToTable("Sys_Permissions_Site");
             HasKey(n => n.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
         }

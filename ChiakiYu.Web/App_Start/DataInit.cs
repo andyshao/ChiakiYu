@@ -96,35 +96,30 @@ namespace ChiakiYu.Web
 
             #region 权限
 
-            var permissionAll = new List<PermissionAll>
+            var permissionAll = new List<PermissionSite>
             {
-                 new PermissionAll(){Id=1,PId=0,PermissionName="Page",Name="页面"}
-                ,new PermissionAll(){Id=11,PId=1,PermissionName="Page.Channel",Name="首页"}
-                ,new PermissionAll(){Id=12,PId=1,PermissionName="Page.Users",Name="用户"}
-                ,new PermissionAll(){Id=121,PId=12,PermissionName="Page.Users.Manage",Name="用户管理"}
-                ,new PermissionAll(){Id=1211,PId=121,PermissionName="Page.Users.Manage.Add",Name="添加用户"}
-                ,new PermissionAll(){Id=1212,PId=121,PermissionName="Page.Users.Manage.Delete",Name="删除用户"}
-                ,new PermissionAll(){Id=1213,PId=121,PermissionName="Page.Users.Manage.Edit",Name="编辑用户"}
-                ,new PermissionAll(){Id=1214,PId=121,PermissionName="Page.Users.Manage.SetRoles",Name="设置角色"}
-                ,new PermissionAll(){Id=1215,PId=121,PermissionName="Page.Users.Manage.SetPermissions",Name="设置权限"}
-                ,new PermissionAll(){Id=122,PId=12,PermissionName="Page.Roles.Manage",Name="角色管理"}
-                ,new PermissionAll(){Id=1221,PId=122,PermissionName="Page.Roles.Manage.Add",Name="添加角色"}
-                ,new PermissionAll(){Id=1222,PId=122,PermissionName="Page.Roles.Manage.Delete",Name="删除角色"}
-                ,new PermissionAll(){Id=1223,PId=122,PermissionName="Page.Roles.Manage.Edit",Name="编辑角色"}
-                ,new PermissionAll(){Id=1224,PId=122,PermissionName="Page.Roles.Manage.SetPermissions",Name="设置权限"}
+                 new PermissionSite(){Id=1,PId=0,PermissionName="Page",Name="页面"}
+                ,new PermissionSite(){Id=11,PId=1,PermissionName="Page.Channel",Name="首页"}
+                ,new PermissionSite(){Id=12,PId=1,PermissionName="Page.Users",Name="用户"}
+                ,new PermissionSite(){Id=121,PId=12,PermissionName="Page.Users.Manage",Name="用户管理"}
+                ,new PermissionSite(){Id=1211,PId=121,PermissionName="Page.Users.Manage.Add",Name="添加用户"}
+                ,new PermissionSite(){Id=1212,PId=121,PermissionName="Page.Users.Manage.Delete",Name="删除用户"}
+                ,new PermissionSite(){Id=1213,PId=121,PermissionName="Page.Users.Manage.Edit",Name="编辑用户"}
+                ,new PermissionSite(){Id=1214,PId=121,PermissionName="Page.Users.Manage.SetRoles",Name="设置角色"}
+                ,new PermissionSite(){Id=1215,PId=121,PermissionName="Page.Users.Manage.SetPermissions",Name="设置权限"}
+                ,new PermissionSite(){Id=122,PId=12,PermissionName="Page.Roles.Manage",Name="角色管理"}
+                ,new PermissionSite(){Id=1221,PId=122,PermissionName="Page.Roles.Manage.Add",Name="添加角色"}
+                ,new PermissionSite(){Id=1222,PId=122,PermissionName="Page.Roles.Manage.Delete",Name="删除角色"}
+                ,new PermissionSite(){Id=1223,PId=122,PermissionName="Page.Roles.Manage.Edit",Name="编辑角色"}
+                ,new PermissionSite(){Id=1224,PId=122,PermissionName="Page.Roles.Manage.SetPermissions",Name="设置权限"}
                 
-                ,new PermissionAll(){Id=14,PId=1,PermissionName="Login",Name="登录"}
-                ,new PermissionAll(){Id=141,PId=14,PermissionName="Login.Channel",Name="登录前台"}
-                ,new PermissionAll(){Id=142,PId=14,PermissionName="Login.Admin",Name="登录后台"}
+                ,new PermissionSite(){Id=14,PId=1,PermissionName="Login",Name="登录"}
+                ,new PermissionSite(){Id=141,PId=14,PermissionName="Login.Channel",Name="登录前台"}
+                ,new PermissionSite(){Id=142,PId=14,PermissionName="Login.Admin",Name="登录后台"}
             };
-            context.Set<PermissionAll>().AddOrUpdate(permissionAll.ToArray());
+            context.Set<PermissionSite>().AddOrUpdate(permissionAll.ToArray());
 
             #endregion
-
-
-
-
-
         }
     }
 }
