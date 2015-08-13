@@ -12,14 +12,14 @@ namespace ChiakiYu.EntityFramework
         /// <summary>
         ///     更新上下文中指定的实体的状态
         /// </summary>
-        /// <typeparam name="TEntity">实体类型</typeparam>
-        /// <typeparam name="TPrimaryKey">主键类型</typeparam>
+        /// <typeparam name="T">实体类型</typeparam>
+        /// <typeparam name="TKey">主键类型</typeparam>
         /// <param name="dbContext">上下文对象</param>
         /// <param name="entity">要更新的实体类型</param>
-        public static TEntity Update<TEntity, TPrimaryKey>(this DbContext dbContext, TEntity entity)
-            where TEntity : class, IEntity<TPrimaryKey>
+        public static T Update<T, TKey>(this DbContext dbContext, T entity)
+            where T : class, IEntity<TKey>
         {
-            var dbSet = dbContext.Set<TEntity>();
+            var dbSet = dbContext.Set<T>();
             try
             {
                 var entry = dbContext.Entry(entity);

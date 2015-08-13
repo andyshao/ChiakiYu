@@ -119,11 +119,14 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             Response.Cookies.Add(adminCookie);
             FormsAuthentication.SetAuthCookie(user.UserName, model.RememberMe);
 
-            if (string.IsNullOrWhiteSpace(model.ReturnUrl))
+            string returnUrl = string.IsNullOrEmpty(model.ReturnUrl)
+                ? Request.QueryString.Get("ReturnUrl")
+                : model.ReturnUrl;
+            if (string.IsNullOrWhiteSpace(returnUrl))
             {
                 return RedirectToAction(MVC.Admin.Admin.Home());
             }
-            return Redirect(model.ReturnUrl);
+            return Redirect(returnUrl);
         }
 
         /// <summary>

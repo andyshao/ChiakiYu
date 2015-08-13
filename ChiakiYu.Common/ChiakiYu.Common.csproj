@@ -78,10 +78,6 @@
     <Compile Include="Data\MathHelper.cs" />
     <Compile Include="Data\SerializeHelper.cs" />
     <Compile Include="Data\UserPasswordHelper.cs" />
-    <Compile Include="Dto\IPagingDto.cs" />
-    <Compile Include="Dto\IPagingOutput.cs" />
-    <Compile Include="Dto\PagingDto.cs" />
-    <Compile Include="Dto\PagingOutput.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
@@ -105,11 +101,15 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="T4\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChiakiYu.Core\ChiakiYu.Core.csproj">
+      <Project>{51E84891-C753-484D-929E-7C177F54431A}</Project>
+      <Name>ChiakiYu.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -1,6 +1,6 @@
 ﻿@using ChiakiYu.Common.Extensions
 @using ChiakiYu.Common.Extensions.Html
-@model ChiakiYu.Common.Dto.PagingOutput<ChiakiYu.Service.Users.Dto.UserDto>
+@model ChiakiYu.Core.Data.PagingList<ChiakiYu.Service.Users.Dto.UserDto>
 @{
     ViewBag.ActiveMenu = "用户管理";
     ViewBag.Title = "用户管理 - 管理后台";
@@ -59,10 +59,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (Model != null && Model.Items.Count > 0)
+                            @if (Model != null && Model.Count > 0)
                             {
                                 int num = 1;
-                                foreach (var user in Model.Items)
+                                foreach (var user in Model)
                                 {
                                     num++;
                                     <tr>
@@ -74,7 +74,7 @@
                                         <td><i class="@(user.IsActived ? "fa fa-check-circle fa-color-green" : "fa fa-times-circle fa-color-red")"></i></td>
                                         <td>@user.CreatedTime.ToString("yyyy-MM-dd")</td>
                                         <td>
-                                            <div class="@(num >= Model.Items.Count && num>2 ? "dropup" : "dropdown")">
+                                            <div class="@(num >= Model.Count && num>2 ? "dropup" : "dropdown")">
                                                 <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                                     操作
                                                     <span class="caret"></span>

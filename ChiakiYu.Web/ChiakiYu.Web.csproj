@@ -916,7 +916,6 @@
     <Content Include="Scripts\metisMenu\metisMenu.js" />
     <Content Include="Scripts\metisMenu\metisMenu.min.css" />
     <Content Include="Scripts\metisMenu\metisMenu.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />

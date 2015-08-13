@@ -7,9 +7,9 @@ namespace ChiakiYu.Core.Domain.Entities
     /// 泛型实体基类
     /// 包含：自定义主键类型；创建时间
     /// </summary>
-    /// <typeparam name="TPrimaryKey">泛型主键</typeparam>
+    /// <typeparam name="TKey">泛型主键</typeparam>
     [Serializable]
-    public abstract class Entity<TPrimaryKey> : IEntity<TPrimaryKey>
+    public abstract class Entity<TKey> : IEntity<TKey>
     {
         protected Entity()
         {
@@ -20,7 +20,7 @@ namespace ChiakiYu.Core.Domain.Entities
         ///     泛型主键
         /// </summary>
         [Key]
-        public virtual TPrimaryKey Id { get; set; }
+        public virtual TKey Id { get; set; }
 
         /// <summary>
         /// 创建时间

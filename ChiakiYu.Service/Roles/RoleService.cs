@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using ChiakiYu.Common.Dto;
 using ChiakiYu.Core.AutoMapper;
+using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.Model.Roles;
 using ChiakiYu.Service.Roles.Dto;
@@ -18,25 +18,20 @@ namespace ChiakiYu.Service.Roles
             _roleRepository = roleRepository;
         }
 
-        public PagingOutput<RoleDto> GetRoles(GetRolesInput input)
+        public PagingList<RoleDto> GetRoles(GetRolesInput input)
         {
-            var query = _roleRepository.GetAll();
-            return new PagingOutput<RoleDto>
-            {
-                PageIndex = input.PageIndex,
-                PageSize = input.PageSize,
-                TotalCount = query.Count(),
-                Items =
-                    query.OrderBy(n => n.Id)
-                        .Skip((input.PageIndex - 1) * input.PageSize)
-                        .Take(input.PageSize)
-                        .MapTo<List<RoleDto>>()
-            };
+            var query = _roleRepository.Table;
+            var source = query.OrderBy(n => n.Id)
+                .Skip((input.PageIndex - 1) * input.PageSize)
+                .Take(input.PageSize)
+                .MapTo<List<RoleDto>>();
+            var result = new PagingList<RoleDto>(source, input.PageIndex, input.PageSize, query.LongCount());
+            return result;
         }
 
         List<RoleDto> IRoleService.GetRoles()
         {
-            var query = _roleRepository.GetAll();
+            var query = _roleRepository.Table;
             return query.MapTo<List<RoleDto>>();
         }
 
@@ -48,9 +43,9 @@ namespace ChiakiYu.Service.Roles
         public Role GetRole(int roleId)
         {
             var role = _roleRepository
-               .GetAll()
-               .Include(p => p.Permissions)
-               .FirstOrDefault(q => q.Id == roleId);
+                .Table
+                .Include(p => p.Permissions)
+                .FirstOrDefault(q => q.Id == roleId);
             return role;
         }
 

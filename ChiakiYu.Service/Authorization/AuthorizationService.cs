@@ -30,13 +30,13 @@ namespace ChiakiYu.Service.Authorization
 
         public List<PermissionSite> GetPermissionAll()
         {
-            var query = _permissionAllRepository.GetAll();
+            var query = _permissionAllRepository.Table;
             return query.ToList();
         }
 
         public List<UserRole> GetUserRoles(GetUserRolesInput input)
         {
-            var query = _userRoleRepository.GetAll().Where(n => n.UserId == input.UserId);
+            var query = _userRoleRepository.Table.Where(n => n.UserId == input.UserId);
             return query.ToList();
         }
 
@@ -63,7 +63,7 @@ namespace ChiakiYu.Service.Authorization
         public List<RolePermission> GetRolePermissions(string name, int roleId)
         {
             var query =
-                _rolePermissionRepository.GetAll()
+                _rolePermissionRepository.Table
                     .Where(n => n.RoleId == roleId && n.Name.Contains(name) && n.Name.Length == name.Length + 5);
             return query.ToList();
         }

@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapper\AutoMapperExtensions.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\RuntimeMemoryCache.cs" />
+    <Compile Include="Data\IPaging.cs" />
+    <Compile Include="Data\IPagingList.cs" />
+    <Compile Include="Data\PagingDto.cs" />
+    <Compile Include="Data\PagingList.cs" />
     <Compile Include="Domain\Entities\Entity.cs" />
     <Compile Include="Domain\Entities\FullEntity.cs" />
     <Compile Include="Domain\Entities\IEntity.cs" />
@@ -63,7 +70,6 @@
     </Compile>
     <Compile Include="Dependency\IDependency.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

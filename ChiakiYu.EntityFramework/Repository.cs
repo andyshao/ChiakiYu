@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using ChiakiYu.Core.Domain.Entities;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.Core.Domain.UnitOfWork;
 
 namespace ChiakiYu.EntityFramework
 {
-    public class Repository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
-        where TEntity : class, IEntity<TPrimaryKey>
+    public class Repository<T, TKey> : IRepository<T, TKey>
+        where T : class, IEntity<TKey>
     {
-        private readonly DbSet<TEntity> _dbSet;
+        private readonly DbSet<T> _dbSet;
         private readonly IUnitOfWork _unitOfWork;
 
         /// <summary>
@@ -22,186 +21,28 @@ namespace ChiakiYu.EntityFramework
         public Repository(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _dbSet = ((DbContext)unitOfWork).Set<TEntity>();
+            _dbSet = ((DbContext) unitOfWork).Set<T>();
         }
 
-        /// <summary>
-        ///     获取 当前单元操作对象
-        /// </summary>
         public IUnitOfWork UnitOfWork
         {
             get { return _unitOfWork; }
         }
 
-        #region Get&Gets
-
-        /// <summary>
-        ///     获取 当前实体类型的查询数据集
-        /// </summary>
-        public IQueryable<TEntity> GetAll()
+        public IQueryable<T> Table
         {
-            return _dbSet;
+            get { return _dbSet; }
         }
 
-        /// <summary>
-        ///     查找指定主键的实体
-        /// </summary>
-        /// <param name="id">实体主键</param>
-        /// <returns>符合主键的实体，不存在时返回null</returns>
-        public TEntity Get(TPrimaryKey id)
+        public IQueryable<T> TableNoTracking
+        {
+            get { return _dbSet.AsNoTracking(); }
+        }
+
+        public T Get(TKey id)
         {
             return _dbSet.Find(id);
         }
-
-        /// <summary>
-        /// 异步查找指定主键的实体
-        /// </summary>
-        /// <param name="id">实体主键</param>
-        /// <returns>符合主键的实体，不存在时返回null</returns>
-        public async Task<TEntity> GetAsync(TPrimaryKey id)
-        {
-            return await _dbSet.FindAsync(id);
-        }
-
-        #endregion
-
-        #region Insert
-
-        public TEntity Insert(TEntity entity)
-        {
-            _dbSet.Add(entity);
-            return SaveChanges() > 0 ? entity : null;
-        }
-
-        public async Task<TEntity> InsertAsync(TEntity entity)
-        {
-            _dbSet.Add(entity);
-            return await SaveChangesAsync() > 0 ? entity : null;
-        }
-
-        public TEntity InsertOrUpdate(TEntity entity)
-        {
-            return EqualityComparer<TPrimaryKey>.Default.Equals(entity.Id, default(TPrimaryKey))
-                ? Insert(entity)
-                : Update(entity);
-        }
-
-        public async Task<TEntity> InsertOrUpdateAsync(TEntity entity)
-        {
-            return EqualityComparer<TPrimaryKey>.Default.Equals(entity.Id, default(TPrimaryKey))
-                ? await InsertAsync(entity)
-                : await UpdateAsync(entity);
-        }
-
-        public int Insert(IEnumerable<TEntity> entities)
-        {
-            entities = entities as TEntity[] ?? entities.ToArray();
-            _dbSet.AddRange(entities);
-            return SaveChanges();
-        }
-
-        public async Task<int> InsertAsync(IEnumerable<TEntity> entities)
-        {
-            entities = entities as TEntity[] ?? entities.ToArray();
-            _dbSet.AddRange(entities);
-            return await SaveChangesAsync();
-        }
-
-        #endregion
-
-        #region Update
-
-        public TEntity Update(TEntity entity)
-        {
-            //todo:需要处理失败之后怎么通知调用层
-            var entityUpdate = ((DbContext)_unitOfWork).Update<TEntity, TPrimaryKey>(entity);
-            return SaveChanges() > 0 ? entityUpdate : null;
-        }
-
-        public async Task<TEntity> UpdateAsync(TEntity entity)
-        {
-            //todo:需要处理失败之后怎么通知调用层
-            var entityUpdate = ((DbContext)_unitOfWork).Update<TEntity, TPrimaryKey>(entity);
-            return await SaveChangesAsync() > 0 ? entityUpdate : null;
-        }
-
-        #endregion
-
-        #region Delete
-
-        public bool Delete(TEntity entity)
-        {
-            if (entity is ISoftDelete)
-            {
-                (entity as ISoftDelete).IsDeleted = true;
-                (entity as ISoftDelete).DeletedTime = DateTime.Now;
-            }
-            else
-            {
-                _dbSet.Remove(entity);
-            }
-            return SaveChanges() > 0;
-        }
-
-        public async Task<bool> DeleteAsync(TEntity entity)
-        {
-            if (entity is ISoftDelete)
-            {
-                (entity as ISoftDelete).IsDeleted = true;
-                (entity as ISoftDelete).DeletedTime = DateTime.Now;
-            }
-            else
-            {
-                _dbSet.Remove(entity);
-            }
-            return await SaveChangesAsync() > 0;
-        }
-
-        public bool Delete(TPrimaryKey id)
-        {
-            var entity = _dbSet.Find(id);
-            return entity != null && Delete(entity);
-        }
-
-        public async Task<bool> DeleteAsync(TPrimaryKey id)
-        {
-            var entity = _dbSet.Find(id);
-            return entity != null && await DeleteAsync(entity);
-        }
-
-        public void Delete(Expression<Func<TEntity, bool>> predicate)
-        {
-            foreach (var entity in GetAll().Where(predicate).ToList())
-            {
-                Delete(entity);
-            }
-        }
-
-        public async Task DeleteAsync(Expression<Func<TEntity, bool>> predicate)
-        {
-            foreach (var entity in GetAll().Where(predicate).ToList())
-            {
-                await DeleteAsync(entity);
-            }
-        }
-
-        public void Delete(IEnumerable<TEntity> entities)
-        {
-            foreach (var entity in entities)
-            {
-                Delete(entity);
-            }
-        }
-
-        public async Task DeleteAsync(IEnumerable<TEntity> entities)
-        {
-            foreach (var entity in entities)
-            {
-                await DeleteAsync(entity);
-            }
-        }
-
-        #endregion
 
         #region 创建一个原始 SQL 查询，该查询将返回此集中的实体
 
@@ -221,7 +62,7 @@ namespace ChiakiYu.EntityFramework
         ///     http://go.microsoft.com/fwlink/?LinkID=398589。
         /// </param>
         /// <returns></returns>
-        public IEnumerable<TEntity> SqlQuery(string sql, bool trackEnabled = true, params object[] parameters)
+        public IEnumerable<T> SqlQuery(string sql, bool trackEnabled = true, params object[] parameters)
         {
             return trackEnabled
                 ? _dbSet.SqlQuery(sql, parameters)
@@ -237,9 +78,106 @@ namespace ChiakiYu.EntityFramework
             return _unitOfWork.TransactionEnabled ? 0 : _unitOfWork.SaveChanges();
         }
 
-        private async Task<int> SaveChangesAsync()
+        #endregion
+
+        #region Insert
+
+        public T Insert(T entity)
         {
-            return _unitOfWork.TransactionEnabled ? 0 : await _unitOfWork.SaveChangesAsync();
+            _dbSet.Add(entity);
+            return SaveChanges() > 0 ? entity : null;
+        }
+
+        public T InsertOrUpdate(T entity)
+        {
+            return EqualityComparer<TKey>.Default.Equals(entity.Id, default(TKey))
+                ? Insert(entity)
+                : Update(entity);
+        }
+
+        public int Insert(IEnumerable<T> entities)
+        {
+            entities = entities as T[] ?? entities.ToArray();
+            _dbSet.AddRange(entities);
+            return SaveChanges();
+        }
+
+        #endregion
+
+        #region Update
+
+        public T Update(T entity)
+        {
+            var entityUpdate = ((DbContext) _unitOfWork).Update<T, TKey>(entity);
+            return SaveChanges() > 0 ? entityUpdate : null;
+        }
+
+        public void Update(IEnumerable<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                ((DbContext)_unitOfWork).Update<T, TKey>(entity);
+            }
+            SaveChanges();
+        }
+
+        #endregion
+
+        #region Delete
+
+        public bool Delete(T entity)
+        {
+            if (entity is ISoftDelete)
+            {
+                (entity as ISoftDelete).IsDeleted = true;
+                (entity as ISoftDelete).DeletedTime = DateTime.Now;
+            }
+            else
+            {
+                _dbSet.Remove(entity);
+            }
+            return SaveChanges() > 0;
+        }
+
+        public bool Delete(TKey id)
+        {
+            var entity = _dbSet.Find(id);
+            return entity != null && Delete(entity);
+        }
+
+
+        public void Delete(Expression<Func<T, bool>> predicate)
+        {
+            foreach (var entity in Table.Where(predicate).ToList())
+            {
+                if (entity is ISoftDelete)
+                {
+                    (entity as ISoftDelete).IsDeleted = true;
+                    (entity as ISoftDelete).DeletedTime = DateTime.Now;
+                }
+                else
+                {
+                    _dbSet.Remove(entity);
+                }
+            }
+            SaveChanges();
+        }
+
+        public void Delete(IEnumerable<T> entities)
+        {
+            foreach (var entity in entities)
+            {
+                if (entity is ISoftDelete)
+                {
+                    (entity as ISoftDelete).IsDeleted = true;
+                    (entity as ISoftDelete).DeletedTime = DateTime.Now;
+                }
+                else
+                {
+                    _dbSet.Remove(entity);
+                }
+            }
+            SaveChanges();
         }
 
         #endregion

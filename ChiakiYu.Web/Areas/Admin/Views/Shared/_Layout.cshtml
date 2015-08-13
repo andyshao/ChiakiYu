@@ -11,12 +11,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@ViewBag.Title - 幸运鱼</title>
-    @Styles.Render("~/Bundles/css")
+    @Styles.Render("~/bundles/css")
     <link href="~/Content/adminsite.css" rel="stylesheet" />
 
 
-    @Scripts.Render("~/Bundles/js/top")
-    @Scripts.Render("~/Bundles/js/bottom")
+    @Scripts.Render("~/bundles/js")
     <script src="~/Scripts/luckyyu/lucky.plugin.js"></script>
     <script src="~/Scripts/luckyyu/adminsite.js"></script>
     <!--[if lt IE 9]>
@@ -41,9 +40,6 @@
                 <a class="navbar-brand" href="index.html">幸运鱼 - 管理后台</a>
             </div><!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                @*@Html.Action(MVC.Channel._LanguageSelection())*@
-
-
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-user fa-fw"></i> <span>@User.Identity.Name</span> <i class="fa fa-caret-down"></i>

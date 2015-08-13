@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using ChiakiYu.Common.Dto;
+using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Users.Dto;
@@ -25,7 +25,7 @@ namespace ChiakiYu.Service.Users
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        PagingOutput<UserDto> GetUsers(GetUsersInput input);
+        PagingList<UserDto> GetUsers(GetUsersInput input);
 
         /// <summary>
         ///     创建角色

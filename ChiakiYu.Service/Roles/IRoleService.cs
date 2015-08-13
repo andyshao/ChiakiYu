@@ -1,19 +1,19 @@
 ﻿using System.Collections.Generic;
-using ChiakiYu.Common.Dto;
+using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.Model.Roles;
 using ChiakiYu.Service.Roles.Dto;
 
 namespace ChiakiYu.Service.Roles
 {
-    public interface IRoleService : IDependency 
+    public interface IRoleService : IDependency
     {
         /// <summary>
         ///     获取所有角色分页列表
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        PagingOutput<RoleDto> GetRoles(GetRolesInput input);
+        PagingList<RoleDto> GetRoles(GetRolesInput input);
 
         /// <summary>
         ///     获取所有角色列表

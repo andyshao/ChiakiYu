@@ -1,4 +1,4 @@
-﻿using ChiakiYu.Common.Dto;
+﻿using ChiakiYu.Core.Data;
 
 namespace ChiakiYu.Service.Users.Dto
 {

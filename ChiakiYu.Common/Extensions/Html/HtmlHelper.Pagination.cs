@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using ChiakiYu.Common.Dto;
+using ChiakiYu.Core.Data;
 
 namespace ChiakiYu.Common.Extensions.Html
 {
@@ -18,16 +18,16 @@ namespace ChiakiYu.Common.Extensions.Html
         /// </summary>
         /// <param name="paginationMode">分页按钮显示模式</param>
         /// <param name="html">被扩展的HtmlHelper</param>
-        /// <param name="pagingOutput">数据集</param>
+        /// <param name="pagingList">数据集</param>
         /// <param name="numericPagingButtonCount">数字分页按钮显示个数</param>
         /// <returns>分页按钮html代码</returns>
         public static MvcHtmlString PagingButton
             (this HtmlHelper html,
-                IPagingOutput pagingOutput,
+                IPagingList pagingList,
                 PaginationMode paginationMode = PaginationMode.NumericNextPrevious,
                 int numericPagingButtonCount = 7)
         {
-            return PagingButton(html, pagingOutput, false, null, paginationMode, numericPagingButtonCount);
+            return PagingButton(html, pagingList, false, null, paginationMode, numericPagingButtonCount);
         }
 
         /// <summary>
@@ -35,20 +35,20 @@ namespace ChiakiYu.Common.Extensions.Html
         /// </summary>
         /// <param name="paginationMode">分页按钮显示模式</param>
         /// <param name="html">被扩展的HtmlHelper</param>
-        /// <param name="pagingOutput">数据集</param>
+        /// <param name="pagingList">数据集</param>
         /// <param name="updateTargetId">异步分页时，被更新的目标元素Id</param>
         /// <param name="numericPagingButtonCount">数字分页按钮显示个数</param>
         /// <param name="ajaxUrl"></param>
         /// <returns>分页按钮html代码</returns>
         public static MvcHtmlString PagingButtonForAjax
             (this HtmlHelper html,
-                IPagingOutput pagingOutput,
+                IPagingList pagingList,
                 string updateTargetId,
                 PaginationMode paginationMode = PaginationMode.NumericNextPrevious,
                 int numericPagingButtonCount = 7,
                 string ajaxUrl = null)
         {
-            return PagingButton(html, pagingOutput, true, updateTargetId, paginationMode, numericPagingButtonCount,
+            return PagingButton(html, pagingList, true, updateTargetId, paginationMode, numericPagingButtonCount,
                 ajaxUrl);
         }
 
@@ -56,7 +56,7 @@ namespace ChiakiYu.Common.Extensions.Html
         ///     呈现分页按钮
         /// </summary>
         /// <param name="html">被扩展的HtmlHelper</param>
-        /// <param name="pagingOutput">数据集</param>
+        /// <param name="pagingList">数据集</param>
         /// <param name="enableAjax">是否使用ajax分页</param>
         /// <param name="updateTargetId">异步分页时，被更新的目标元素Id</param>
         /// <param name="paginationMode">分页按钮显示模式</param>
@@ -65,21 +65,22 @@ namespace ChiakiYu.Common.Extensions.Html
         /// <returns>分页按钮html代码</returns>
         private static MvcHtmlString PagingButton
             (this HtmlHelper html,
-                IPagingOutput pagingOutput,
+                IPagingList pagingList,
                 bool enableAjax, string updateTargetId,
                 PaginationMode paginationMode = PaginationMode.NumericNextPrevious,
                 int numericPagingButtonCount = 7,
                 string ajaxUrl = null)
         {
-            if (pagingOutput == null)
+            if (pagingList == null)
                 return MvcHtmlString.Empty;
-            if (pagingOutput.TotalCount == 0 || pagingOutput.PageSize == 0)
+            if (pagingList.TotalCount == 0 || pagingList.PageSize == 0)
                 return MvcHtmlString.Empty;
 
             //计算总页数
-            var totalPages = (int) (pagingOutput.TotalCount/pagingOutput.PageSize);
-            if ((pagingOutput.TotalCount%pagingOutput.PageSize) > 0)
-                totalPages++;
+            //var totalPages = (int) (pagingList.TotalCount/pagingList.PageSize);
+            //if ((pagingList.TotalCount%pagingList.PageSize) > 0)
+            //    totalPages++;
+            var totalPages = pagingList.TotalPages;
 
             //未超过一页时不显示分页按钮
             if (totalPages <= 1)
@@ -98,8 +99,8 @@ namespace ChiakiYu.Common.Extensions.Html
             //int numericPageButtonCount = 10;
 
             //对pageIndex进行修正
-            if ((pagingOutput.PageIndex < 1) || (pagingOutput.PageIndex > totalPages))
-                pagingOutput.PageIndex = 1;
+            if ((pagingList.PageIndex < 1) || (pagingList.PageIndex > totalPages))
+                pagingList.PageIndex = 1;
 
             var pagingContainer = new StringBuilder();
             pagingContainer.Append("<nav");
@@ -115,7 +116,7 @@ namespace ChiakiYu.Common.Extensions.Html
             {
                 pagingButtonsHtml.AppendLine();
 
-                if (pagingOutput.PageIndex == 1)
+                if (pagingList.PageIndex == 1)
                     pagingButtonsHtml.Append("<li class=\"disabled\"><span>首页</span></li>");
                 else
                     pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>首页</span></a></li>",
@@ -124,21 +125,21 @@ namespace ChiakiYu.Common.Extensions.Html
 
             //构建 "上一页"
             pagingButtonsHtml.AppendLine();
-            if (pagingOutput.PageIndex == 1)
+            if (pagingList.PageIndex == 1)
                 pagingButtonsHtml.Append("<li class=\"disabled\"><span>上一页</span></li>");
             else
                 pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>上一页</span></a></li>",
-                    GetPagingNavigateUrl(html, pagingOutput.PageIndex - 1, ajaxUrl));
+                    GetPagingNavigateUrl(html, pagingList.PageIndex - 1, ajaxUrl));
             //构建 数字分页部分
             if (showNumeric)
             {
                 int startNumericPageIndex;
-                if (numericPagingButtonCount > totalPages || pagingOutput.PageIndex - (numericPagingButtonCount/2) <= 0)
+                if (numericPagingButtonCount > totalPages || pagingList.PageIndex - (numericPagingButtonCount/2) <= 0)
                     startNumericPageIndex = 1;
-                else if (pagingOutput.PageIndex + (numericPagingButtonCount/2) > totalPages)
+                else if (pagingList.PageIndex + (numericPagingButtonCount/2) > totalPages)
                     startNumericPageIndex = totalPages - numericPagingButtonCount + 1;
                 else
-                    startNumericPageIndex = pagingOutput.PageIndex - (numericPagingButtonCount/2);
+                    startNumericPageIndex = pagingList.PageIndex - (numericPagingButtonCount/2);
 
                 if (startNumericPageIndex < 1)
                     startNumericPageIndex = 1;
@@ -159,7 +160,7 @@ namespace ChiakiYu.Common.Extensions.Html
                             pagingButtonsHtml.Append("<li><span>...</span></li>");
                         else
                         {
-                            if (pagingOutput.PageIndex == i)
+                            if (pagingList.PageIndex == i)
                                 pagingButtonsHtml.AppendFormat("<li class=\"active\"><span>{0}</span></li>", i);
                             else
                                 pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>{1}</span></a></li>",
@@ -171,7 +172,7 @@ namespace ChiakiYu.Common.Extensions.Html
                 for (var i = startNumericPageIndex; i <= lastNumericPageIndex; i++)
                 {
                     pagingButtonsHtml.AppendLine();
-                    if (pagingOutput.PageIndex == i)
+                    if (pagingList.PageIndex == i)
                         pagingButtonsHtml.AppendFormat("<li class=\"active\"><span>{0}</span></li>", i);
                     else
                         pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>{1}</span></a></li>",
@@ -194,7 +195,7 @@ namespace ChiakiYu.Common.Extensions.Html
                             continue;
                         }
 
-                        if (pagingOutput.PageIndex == i)
+                        if (pagingList.PageIndex == i)
                             pagingButtonsHtml.AppendFormat("<li class=\"active\"><span>{0}</span></li>", i);
                         else
                             pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>{1}</span></a></li>",
@@ -204,16 +205,16 @@ namespace ChiakiYu.Common.Extensions.Html
             }
             //构建 "下一页"
             pagingButtonsHtml.AppendLine();
-            if (pagingOutput.PageIndex == totalPages)
+            if (pagingList.PageIndex == totalPages)
                 pagingButtonsHtml.Append("<li class=\"disabled\"><span>下一页</span></li>");
             else
                 pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>下一页</span></a></li>",
-                    GetPagingNavigateUrl(html, pagingOutput.PageIndex + 1, ajaxUrl));
+                    GetPagingNavigateUrl(html, pagingList.PageIndex + 1, ajaxUrl));
             //构建 "末页"
             if (showLast)
             {
                 pagingButtonsHtml.AppendLine();
-                if (pagingOutput.PageIndex == totalPages)
+                if (pagingList.PageIndex == totalPages)
                     pagingButtonsHtml.Append("<li class=\"disabled\"><span>末页</span></li>");
                 else
                     pagingButtonsHtml.AppendFormat("<li><a href=\"{0}\"><span>末页</span></a></li>",
