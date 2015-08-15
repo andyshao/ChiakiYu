@@ -1,5 +1,5 @@
 ﻿@{
-    
+
     string activeMenu = ViewBag.ActiveMenu;
 }
 <!DOCTYPE html>
@@ -11,9 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@ViewBag.Title - 幸运鱼</title>
-    @Styles.Render("~/bundles/css")
-    <link href="~/Content/adminsite.css" rel="stylesheet" />
-
+    @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Content/admincss")
 
     @Scripts.Render("~/bundles/js")
     <script src="~/Scripts/luckyyu/lucky.plugin.js"></script>
@@ -46,7 +44,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            
+
                             <a href="@Url.Action(MVC.Channel.Home())"><i class="fa fa-home fa-fw"></i> 站点首页</a>
                         </li>
                         <li class="divider"></li>
@@ -71,8 +69,8 @@
                                 </span>
                             </div><!-- /input-group -->
                         </li>
-                        
-                        @Html.Action(MVC.Admin.Admin._Navigation(activeMenu))                        
+
+                        @Html.Action(MVC.Admin.Admin._Navigation(activeMenu))
 
                     </ul>
                 </div><!-- /.sidebar-collapse -->

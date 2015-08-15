@@ -11,9 +11,7 @@
     <meta name="author" content="幸运鱼...">
     <link rel="shortcut icon" href="~/favicon.ico">
     <title>@ViewBag.Title - 幸运鱼</title>
-    @Styles.Render("~/bundles/css")
-    <link href="~/Content/Site.css" rel="stylesheet" />
-    <!-- View specific styles -->
+        @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Content/css")
     @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/js")
     <script src="~/Scripts/luckyyu/lucky.plugin.js"></script>
@@ -135,7 +133,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank" href="@Url.Action("Home", "Channel")" title="LuckYu">LuckYu</a>. All Rights Reserved.
+                    &copy; 2015 <a target="_blank" href="@Url.Action("Home", "Channel")" title="ChiakiYu">ChiakiYu</a>. All Rights Reserved.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">

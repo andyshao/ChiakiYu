@@ -11,19 +11,40 @@ namespace ChiakiYu.Web
             bundles.Add(
                 new StyleBundle("~/bundles/css")
                     .Include(
-                        "~/Content/themes/base/all.css",
                         "~/Content/bootstrap/bootstrap.css",
                         "~/Content/animate/animate.css",
                         "~/Content/toastr.css",
                         "~/Scripts/sweetalert/sweet-alert.css",
-                        "~/Content/flags/famfamfam-flags.css",
-                        "~/Content/font-awesome/css/font-awesome.css",
                         "~/Scripts/metisMenu/metisMenu.min.css",
                         "~/Scripts/zTree/css/zTreeStyle/zTreeStyle.css",
                         "~/Content/prettyPhoto.css",
                         "~/Scripts/artDialog/css/ui-dialog.css"
                     )
                 );
+            //字体
+            bundles.Add(
+                new StyleBundle("~/Content/font-awesome/css/css")
+                    .Include(
+                        "~/Content/font-awesome/css/font-awesome.css"
+                    )
+                );
+
+            //后台站点site
+            bundles.Add(
+                new StyleBundle("~/Content/admincss")
+                    .Include(
+                        "~/Content/adminsite.css"
+                    )
+                );
+
+            //前台站点site
+            bundles.Add(
+                new StyleBundle("~/Content/css")
+                    .Include(
+                        "~/Content/Site.css"
+                    )
+                );
+
 
             bundles.Add(
                 new ScriptBundle("~/bundles/js")
