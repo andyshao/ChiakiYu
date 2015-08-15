@@ -237,11 +237,8 @@
     <Content Include="Areas\Admin\Views\Admin\_Navigation.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Images\404.xcf" />
     <Content Include="App_Data\log4net.config" />
     <Content Include="App_Data\permission.config" />
-    <Content Include="Content\toastr.less" />
-    <Content Include="Content\toastr.scss" />
     <Content Include="Scripts\bower_components\bootstrap-social\.bower.json" />
     <Content Include="Scripts\bower_components\bootstrap-social\.editorconfig" />
     <Content Include="Scripts\bower_components\bootstrap-social\bootstrap-social.less" />
