@@ -160,6 +160,7 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="App_Start\DataInit.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminSettingController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Startup.cs" />
@@ -167,6 +168,9 @@
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\Admin.AdminController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Admin.AdminSettingController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\Admin.AdminUserController.generated.cs">
@@ -404,6 +408,7 @@
     <Content Include="Scripts\bower_components\morrisjs\spec\viz\run.sh" />
     <Content Include="Scripts\bower_components\raphael\.bower.json" />
     <Content Include="Scripts\bower_components\raphael\bower.json" />
+    <Content Include="Areas\Admin\Views\AdminSetting\SiteSettings.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Images\abp-logo.png" />
     <Content Include="Images\accordion1.png" />

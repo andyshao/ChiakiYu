@@ -3,9 +3,9 @@ using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Mapping.Users
 {
-    public class UserMapper : EntityConfiguration<User, long>
+    public class UserMapping : EntityConfiguration<User, long>
     {
-        public UserMapper()
+        public UserMapping()
         {
             ToTable("Sys_Users");
             //Property(n => n.IsActived).HasColumnType("int");

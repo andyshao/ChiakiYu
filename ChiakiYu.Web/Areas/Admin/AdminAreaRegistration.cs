@@ -39,6 +39,14 @@ namespace ChiakiYu.Web.Areas.Admin
 
             #endregion
 
+            #region Admin_User
+
+            context.MapRoute("Admin_Setting_Common", "AdminSetting/{action}" + extensionForOldIIS,
+                new { controller = "AdminSetting", action = "SiteSettings" }
+                );
+
+            #endregion
+
             #endregion
 
             context.MapRoute("Admin_Common", "Admin/{action}/{id}",

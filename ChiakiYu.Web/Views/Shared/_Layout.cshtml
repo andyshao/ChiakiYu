@@ -1,4 +1,6 @@
 ﻿@{
+    var siteSetting = DependencyResolver.Current.GetService<ISettingService<SiteSetting>>().Get() ?? new SiteSetting();
+
     string activeMenu = ViewBag.ActiveMenu;
 }
 <!DOCTYPE html>
@@ -7,11 +9,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="幸运鱼...">
-    <meta name="author" content="幸运鱼...">
+    <meta name="description" content="@(siteSetting.MetaDescription)">
+    <meta name="keywords" content="@(siteSetting.MetaKeyWords)" />
+    <meta name="generator" content="@(siteSetting.MetaGenerator)" />
+    <meta name="author" content="@(siteSetting.MetaAuthor)">
     <link rel="shortcut icon" href="~/favicon.ico">
-    <title>@ViewBag.Title - 幸运鱼</title>
-        @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Content/css")
+    <title>@ViewBag.Title - @(siteSetting.SiteName)</title>
+    @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Content/css")
     @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/js")
     <script src="~/Scripts/luckyyu/lucky.plugin.js"></script>

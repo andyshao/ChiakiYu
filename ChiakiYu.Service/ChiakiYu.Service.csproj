@@ -69,6 +69,8 @@
     <Compile Include="Roles\Dto\RoleDto.cs" />
     <Compile Include="Roles\IRoleService.cs" />
     <Compile Include="Roles\RoleService.cs" />
+    <Compile Include="Settings\ISettingService.cs" />
+    <Compile Include="Settings\SettingService.cs" />
     <Compile Include="Users\Dto\GetUsersInput.cs" />
     <Compile Include="Users\Dto\UserDto.cs" />
     <Compile Include="Users\IUserService.cs" />

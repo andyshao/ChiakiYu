@@ -4,8 +4,10 @@ using System.Web.Mvc;
 using System.Web.Security;
 using ChiakiYu.Common.Data;
 using ChiakiYu.Model.Navigations;
+using ChiakiYu.Model.Settings;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Navigations;
+using ChiakiYu.Service.Settings;
 using ChiakiYu.Service.Users;
 using ChiakiYu.Web.Areas.Admin.Controllers.Filters;
 using ChiakiYu.Web.ViewModels.Account;
@@ -14,15 +16,6 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
 {
     public partial class AdminController : Controller
     {
-
-
-        #region 私有字段
-
-        private readonly IUserService _userService;
-        private readonly INavigationService _navigationService; 
-
-        #endregion
-
         #region 构造函数
 
         public AdminController(INavigationService navigationService, IUserService userService)
@@ -30,6 +23,14 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             _navigationService = navigationService;
             _userService = userService;
         }
+
+        #endregion
+
+        #region 私有字段
+
+        private readonly IUserService _userService;
+        private readonly INavigationService _navigationService;
+        
 
         #endregion
 
@@ -125,7 +126,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             Response.Cookies.Add(adminCookie);
             FormsAuthentication.SetAuthCookie(user.UserName, model.RememberMe);
 
-            string returnUrl = string.IsNullOrEmpty(model.ReturnUrl)
+            var returnUrl = string.IsNullOrEmpty(model.ReturnUrl)
                 ? Request.QueryString.Get("ReturnUrl")
                 : model.ReturnUrl;
             if (string.IsNullOrWhiteSpace(returnUrl))

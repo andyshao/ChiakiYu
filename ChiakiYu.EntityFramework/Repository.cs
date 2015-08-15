@@ -23,7 +23,7 @@ namespace ChiakiYu.EntityFramework
         {
             _unitOfWork = unitOfWork;
             _dbSet = ((DbContext)unitOfWork).Set<T>();
-        } 
+        }
         #endregion
 
         #region 属性
@@ -41,7 +41,7 @@ namespace ChiakiYu.EntityFramework
         public IQueryable<T> TableNoTracking
         {
             get { return _dbSet.AsNoTracking(); }
-        } 
+        }
         #endregion
 
         #region Get方法
@@ -61,9 +61,11 @@ namespace ChiakiYu.EntityFramework
 
         public T InsertOrUpdate(T entity)
         {
-            return EqualityComparer<TKey>.Default.Equals(entity.Id, default(TKey))
-                ? Insert(entity)
-                : Update(entity);
+
+            //return EqualityComparer<TKey>.Default.Equals(entity.Id, default(TKey))
+            return Get(entity.Id) == null
+            ? Insert(entity)
+            : Update(entity);
         }
 
         public int Insert(IEnumerable<T> entities)

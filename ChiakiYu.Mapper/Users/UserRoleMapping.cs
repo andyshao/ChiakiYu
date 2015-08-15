@@ -3,9 +3,9 @@ using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Mapping.Users
 {
-    public class UserRoleMapper : EntityConfiguration<UserRole, string>
+    public class UserRoleMapping : EntityConfiguration<UserRole, string>
     {
-        public UserRoleMapper()
+        public UserRoleMapping()
         {
             ToTable("Sys_UserRoles");
         }

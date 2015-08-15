@@ -1,5 +1,5 @@
 ﻿@{
-
+    var siteSetting = DependencyResolver.Current.GetService<ISettingService<SiteSetting>>().Get() ?? new SiteSetting();
     string activeMenu = ViewBag.ActiveMenu;
 }
 <!DOCTYPE html>
@@ -8,9 +8,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>@ViewBag.Title - 幸运鱼</title>
+    @*<meta name="description" content="@(siteSetting.MetaDescription)">*@
+    @*<meta name="keywords" content="@(siteSetting.MetaKeyWords)" />*@
+    @*<meta name="generator" content="@(siteSetting.MetaGenerator)" />*@
+    @*<meta name="author" content="@(siteSetting.MetaAuthor)">*@
+    <title>@ViewBag.Title - @(siteSetting.SiteName)</title>
     @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Content/admincss")
 
     @Scripts.Render("~/bundles/js")

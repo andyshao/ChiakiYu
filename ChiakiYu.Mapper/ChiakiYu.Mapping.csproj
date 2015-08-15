@@ -40,13 +40,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigations\NavigationMapper.cs" />
-    <Compile Include="Permissions\PermissionSiteMapper.cs" />
-    <Compile Include="Permissions\PermissionMapper.cs" />
+    <Compile Include="Navigations\NavigationMapping.cs" />
+    <Compile Include="Permissions\PermissionSiteMapping.cs" />
+    <Compile Include="Permissions\PermissionMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role\RoleMapper.cs" />
-    <Compile Include="Users\UserMapper.cs" />
-    <Compile Include="Users\UserRoleMapper.cs" />
+    <Compile Include="Roles\RoleMapping.cs" />
+    <Compile Include="Settings\SettingMapping.cs" />
+    <Compile Include="Users\UserMapping.cs" />
+    <Compile Include="Users\UserRoleMapping.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChiakiYu.Core\ChiakiYu.Core.csproj">

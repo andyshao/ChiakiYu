@@ -43,7 +43,7 @@ namespace ChiakiYu.Web
                 ,new Navigation(){Id=2003002,Name = "新闻类别",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2003000,Url = null,IconName = null,Order = 7,IsEnabled = true}
                 ,new Navigation(){Id=2003003,Name = "发布新闻",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2003000,Url =null,IconName = null,Order = 8,IsEnabled = true}
                 ,new Navigation(){Id=2004000,Name = "系统",PresentArea = PresentArea.Admin,Level = 1,ParentId = 0,Url = null,IconName = "fa fa-cogs fa-fw",Order = 9,IsEnabled = true}
-                ,new Navigation(){Id=2004001,Name = "站点管理",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = null,IconName =null,Order = 10,IsEnabled = true}
+                ,new Navigation(){Id=2004001,Name = "站点设置",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = "/AdminSetting/SiteSettings",IconName =null,Order = 10,IsEnabled = true}
                 ,new Navigation(){Id=2004002,Name = "重启站点",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = null,IconName = null,Order = 11,IsEnabled = true}
                 ,new Navigation(){Id=2004003,Name = "清理缓存",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = null,IconName = null,Order = 12,IsEnabled = true}
             };

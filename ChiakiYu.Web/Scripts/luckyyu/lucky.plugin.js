@@ -31,14 +31,26 @@
         $("body").on("click", "[plugin='ajaxSubmit']", function (e) {
             e.preventDefault();
             var form = $(this).parents("form");
+            if (!form.validate().form())
+                return false;
             var url = form.attr("action");
-            $.Yu.ajaxSubmitForm(url, form.serialize());
+            $.Yu.ajaxSubmitForm(url, form.serialize(), false);
+        });
+
+        //异步提交表单(弹窗)
+        $("body").on("click", "[plugin='ajaxSubmitDialog']", function (e) {
+            e.preventDefault();
+            var form = $(this).parents("form");
+            if (!form.validate().form())
+                return false;
+            var url = form.attr("action");
+            $.Yu.ajaxSubmitForm(url, form.serialize(), true);
         });
 
     });
     $.Yu = {
         ///ajax提交表单
-        ajaxSubmitForm: function (url, data) {
+        ajaxSubmitForm: function (url, data, isDialog) {
 
             var dialogLoading = $.Yu.loading();
 
@@ -51,7 +63,7 @@
 
                     dialogLoading.close().remove();
 
-                    if (data.MessageType === 1) {
+                    if (data.MessageType === 1 && isDialog) {
                         dialog.get("dialogForm").close().remove();
                     }
                     $.Yu.tips(data.MessageContent, data.MessageType);

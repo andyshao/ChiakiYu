@@ -13,6 +13,7 @@ using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.EntityFramework;
 using ChiakiYu.EntityFramework.Migrations;
 using ChiakiYu.Service;
+using ChiakiYu.Service.Settings;
 
 namespace ChiakiYu.Web
 {
@@ -35,6 +36,7 @@ namespace ChiakiYu.Web
         {
             var builder = new ContainerBuilder();
             builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>));
+            builder.RegisterGeneric(typeof(SettingService<>)).As(typeof(ISettingService<>));
             var baseType = typeof(IDependency);
             var path = AppDomain.CurrentDomain.RelativeSearchPath;
             var assemblies = Directory.GetFiles(path, "*.dll").Select(m => Assembly.LoadFrom(m)).ToArray();

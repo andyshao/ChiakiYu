@@ -4,9 +4,9 @@ using ChiakiYu.Model.Navigations;
 
 namespace ChiakiYu.Mapping.Navigations
 {
-    public class NavigationMapper : EntityConfiguration<Navigation, long>
+    public class NavigationMapping : EntityConfiguration<Navigation, long>
     {
-        public NavigationMapper()
+        public NavigationMapping()
         {
             ToTable("Sys_Navigations");
            HasKey(n=>n.Id).Property(c => c.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
