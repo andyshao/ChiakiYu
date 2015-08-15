@@ -1,31 +1,401 @@
 ﻿@{
-    ViewBag.Title = "Channel Page";
+    ViewBag.Title = "首页";
+    ViewBag.ActiveMenu = "首页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
+<section id="main-slider" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < 3; i++)
+        {
+            string active = i == 0 ? "active" : "";
+            <li data-target="#main-slider" data-slide-to="@(i)" class="@active"></li>
+        }
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        @for (int i = 1; i <= 3; i++)
+        {
+            string active = i == 1 ? "active" : "";
+            <div class="item @active">
+                <div class="container">
+                    <div class="row slide-margin">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h1 class="animation animated-item-1">中华鲟:Acipenser sinensis</h1>
+                                <h2 class="animation animated-item-2">中华鲟为白垩纪残留至今最为古老的现生鱼类之一，在全世界20余种鲟科鱼类中分布纬度最低，体型最大，生长最快，为我国特有种，因具有许多原始性状成了介于软骨鱼类和硬骨鱼类之间的中间类型，在学术研究上具有重要价值。 </h2>
+                                <a class="btn-slide animation animated-item-3" href="#">更多</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="slider-img">
+                                <img src="~/Images/slider/img@(i).png" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        }
+    </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+    <!-- Controls -->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <i class="fa fa-chevron-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+        <i class="fa fa-chevron-right"></i>
+    </a>
+</section>
+<section id="feature">
+    <div class="container">
+        <div class="center wow flipInX">
+            <h2>特色</h2>
+            <p class="lead">
+                世界纷纷扰扰喧喧闹闹，什么是真实；为你跌跌撞撞傻傻笑笑，买一杯果汁；
+                <br>就算庸庸碌碌匆匆忙忙，活过一辈子；也要分分秒秒年年日日，全心守护你。
+            </p>
+        </div>
+        <div class="row">
+            <div class="features">
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-apple"></i>
+                        <h2>苹果</h2>
+                        <h3>单笔青春下的简朴年华。</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-qq"></i>
+                        <h2>腾讯</h2>
+                        <h3>单笔青春下的简朴年华。</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-weibo"></i>
+                        <h2>微博</h2>
+                        <h3>单笔青春下的简朴年华。</h3>
+                    </div>
+                </div><!--/.col-md-4-->
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>GetRoleting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>GetRole more libraries</h2>
-        <p>NuGetRole is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-weixin"></i>
+                        <h2>微信</h2>
+                        <h3>单笔青春下的简朴年华。</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-music"></i>
+                        <h2>音乐</h2>
+                        <h3>单笔青春下的简朴年华。</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-git"></i>
+                        <h2>git</h2>
+                        <h3>单笔青春下的简朴年华。</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+            </div><!--/.services-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#feature-->
+<section id="recent-works">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2>照片墙</h2>
+            <p class="lead">上邪，我欲与君相知，长命无绝衰。<br> 山无棱，江水为竭，冬雷震震，夏雨雪，天地合，乃敢与君绝。</p>
+        </div>
+        <div class="row">
+            @for (int i = 1; i <= 8; i++)
+            {
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="recent-work-wrap wow fadeInDown">
+                        <img class="img-responsive" src="~/Images/portfolio/recent/item@(i).png" alt="">
+                        <div class="overlay">
+                            <div class="recent-work-inner">
+                                <h3><a href="#">蝶恋花</a> </h3>
+                                <p>昨夜西风凋碧树，独上高楼，望尽天涯路。欲寄彩笺兼尺素，山长水阔知何处。</p>
+                                <a class="preview" href="~/Images/portfolio/full/item@(i).png" rel="prettyPhoto"><i class="fa fa-search-plus"></i> 放大</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#recent-works-->
+<section id="services" class="service-item">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2>服务范围</h2>
+            <p class="lead">上邪，我欲与君相知，长命无绝衰。<br> 山无棱，江水为竭，冬雷震震，夏雨雪，天地合，乃敢与君绝。</p>
+        </div>
+        <div class="row">
+            @for (int i = 1; i <= 6; i++)
+            {
+                <div class="col-sm-6 col-md-4">
+                    <div class="media services-wrap wow fadeInDown">
+                        <div class="pull-left">
+                            <img class="img-responsive" src="~/Images/services/services@(i).png">
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">蝶恋花</h3>
+                            <p>昨夜西风凋碧树，独上高楼，望尽天涯路。欲寄彩笺兼尺素，山长水阔知何处。</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#services-->
+<section id="middle">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 wow fadeInDown">
+                <div class="skill">
+                    <h2>进度条</h2>
+                    <p>进度条进度条进度条进度条进度条进度条</p>
+                    <div class="progress-wrap">
+                        <h3>success</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                40%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <h3>info</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                20%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <h3>warning</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                90%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progress-wrap">
+                        <h3>danger</h3>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                60%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.col-sm-6-->
+            <div class="col-sm-6 wow fadeInDown">
+                <div class="accordion">
+                    <h2>Why People like us?</h2>
+                    <div class="panel-group" id="accordion1">
+                        <div class="panel panel-default">
+                            <div class="panel-heading active">
+                                <h3 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                                        Lorem ipsum dolor sit amet
+                                        <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapseOne1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="media accordion-inner">
+                                        <div class="pull-left">
+                                            <img class="img-responsive" src="~/Images/accordion1.png">
+                                        </div>
+                                        <div class="media-body">
+                                            <h4>Adipisicing elit</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">
+                                        Lorem ipsum dolor sit amet
+                                        <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapseTwo1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">
+                                        Lorem ipsum dolor sit amet
+                                        <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapseThree1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseFour1">
+                                        Lorem ipsum dolor sit amet
+                                        <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapseFour1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/#accordion1-->
+                </div>
+            </div>
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#middle-->
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 wow fadeInDown">
+                <div class="tab-wrap">
+                    <div class="media">
+                        <div class="parrent pull-left">
+                            <ul class="nav nav-tabs nav-stacked">
+                                <li class=""><a href="#tab1" data-toggle="tab" class="analistic-01">Responsive Web Design</a></li>
+                                <li class="active"><a href="#tab2" data-toggle="tab" class="analistic-02">Premium Plugin Included</a></li>
+                                <li class=""><a href="#tab3" data-toggle="tab" class="tehnical">Predefine Layout</a></li>
+                                <li class=""><a href="#tab4" data-toggle="tab" class="tehnical">Our Philosopy</a></li>
+                                <li class=""><a href="#tab5" data-toggle="tab" class="tehnical">What We Do?</a></li>
+                            </ul>
+                        </div>
+                        <div class="parrent media-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade" id="tab1">
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="img-responsive" src="~/Images/tab2.png">
+                                        </div>
+                                        <div class="media-body">
+                                            <h2>Adipisicing elit</h2>
+                                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade active in" id="tab2">
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="img-responsive" src="~/Images/tab1.png">
+                                        </div>
+                                        <div class="media-body">
+                                            <h2>Adipisicing elit</h2>
+                                            <p>
+                                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab3">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+                                </div>
+
+                                <div class="tab-pane fade" id="tab4">
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words</p>
+                                </div>
+                                <div class="tab-pane fade" id="tab5">
+                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures,</p>
+                                </div>
+                            </div> <!--/.tab-content-->
+                        </div> <!--/.media-body-->
+                    </div> <!--/.media-->
+                </div><!--/.tab-wrap-->
+            </div><!--/.col-sm-6-->
+            <div class="col-xs-12 col-sm-4 wow fadeInDown">
+                <div class="testimonial">
+                    <h2>Testimonials</h2>
+                    <div class="media testimonial-inner">
+                        <div class="pull-left">
+                            <img class="img-responsive img-circle" src="~/Images/testimonials1.png">
+                        </div>
+                        <div class="media-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                            <span><strong>-John Doe/</strong> Director of corlate.com</span>
+                        </div>
+                    </div>
+                    <div class="media testimonial-inner">
+                        <div class="pull-left">
+                            <img class="img-responsive img-circle" src="~/Images/testimonials1.png">
+                        </div>
+                        <div class="media-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                            <span><strong>-John Doe/</strong> Director of corlate.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#content-->
+<section id="partner">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2>合作伙伴</h2>
+            <p class="lead">上邪，我欲与君相知，长命无绝衰。<br> 山无棱，江水为竭，冬雷震震，夏雨雪，天地合，乃敢与君绝。</p>
+        </div>
+        <div class="partners">
+            <ul>
+                <li>
+                    <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="~/Images/partners/partner1.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="~/Images/partners/partner2.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="~/Images/partners/partner3.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="~/Images/partners/partner4.png"></a>
+                </li>
+                <li>
+                    <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="~/Images/partners/partner5.png"></a>
+                </li>
+            </ul>
+        </div>
+    </div><!--/.container-->
+</section><!--/#partner-->
+<section id="conatcat-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="pull-left">
+                        <i class="fa fa-question"></i>
+                    </div>
+                    <div class="media-body">
+                        <h2>有问题？</h2>
+                        <p>忍着吧。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/.container-->
+</section><!--/#conatcat-info-->

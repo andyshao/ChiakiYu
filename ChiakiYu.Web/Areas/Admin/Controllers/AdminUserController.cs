@@ -21,11 +21,15 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
     [ManageAuthorize(RequireSystemAdministrator = true)]
     public partial class AdminUserController : Controller
     {
-        #region 构造函数
+        #region 私有字段
 
         private readonly IUserService _userService;
         private readonly IRoleService _roleService;
-        private readonly IAuthorizationService _authorizationService;
+        private readonly IAuthorizationService _authorizationService; 
+
+        #endregion
+
+        #region 构造函数
 
         public AdminUserController(IUserService userService,
             IRoleService roleService,

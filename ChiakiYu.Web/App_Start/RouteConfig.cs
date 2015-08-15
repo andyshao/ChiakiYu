@@ -26,7 +26,7 @@ namespace ChiakiYu.Web
 
             routes.MapRoute(
                 "Channel_Home", // Route name
-                "Channel" + extensionForOldIIS, // URL with parameters
+                "Home" + extensionForOldIIS, // URL with parameters
                 new { controller = "Channel", action = "Home" } // Parameter defaults
                 );
 

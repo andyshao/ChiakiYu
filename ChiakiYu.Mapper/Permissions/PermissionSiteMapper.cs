@@ -2,7 +2,7 @@
 using ChiakiYu.EntityFramework;
 using ChiakiYu.Model.Permissions;
 
-namespace ChiakiYu.Mapper.Permissions
+namespace ChiakiYu.Mapping.Permissions
 {
     public class PermissionSiteMapper : EntityConfiguration<PermissionSite, int>
     {

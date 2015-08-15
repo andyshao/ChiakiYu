@@ -1,0 +1,114 @@
+﻿@model RegisterEditModel
+@{
+    ViewBag.Title = "注册";
+    Layout = "~/Views/Shared/_Account.cshtml";
+    string statusMessageData = TempData["StatusMessageData"] == null ? string.Empty : TempData["StatusMessageData"].ToString();
+}
+
+<div class="container">
+    <div class="row" style="margin-top:50px;">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <h2 class="text-info text-center">注册</h2>
+                <div class="panel-body">
+                    @using (Html.BeginForm(MVC.Account.Register(), FormMethod.Post, new { id = "registerUser", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            @if (!string.IsNullOrEmpty(statusMessageData))
+                            {
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                                    @statusMessageData
+                                </div>
+                            }
+                            <div class="form-group">
+                                
+                                @Html.TextBoxFor(n => n.UserName, new RouteValueDictionary { { "autofocus", "" }, { "placeholder", "用户名" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.UserName)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(n => n.AccountEmail, new RouteValueDictionary { { "type", "email" }, { "autofocus", "" }, { "placeholder", "邮箱" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.AccountEmail)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(n => n.AccountMobile, new RouteValueDictionary { { "placeholder", "手机号" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.AccountMobile)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(n => n.NickName, new RouteValueDictionary { { "placeholder", "昵称" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.NickName)
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(n => n.PassWord, new RouteValueDictionary { { "placeholder", "密码" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.PassWord)
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(n => n.ConfirmPassWord, new RouteValueDictionary { { "placeholder", "确认密码" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.ConfirmPassWord)
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBox("Captcha", "", new RouteValueDictionary { { "placeholder", "验证码" }, { "class", "form-control" } })
+                            </div>
+                            <div class="form-group">
+                                @Html.CheckBoxFor(n => n.AcceptableProvision)
+                                @Html.LabelFor(n => n.AcceptableProvision)
+                                <a href="javascript:;" id="Provision">《会员服务条款》</a>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">注册</button>
+                        </fieldset>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ProvisionContent" hidden>
+    <p>为什么要使用Log</p>
+    <p>在使用微信控制你的电脑这篇文章中，我写好了电脑端的程序，使用py2exe生成可执行文件，并把它们发送给我的朋友让他们进行测试。但是他们把_config.ini设置好以后，运行程序就看到一个黑色窗口一闪而过。或者有些人一开始看到程序能正常登陆邮箱，但是准备执行命令的时候，窗口自动关闭。</p>
+    <p>由于没有日志记录程序的运行状态，我根据他们的描述很难定位到错误在哪个地方。于是折腾了一个下午。</p><p>
+    <p>这个时候，我觉得添加一个日志的功能迫在眉睫。</p>
+    <p> 哪些地方应该用Log</p>
+    <p>目前网上能找到的关于如何使用日志的文章，全部都是从技术角度讲怎么使用log：在XX地方应该先imort logging，然后basicconfig设定XX内容。可是我现在的问题是：</p>
+    <p>应该在程序的哪些地方添加日志的输出？</p>
+    <p>输出什么内容？</p>
+    <p>如何输出才能以方便我的监控程序的运行情况？</p>
+    <p>于是我只有自己摸索。因此，以下内容是我自己摸索出来的野路子，可能会有错漏。希望有经验的朋友能给我指正，非常感谢。</p>
+    <p>这些地方应该用Log</p>
+    <p>使用使用微信控制你的电脑文章中涉及到的例子</p>
+    <p>程序入口代码如下：</p>
+    <p>
+        if __name__=='__main__':
+        init()
+        print u'等待接收命令'
+        logging.info(u'初始化完成。')
+        while 1:
+        time.sleep(int(time_limit)) #每5分钟检查一次邮箱
+        accp_mail()
+    </p>
+    <p>以上代码表示程序运行以后，首先执行init()函数，于是如果init()初始化没有什么问题，成功执行完成以后，就应该在日志中输出“初始化完成”，然后进入接收邮件的循环。如果程序窗口运行以后一闪而过，而且生成的日志中没有初始化完成这样的字眼，那就说明问题出在初始化上面。</p>
+    <p>然而初始化函数里面代码也有很多，又如何知道是初始化程序里面的什么地方出问题了呢？</p>
+    <p>所以，再初始化函数里面，也应该有一定的日志记录。</p>
+    <p>再看初始化函数的代码：</p>
+    <p>以上代码表示程序运行以后，首先执行init()函数，于是如果init()初始化没有什么问题，成功执行完成以后，就应该在日志中输出“初始化完成”，然后进入接收邮件的循环。如果程序窗口运行以后一闪而过，而且生成的日志中没有初始化完成这样的字眼，那就说明问题出在初始化上面。</p>
+    <p>然而初始化函数里面代码也有很多，又如何知道是初始化程序里面的什么地方出问题了呢？</p>
+    <p>所以，再初始化函数里面，也应该有一定的日志记录。</p>
+    <p>再看初始化函数的代码：</p>
+    <p>以上代码表示程序运行以后，首先执行init()函数，于是如果init()初始化没有什么问题，成功执行完成以后，就应该在日志中输出“初始化完成”，然后进入接收邮件的循环。如果程序窗口运行以后一闪而过，而且生成的日志中没有初始化完成这样的字眼，那就说明问题出在初始化上面。</p>
+    <p>然而初始化函数里面代码也有很多，又如何知道是初始化程序里面的什么地方出问题了呢？</p>
+    <p>所以，再初始化函数里面，也应该有一定的日志记录。</p>
+    <p>再看初始化函数的代码：</p>
+    <p>以上代码表示程序运行以后，首先执行init()函数，于是如果init()初始化没有什么问题，成功执行完成以后，就应该在日志中输出“初始化完成”，然后进入接收邮件的循环。如果程序窗口运行以后一闪而过，而且生成的日志中没有初始化完成这样的字眼，那就说明问题出在初始化上面。</p>
+    <p>然而初始化函数里面代码也有很多，又如何知道是初始化程序里面的什么地方出问题了呢？</p>
+    <p>所以，再初始化函数里面，也应该有一定的日志记录。</p>
+    <p>再看初始化函数的代码：</p>
+    <p>以上代码表示程序运行以后，首先执行init()函数，于是如果init()初始化没有什么问题，成功执行完成以后，就应该在日志中输出“初始化完成”，然后进入接收邮件的循环。如果程序窗口运行以后一闪而过，而且生成的日志中没有初始化完成这样的字眼，那就说明问题出在初始化上面。</p>
+    <p>然而初始化函数里面代码也有很多，又如何知道是初始化程序里面的什么地方出问题了呢？</p>
+    <p>所以，再初始化函数里面，也应该有一定的日志记录。</p>
+    <p>再看初始化函数的代码：</p>
+    <p>以上代码表示程序运行以后，首先执行init()函数，于是如果init()初始化没有什么问题，成功执行完成以后，就应该在日志中输出“初始化完成”，然后进入接收邮件的循环。如果程序窗口运行以后一闪而过，而且生成的日志中没有初始化完成这样的字眼，那就说明问题出在初始化上面。</p>
+    <p>然而初始化函数里面代码也有很多，又如何知道是初始化程序里面的什么地方出问题了呢？</p>
+    <p>所以，再初始化函数里面，也应该有一定的日志记录。</p>
+    <p>再看初始化函数的代码：</p>
+</div>

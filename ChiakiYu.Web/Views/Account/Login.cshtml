@@ -1,0 +1,51 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "登录";
+    Layout = "~/Views/Shared/_Account.cshtml";
+    string statusMessageData = TempData["StatusMessageData"] == null ? string.Empty : TempData["StatusMessageData"].ToString();
+}
+
+
+<div class="container">
+    <div class="row" style="margin-top:150px;">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <h2 class="text-info text-center">登录</h2>
+                <div class="panel-body">
+                    @using (Html.BeginForm(MVC.Account.Login(), FormMethod.Post, new { id = "registerUser", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            @if (!string.IsNullOrEmpty(statusMessageData))
+                            {
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                                    @statusMessageData
+                                </div>
+                            }
+                            <div class="form-group">
+                                @Html.TextBoxFor(n => n.UserName, new RouteValueDictionary { { "autofocus", "" }, { "placeholder", "用户名/邮箱/手机号" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.UserName)
+                            </div>
+                            <div class="form-group">
+                                @Html.PasswordFor(n => n.PassWord, new RouteValueDictionary { { "placeholder", "密码" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.PassWord)
+                            </div>
+
+                            <div class="form-group">
+                                    
+                                        @Html.CheckBoxFor(n => n.RememberMe)
+                                       @Html.LabelFor(n => n.RememberMe)
+                                 @*<label><input type="checkbox" value="1" > 记住我</label>*@
+                                    
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">登录</button>
+                        </fieldset>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

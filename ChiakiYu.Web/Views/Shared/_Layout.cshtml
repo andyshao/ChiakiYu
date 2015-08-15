@@ -1,42 +1,153 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{
+    string activeMenu = ViewBag.ActiveMenu;
+}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="幸运鱼...">
+    <meta name="author" content="幸运鱼...">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>@ViewBag.Title - 幸运鱼</title>
     @Styles.Render("~/bundles/css")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!-- View specific styles -->
+    @RenderSection("styles", required: false)
     @Scripts.Render("~/bundles/js")
+    <script src="~/Scripts/luckyyu/lucky.plugin.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("~/Scripts/others/html5shiv.js")"></script>
+        <script src="@Url.Content("~/Scripts/others/respond.min.js")"></script>
+    <![endif]-->
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("应用程序名称", "Home", "Channel", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Home", "Channel")</li>
-                    <li>@Html.ActionLink("关于", "About", "Channel")</li>
-                    <li>@Html.ActionLink("联系方式", "Contact", "Channel")</li>
-                </ul>
+    <header id="header">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action(MVC.Channel.Home())"><img height="30" src="~/Images/logo.png" alt="LuckyYu"></a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        @Html.Action(MVC.Channel._Header(activeMenu))
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (User != null && User.Identity != null && string.IsNullOrEmpty(User.Identity.Name))
+                        {
+                            <li>
+                                <a href="javascript:;" data-href="@Url.Action(MVC.Account.Login(Request.RawUrl))" plugin="dialog" title="登录（Modal测试）">登录（Modal测试）</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action(MVC.Account.Login(Request.RawUrl))" title="登录">登录</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action(MVC.Account.Register())" title="注册">注册</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="" data-toggle="dropdown"><i class="fa fa-user"></i> <span>@(UserContext.CurrentUser == null ? string.Empty : UserContext.CurrentUser.UserName)</span> <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action(MVC.Account.Logout())"><i class="fa fa-sign-out"></i>注销</a></li>
+                                </ul>
+                            </li>
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
-        </footer>
-    </div>
+    </header>
+    @RenderBody()
 
-    
+    <section id="bottom">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>公司</h3>
+                        <ul>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">招聘进行时</a></li>
+                            <li><a href="#">团队</a></li>
+                            <li><a href="#">版权</a></li>
+                            <li><a href="#">使用条款</a></li>
+                            <li><a href="#">隐私条例</a></li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>支持</h3>
+                        <ul>
+                            <li><a href="#">Faq</a></li>
+                            <li><a href="#">日志</a></li>
+                            <li><a href="#">论坛</a></li>
+                            <li><a href="#">文档</a></li>
+                            <li><a href="#">退款条例</a></li>
+                            <li><a href="#">票务系统</a></li>
+                            <li><a href="#">计费系统</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>开发人员</h3>
+                        <ul>
+                            <li><a href="#">网站开发</a></li>
+                            <li><a href="#">SEO优化</a></li>
+                            <li><a href="#">主题</a></li>
+                            <li><a href="#">开发</a></li>
+                            <li><a href="#">邮件营销</a></li>
+                            <li><a href="#">插件开发</a></li>
+                            <li><a href="#">编写</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>合作伙伴</h3>
+                        <ul>
+                            <li><a href="#">百度</a></li>
+                            <li><a href="#">谷歌</a></li>
+                            <li><a href="#">腾讯</a></li>
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">新浪</a></li>
+                            <li><a href="#">网易</a></li>
+                            <li><a href="#">Blizzard</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+            </div>
+        </div>
+    </section><!--/#bottom-->
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 <a target="_blank" href="@Url.Action("Home", "Channel")" title="LuckYu">LuckYu</a>. All Rights Reserved.
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="@Url.Action("Home", "Channel")">首页</a></li>
+                        <li><a href="@Url.Action("About", "Channel")">关于我们</a></li>
+                        <li><a href="#">Faq</a></li>
+                        <li><a href="@Url.Action("ContactUs", "Channel")">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
     @RenderSection("scripts", required: false)
 </body>
 </html>

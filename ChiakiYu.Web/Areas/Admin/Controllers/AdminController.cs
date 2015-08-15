@@ -14,10 +14,16 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
 {
     public partial class AdminController : Controller
     {
-        #region 构造函数
+
+
+        #region 私有字段
 
         private readonly IUserService _userService;
-        private readonly INavigationService _navigationService;
+        private readonly INavigationService _navigationService; 
+
+        #endregion
+
+        #region 构造函数
 
         public AdminController(INavigationService navigationService, IUserService userService)
         {

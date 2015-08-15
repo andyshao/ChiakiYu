@@ -1,0 +1,44 @@
+﻿@model List<Navigation>
+@{
+    var active = Convert.ToString(ViewData["active"]);
+}
+
+@foreach (var item in Model.Where(n => n.Level == 1))
+{
+    <li class="@(active == item.Name ? "active" : "")">
+        @if (Model.All(n => n.ParentId != item.Id))
+        {
+            <a href="@item.Url">
+                @if (!string.IsNullOrWhiteSpace(item.IconName))
+                {
+                    <i class="@item.IconName"></i>
+                }
+                @item.Name
+            </a>
+        }
+        else
+        {
+            <a href="" data-toggle="dropdown">
+                @if (!string.IsNullOrWhiteSpace(item.IconName))
+                {
+                    <i class="@item.IconName"></i>
+                }
+                @item.Name
+            </a>
+            <ul class="dropdown-menu">
+                @foreach (var subItem in Model.Where(n => n.ParentId == item.Id && n.Level != 1))
+                {
+                    <li>
+                        <a href="@subItem.Url">
+                            @if (!string.IsNullOrWhiteSpace(item.IconName))
+                            {
+                                <i class="@item.IconName"></i>
+                            }
+                            @item.Name
+                        </a>
+                    </li>
+                }
+            </ul>
+        }
+    </li>
+}

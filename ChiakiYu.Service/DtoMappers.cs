@@ -10,7 +10,6 @@ namespace ChiakiYu.Service
     {
         public static void MapperRegister()
         {
-            //Identity
             Mapper.CreateMap<User, UserDto>();
             Mapper.CreateMap<Role, RoleDto>();
         }

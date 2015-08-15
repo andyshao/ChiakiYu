@@ -7,8 +7,8 @@
     <ProjectGuid>{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChiakiYu.Mapper</RootNamespace>
-    <AssemblyName>ChiakiYu.Mapper</AssemblyName>
+    <RootNamespace>ChiakiYu.Mapping</RootNamespace>
+    <AssemblyName>ChiakiYu.Mapping</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -63,7 +63,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

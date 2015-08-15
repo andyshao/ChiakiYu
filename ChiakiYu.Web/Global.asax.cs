@@ -57,7 +57,7 @@ namespace ChiakiYu.Web
             CreateDatabaseIfNotExistsWithSeed.SeedActions.Add(new DataInit());
 
 
-            var file = HttpContext.Current.Server.MapPath("/bin/ChiakiYu.Mapper.dll");
+            var file = HttpContext.Current.Server.MapPath("/bin/ChiakiYu.Mapping.dll");
             var assembly = Assembly.LoadFrom(file);
             DatabaseInitializer.AddMapperAssembly(assembly);
             DatabaseInitializer.Initialize();

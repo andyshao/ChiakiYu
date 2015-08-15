@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1F9D08
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiakiYu.Model", "ChiakiYu.Model\ChiakiYu.Model.csproj", "{7008A0E9-BAF7-4D54-AF61-BE7C738B6307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiakiYu.Mapper", "ChiakiYu.Mapper\ChiakiYu.Mapper.csproj", "{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiakiYu.Mapping", "ChiakiYu.Mapper\ChiakiYu.Mapping.csproj", "{33F014DB-5B4A-4C40-AAC0-F25C68D0E52A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiakiYu.Service", "ChiakiYu.Service\ChiakiYu.Service.csproj", "{495B51EB-C520-46A0-9BC0-54D67516A1CB}"
 EndProject

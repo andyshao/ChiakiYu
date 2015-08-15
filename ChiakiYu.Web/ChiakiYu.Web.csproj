@@ -160,8 +160,12 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="App_Start\DataInit.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="T4MVC\AccountController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
     <Compile Include="T4MVC\Admin.AdminController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -935,6 +939,14 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\supersized\css\supersized.css" />
+    <Content Include="Scripts\supersized\js\jquery.easing.min.js" />
+    <Content Include="Scripts\supersized\js\supersized.3.2.7.js" />
+    <Content Include="Scripts\supersized\js\supersized.3.2.7.min.js" />
+    <Content Include="Scripts\supersized\js\supersized.init.js" />
+    <Content Include="Scripts\supersized\theme\supersized.shutter.css" />
+    <Content Include="Scripts\supersized\theme\supersized.shutter.js" />
+    <Content Include="Scripts\supersized\theme\supersized.shutter.min.js" />
     <Content Include="Scripts\sweetalert\ie9.css" />
     <Content Include="Scripts\sweetalert\sweet-alert.css" />
     <Content Include="Scripts\sweetalert\sweet-alert.html" />
@@ -992,7 +1004,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Channel\About.cshtml" />
-    <Content Include="Views\Channel\Contact.cshtml" />
     <Content Include="Views\Channel\Home.cshtml" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
     <Content Include="Scripts\zTree\css\awesomeStyle\awesome.less" />
@@ -1002,6 +1013,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T4MVC.cs</LastGenOutput>
     </None>
+    <Content Include="Views\Channel\_Header.cshtml" />
+    <Content Include="Views\Channel\ContactUs.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\_LoginInModal.cshtml" />
+    <Content Include="Views\Shared\_Account.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChiakiYu.Common\ChiakiYu.Common.csproj">
@@ -1016,9 +1033,9 @@
       <Project>{8517D39B-FA3F-43E3-BC2A-70BFE05B3D08}</Project>
       <Name>ChiakiYu.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ChiakiYu.Mapper\ChiakiYu.Mapper.csproj">
+    <ProjectReference Include="..\ChiakiYu.Mapper\ChiakiYu.Mapping.csproj">
       <Project>{33f014db-5b4a-4c40-aac0-f25c68d0e52a}</Project>
-      <Name>ChiakiYu.Mapper</Name>
+      <Name>ChiakiYu.Mapping</Name>
     </ProjectReference>
     <ProjectReference Include="..\ChiakiYu.Model\ChiakiYu.Model.csproj">
       <Project>{7008a0e9-baf7-4d54-af61-be7c738b6307}</Project>

@@ -1,7 +1,7 @@
 ﻿using ChiakiYu.EntityFramework;
 using ChiakiYu.Model.Users;
 
-namespace ChiakiYu.Mapper.Users
+namespace ChiakiYu.Mapping.Users
 {
     public class UserMapper : EntityConfiguration<User, long>
     {

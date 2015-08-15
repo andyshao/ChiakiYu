@@ -29,6 +29,7 @@ public static partial class MVC
 {
     static readonly AdminClass s_Admin = new AdminClass();
     public static AdminClass Admin { get { return s_Admin; } }
+    public static ChiakiYu.Web.Controllers.AccountController Account = new ChiakiYu.Web.Controllers.T4MVC_AccountController();
     public static ChiakiYu.Web.Controllers.ChannelController Channel = new ChiakiYu.Web.Controllers.T4MVC_ChannelController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
@@ -64,6 +65,19 @@ internal partial class T4MVC_System_Web_Mvc_ActionResult : System.Web.Mvc.Action
     }
      
     public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
+    
+    public string Controller { get; set; }
+    public string Action { get; set; }
+    public string Protocol { get; set; }
+    public RouteValueDictionary RouteValueDictionary { get; set; }
+}
+[GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+internal partial class T4MVC_System_Web_Mvc_ContentResult : System.Web.Mvc.ContentResult, IT4MVCActionResult
+{
+    public T4MVC_System_Web_Mvc_ContentResult(string area, string controller, string action, string protocol = null): base()
+    {
+        this.InitMVCT4Result(area, controller, action, protocol);
+    }
     
     public string Controller { get; set; }
     public string Action { get; set; }
@@ -1317,6 +1331,8 @@ namespace Links
         public static readonly string jquery_2_1_4_min_js = Url("jquery-2.1.4.min.js");
         public static readonly string jquery_2_1_4_min_map = Url("jquery-2.1.4.min.map");
         public static readonly string jquery_blockUI_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.blockUI.min.js") ? Url("jquery.blockUI.min.js") : Url("jquery.blockUI.js");
+        public static readonly string jquery_signalR_2_2_0_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.signalR-2.2.0.min.js") ? Url("jquery.signalR-2.2.0.min.js") : Url("jquery.signalR-2.2.0.js");
+        public static readonly string jquery_signalR_2_2_0_min_js = Url("jquery.signalR-2.2.0.min.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class jquery_validate {
             private const string URLPATH = "~/Scripts/jquery.validate";
@@ -1354,7 +1370,6 @@ namespace Links
             public static readonly string metisMenu_min_js = Url("metisMenu.min.js");
         }
     
-        public static readonly string modernizr_2_6_2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/modernizr-2.6.2.min.js") ? Url("modernizr-2.6.2.min.js") : Url("modernizr-2.6.2.js");
         public static readonly string modernizr_2_8_3_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/modernizr-2.8.3.min.js") ? Url("modernizr-2.8.3.min.js") : Url("modernizr-2.8.3.js");
         public static readonly string moment_with_locales_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/moment-with-locales.min.js") ? Url("moment-with-locales.min.js") : Url("moment-with-locales.js");
         public static readonly string moment_with_locales_min_js = Url("moment-with-locales.min.js");
@@ -2626,9 +2641,10 @@ namespace Links
                 public const string jquery_2_1_4_js = "~/Scripts/jquery-2.1.4.js"; 
                 public const string jquery_2_1_4_min_js = "~/Scripts/jquery-2.1.4.min.js"; 
                 public const string jquery_blockUI_js = "~/Scripts/jquery.blockUI.js"; 
+                public const string jquery_signalR_2_2_0_js = "~/Scripts/jquery.signalR-2.2.0.js"; 
+                public const string jquery_signalR_2_2_0_min_js = "~/Scripts/jquery.signalR-2.2.0.min.js"; 
                 public const string json2_js = "~/Scripts/json2.js"; 
                 public const string json2_min_js = "~/Scripts/json2.min.js"; 
-                public const string modernizr_2_6_2_js = "~/Scripts/modernizr-2.6.2.js"; 
                 public const string modernizr_2_8_3_js = "~/Scripts/modernizr-2.8.3.js"; 
                 public const string moment_with_locales_js = "~/Scripts/moment-with-locales.js"; 
                 public const string moment_with_locales_min_js = "~/Scripts/moment-with-locales.min.js"; 

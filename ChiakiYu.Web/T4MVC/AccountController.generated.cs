@@ -25,10 +25,10 @@ using System.Web.Routing;
 using T4MVC;
 namespace ChiakiYu.Web.Controllers
 {
-    public partial class ChannelController
+    public partial class AccountController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        protected ChannelController(Dummy d) { }
+        protected AccountController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected RedirectToRouteResult RedirectToAction(ActionResult result)
@@ -58,13 +58,13 @@ namespace ChiakiYu.Web.Controllers
 
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ChannelController Actions { get { return MVC.Channel; } }
+        public AccountController Actions { get { return MVC.Account; } }
         [GeneratedCode("T4MVC", "2.0")]
         public readonly string Area = "";
         [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Name = "Channel";
+        public readonly string Name = "Account";
         [GeneratedCode("T4MVC", "2.0")]
-        public const string NameConst = "Channel";
+        public const string NameConst = "Account";
 
         static readonly ActionNamesClass s_actions = new ActionNamesClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -72,31 +72,36 @@ namespace ChiakiYu.Web.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
-            public readonly string _Header = "_Header";
-            public readonly string Home = "Home";
-            public readonly string About = "About";
-            public readonly string ContactUs = "ContactUs";
-            public readonly string Upload = "Upload";
+            public readonly string Login = "Login";
+            public readonly string Logout = "Logout";
+            public readonly string Register = "Register";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
-            public const string _Header = "_Header";
-            public const string Home = "Home";
-            public const string About = "About";
-            public const string ContactUs = "ContactUs";
-            public const string Upload = "Upload";
+            public const string Login = "Login";
+            public const string Logout = "Logout";
+            public const string Register = "Register";
         }
 
 
-        static readonly ActionParamsClass__Header s_params__Header = new ActionParamsClass__Header();
+        static readonly ActionParamsClass_Login s_params_Login = new ActionParamsClass_Login();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass__Header _HeaderParams { get { return s_params__Header; } }
+        public ActionParamsClass_Login LoginParams { get { return s_params_Login; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass__Header
+        public class ActionParamsClass_Login
         {
-            public readonly string activeMenu = "activeMenu";
+            public readonly string returnUrl = "returnUrl";
+            public readonly string model = "model";
+        }
+        static readonly ActionParamsClass_Register s_params_Register = new ActionParamsClass_Register();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Register RegisterParams { get { return s_params_Register; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Register
+        {
+            public readonly string model = "model";
         }
         static readonly ViewsClass s_views = new ViewsClass();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -108,76 +113,76 @@ namespace ChiakiYu.Web.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string _Header = "_Header";
-                public readonly string About = "About";
-                public readonly string ContactUs = "ContactUs";
-                public readonly string Home = "Home";
+                public readonly string _LoginInModal = "_LoginInModal";
+                public readonly string Login = "Login";
+                public readonly string Register = "Register";
             }
-            public readonly string _Header = "~/Views/Channel/_Header.cshtml";
-            public readonly string About = "~/Views/Channel/About.cshtml";
-            public readonly string ContactUs = "~/Views/Channel/ContactUs.cshtml";
-            public readonly string Home = "~/Views/Channel/Home.cshtml";
+            public readonly string _LoginInModal = "~/Views/Account/_LoginInModal.cshtml";
+            public readonly string Login = "~/Views/Account/Login.cshtml";
+            public readonly string Register = "~/Views/Account/Register.cshtml";
         }
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_ChannelController : ChiakiYu.Web.Controllers.ChannelController
+    public partial class T4MVC_AccountController : ChiakiYu.Web.Controllers.AccountController
     {
-        public T4MVC_ChannelController() : base(Dummy.Instance) { }
+        public T4MVC_AccountController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void _HeaderOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string activeMenu);
+        partial void LoginOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, string returnUrl);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult _Header(string activeMenu)
+        public override System.Web.Mvc.ActionResult Login(string returnUrl)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames._Header);
-            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "activeMenu", activeMenu);
-            _HeaderOverride(callInfo, activeMenu);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Login);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "returnUrl", returnUrl);
+            LoginOverride(callInfo, returnUrl);
             return callInfo;
         }
 
         [NonAction]
-        partial void HomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void LoginOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ChiakiYu.Web.ViewModels.Account.LoginViewModel model);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Home()
+        public override System.Web.Mvc.ActionResult Login(ChiakiYu.Web.ViewModels.Account.LoginViewModel model)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Home);
-            HomeOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Login);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            LoginOverride(callInfo, model);
             return callInfo;
         }
 
         [NonAction]
-        partial void AboutOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void LogoutOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult About()
+        public override System.Web.Mvc.ActionResult Logout()
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.About);
-            AboutOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Logout);
+            LogoutOverride(callInfo);
             return callInfo;
         }
 
         [NonAction]
-        partial void ContactUsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult ContactUs()
+        public override System.Web.Mvc.ActionResult Register()
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ContactUs);
-            ContactUsOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Register);
+            RegisterOverride(callInfo);
             return callInfo;
         }
 
         [NonAction]
-        partial void UploadOverride(T4MVC_System_Web_Mvc_ContentResult callInfo);
+        partial void RegisterOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, ChiakiYu.Web.ViewModels.Account.RegisterEditModel model);
 
         [NonAction]
-        public override System.Web.Mvc.ContentResult Upload()
+        public override System.Web.Mvc.ActionResult Register(ChiakiYu.Web.ViewModels.Account.RegisterEditModel model)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ContentResult(Area, Name, ActionNames.Upload);
-            UploadOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Register);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            RegisterOverride(callInfo, model);
             return callInfo;
         }
 

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <title>@ViewBag.Title - 幸运鱼</title>
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Scripts/supersized/css/supersized.css" rel="stylesheet" />
+    <style>
+        .field-validation-error {
+            color: red !important;
+        }
+    </style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="@Url.Content("~/Scripts/others/html5shiv.js")"></script>
+        <script src="@Url.Content("~/Scripts/others/respond.min.js")"></script>
+    <![endif]-->
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/supersized/js/supersized.3.2.7.min.js"></script>
+    <script src="~/Scripts/supersized/js/supersized.init.js"></script>
+    <script src="~/Scripts/jquery.validate/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate/jquery.validate.message_zh.js"></script>
+
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,6 +1,6 @@
 ﻿using ChiakiYu.EntityFramework;
 
-namespace ChiakiYu.Mapper.Role
+namespace ChiakiYu.Mapping.Role
 {
     public class RoleMapper : EntityConfiguration<Model.Roles.Role, int>
     {
