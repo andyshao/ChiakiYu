@@ -19,9 +19,13 @@ namespace ChiakiYu.Service.Settings
         /// <returns>settings</returns>
         public T Get()
         {
-            var setting = _settingRepository.Get(typeof (T).FullName);
-            var settings = JsonHelper.FromJson<T>(setting.Settings);
-            return settings;
+            var setting = _settingRepository.Get(typeof(T).FullName);
+            return setting == null
+                ? null
+                : JsonHelper.FromJson<T>(setting.Settings);
+            //if (setting == null) return null;
+            //var settings = JsonHelper.FromJson<T>(setting.Settings);
+            //return settings;
         }
 
         /// <summary>
@@ -32,7 +36,7 @@ namespace ChiakiYu.Service.Settings
         {
             var setting = new Setting
             {
-                Id = typeof (T).FullName,
+                Id = typeof(T).FullName,
                 Settings = JsonHelper.ToJson(settings)
             };
             _settingRepository.InsertOrUpdate(setting);

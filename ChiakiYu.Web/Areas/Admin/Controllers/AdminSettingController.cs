@@ -2,22 +2,28 @@
 using ChiakiYu.Model.Settings;
 using ChiakiYu.Service.Settings;
 using ChiakiYu.Web.Areas.Admin.Controllers.Filters;
-using ChiakiYu.Web.Areas.Admin.ViewModels;
 
 namespace ChiakiYu.Web.Areas.Admin.Controllers
 {
     [ManageAuthorize(RequireSystemAdministrator = true)]
     public partial class AdminSettingController : Controller
     {
-        private readonly ISettingService<SiteSetting> _siteSettingService;
+
+        #region 私有字段
+        private readonly ISettingService<SiteSetting> _siteSettingService; 
+        #endregion
+
+        #region 构造函数
         public AdminSettingController(ISettingService<SiteSetting> siteSettingService)
         {
             _siteSettingService = siteSettingService;
-        }
+        } 
+        #endregion
 
+        #region 站点设置
 
         /// <summary>
-        /// 站点设置页面
+        ///     站点设置页面
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -28,7 +34,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         }
 
         /// <summary>
-        /// 站点设置提交表单
+        ///     站点设置提交表单
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -38,7 +44,8 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
                 return View(model);
             _siteSettingService.Save(model);
             return Json(new { MessageType = 1, MessageContent = "设置成功！" });
-        }
+        } 
 
+        #endregion
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
-using System.Xml;
 using ChiakiYu.Common.Data;
 using ChiakiYu.Common.Extensions;
 using ChiakiYu.Model.Roles;
@@ -21,14 +19,6 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
     [ManageAuthorize(RequireSystemAdministrator = true)]
     public partial class AdminUserController : Controller
     {
-        #region 私有字段
-
-        private readonly IUserService _userService;
-        private readonly IRoleService _roleService;
-        private readonly IAuthorizationService _authorizationService; 
-
-        #endregion
-
         #region 构造函数
 
         public AdminUserController(IUserService userService,
@@ -39,6 +29,14 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             _roleService = roleService;
             _authorizationService = authorizationService;
         }
+
+        #endregion
+
+        #region 私有字段
+
+        private readonly IUserService _userService;
+        private readonly IRoleService _roleService;
+        private readonly IAuthorizationService _authorizationService;
 
         #endregion
 
@@ -67,9 +65,9 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
 
             #region 组装搜索下拉列表
 
-            var activatedValues = new Dictionary<bool, string> { { true, "已激活" }, { false, "未激活" } };
+            var activatedValues = new Dictionary<bool, string> {{true, "已激活"}, {false, "未激活"}};
             ViewData["IsActived"] =
-                new SelectList(activatedValues.Select(n => new { text = n.Value, value = n.Key.ToString().ToLower() }),
+                new SelectList(activatedValues.Select(n => new {text = n.Value, value = n.Key.ToString().ToLower()}),
                     "value", "text", input.IsActive);
 
             #endregion
@@ -88,7 +86,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
         [HttpPost]
         public virtual JsonResult EidtUser()
         {
-            return Json(new { MessageType = 1, MessageContent = "设置成功" });
+            return Json(new {MessageType = 1, MessageContent = "设置成功"});
         }
 
         #endregion
@@ -140,18 +138,18 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             var userId = Request.Form.Get<long>("userId", 0);
             if (userId <= 0)
             {
-                return Json(new { MessageType = 0, MessageContent = "请选择某个用户设置角色！" });
+                return Json(new {MessageType = 0, MessageContent = "请选择某个用户设置角色！"});
             }
             var roleIdStr = Request.Form.Get("roleId");
 
-            if (string.IsNullOrEmpty(roleIdStr)) return Json(new { MessageType = 0, MessageContent = "请至少分配一项角色！" });
+            if (string.IsNullOrEmpty(roleIdStr)) return Json(new {MessageType = 0, MessageContent = "请至少分配一项角色！"});
             var roleIds = roleIdStr.Split(',');
             _authorizationService.DeleteUserRole(userId);
             foreach (var userRole in roleIds.Select(item => new UserRole(userId, Convert.ToInt32(item))))
             {
                 _authorizationService.AddUserRole(userRole); //todo 处理单个数据异常情况
             }
-            return Json(new { MessageType = 1, MessageContent = "设置成功" });
+            return Json(new {MessageType = 1, MessageContent = "设置成功"});
         }
 
         #endregion
@@ -187,6 +185,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             var result = JsonHelper.ToJson(permissionAll);
 
             #region 原xml处理方式
+
             //var result = string.Empty;
             //const string xmlFile = "App_Data/permission.config";
             //var doc = new XmlDocument();
@@ -224,6 +223,7 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             //    sb.Append("},");
             //}
             //result = sb.ToString().TrimEnd(',') + "]"; 
+
             #endregion
 
             return Json(result, JsonRequestBehavior.AllowGet);
@@ -240,27 +240,27 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             var roleId = Request.Form.Get("roleId", 0);
             if (roleId <= 0)
             {
-                return Json(new { MessageType = 0, MessageContent = "请选择某个角色更改权限！" });
+                return Json(new {MessageType = 0, MessageContent = "请选择某个角色更改权限！"});
             }
             var permissionNameStr = Request.Form.Get("permissionName");
 
 
-            if (string.IsNullOrEmpty(permissionNameStr)) return Json(new { MessageType = 0, MessageContent = "设置失败" });
+            if (string.IsNullOrEmpty(permissionNameStr)) return Json(new {MessageType = 0, MessageContent = "设置失败"});
             var permissionNames = permissionNameStr.Split(',');
             _authorizationService.DeleteRolePermission(roleId);
 
             foreach (var rp in from item in permissionNames
-                               where !string.IsNullOrEmpty(item)
-                               select new RolePermission
-                               {
-                                   RoleId = roleId,
-                                   Name = item
-                               })
+                where !string.IsNullOrEmpty(item)
+                select new RolePermission
+                {
+                    RoleId = roleId,
+                    Name = item
+                })
             {
                 _authorizationService.AddRolePermission(rp); //todo 处理单个数据异常情况
             }
 
-            return Json(new { MessageType = 1, MessageContent = "设置成功" });
+            return Json(new {MessageType = 1, MessageContent = "设置成功"});
         }
 
         #endregion
