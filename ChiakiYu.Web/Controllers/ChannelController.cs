@@ -61,6 +61,16 @@ namespace ChiakiYu.Web.Controllers
             return View();
         }
 
+        public virtual ActionResult Chat()
+        {
+            return View();
+        }
+
+        public virtual ActionResult ComingSoon()
+        {
+            return View();
+        }
+
         [HttpPost]
         public virtual ContentResult Upload()
         {

@@ -44,6 +44,18 @@ namespace ChiakiYu.Web
                 new { controller = "Channel", action = "ContactUs" } // Parameter defaults
                 );
 
+            routes.MapRoute(
+                "Channel_Chat", // Route name
+                "Chat" + extensionForOldIIS, // URL with parameters
+                new { controller = "Channel", action = "Chat" } // Parameter defaults
+                );
+
+            routes.MapRoute(
+                "Channel_ComingSoon", // Route name
+                "ComingSoon" + extensionForOldIIS, // URL with parameters
+                new { controller = "Channel", action = "ComingSoon" } // Parameter defaults
+                );
+
             #endregion
 
             #region Account

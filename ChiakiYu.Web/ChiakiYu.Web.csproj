@@ -545,6 +545,8 @@
     <Content Include="Views\Blog\Home.cshtml" />
     <Content Include="Views\Blog\Detail.cshtml" />
     <Content Include="Views\Blog\_CommentList.cshtml" />
+    <Content Include="Views\Channel\Chat.cshtml" />
+    <Content Include="Views\Channel\ComingSoon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChiakiYu.Common\ChiakiYu.Common.csproj">
