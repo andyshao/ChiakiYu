@@ -2,43 +2,88 @@
 @{
     var active = Convert.ToString(ViewData["active"]);
 }
-
-@foreach (var item in Model.Where(n => n.Level == 1))
-{
-    <li class="@(active == item.Name ? "active" : "")">
-        @if (Model.All(n => n.ParentId != item.Id))
-        {
-            <a href="@item.Url">
-                @if (!string.IsNullOrWhiteSpace(item.IconName))
-                {
-                    <i class="@item.IconName"></i>
-                }
-                @item.Name
-            </a>
-        }
-        else
-        {
-            <a href="" data-toggle="dropdown">
-                @if (!string.IsNullOrWhiteSpace(item.IconName))
-                {
-                    <i class="@item.IconName"></i>
-                }
-                @item.Name
-            </a>
-            <ul class="dropdown-menu">
-                @foreach (var subItem in Model.Where(n => n.ParentId == item.Id && n.Level != 1))
-                {
-                    <li>
-                        <a href="@subItem.Url">
-                            @if (!string.IsNullOrWhiteSpace(item.IconName))
-                            {
-                                <i class="@item.IconName"></i>
-                            }
-                            @item.Name
-                        </a>
-                    </li>
-                }
-            </ul>
-        }
-    </li>
-}
+<header id="header">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action(MVC.Channel.Home())">
+                    <h1>
+                        <img src="/Images/logo.png" alt="logo" height="50">
+                    </h1>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @foreach (var item in Model.Where(n => n.Level == 1))
+                    {
+                        if (Model.All(n => n.ParentId != item.Id))
+                        {
+                            <li class="@(active == item.Name ? "active" : "")">
+                                <a href="@item.Url">
+                                    @if (!string.IsNullOrWhiteSpace(item.IconName))
+                                    {
+                                        <i class="@item.IconName"></i>
+                                    }
+                                    @item.Name
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="@(active == item.Name ? "active" : "") dropdown">
+                                <a href="#">
+                                    @item.Name
+                                    @if (!string.IsNullOrWhiteSpace(item.IconName))
+                                    {
+                                        <i class="@item.IconName"></i>
+                                    }
+                                </a>
+                                <ul role="menu" class="sub-menu">
+                                    @foreach (var subItem in Model.Where(n => n.ParentId == item.Id && n.Level != 1))
+                                    {
+                                        <li>
+                                            <a href="@subItem.Url">
+                                                @if (!string.IsNullOrWhiteSpace(subItem.IconName))
+                                                {
+                                                    <i class="@subItem.IconName"></i>
+                                                }
+                                                @subItem.Name
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
+                    @if (User != null && User.Identity != null && string.IsNullOrEmpty(User.Identity.Name))
+                    {
+                        <li>
+                            <a href="javascript:;" data-href="@Url.Action(MVC.Account.Login(Request.RawUrl))" plugin="dialog" title="登录">登录</a>
+                        </li>
+                        @*<li>
+                            <a href="@Url.Action(MVC.Account.Login(Request.RawUrl))" title="登录">登录</a>
+                        </li>*@
+                        <li>
+                            <a href="@Url.Action(MVC.Account.Register())" title="注册">注册</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="dropdown">
+                            <a href="#"><i class="fa fa-user"></i> <span>@(UserContext.CurrentUser == null ? string.Empty : UserContext.CurrentUser.NickName)</span> <b class="caret"></b></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="@Url.Action(MVC.Account.Logout())"><i class="fa fa-sign-out"></i>注销</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

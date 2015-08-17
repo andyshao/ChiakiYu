@@ -30,6 +30,7 @@ public static partial class MVC
     static readonly AdminClass s_Admin = new AdminClass();
     public static AdminClass Admin { get { return s_Admin; } }
     public static ChiakiYu.Web.Controllers.AccountController Account = new ChiakiYu.Web.Controllers.T4MVC_AccountController();
+    public static ChiakiYu.Web.Controllers.BlogController Blog = new ChiakiYu.Web.Controllers.T4MVC_BlogController();
     public static ChiakiYu.Web.Controllers.ChannelController Channel = new ChiakiYu.Web.Controllers.T4MVC_ChannelController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
@@ -145,1188 +146,7 @@ namespace Links
             public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
         }
     
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class bower_components {
-            private const string URLPATH = "~/Scripts/bower_components";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class bootstrap_social {
-                private const string URLPATH = "~/Scripts/bower_components/bootstrap-social";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string _editorconfig = Url(".editorconfig");
-                public static readonly string _gitignore = Url(".gitignore");
-                public static readonly string bootstrap_social_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/bootstrap-social.min.css") ? Url("bootstrap-social.min.css") : Url("bootstrap-social.css");
-                     
-                public static readonly string bootstrap_social_less = Url("bootstrap-social.less");
-                public static readonly string bootstrap_social_scss = Url("bootstrap-social.scss");
-                public static readonly string bower_json = Url("bower.json");
-                public static readonly string README_md = Url("README.md");
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class datatables {
-                private const string URLPATH = "~/Scripts/bower_components/datatables";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string bower_json = Url("bower.json");
-                public static readonly string Contributing_md = Url("Contributing.md");
-                public static readonly string license_txt = Url("license.txt");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class media {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables/media";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class css {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables/media/css";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string jquery_dataTables_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.dataTables.min.css") ? Url("jquery.dataTables.min.css") : Url("jquery.dataTables.css");
-                             
-                        public static readonly string jquery_dataTables_min_css = Url("jquery.dataTables.min.css");
-                        public static readonly string jquery_dataTables_themeroller_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.dataTables_themeroller.min.css") ? Url("jquery.dataTables_themeroller.min.css") : Url("jquery.dataTables_themeroller.css");
-                             
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class images {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables/media/images";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string favicon_ico = Url("favicon.ico");
-                        public static readonly string sort_asc_png = Url("sort_asc.png");
-                        public static readonly string sort_asc_disabled_png = Url("sort_asc_disabled.png");
-                        public static readonly string sort_both_png = Url("sort_both.png");
-                        public static readonly string sort_desc_png = Url("sort_desc.png");
-                        public static readonly string sort_desc_disabled_png = Url("sort_desc_disabled.png");
-                        public static readonly string Sorting_icons_psd = Url("Sorting icons.psd");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class js {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables/media/js";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string jquery_dataTables_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.dataTables.min.js") ? Url("jquery.dataTables.min.js") : Url("jquery.dataTables.js");
-                        public static readonly string jquery_dataTables_min_js = Url("jquery.dataTables.min.js");
-                        public static readonly string jquery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.min.js") ? Url("jquery.min.js") : Url("jquery.js");
-                    }
-                
-                }
-            
-                public static readonly string Readme_md = Url("Readme.md");
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class datatables_plugins {
-                private const string URLPATH = "~/Scripts/bower_components/datatables-plugins";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class api {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/api";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string average___js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/average().min.js") ? Url("average().min.js") : Url("average().js");
-                    public static readonly string column___title___js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/column().title().min.js") ? Url("column().title().min.js") : Url("column().title().js");
-                    public static readonly string columns___order___js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/columns().order().min.js") ? Url("columns().order().min.js") : Url("columns().order().js");
-                    public static readonly string fnAddDataAndDisplay_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnAddDataAndDisplay.min.js") ? Url("fnAddDataAndDisplay.min.js") : Url("fnAddDataAndDisplay.js");
-                    public static readonly string fnAddTr_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnAddTr.min.js") ? Url("fnAddTr.min.js") : Url("fnAddTr.js");
-                    public static readonly string fnColumnIndexToVisible_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnColumnIndexToVisible.min.js") ? Url("fnColumnIndexToVisible.min.js") : Url("fnColumnIndexToVisible.js");
-                    public static readonly string fnDataUpdate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnDataUpdate.min.js") ? Url("fnDataUpdate.min.js") : Url("fnDataUpdate.js");
-                    public static readonly string fnDisplayRow_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnDisplayRow.min.js") ? Url("fnDisplayRow.min.js") : Url("fnDisplayRow.js");
-                    public static readonly string fnDisplayStart_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnDisplayStart.min.js") ? Url("fnDisplayStart.min.js") : Url("fnDisplayStart.js");
-                    public static readonly string fnFakeRowspan_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnFakeRowspan.min.js") ? Url("fnFakeRowspan.min.js") : Url("fnFakeRowspan.js");
-                    public static readonly string fnFilterAll_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnFilterAll.min.js") ? Url("fnFilterAll.min.js") : Url("fnFilterAll.js");
-                    public static readonly string fnFilterClear_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnFilterClear.min.js") ? Url("fnFilterClear.min.js") : Url("fnFilterClear.js");
-                    public static readonly string fnFilterOnReturn_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnFilterOnReturn.min.js") ? Url("fnFilterOnReturn.min.js") : Url("fnFilterOnReturn.js");
-                    public static readonly string fnFindCellRowIndexes_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnFindCellRowIndexes.min.js") ? Url("fnFindCellRowIndexes.min.js") : Url("fnFindCellRowIndexes.js");
-                    public static readonly string fnFindCellRowNodes_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnFindCellRowNodes.min.js") ? Url("fnFindCellRowNodes.min.js") : Url("fnFindCellRowNodes.js");
-                    public static readonly string fnGetAdjacentTr_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnGetAdjacentTr.min.js") ? Url("fnGetAdjacentTr.min.js") : Url("fnGetAdjacentTr.js");
-                    public static readonly string fnGetColumnData_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnGetColumnData.min.js") ? Url("fnGetColumnData.min.js") : Url("fnGetColumnData.js");
-                    public static readonly string fnGetColumnIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnGetColumnIndex.min.js") ? Url("fnGetColumnIndex.min.js") : Url("fnGetColumnIndex.js");
-                    public static readonly string fnGetHiddenNodes_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnGetHiddenNodes.min.js") ? Url("fnGetHiddenNodes.min.js") : Url("fnGetHiddenNodes.js");
-                    public static readonly string fnGetTd_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnGetTd.min.js") ? Url("fnGetTd.min.js") : Url("fnGetTd.js");
-                    public static readonly string fnGetTds_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnGetTds.min.js") ? Url("fnGetTds.min.js") : Url("fnGetTds.js");
-                    public static readonly string fnLengthChange_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnLengthChange.min.js") ? Url("fnLengthChange.min.js") : Url("fnLengthChange.js");
-                    public static readonly string fnMultiFilter_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnMultiFilter.min.js") ? Url("fnMultiFilter.min.js") : Url("fnMultiFilter.js");
-                    public static readonly string fnPagingInfo_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnPagingInfo.min.js") ? Url("fnPagingInfo.min.js") : Url("fnPagingInfo.js");
-                    public static readonly string fnProcessingIndicator_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnProcessingIndicator.min.js") ? Url("fnProcessingIndicator.min.js") : Url("fnProcessingIndicator.js");
-                    public static readonly string fnReloadAjax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnReloadAjax.min.js") ? Url("fnReloadAjax.min.js") : Url("fnReloadAjax.js");
-                    public static readonly string fnSetFilteringDelay_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnSetFilteringDelay.min.js") ? Url("fnSetFilteringDelay.min.js") : Url("fnSetFilteringDelay.js");
-                    public static readonly string fnSortNeutral_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnSortNeutral.min.js") ? Url("fnSortNeutral.min.js") : Url("fnSortNeutral.js");
-                    public static readonly string fnStandingRedraw_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnStandingRedraw.min.js") ? Url("fnStandingRedraw.min.js") : Url("fnStandingRedraw.js");
-                    public static readonly string fnVisibleToColumnIndex_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/fnVisibleToColumnIndex.min.js") ? Url("fnVisibleToColumnIndex.min.js") : Url("fnVisibleToColumnIndex.js");
-                    public static readonly string index_html = Url("index.html");
-                    public static readonly string page_jumpToData___js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/page.jumpToData().min.js") ? Url("page.jumpToData().min.js") : Url("page.jumpToData().js");
-                    public static readonly string sum___js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/sum().min.js") ? Url("sum().min.js") : Url("sum().js");
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class features {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/features";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class alphabetSearch {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/features/alphabetSearch";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dataTables_alphabetSearch_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.alphabetSearch.min.css") ? Url("dataTables.alphabetSearch.min.css") : Url("dataTables.alphabetSearch.css");
-                             
-                        public static readonly string dataTables_alphabetSearch_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.alphabetSearch.min.js") ? Url("dataTables.alphabetSearch.min.js") : Url("dataTables.alphabetSearch.js");
-                        public static readonly string dataTables_alphabetSearch_min_js = Url("dataTables.alphabetSearch.min.js");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class lengthLinks {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/features/lengthLinks";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dataTables_lengthLinks_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.lengthLinks.min.css") ? Url("dataTables.lengthLinks.min.css") : Url("dataTables.lengthLinks.css");
-                             
-                        public static readonly string dataTables_lengthLinks_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.lengthLinks.min.js") ? Url("dataTables.lengthLinks.min.js") : Url("dataTables.lengthLinks.js");
-                        public static readonly string dataTables_lengthLinks_min_js = Url("dataTables.lengthLinks.min.js");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class searchHighlight {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/features/searchHighlight";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dataTables_searchHighlight_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.searchHighlight.min.css") ? Url("dataTables.searchHighlight.min.css") : Url("dataTables.searchHighlight.css");
-                             
-                        public static readonly string dataTables_searchHighlight_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.searchHighlight.min.js") ? Url("dataTables.searchHighlight.min.js") : Url("dataTables.searchHighlight.js");
-                        public static readonly string dataTables_searchHighlight_min_js = Url("dataTables.searchHighlight.min.js");
-                    }
-                
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class filtering {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/filtering";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string index_html = Url("index.html");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class row_based {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/filtering/row-based";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string range_dates_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/range_dates.min.js") ? Url("range_dates.min.js") : Url("range_dates.js");
-                        public static readonly string range_numbers_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/range_numbers.min.js") ? Url("range_numbers.min.js") : Url("range_numbers.js");
-                        public static readonly string TableTools_ShowSelectedOnly_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/TableTools.ShowSelectedOnly.min.js") ? Url("TableTools.ShowSelectedOnly.min.js") : Url("TableTools.ShowSelectedOnly.js");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class type_based {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/filtering/type-based";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string accent_neutralise_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/accent-neutralise.min.js") ? Url("accent-neutralise.min.js") : Url("accent-neutralise.js");
-                        public static readonly string html_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/html.min.js") ? Url("html.min.js") : Url("html.js");
-                        public static readonly string phoneNumber_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/phoneNumber.min.js") ? Url("phoneNumber.min.js") : Url("phoneNumber.js");
-                    }
-                
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class i18n {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/i18n";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string Afrikaans_lang = Url("Afrikaans.lang");
-                    public static readonly string Albanian_lang = Url("Albanian.lang");
-                    public static readonly string Arabic_lang = Url("Arabic.lang");
-                    public static readonly string Azerbaijan_lang = Url("Azerbaijan.lang");
-                    public static readonly string Bangla_lang = Url("Bangla.lang");
-                    public static readonly string Belarusian_lang = Url("Belarusian.lang");
-                    public static readonly string Bulgarian_lang = Url("Bulgarian.lang");
-                    public static readonly string Catalan_lang = Url("Catalan.lang");
-                    public static readonly string Chinese_traditional_lang = Url("Chinese-traditional.lang");
-                    public static readonly string Chinese_lang = Url("Chinese.lang");
-                    public static readonly string Croatian_lang = Url("Croatian.lang");
-                    public static readonly string Czech_lang = Url("Czech.lang");
-                    public static readonly string Danish_lang = Url("Danish.lang");
-                    public static readonly string Dutch_lang = Url("Dutch.lang");
-                    public static readonly string English_lang = Url("English.lang");
-                    public static readonly string Estonian_lang = Url("Estonian.lang");
-                    public static readonly string Filipino_lang = Url("Filipino.lang");
-                    public static readonly string Finnish_lang = Url("Finnish.lang");
-                    public static readonly string French_lang = Url("French.lang");
-                    public static readonly string Galician_lang = Url("Galician.lang");
-                    public static readonly string Georgian_lang = Url("Georgian.lang");
-                    public static readonly string German_lang = Url("German.lang");
-                    public static readonly string Greek_lang = Url("Greek.lang");
-                    public static readonly string Gujarati_lang = Url("Gujarati.lang");
-                    public static readonly string Hebrew_lang = Url("Hebrew.lang");
-                    public static readonly string Hindi_lang = Url("Hindi.lang");
-                    public static readonly string Hungarian_lang = Url("Hungarian.lang");
-                    public static readonly string Icelandic_lang = Url("Icelandic.lang");
-                    public static readonly string index_html = Url("index.html");
-                    public static readonly string Indonesian_Alternative_lang = Url("Indonesian-Alternative.lang");
-                    public static readonly string Indonesian_lang = Url("Indonesian.lang");
-                    public static readonly string Irish_lang = Url("Irish.lang");
-                    public static readonly string Italian_lang = Url("Italian.lang");
-                    public static readonly string Japanese_lang = Url("Japanese.lang");
-                    public static readonly string Korean_lang = Url("Korean.lang");
-                    public static readonly string Latvian_lang = Url("Latvian.lang");
-                    public static readonly string Lithuanian_lang = Url("Lithuanian.lang");
-                    public static readonly string Macedonian_lang = Url("Macedonian.lang");
-                    public static readonly string Malay_lang = Url("Malay.lang");
-                    public static readonly string Norwegian_lang = Url("Norwegian.lang");
-                    public static readonly string Persian_lang = Url("Persian.lang");
-                    public static readonly string Polish_lang = Url("Polish.lang");
-                    public static readonly string Portuguese_Brasil_lang = Url("Portuguese-Brasil.lang");
-                    public static readonly string Portuguese_lang = Url("Portuguese.lang");
-                    public static readonly string Romanian_lang = Url("Romanian.lang");
-                    public static readonly string Russian_lang = Url("Russian.lang");
-                    public static readonly string Serbian_lang = Url("Serbian.lang");
-                    public static readonly string Slovak_lang = Url("Slovak.lang");
-                    public static readonly string Slovenian_lang = Url("Slovenian.lang");
-                    public static readonly string Spanish_lang = Url("Spanish.lang");
-                    public static readonly string Swahili_lang = Url("Swahili.lang");
-                    public static readonly string Swedish_lang = Url("Swedish.lang");
-                    public static readonly string Tamil_lang = Url("Tamil.lang");
-                    public static readonly string Thai_lang = Url("Thai.lang");
-                    public static readonly string Turkish_lang = Url("Turkish.lang");
-                    public static readonly string Ukranian_lang = Url("Ukranian.lang");
-                    public static readonly string Urdu_lang = Url("Urdu.lang");
-                    public static readonly string Uzbek_lang = Url("Uzbek.lang");
-                    public static readonly string Vietnamese_lang = Url("Vietnamese.lang");
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class integration {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class bootstrap {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class _1 {
-                            private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/1";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string dataTables_bootstrap_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.bootstrap.min.css") ? Url("dataTables.bootstrap.min.css") : Url("dataTables.bootstrap.css");
-                                 
-                            public static readonly string dataTables_bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.bootstrap.min.js") ? Url("dataTables.bootstrap.min.js") : Url("dataTables.bootstrap.js");
-                        }
-                    
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class _2 {
-                            private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/2";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string dataTables_bootstrap_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.bootstrap.min.css") ? Url("dataTables.bootstrap.min.css") : Url("dataTables.bootstrap.css");
-                                 
-                            public static readonly string dataTables_bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.bootstrap.min.js") ? Url("dataTables.bootstrap.min.js") : Url("dataTables.bootstrap.js");
-                            public static readonly string dataTables_bootstrap_min_js = Url("dataTables.bootstrap.min.js");
-                            public static readonly string index_html = Url("index.html");
-                        }
-                    
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class _3 {
-                            private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/3";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string dataTables_bootstrap_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.bootstrap.min.css") ? Url("dataTables.bootstrap.min.css") : Url("dataTables.bootstrap.css");
-                                 
-                            public static readonly string dataTables_bootstrap_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.bootstrap.min.js") ? Url("dataTables.bootstrap.min.js") : Url("dataTables.bootstrap.js");
-                            public static readonly string dataTables_bootstrap_min_js = Url("dataTables.bootstrap.min.js");
-                            public static readonly string index_html = Url("index.html");
-                        }
-                    
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class images {
-                            private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/images";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string sort_asc_png = Url("sort_asc.png");
-                            public static readonly string sort_asc_disabled_png = Url("sort_asc_disabled.png");
-                            public static readonly string sort_both_png = Url("sort_both.png");
-                            public static readonly string sort_desc_png = Url("sort_desc.png");
-                            public static readonly string sort_desc_disabled_png = Url("sort_desc_disabled.png");
-                        }
-                    
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class font_awesome {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/font-awesome";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string bootstrap_html = Url("bootstrap.html");
-                        public static readonly string dataTables_fontAwesome_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.fontAwesome.min.css") ? Url("dataTables.fontAwesome.min.css") : Url("dataTables.fontAwesome.css");
-                             
-                        public static readonly string datatables_html = Url("datatables.html");
-                        public static readonly string foundation_html = Url("foundation.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class foundation {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/foundation";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dataTables_foundation_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.foundation.min.css") ? Url("dataTables.foundation.min.css") : Url("dataTables.foundation.css");
-                             
-                        public static readonly string dataTables_foundation_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.foundation.min.js") ? Url("dataTables.foundation.min.js") : Url("dataTables.foundation.js");
-                        public static readonly string dataTables_foundation_min_js = Url("dataTables.foundation.min.js");
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class images {
-                            private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/foundation/images";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string sort_asc_png = Url("sort_asc.png");
-                            public static readonly string sort_asc_disabled_png = Url("sort_asc_disabled.png");
-                            public static readonly string sort_both_png = Url("sort_both.png");
-                            public static readonly string sort_desc_png = Url("sort_desc.png");
-                            public static readonly string sort_desc_disabled_png = Url("sort_desc_disabled.png");
-                        }
-                    
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class jqueryui {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/integration/jqueryui";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dataTables_jqueryui_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.jqueryui.min.css") ? Url("dataTables.jqueryui.min.css") : Url("dataTables.jqueryui.css");
-                             
-                        public static readonly string dataTables_jqueryui_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.jqueryui.min.js") ? Url("dataTables.jqueryui.min.js") : Url("dataTables.jqueryui.js");
-                        public static readonly string dataTables_jqueryui_min_js = Url("dataTables.jqueryui.min.js");
-                        public static readonly string dataTables_jqueryui_scss = Url("dataTables.jqueryui.scss");
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                }
-            
-                public static readonly string make_sh = Url("make.sh");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class pagination {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/pagination";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string ellipses_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ellipses.min.js") ? Url("ellipses.min.js") : Url("ellipses.js");
-                    public static readonly string extjs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/extjs.min.js") ? Url("extjs.min.js") : Url("extjs.js");
-                    public static readonly string four_button_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/four_button.min.js") ? Url("four_button.min.js") : Url("four_button.js");
-                    public static readonly string index_html = Url("index.html");
-                    public static readonly string input_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/input.min.js") ? Url("input.min.js") : Url("input.js");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class jPaginator {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/pagination/jPaginator";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dataTables_jPaginator_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.jPaginator.min.js") ? Url("dataTables.jPaginator.min.js") : Url("dataTables.jPaginator.js");
-                    }
-                
-                    public static readonly string scrolling_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/scrolling.min.js") ? Url("scrolling.min.js") : Url("scrolling.js");
-                    public static readonly string select_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/select.min.js") ? Url("select.min.js") : Url("select.js");
-                }
-            
-                public static readonly string README_md = Url("README.md");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class sorting {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/sorting";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string _DS_Store = Url(".DS_Store");
-                    public static readonly string alt_string_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/alt-string.min.js") ? Url("alt-string.min.js") : Url("alt-string.js");
-                    public static readonly string anti_the_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/anti-the.min.js") ? Url("anti-the.min.js") : Url("anti-the.js");
-                    public static readonly string chinese_string_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/chinese-string.min.js") ? Url("chinese-string.min.js") : Url("chinese-string.js");
-                    public static readonly string currency_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/currency.min.js") ? Url("currency.min.js") : Url("currency.js");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class custom_data_source {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/sorting/custom-data-source";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string dom_checkbox_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dom-checkbox.min.js") ? Url("dom-checkbox.min.js") : Url("dom-checkbox.js");
-                        public static readonly string dom_select_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dom-select.min.js") ? Url("dom-select.min.js") : Url("dom-select.js");
-                        public static readonly string dom_text_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dom-text.min.js") ? Url("dom-text.min.js") : Url("dom-text.js");
-                    }
-                
-                    public static readonly string date_dd_MMM_yyyy_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date-dd-MMM-yyyy.min.js") ? Url("date-dd-MMM-yyyy.min.js") : Url("date-dd-MMM-yyyy.js");
-                    public static readonly string date_de_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date-de.min.js") ? Url("date-de.min.js") : Url("date-de.js");
-                    public static readonly string date_eu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date-eu.min.js") ? Url("date-eu.min.js") : Url("date-eu.js");
-                    public static readonly string date_euro_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date-euro.min.js") ? Url("date-euro.min.js") : Url("date-euro.js");
-                    public static readonly string date_uk_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date-uk.min.js") ? Url("date-uk.min.js") : Url("date-uk.js");
-                    public static readonly string datetime_moment_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/datetime-moment.min.js") ? Url("datetime-moment.min.js") : Url("datetime-moment.js");
-                    public static readonly string datetime_us_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/datetime-us.min.js") ? Url("datetime-us.min.js") : Url("datetime-us.js");
-                    public static readonly string enum_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/enum.min.js") ? Url("enum.min.js") : Url("enum.js");
-                    public static readonly string file_size_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/file-size.min.js") ? Url("file-size.min.js") : Url("file-size.js");
-                    public static readonly string formatted_numbers_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/formatted-numbers.min.js") ? Url("formatted-numbers.min.js") : Url("formatted-numbers.js");
-                    public static readonly string index_html = Url("index.html");
-                    public static readonly string ip_address_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ip-address.min.js") ? Url("ip-address.min.js") : Url("ip-address.js");
-                    public static readonly string monthYear_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/monthYear.min.js") ? Url("monthYear.min.js") : Url("monthYear.js");
-                    public static readonly string natural_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/natural.min.js") ? Url("natural.min.js") : Url("natural.js");
-                    public static readonly string num_html_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/num-html.min.js") ? Url("num-html.min.js") : Url("num-html.js");
-                    public static readonly string numeric_comma_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/numeric-comma.min.js") ? Url("numeric-comma.min.js") : Url("numeric-comma.js");
-                    public static readonly string percent_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/percent.min.js") ? Url("percent.min.js") : Url("percent.js");
-                    public static readonly string persian_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/persian.min.js") ? Url("persian.min.js") : Url("persian.js");
-                    public static readonly string scientific_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/scientific.min.js") ? Url("scientific.min.js") : Url("scientific.js");
-                    public static readonly string signed_num_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/signed-num.min.js") ? Url("signed-num.min.js") : Url("signed-num.js");
-                    public static readonly string stringMonthYear_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/stringMonthYear.min.js") ? Url("stringMonthYear.min.js") : Url("stringMonthYear.js");
-                    public static readonly string time_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/time.min.js") ? Url("time.min.js") : Url("time.js");
-                    public static readonly string title_numeric_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/title-numeric.min.js") ? Url("title-numeric.min.js") : Url("title-numeric.js");
-                    public static readonly string title_string_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/title-string.min.js") ? Url("title-string.min.js") : Url("title-string.js");
-                    public static readonly string turkish_string_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/turkish-string.min.js") ? Url("turkish-string.min.js") : Url("turkish-string.js");
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class type_detection {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-plugins/type-detection";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string currency_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/currency.min.js") ? Url("currency.min.js") : Url("currency.js");
-                    public static readonly string date_uk_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date-uk.min.js") ? Url("date-uk.min.js") : Url("date-uk.js");
-                    public static readonly string file_size_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/file-size.min.js") ? Url("file-size.min.js") : Url("file-size.js");
-                    public static readonly string formatted_num_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/formatted-num.min.js") ? Url("formatted-num.min.js") : Url("formatted-num.js");
-                    public static readonly string index_html = Url("index.html");
-                    public static readonly string ip_address_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ip-address.min.js") ? Url("ip-address.min.js") : Url("ip-address.js");
-                    public static readonly string num_html_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/num-html.min.js") ? Url("num-html.min.js") : Url("num-html.js");
-                    public static readonly string numeric_comma_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/numeric-comma.min.js") ? Url("numeric-comma.min.js") : Url("numeric-comma.js");
-                }
-            
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class datatables_responsive {
-                private const string URLPATH = "~/Scripts/bower_components/datatables-responsive";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string _gitignore = Url(".gitignore");
-                public static readonly string bower_json = Url("bower.json");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class css {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/css";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string dataTables_responsive_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.responsive.min.css") ? Url("dataTables.responsive.min.css") : Url("dataTables.responsive.css");
-                         
-                    public static readonly string dataTables_responsive_scss = Url("dataTables.responsive.scss");
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class docs {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/docs";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class api {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/docs/api";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string responsive_index___xml = Url("responsive.index().xml");
-                        public static readonly string responsive_rebuild___xml = Url("responsive.rebuild().xml");
-                        public static readonly string responsive_recalc___xml = Url("responsive.recalc().xml");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class option {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/docs/option";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string responsive_breakpoints_xml = Url("responsive.breakpoints.xml");
-                        public static readonly string responsive_details_renderer_xml = Url("responsive.details.renderer.xml");
-                        public static readonly string responsive_details_target_xml = Url("responsive.details.target.xml");
-                        public static readonly string responsive_details_type_xml = Url("responsive.details.type.xml");
-                        public static readonly string responsive_details_xml = Url("responsive.details.xml");
-                        public static readonly string responsive_xml = Url("responsive.xml");
-                    }
-                
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class examples {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/examples";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string _DS_Store = Url(".DS_Store");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class child_rows {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/examples/child-rows";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string column_control_xml = Url("column-control.xml");
-                        public static readonly string custom_renderer_xml = Url("custom-renderer.xml");
-                        public static readonly string disable_child_rows_xml = Url("disable-child-rows.xml");
-                        public static readonly string index_xml = Url("index.xml");
-                        public static readonly string right_column_xml = Url("right-column.xml");
-                        public static readonly string whole_row_control_xml = Url("whole-row-control.xml");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class display_control {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/examples/display-control";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string auto_xml = Url("auto.xml");
-                        public static readonly string classes_xml = Url("classes.xml");
-                        public static readonly string fixedHeader_xml = Url("fixedHeader.xml");
-                        public static readonly string index_xml = Url("index.xml");
-                        public static readonly string init_classes_xml = Url("init-classes.xml");
-                    }
-                
-                    public static readonly string index_xml = Url("index.xml");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class initialisation {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/examples/initialisation";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string _DS_Store = Url(".DS_Store");
-                        public static readonly string ajax_xml = Url("ajax.xml");
-                        public static readonly string className_xml = Url("className.xml");
-                        public static readonly string default_xml = Url("default.xml");
-                        public static readonly string index_xml = Url("index.xml");
-                        public static readonly string new_xml = Url("new.xml");
-                        public static readonly string option_xml = Url("option.xml");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class styling {
-                        private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/examples/styling";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string bootstrap_xml = Url("bootstrap.xml");
-                        public static readonly string compact_xml = Url("compact.xml");
-                        public static readonly string foundation_xml = Url("foundation.xml");
-                        public static readonly string index_xml = Url("index.xml");
-                        public static readonly string scrolling_xml = Url("scrolling.xml");
-                    }
-                
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class js {
-                    private const string URLPATH = "~/Scripts/bower_components/datatables-responsive/js";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string dataTables_responsive_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/dataTables.responsive.min.js") ? Url("dataTables.responsive.min.js") : Url("dataTables.responsive.js");
-                }
-            
-                public static readonly string License_txt = Url("License.txt");
-                public static readonly string make_sh = Url("make.sh");
-                public static readonly string Readme_md = Url("Readme.md");
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class flot {
-                private const string URLPATH = "~/Scripts/bower_components/flot";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string _gitignore = Url(".gitignore");
-                public static readonly string _travis_yml = Url(".travis.yml");
-                public static readonly string API_md = Url("API.md");
-                public static readonly string component_json = Url("component.json");
-                public static readonly string CONTRIBUTING_md = Url("CONTRIBUTING.md");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class examples {
-                    private const string URLPATH = "~/Scripts/bower_components/flot/examples";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class ajax {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/ajax";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string data_eu_gdp_growth_1_json = Url("data-eu-gdp-growth-1.json");
-                        public static readonly string data_eu_gdp_growth_2_json = Url("data-eu-gdp-growth-2.json");
-                        public static readonly string data_eu_gdp_growth_3_json = Url("data-eu-gdp-growth-3.json");
-                        public static readonly string data_eu_gdp_growth_4_json = Url("data-eu-gdp-growth-4.json");
-                        public static readonly string data_eu_gdp_growth_5_json = Url("data-eu-gdp-growth-5.json");
-                        public static readonly string data_eu_gdp_growth_json = Url("data-eu-gdp-growth.json");
-                        public static readonly string data_japan_gdp_growth_json = Url("data-japan-gdp-growth.json");
-                        public static readonly string data_usa_gdp_growth_json = Url("data-usa-gdp-growth.json");
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class annotating {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/annotating";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class axes_interacting {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/axes-interacting";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class axes_multiple {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/axes-multiple";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class axes_time {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/axes-time";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class axes_time_zones {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/axes-time-zones";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string date_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/date.min.js") ? Url("date.min.js") : Url("date.js");
-                        public static readonly string index_html = Url("index.html");
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class tz {
-                            private const string URLPATH = "~/Scripts/bower_components/flot/examples/axes-time-zones/tz";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string africa = Url("africa");
-                            public static readonly string antarctica = Url("antarctica");
-                            public static readonly string asia = Url("asia");
-                            public static readonly string australasia = Url("australasia");
-                            public static readonly string backward = Url("backward");
-                            public static readonly string etcetera = Url("etcetera");
-                            public static readonly string europe = Url("europe");
-                            public static readonly string factory = Url("factory");
-                            public static readonly string iso3166_tab = Url("iso3166.tab");
-                            public static readonly string leapseconds = Url("leapseconds");
-                            public static readonly string northamerica = Url("northamerica");
-                            public static readonly string pacificnew = Url("pacificnew");
-                            public static readonly string solar87 = Url("solar87");
-                            public static readonly string solar88 = Url("solar88");
-                            public static readonly string solar89 = Url("solar89");
-                            public static readonly string southamerica = Url("southamerica");
-                            public static readonly string systemv = Url("systemv");
-                            public static readonly string yearistype_sh = Url("yearistype.sh");
-                            public static readonly string zone_tab = Url("zone.tab");
-                        }
-                    
-                    }
-                
-                    public static readonly string background_png = Url("background.png");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class basic_options {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/basic-options";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class basic_usage {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/basic-usage";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class canvas {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/canvas";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class categories {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/categories";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    public static readonly string examples_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/examples.min.css") ? Url("examples.min.css") : Url("examples.css");
-                         
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class image {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/image";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string hs_2004_27_a_large_web_jpg = Url("hs-2004-27-a-large-web.jpg");
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    public static readonly string index_html = Url("index.html");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class interacting {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/interacting";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class navigate {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/navigate";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string arrow_down_gif = Url("arrow-down.gif");
-                        public static readonly string arrow_left_gif = Url("arrow-left.gif");
-                        public static readonly string arrow_right_gif = Url("arrow-right.gif");
-                        public static readonly string arrow_up_gif = Url("arrow-up.gif");
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class percentiles {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/percentiles";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class realtime {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/realtime";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class resize {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/resize";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class selection {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/selection";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class series_errorbars {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/series-errorbars";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class series_pie {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/series-pie";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class series_toggle {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/series-toggle";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class series_types {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/series-types";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class shared {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/shared";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class jquery_ui {
-                            private const string URLPATH = "~/Scripts/bower_components/flot/examples/shared/jquery-ui";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string jquery_ui_min_css = Url("jquery-ui.min.css");
-                        }
-                    
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class stacking {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/stacking";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class symbols {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/symbols";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class threshold {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/threshold";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class tracking {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/tracking";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class visitors {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/visitors";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class zooming {
-                        private const string URLPATH = "~/Scripts/bower_components/flot/examples/zooming";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string index_html = Url("index.html");
-                    }
-                
-                }
-            
-                public static readonly string excanvas_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/excanvas.min.js") ? Url("excanvas.min.js") : Url("excanvas.js");
-                public static readonly string excanvas_min_js = Url("excanvas.min.js");
-                public static readonly string FAQ_md = Url("FAQ.md");
-                public static readonly string flot_jquery_json = Url("flot.jquery.json");
-                public static readonly string jquery_colorhelpers_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.colorhelpers.min.js") ? Url("jquery.colorhelpers.min.js") : Url("jquery.colorhelpers.js");
-                public static readonly string jquery_flot_canvas_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.canvas.min.js") ? Url("jquery.flot.canvas.min.js") : Url("jquery.flot.canvas.js");
-                public static readonly string jquery_flot_categories_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.categories.min.js") ? Url("jquery.flot.categories.min.js") : Url("jquery.flot.categories.js");
-                public static readonly string jquery_flot_crosshair_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.crosshair.min.js") ? Url("jquery.flot.crosshair.min.js") : Url("jquery.flot.crosshair.js");
-                public static readonly string jquery_flot_errorbars_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.errorbars.min.js") ? Url("jquery.flot.errorbars.min.js") : Url("jquery.flot.errorbars.js");
-                public static readonly string jquery_flot_fillbetween_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.fillbetween.min.js") ? Url("jquery.flot.fillbetween.min.js") : Url("jquery.flot.fillbetween.js");
-                public static readonly string jquery_flot_image_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.image.min.js") ? Url("jquery.flot.image.min.js") : Url("jquery.flot.image.js");
-                public static readonly string jquery_flot_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.min.js") ? Url("jquery.flot.min.js") : Url("jquery.flot.js");
-                public static readonly string jquery_flot_navigate_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.navigate.min.js") ? Url("jquery.flot.navigate.min.js") : Url("jquery.flot.navigate.js");
-                public static readonly string jquery_flot_pie_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.pie.min.js") ? Url("jquery.flot.pie.min.js") : Url("jquery.flot.pie.js");
-                public static readonly string jquery_flot_resize_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.resize.min.js") ? Url("jquery.flot.resize.min.js") : Url("jquery.flot.resize.js");
-                public static readonly string jquery_flot_selection_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.selection.min.js") ? Url("jquery.flot.selection.min.js") : Url("jquery.flot.selection.js");
-                public static readonly string jquery_flot_stack_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.stack.min.js") ? Url("jquery.flot.stack.min.js") : Url("jquery.flot.stack.js");
-                public static readonly string jquery_flot_symbol_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.symbol.min.js") ? Url("jquery.flot.symbol.min.js") : Url("jquery.flot.symbol.js");
-                public static readonly string jquery_flot_threshold_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.threshold.min.js") ? Url("jquery.flot.threshold.min.js") : Url("jquery.flot.threshold.js");
-                public static readonly string jquery_flot_time_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.time.min.js") ? Url("jquery.flot.time.min.js") : Url("jquery.flot.time.js");
-                public static readonly string jquery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.min.js") ? Url("jquery.min.js") : Url("jquery.js");
-                public static readonly string LICENSE_txt = Url("LICENSE.txt");
-                public static readonly string Makefile = Url("Makefile");
-                public static readonly string NEWS_md = Url("NEWS.md");
-                public static readonly string package_json = Url("package.json");
-                public static readonly string PLUGINS_md = Url("PLUGINS.md");
-                public static readonly string README_md = Url("README.md");
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class flot_tooltip {
-                private const string URLPATH = "~/Scripts/bower_components/flot.tooltip";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string bower_json = Url("bower.json");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class js {
-                    private const string URLPATH = "~/Scripts/bower_components/flot.tooltip/js";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string excanvas_min_js = Url("excanvas.min.js");
-                    public static readonly string jquery_flot_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.min.js") ? Url("jquery.flot.min.js") : Url("jquery.flot.js");
-                    public static readonly string jquery_flot_tooltip_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.tooltip.min.js") ? Url("jquery.flot.tooltip.min.js") : Url("jquery.flot.tooltip.js");
-                    public static readonly string jquery_flot_tooltip_min_js = Url("jquery.flot.tooltip.min.js");
-                    public static readonly string jquery_flot_tooltip_source_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.flot.tooltip.source.min.js") ? Url("jquery.flot.tooltip.source.min.js") : Url("jquery.flot.tooltip.source.js");
-                }
-            
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class holderjs {
-                private const string URLPATH = "~/Scripts/bower_components/holderjs";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string _gitattributes = Url(".gitattributes");
-                public static readonly string _gitignore = Url(".gitignore");
-                public static readonly string _jshintrc = Url(".jshintrc");
-                public static readonly string bower_json = Url("bower.json");
-                public static readonly string composer_json = Url("composer.json");
-                public static readonly string gulpfile_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/gulpfile.min.js") ? Url("gulpfile.min.js") : Url("gulpfile.js");
-                public static readonly string holder_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/holder.min.js") ? Url("holder.min.js") : Url("holder.js");
-                public static readonly string package_json = Url("package.json");
-                public static readonly string README_md = Url("README.md");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class src {
-                    private const string URLPATH = "~/Scripts/bower_components/holderjs/src";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string augment_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/augment.min.js") ? Url("augment.min.js") : Url("augment.js");
-                    public static readonly string holder_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/holder.min.js") ? Url("holder.min.js") : Url("holder.js");
-                    public static readonly string ondomready_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ondomready.min.js") ? Url("ondomready.min.js") : Url("ondomready.js");
-                    public static readonly string polyfills_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/polyfills.min.js") ? Url("polyfills.min.js") : Url("polyfills.js");
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class test {
-                    private const string URLPATH = "~/Scripts/bower_components/holderjs/test";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string _gitignore = Url(".gitignore");
-                    public static readonly string image_jpg = Url("image.jpg");
-                    public static readonly string index_html = Url("index.html");
-                }
-            
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class mocha {
-                private const string URLPATH = "~/Scripts/bower_components/mocha";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string bower_json = Url("bower.json");
-                public static readonly string History_md = Url("History.md");
-                public static readonly string LICENSE = Url("LICENSE");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class media {
-                    private const string URLPATH = "~/Scripts/bower_components/mocha/media";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string logo_svg = Url("logo.svg");
-                }
-            
-                public static readonly string mocha_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/mocha.min.css") ? Url("mocha.min.css") : Url("mocha.css");
-                     
-                public static readonly string mocha_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/mocha.min.js") ? Url("mocha.min.js") : Url("mocha.js");
-                public static readonly string Readme_md = Url("Readme.md");
-            }
-        
-            public static readonly string morris_data_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/morris-data.min.js") ? Url("morris-data.min.js") : Url("morris-data.js");
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class morrisjs {
-                private const string URLPATH = "~/Scripts/bower_components/morrisjs";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string _gitignore = Url(".gitignore");
-                public static readonly string _travis_yml = Url(".travis.yml");
-                public static readonly string bower_json = Url("bower.json");
-                public static readonly string bower_travis_json = Url("bower.travis.json");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class examples {
-                    private const string URLPATH = "~/Scripts/bower_components/morrisjs/examples";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string _template_html = Url("_template.html");
-                    public static readonly string area_as_line_html = Url("area-as-line.html");
-                    public static readonly string area_html = Url("area.html");
-                    public static readonly string bar_colors_html = Url("bar-colors.html");
-                    public static readonly string bar_no_axes_html = Url("bar-no-axes.html");
-                    public static readonly string bar_html = Url("bar.html");
-                    public static readonly string days_html = Url("days.html");
-                    public static readonly string decimal_custom_hover_html = Url("decimal-custom-hover.html");
-                    public static readonly string diagonal_xlabels_bar_html = Url("diagonal-xlabels-bar.html");
-                    public static readonly string diagonal_xlabels_html = Url("diagonal-xlabels.html");
-                    public static readonly string donut_colors_html = Url("donut-colors.html");
-                    public static readonly string donut_formatter_html = Url("donut-formatter.html");
-                    public static readonly string donut_html = Url("donut.html");
-                    public static readonly string dst_html = Url("dst.html");
-                    public static readonly string events_html = Url("events.html");
-                    public static readonly string goals_html = Url("goals.html");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class lib {
-                        private const string URLPATH = "~/Scripts/bower_components/morrisjs/examples/lib";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string example_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/example.min.css") ? Url("example.min.css") : Url("example.css");
-                             
-                        public static readonly string example_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/example.min.js") ? Url("example.min.js") : Url("example.js");
-                    }
-                
-                    public static readonly string months_no_smooth_html = Url("months-no-smooth.html");
-                    public static readonly string negative_html = Url("negative.html");
-                    public static readonly string no_grid_html = Url("no-grid.html");
-                    public static readonly string non_continuous_html = Url("non-continuous.html");
-                    public static readonly string non_date_html = Url("non-date.html");
-                    public static readonly string quarters_html = Url("quarters.html");
-                    public static readonly string resize_html = Url("resize.html");
-                    public static readonly string stacked_bars_html = Url("stacked_bars.html");
-                    public static readonly string timestamps_html = Url("timestamps.html");
-                    public static readonly string updating_html = Url("updating.html");
-                    public static readonly string weeks_html = Url("weeks.html");
-                    public static readonly string years_html = Url("years.html");
-                }
-            
-                public static readonly string Gruntfile_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Gruntfile.min.js") ? Url("Gruntfile.min.js") : Url("Gruntfile.js");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class less {
-                    private const string URLPATH = "~/Scripts/bower_components/morrisjs/less";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string morris_core_less = Url("morris.core.less");
-                }
-            
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class lib {
-                    private const string URLPATH = "~/Scripts/bower_components/morrisjs/lib";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string morris_area_coffee = Url("morris.area.coffee");
-                    public static readonly string morris_bar_coffee = Url("morris.bar.coffee");
-                    public static readonly string morris_coffee = Url("morris.coffee");
-                    public static readonly string morris_donut_coffee = Url("morris.donut.coffee");
-                    public static readonly string morris_grid_coffee = Url("morris.grid.coffee");
-                    public static readonly string morris_hover_coffee = Url("morris.hover.coffee");
-                    public static readonly string morris_line_coffee = Url("morris.line.coffee");
-                }
-            
-                public static readonly string morris_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/morris.min.css") ? Url("morris.min.css") : Url("morris.css");
-                     
-                public static readonly string morris_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/morris.min.js") ? Url("morris.min.js") : Url("morris.js");
-                public static readonly string morris_min_js = Url("morris.min.js");
-                public static readonly string package_json = Url("package.json");
-                public static readonly string README_md = Url("README.md");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class spec {
-                    private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class lib {
-                        private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/lib";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class area {
-                            private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/lib/area";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string area_spec_coffee = Url("area_spec.coffee");
-                        }
-                    
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class bar {
-                            private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/lib/bar";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string bar_spec_coffee = Url("bar_spec.coffee");
-                            public static readonly string colours_coffee = Url("colours.coffee");
-                        }
-                    
-                        public static readonly string commas_spec_coffee = Url("commas_spec.coffee");
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class donut {
-                            private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/lib/donut";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string donut_spec_coffee = Url("donut_spec.coffee");
-                        }
-                    
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class grid {
-                            private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/lib/grid";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string auto_grid_lines_spec_coffee = Url("auto_grid_lines_spec.coffee");
-                            public static readonly string set_data_spec_coffee = Url("set_data_spec.coffee");
-                            public static readonly string y_label_format_spec_coffee = Url("y_label_format_spec.coffee");
-                        }
-                    
-                        public static readonly string hover_spec_coffee = Url("hover_spec.coffee");
-                        public static readonly string label_series_spec_coffee = Url("label_series_spec.coffee");
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class line {
-                            private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/lib/line";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string line_spec_coffee = Url("line_spec.coffee");
-                        }
-                    
-                        public static readonly string pad_spec_coffee = Url("pad_spec.coffee");
-                        public static readonly string parse_time_spec_coffee = Url("parse_time_spec.coffee");
-                    }
-                
-                    public static readonly string specs_html = Url("specs.html");
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class support {
-                        private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/support";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string placeholder_coffee = Url("placeholder.coffee");
-                    }
-                
-                    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                    public static class viz {
-                        private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/viz";
-                        public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                        public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                        public static readonly string examples_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/examples.min.js") ? Url("examples.min.js") : Url("examples.js");
-                        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                        public static class exemplary {
-                            private const string URLPATH = "~/Scripts/bower_components/morrisjs/spec/viz/exemplary";
-                            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                            public static readonly string area0_png = Url("area0.png");
-                            public static readonly string bar0_png = Url("bar0.png");
-                            public static readonly string line0_png = Url("line0.png");
-                            public static readonly string stacked_bar0_png = Url("stacked_bar0.png");
-                        }
-                    
-                        public static readonly string run_sh = Url("run.sh");
-                        public static readonly string test_html = Url("test.html");
-                        public static readonly string visual_specs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/visual_specs.min.js") ? Url("visual_specs.min.js") : Url("visual_specs.js");
-                    }
-                
-                }
-            
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class raphael {
-                private const string URLPATH = "~/Scripts/bower_components/raphael";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string _bower_json = Url(".bower.json");
-                public static readonly string bower_json = Url("bower.json");
-                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-                public static class dev {
-                    private const string URLPATH = "~/Scripts/bower_components/raphael/dev";
-                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                    public static readonly string amdDev_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/amdDev.min.js") ? Url("amdDev.min.js") : Url("amdDev.js");
-                    public static readonly string index_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/index.min.js") ? Url("index.min.js") : Url("index.js");
-                    public static readonly string require_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/require.min.js") ? Url("require.min.js") : Url("require.js");
-                }
-            
-                public static readonly string license_txt = Url("license.txt");
-                public static readonly string raphael_min_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/raphael-min.min.js") ? Url("raphael-min.min.js") : Url("raphael-min.js");
-                public static readonly string raphael_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/raphael.min.js") ? Url("raphael.min.js") : Url("raphael.js");
-            }
-        
-        }
-    
+        public static readonly string html5shiv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/html5shiv.min.js") ? Url("html5shiv.min.js") : Url("html5shiv.js");
         public static readonly string jquery_2_1_4_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.1.4.intellisense.min.js") ? Url("jquery-2.1.4.intellisense.min.js") : Url("jquery-2.1.4.intellisense.js");
         public static readonly string jquery_2_1_4_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.1.4.min.js") ? Url("jquery-2.1.4.min.js") : Url("jquery-2.1.4.js");
         public static readonly string jquery_2_1_4_min_js = Url("jquery-2.1.4.min.js");
@@ -1350,25 +170,55 @@ namespace Links
         public static readonly string json2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/json2.min.js") ? Url("json2.min.js") : Url("json2.js");
         public static readonly string json2_min_js = Url("json2.min.js");
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class lightbox {
+            private const string URLPATH = "~/Scripts/lightbox";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class css {
+                private const string URLPATH = "~/Scripts/lightbox/css";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string lightbox_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lightbox.min.css") ? Url("lightbox.min.css") : Url("lightbox.css");
+                     
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class images {
+                private const string URLPATH = "~/Scripts/lightbox/images";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string close_png = Url("close.png");
+                public static readonly string loading_gif = Url("loading.gif");
+                public static readonly string next_png = Url("next.png");
+                public static readonly string prev_png = Url("prev.png");
+            }
+        
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class js {
+                private const string URLPATH = "~/Scripts/lightbox/js";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string lightbox_plus_jquery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lightbox-plus-jquery.min.js") ? Url("lightbox-plus-jquery.min.js") : Url("lightbox-plus-jquery.js");
+                public static readonly string lightbox_plus_jquery_min_js = Url("lightbox-plus-jquery.min.js");
+                public static readonly string lightbox_plus_jquery_min_map = Url("lightbox-plus-jquery.min.map");
+                public static readonly string lightbox_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lightbox.min.js") ? Url("lightbox.min.js") : Url("lightbox.js");
+                public static readonly string lightbox_min_js = Url("lightbox.min.js");
+                public static readonly string lightbox_min_map = Url("lightbox.min.map");
+            }
+        
+        }
+    
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class luckyyu {
             private const string URLPATH = "~/Scripts/luckyyu";
             public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            public static readonly string adminsite_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/adminsite.min.js") ? Url("adminsite.min.js") : Url("adminsite.js");
+            public static readonly string app_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app.min.js") ? Url("app.min.js") : Url("app.js");
+            public static readonly string app_min_js = Url("app.min.js");
+            public static readonly string demo_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/demo.min.js") ? Url("demo.min.js") : Url("demo.js");
             public static readonly string lucky_plugin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lucky.plugin.min.js") ? Url("lucky.plugin.min.js") : Url("lucky.plugin.js");
             public static readonly string main_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/main.min.js") ? Url("main.min.js") : Url("main.js");
-        }
-    
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class metisMenu {
-            private const string URLPATH = "~/Scripts/metisMenu";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            public static readonly string metisMenu_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/metisMenu.min.css") ? Url("metisMenu.min.css") : Url("metisMenu.css");
-                 
-            public static readonly string metisMenu_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/metisMenu.min.js") ? Url("metisMenu.min.js") : Url("metisMenu.js");
-            public static readonly string metisMenu_min_css = Url("metisMenu.min.css");
-            public static readonly string metisMenu_min_js = Url("metisMenu.min.js");
         }
     
         public static readonly string modernizr_2_8_3_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/modernizr-2.8.3.min.js") ? Url("modernizr-2.8.3.min.js") : Url("modernizr-2.8.3.js");
@@ -1376,28 +226,6 @@ namespace Links
         public static readonly string moment_with_locales_min_js = Url("moment-with-locales.min.js");
         public static readonly string moment_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/moment.min.js") ? Url("moment.min.js") : Url("moment.js");
         public static readonly string moment_min_js = Url("moment.min.js");
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class others {
-            private const string URLPATH = "~/Scripts/others";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            public static readonly string html5shiv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/html5shiv.min.js") ? Url("html5shiv.min.js") : Url("html5shiv.js");
-            public static readonly string jquery_isotope_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.isotope.min.js") ? Url("jquery.isotope.min.js") : Url("jquery.isotope.js");
-            public static readonly string jquery_prettyPhoto_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.prettyPhoto.min.js") ? Url("jquery.prettyPhoto.min.js") : Url("jquery.prettyPhoto.js");
-            public static readonly string respond_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/respond.min.js") ? Url("respond.min.js") : Url("respond.js");
-            public static readonly string respond_min_js = Url("respond.min.js");
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class spinjs {
-                private const string URLPATH = "~/Scripts/others/spinjs";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string jquery_spin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.spin.min.js") ? Url("jquery.spin.min.js") : Url("jquery.spin.js");
-                public static readonly string spin_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/spin.min.js") ? Url("spin.min.js") : Url("spin.js");
-            }
-        
-            public static readonly string wow_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/wow.min.js") ? Url("wow.min.js") : Url("wow.js");
-        }
-    
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class plupload {
             private const string URLPATH = "~/Scripts/plupload";
@@ -1411,6 +239,15 @@ namespace Links
         public static readonly string respond_matchmedia_addListener_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/respond.matchmedia.addListener.min.js") ? Url("respond.matchmedia.addListener.min.js") : Url("respond.matchmedia.addListener.js");
         public static readonly string respond_matchmedia_addListener_min_js = Url("respond.matchmedia.addListener.min.js");
         public static readonly string respond_min_js = Url("respond.min.js");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class slimScroll {
+            private const string URLPATH = "~/Scripts/slimScroll";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string jquery_slimscroll_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.slimscroll.min.js") ? Url("jquery.slimscroll.min.js") : Url("jquery.slimscroll.js");
+            public static readonly string jquery_slimscroll_min_js = Url("jquery.slimscroll.min.js");
+        }
+    
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class supersized {
             private const string URLPATH = "~/Scripts/supersized";
@@ -1449,23 +286,17 @@ namespace Links
         
         }
     
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class sweetalert {
-            private const string URLPATH = "~/Scripts/sweetalert";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            public static readonly string ie9_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/ie9.min.css") ? Url("ie9.min.css") : Url("ie9.css");
-                 
-            public static readonly string sweet_alert_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/sweet-alert.min.css") ? Url("sweet-alert.min.css") : Url("sweet-alert.css");
-                 
-            public static readonly string sweet_alert_html = Url("sweet-alert.html");
-            public static readonly string sweet_alert_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/sweet-alert.min.js") ? Url("sweet-alert.min.js") : Url("sweet-alert.js");
-            public static readonly string sweet_alert_min_js = Url("sweet-alert.min.js");
-            public static readonly string sweet_alert_scss = Url("sweet-alert.scss");
-        }
-    
         public static readonly string toastr_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/toastr.min.js") ? Url("toastr.min.js") : Url("toastr.js");
         public static readonly string toastr_min_js = Url("toastr.min.js");
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class wow {
+            private const string URLPATH = "~/Scripts/wow";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string wow_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/wow.min.js") ? Url("wow.min.js") : Url("wow.js");
+            public static readonly string wow_min_js = Url("wow.min.js");
+        }
+    
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class zTree {
             private const string URLPATH = "~/Scripts/zTree";
@@ -1582,7 +413,7 @@ namespace Links
         private const string URLPATH = "~/Content";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-        public static readonly string adminsite_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/adminsite.min.css") ? Url("adminsite.min.css") : Url("adminsite.css");
+        public static readonly string AdminLTE_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/AdminLTE.min.css") ? Url("AdminLTE.min.css") : Url("AdminLTE.css");
              
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class animate {
@@ -1647,12 +478,58 @@ namespace Links
         
         }
     
+        public static readonly string main_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/main.min.css") ? Url("main.min.css") : Url("main.css");
+             
         public static readonly string prettyPhoto_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/prettyPhoto.min.css") ? Url("prettyPhoto.min.css") : Url("prettyPhoto.css");
              
         public static readonly string responsive_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/responsive.min.css") ? Url("responsive.min.css") : Url("responsive.css");
              
-        public static readonly string Site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Site.min.css") ? Url("Site.min.css") : Url("Site.css");
-             
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class skins {
+            private const string URLPATH = "~/Content/skins";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string _all_skins_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/_all-skins.min.css") ? Url("_all-skins.min.css") : Url("_all-skins.css");
+                 
+            public static readonly string _all_skins_min_css = Url("_all-skins.min.css");
+            public static readonly string skin_black_light_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-black-light.min.css") ? Url("skin-black-light.min.css") : Url("skin-black-light.css");
+                 
+            public static readonly string skin_black_light_min_css = Url("skin-black-light.min.css");
+            public static readonly string skin_black_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-black.min.css") ? Url("skin-black.min.css") : Url("skin-black.css");
+                 
+            public static readonly string skin_black_min_css = Url("skin-black.min.css");
+            public static readonly string skin_blue_light_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-blue-light.min.css") ? Url("skin-blue-light.min.css") : Url("skin-blue-light.css");
+                 
+            public static readonly string skin_blue_light_min_css = Url("skin-blue-light.min.css");
+            public static readonly string skin_blue_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-blue.min.css") ? Url("skin-blue.min.css") : Url("skin-blue.css");
+                 
+            public static readonly string skin_blue_min_css = Url("skin-blue.min.css");
+            public static readonly string skin_green_light_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-green-light.min.css") ? Url("skin-green-light.min.css") : Url("skin-green-light.css");
+                 
+            public static readonly string skin_green_light_min_css = Url("skin-green-light.min.css");
+            public static readonly string skin_green_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-green.min.css") ? Url("skin-green.min.css") : Url("skin-green.css");
+                 
+            public static readonly string skin_green_min_css = Url("skin-green.min.css");
+            public static readonly string skin_purple_light_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-purple-light.min.css") ? Url("skin-purple-light.min.css") : Url("skin-purple-light.css");
+                 
+            public static readonly string skin_purple_light_min_css = Url("skin-purple-light.min.css");
+            public static readonly string skin_purple_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-purple.min.css") ? Url("skin-purple.min.css") : Url("skin-purple.css");
+                 
+            public static readonly string skin_purple_min_css = Url("skin-purple.min.css");
+            public static readonly string skin_red_light_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-red-light.min.css") ? Url("skin-red-light.min.css") : Url("skin-red-light.css");
+                 
+            public static readonly string skin_red_light_min_css = Url("skin-red-light.min.css");
+            public static readonly string skin_red_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-red.min.css") ? Url("skin-red.min.css") : Url("skin-red.css");
+                 
+            public static readonly string skin_red_min_css = Url("skin-red.min.css");
+            public static readonly string skin_yellow_light_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-yellow-light.min.css") ? Url("skin-yellow-light.min.css") : Url("skin-yellow-light.css");
+                 
+            public static readonly string skin_yellow_light_min_css = Url("skin-yellow-light.min.css");
+            public static readonly string skin_yellow_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/skin-yellow.min.css") ? Url("skin-yellow.min.css") : Url("skin-yellow.css");
+                 
+            public static readonly string skin_yellow_min_css = Url("skin-yellow.min.css");
+        }
+    
         public static readonly string toastr_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/toastr.min.css") ? Url("toastr.min.css") : Url("toastr.css");
              
         public static readonly string toastr_min_css = Url("toastr.min.css");
@@ -1695,765 +572,6 @@ namespace Links
                     public const string bootstrap_min_js = "~/Scripts/bootstrap/bootstrap.min.js"; 
                 }
             }
-            public static partial class bower_components 
-            {
-                public static partial class bootstrap_social 
-                {
-                    public static class Assets
-                    {
-                        public const string bootstrap_social_css = "~/Scripts/bower_components/bootstrap-social/bootstrap-social.css";
-                    }
-                }
-                public static partial class datatables 
-                {
-                    public static partial class media 
-                    {
-                        public static partial class css 
-                        {
-                            public static class Assets
-                            {
-                                public const string jquery_dataTables_css = "~/Scripts/bower_components/datatables/media/css/jquery.dataTables.css";
-                                public const string jquery_dataTables_min_css = "~/Scripts/bower_components/datatables/media/css/jquery.dataTables.min.css";
-                                public const string jquery_dataTables_themeroller_css = "~/Scripts/bower_components/datatables/media/css/jquery.dataTables_themeroller.css";
-                            }
-                        }
-                        public static partial class images 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class js 
-                        {
-                            public static class Assets
-                            {
-                                public const string jquery_dataTables_js = "~/Scripts/bower_components/datatables/media/js/jquery.dataTables.js"; 
-                                public const string jquery_dataTables_min_js = "~/Scripts/bower_components/datatables/media/js/jquery.dataTables.min.js"; 
-                                public const string jquery_js = "~/Scripts/bower_components/datatables/media/js/jquery.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static class Assets
-                    {
-                    }
-                }
-                public static partial class datatables_plugins 
-                {
-                    public static partial class api 
-                    {
-                        public static class Assets
-                        {
-                            public const string average___js = "~/Scripts/bower_components/datatables-plugins/api/average().js"; 
-                            public const string column___title___js = "~/Scripts/bower_components/datatables-plugins/api/column().title().js"; 
-                            public const string columns___order___js = "~/Scripts/bower_components/datatables-plugins/api/columns().order().js"; 
-                            public const string fnAddDataAndDisplay_js = "~/Scripts/bower_components/datatables-plugins/api/fnAddDataAndDisplay.js"; 
-                            public const string fnAddTr_js = "~/Scripts/bower_components/datatables-plugins/api/fnAddTr.js"; 
-                            public const string fnColumnIndexToVisible_js = "~/Scripts/bower_components/datatables-plugins/api/fnColumnIndexToVisible.js"; 
-                            public const string fnDataUpdate_js = "~/Scripts/bower_components/datatables-plugins/api/fnDataUpdate.js"; 
-                            public const string fnDisplayRow_js = "~/Scripts/bower_components/datatables-plugins/api/fnDisplayRow.js"; 
-                            public const string fnDisplayStart_js = "~/Scripts/bower_components/datatables-plugins/api/fnDisplayStart.js"; 
-                            public const string fnFakeRowspan_js = "~/Scripts/bower_components/datatables-plugins/api/fnFakeRowspan.js"; 
-                            public const string fnFilterAll_js = "~/Scripts/bower_components/datatables-plugins/api/fnFilterAll.js"; 
-                            public const string fnFilterClear_js = "~/Scripts/bower_components/datatables-plugins/api/fnFilterClear.js"; 
-                            public const string fnFilterOnReturn_js = "~/Scripts/bower_components/datatables-plugins/api/fnFilterOnReturn.js"; 
-                            public const string fnFindCellRowIndexes_js = "~/Scripts/bower_components/datatables-plugins/api/fnFindCellRowIndexes.js"; 
-                            public const string fnFindCellRowNodes_js = "~/Scripts/bower_components/datatables-plugins/api/fnFindCellRowNodes.js"; 
-                            public const string fnGetAdjacentTr_js = "~/Scripts/bower_components/datatables-plugins/api/fnGetAdjacentTr.js"; 
-                            public const string fnGetColumnData_js = "~/Scripts/bower_components/datatables-plugins/api/fnGetColumnData.js"; 
-                            public const string fnGetColumnIndex_js = "~/Scripts/bower_components/datatables-plugins/api/fnGetColumnIndex.js"; 
-                            public const string fnGetHiddenNodes_js = "~/Scripts/bower_components/datatables-plugins/api/fnGetHiddenNodes.js"; 
-                            public const string fnGetTd_js = "~/Scripts/bower_components/datatables-plugins/api/fnGetTd.js"; 
-                            public const string fnGetTds_js = "~/Scripts/bower_components/datatables-plugins/api/fnGetTds.js"; 
-                            public const string fnLengthChange_js = "~/Scripts/bower_components/datatables-plugins/api/fnLengthChange.js"; 
-                            public const string fnMultiFilter_js = "~/Scripts/bower_components/datatables-plugins/api/fnMultiFilter.js"; 
-                            public const string fnPagingInfo_js = "~/Scripts/bower_components/datatables-plugins/api/fnPagingInfo.js"; 
-                            public const string fnProcessingIndicator_js = "~/Scripts/bower_components/datatables-plugins/api/fnProcessingIndicator.js"; 
-                            public const string fnReloadAjax_js = "~/Scripts/bower_components/datatables-plugins/api/fnReloadAjax.js"; 
-                            public const string fnSetFilteringDelay_js = "~/Scripts/bower_components/datatables-plugins/api/fnSetFilteringDelay.js"; 
-                            public const string fnSortNeutral_js = "~/Scripts/bower_components/datatables-plugins/api/fnSortNeutral.js"; 
-                            public const string fnStandingRedraw_js = "~/Scripts/bower_components/datatables-plugins/api/fnStandingRedraw.js"; 
-                            public const string fnVisibleToColumnIndex_js = "~/Scripts/bower_components/datatables-plugins/api/fnVisibleToColumnIndex.js"; 
-                            public const string page_jumpToData___js = "~/Scripts/bower_components/datatables-plugins/api/page.jumpToData().js"; 
-                            public const string sum___js = "~/Scripts/bower_components/datatables-plugins/api/sum().js"; 
-                        }
-                    }
-                    public static partial class features 
-                    {
-                        public static partial class alphabetSearch 
-                        {
-                            public static class Assets
-                            {
-                                public const string dataTables_alphabetSearch_css = "~/Scripts/bower_components/datatables-plugins/features/alphabetSearch/dataTables.alphabetSearch.css";
-                                public const string dataTables_alphabetSearch_js = "~/Scripts/bower_components/datatables-plugins/features/alphabetSearch/dataTables.alphabetSearch.js"; 
-                                public const string dataTables_alphabetSearch_min_js = "~/Scripts/bower_components/datatables-plugins/features/alphabetSearch/dataTables.alphabetSearch.min.js"; 
-                            }
-                        }
-                        public static partial class lengthLinks 
-                        {
-                            public static class Assets
-                            {
-                                public const string dataTables_lengthLinks_css = "~/Scripts/bower_components/datatables-plugins/features/lengthLinks/dataTables.lengthLinks.css";
-                                public const string dataTables_lengthLinks_js = "~/Scripts/bower_components/datatables-plugins/features/lengthLinks/dataTables.lengthLinks.js"; 
-                                public const string dataTables_lengthLinks_min_js = "~/Scripts/bower_components/datatables-plugins/features/lengthLinks/dataTables.lengthLinks.min.js"; 
-                            }
-                        }
-                        public static partial class searchHighlight 
-                        {
-                            public static class Assets
-                            {
-                                public const string dataTables_searchHighlight_css = "~/Scripts/bower_components/datatables-plugins/features/searchHighlight/dataTables.searchHighlight.css";
-                                public const string dataTables_searchHighlight_js = "~/Scripts/bower_components/datatables-plugins/features/searchHighlight/dataTables.searchHighlight.js"; 
-                                public const string dataTables_searchHighlight_min_js = "~/Scripts/bower_components/datatables-plugins/features/searchHighlight/dataTables.searchHighlight.min.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class filtering 
-                    {
-                        public static partial class row_based 
-                        {
-                            public static class Assets
-                            {
-                                public const string range_dates_js = "~/Scripts/bower_components/datatables-plugins/filtering/row-based/range_dates.js"; 
-                                public const string range_numbers_js = "~/Scripts/bower_components/datatables-plugins/filtering/row-based/range_numbers.js"; 
-                                public const string TableTools_ShowSelectedOnly_js = "~/Scripts/bower_components/datatables-plugins/filtering/row-based/TableTools.ShowSelectedOnly.js"; 
-                            }
-                        }
-                        public static partial class type_based 
-                        {
-                            public static class Assets
-                            {
-                                public const string accent_neutralise_js = "~/Scripts/bower_components/datatables-plugins/filtering/type-based/accent-neutralise.js"; 
-                                public const string html_js = "~/Scripts/bower_components/datatables-plugins/filtering/type-based/html.js"; 
-                                public const string phoneNumber_js = "~/Scripts/bower_components/datatables-plugins/filtering/type-based/phoneNumber.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class i18n 
-                    {
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class integration 
-                    {
-                        public static partial class bootstrap 
-                        {
-                            public static partial class _1 
-                            {
-                                public static class Assets
-                                {
-                                    public const string dataTables_bootstrap_css = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/1/dataTables.bootstrap.css";
-                                    public const string dataTables_bootstrap_js = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/1/dataTables.bootstrap.js"; 
-                                }
-                            }
-                            public static partial class _2 
-                            {
-                                public static class Assets
-                                {
-                                    public const string dataTables_bootstrap_css = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/2/dataTables.bootstrap.css";
-                                    public const string dataTables_bootstrap_js = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/2/dataTables.bootstrap.js"; 
-                                    public const string dataTables_bootstrap_min_js = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/2/dataTables.bootstrap.min.js"; 
-                                }
-                            }
-                            public static partial class _3 
-                            {
-                                public static class Assets
-                                {
-                                    public const string dataTables_bootstrap_css = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css";
-                                    public const string dataTables_bootstrap_js = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"; 
-                                    public const string dataTables_bootstrap_min_js = "~/Scripts/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"; 
-                                }
-                            }
-                            public static partial class images 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class font_awesome 
-                        {
-                            public static class Assets
-                            {
-                                public const string dataTables_fontAwesome_css = "~/Scripts/bower_components/datatables-plugins/integration/font-awesome/dataTables.fontAwesome.css";
-                            }
-                        }
-                        public static partial class foundation 
-                        {
-                            public static partial class images 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static class Assets
-                            {
-                                public const string dataTables_foundation_css = "~/Scripts/bower_components/datatables-plugins/integration/foundation/dataTables.foundation.css";
-                                public const string dataTables_foundation_js = "~/Scripts/bower_components/datatables-plugins/integration/foundation/dataTables.foundation.js"; 
-                                public const string dataTables_foundation_min_js = "~/Scripts/bower_components/datatables-plugins/integration/foundation/dataTables.foundation.min.js"; 
-                            }
-                        }
-                        public static partial class jqueryui 
-                        {
-                            public static class Assets
-                            {
-                                public const string dataTables_jqueryui_css = "~/Scripts/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.css";
-                                public const string dataTables_jqueryui_js = "~/Scripts/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.js"; 
-                                public const string dataTables_jqueryui_min_js = "~/Scripts/bower_components/datatables-plugins/integration/jqueryui/dataTables.jqueryui.min.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class pagination 
-                    {
-                        public static partial class jPaginator 
-                        {
-                            public static class Assets
-                            {
-                                public const string dataTables_jPaginator_js = "~/Scripts/bower_components/datatables-plugins/pagination/jPaginator/dataTables.jPaginator.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                            public const string ellipses_js = "~/Scripts/bower_components/datatables-plugins/pagination/ellipses.js"; 
-                            public const string extjs_js = "~/Scripts/bower_components/datatables-plugins/pagination/extjs.js"; 
-                            public const string four_button_js = "~/Scripts/bower_components/datatables-plugins/pagination/four_button.js"; 
-                            public const string input_js = "~/Scripts/bower_components/datatables-plugins/pagination/input.js"; 
-                            public const string scrolling_js = "~/Scripts/bower_components/datatables-plugins/pagination/scrolling.js"; 
-                            public const string select_js = "~/Scripts/bower_components/datatables-plugins/pagination/select.js"; 
-                        }
-                    }
-                    public static partial class sorting 
-                    {
-                        public static partial class custom_data_source 
-                        {
-                            public static class Assets
-                            {
-                                public const string dom_checkbox_js = "~/Scripts/bower_components/datatables-plugins/sorting/custom-data-source/dom-checkbox.js"; 
-                                public const string dom_select_js = "~/Scripts/bower_components/datatables-plugins/sorting/custom-data-source/dom-select.js"; 
-                                public const string dom_text_js = "~/Scripts/bower_components/datatables-plugins/sorting/custom-data-source/dom-text.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                            public const string alt_string_js = "~/Scripts/bower_components/datatables-plugins/sorting/alt-string.js"; 
-                            public const string anti_the_js = "~/Scripts/bower_components/datatables-plugins/sorting/anti-the.js"; 
-                            public const string chinese_string_js = "~/Scripts/bower_components/datatables-plugins/sorting/chinese-string.js"; 
-                            public const string currency_js = "~/Scripts/bower_components/datatables-plugins/sorting/currency.js"; 
-                            public const string date_dd_MMM_yyyy_js = "~/Scripts/bower_components/datatables-plugins/sorting/date-dd-MMM-yyyy.js"; 
-                            public const string date_de_js = "~/Scripts/bower_components/datatables-plugins/sorting/date-de.js"; 
-                            public const string date_eu_js = "~/Scripts/bower_components/datatables-plugins/sorting/date-eu.js"; 
-                            public const string date_euro_js = "~/Scripts/bower_components/datatables-plugins/sorting/date-euro.js"; 
-                            public const string date_uk_js = "~/Scripts/bower_components/datatables-plugins/sorting/date-uk.js"; 
-                            public const string datetime_moment_js = "~/Scripts/bower_components/datatables-plugins/sorting/datetime-moment.js"; 
-                            public const string datetime_us_js = "~/Scripts/bower_components/datatables-plugins/sorting/datetime-us.js"; 
-                            public const string enum_js = "~/Scripts/bower_components/datatables-plugins/sorting/enum.js"; 
-                            public const string file_size_js = "~/Scripts/bower_components/datatables-plugins/sorting/file-size.js"; 
-                            public const string formatted_numbers_js = "~/Scripts/bower_components/datatables-plugins/sorting/formatted-numbers.js"; 
-                            public const string ip_address_js = "~/Scripts/bower_components/datatables-plugins/sorting/ip-address.js"; 
-                            public const string monthYear_js = "~/Scripts/bower_components/datatables-plugins/sorting/monthYear.js"; 
-                            public const string natural_js = "~/Scripts/bower_components/datatables-plugins/sorting/natural.js"; 
-                            public const string num_html_js = "~/Scripts/bower_components/datatables-plugins/sorting/num-html.js"; 
-                            public const string numeric_comma_js = "~/Scripts/bower_components/datatables-plugins/sorting/numeric-comma.js"; 
-                            public const string percent_js = "~/Scripts/bower_components/datatables-plugins/sorting/percent.js"; 
-                            public const string persian_js = "~/Scripts/bower_components/datatables-plugins/sorting/persian.js"; 
-                            public const string scientific_js = "~/Scripts/bower_components/datatables-plugins/sorting/scientific.js"; 
-                            public const string signed_num_js = "~/Scripts/bower_components/datatables-plugins/sorting/signed-num.js"; 
-                            public const string stringMonthYear_js = "~/Scripts/bower_components/datatables-plugins/sorting/stringMonthYear.js"; 
-                            public const string time_js = "~/Scripts/bower_components/datatables-plugins/sorting/time.js"; 
-                            public const string title_numeric_js = "~/Scripts/bower_components/datatables-plugins/sorting/title-numeric.js"; 
-                            public const string title_string_js = "~/Scripts/bower_components/datatables-plugins/sorting/title-string.js"; 
-                            public const string turkish_string_js = "~/Scripts/bower_components/datatables-plugins/sorting/turkish-string.js"; 
-                        }
-                    }
-                    public static partial class type_detection 
-                    {
-                        public static class Assets
-                        {
-                            public const string currency_js = "~/Scripts/bower_components/datatables-plugins/type-detection/currency.js"; 
-                            public const string date_uk_js = "~/Scripts/bower_components/datatables-plugins/type-detection/date-uk.js"; 
-                            public const string file_size_js = "~/Scripts/bower_components/datatables-plugins/type-detection/file-size.js"; 
-                            public const string formatted_num_js = "~/Scripts/bower_components/datatables-plugins/type-detection/formatted-num.js"; 
-                            public const string ip_address_js = "~/Scripts/bower_components/datatables-plugins/type-detection/ip-address.js"; 
-                            public const string num_html_js = "~/Scripts/bower_components/datatables-plugins/type-detection/num-html.js"; 
-                            public const string numeric_comma_js = "~/Scripts/bower_components/datatables-plugins/type-detection/numeric-comma.js"; 
-                        }
-                    }
-                    public static class Assets
-                    {
-                    }
-                }
-                public static partial class datatables_responsive 
-                {
-                    public static partial class css 
-                    {
-                        public static class Assets
-                        {
-                            public const string dataTables_responsive_css = "~/Scripts/bower_components/datatables-responsive/css/dataTables.responsive.css";
-                        }
-                    }
-                    public static partial class docs 
-                    {
-                        public static partial class api 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class option 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class examples 
-                    {
-                        public static partial class child_rows 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class display_control 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class initialisation 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class styling 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class js 
-                    {
-                        public static class Assets
-                        {
-                            public const string dataTables_responsive_js = "~/Scripts/bower_components/datatables-responsive/js/dataTables.responsive.js"; 
-                        }
-                    }
-                    public static class Assets
-                    {
-                    }
-                }
-                public static partial class flot 
-                {
-                    public static partial class examples 
-                    {
-                        public static partial class ajax 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class annotating 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class axes_interacting 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class axes_multiple 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class axes_time 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class axes_time_zones 
-                        {
-                            public static partial class tz 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static class Assets
-                            {
-                                public const string date_js = "~/Scripts/bower_components/flot/examples/axes-time-zones/date.js"; 
-                            }
-                        }
-                        public static partial class basic_options 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class basic_usage 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class canvas 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class categories 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class image 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class interacting 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class navigate 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class percentiles 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class realtime 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class resize 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class selection 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class series_errorbars 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class series_pie 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class series_toggle 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class series_types 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class shared 
-                        {
-                            public static partial class jquery_ui 
-                            {
-                                public static class Assets
-                                {
-                                    public const string jquery_ui_min_css = "~/Scripts/bower_components/flot/examples/shared/jquery-ui/jquery-ui.min.css";
-                                }
-                            }
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class stacking 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class symbols 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class threshold 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class tracking 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class visitors 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class zooming 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static class Assets
-                        {
-                            public const string examples_css = "~/Scripts/bower_components/flot/examples/examples.css";
-                        }
-                    }
-                    public static class Assets
-                    {
-                        public const string excanvas_js = "~/Scripts/bower_components/flot/excanvas.js"; 
-                        public const string excanvas_min_js = "~/Scripts/bower_components/flot/excanvas.min.js"; 
-                        public const string jquery_colorhelpers_js = "~/Scripts/bower_components/flot/jquery.colorhelpers.js"; 
-                        public const string jquery_flot_canvas_js = "~/Scripts/bower_components/flot/jquery.flot.canvas.js"; 
-                        public const string jquery_flot_categories_js = "~/Scripts/bower_components/flot/jquery.flot.categories.js"; 
-                        public const string jquery_flot_crosshair_js = "~/Scripts/bower_components/flot/jquery.flot.crosshair.js"; 
-                        public const string jquery_flot_errorbars_js = "~/Scripts/bower_components/flot/jquery.flot.errorbars.js"; 
-                        public const string jquery_flot_fillbetween_js = "~/Scripts/bower_components/flot/jquery.flot.fillbetween.js"; 
-                        public const string jquery_flot_image_js = "~/Scripts/bower_components/flot/jquery.flot.image.js"; 
-                        public const string jquery_flot_js = "~/Scripts/bower_components/flot/jquery.flot.js"; 
-                        public const string jquery_flot_navigate_js = "~/Scripts/bower_components/flot/jquery.flot.navigate.js"; 
-                        public const string jquery_flot_pie_js = "~/Scripts/bower_components/flot/jquery.flot.pie.js"; 
-                        public const string jquery_flot_resize_js = "~/Scripts/bower_components/flot/jquery.flot.resize.js"; 
-                        public const string jquery_flot_selection_js = "~/Scripts/bower_components/flot/jquery.flot.selection.js"; 
-                        public const string jquery_flot_stack_js = "~/Scripts/bower_components/flot/jquery.flot.stack.js"; 
-                        public const string jquery_flot_symbol_js = "~/Scripts/bower_components/flot/jquery.flot.symbol.js"; 
-                        public const string jquery_flot_threshold_js = "~/Scripts/bower_components/flot/jquery.flot.threshold.js"; 
-                        public const string jquery_flot_time_js = "~/Scripts/bower_components/flot/jquery.flot.time.js"; 
-                        public const string jquery_js = "~/Scripts/bower_components/flot/jquery.js"; 
-                    }
-                }
-                public static partial class flot_tooltip 
-                {
-                    public static partial class js 
-                    {
-                        public static class Assets
-                        {
-                            public const string excanvas_min_js = "~/Scripts/bower_components/flot.tooltip/js/excanvas.min.js"; 
-                            public const string jquery_flot_js = "~/Scripts/bower_components/flot.tooltip/js/jquery.flot.js"; 
-                            public const string jquery_flot_tooltip_js = "~/Scripts/bower_components/flot.tooltip/js/jquery.flot.tooltip.js"; 
-                            public const string jquery_flot_tooltip_min_js = "~/Scripts/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"; 
-                            public const string jquery_flot_tooltip_source_js = "~/Scripts/bower_components/flot.tooltip/js/jquery.flot.tooltip.source.js"; 
-                        }
-                    }
-                    public static class Assets
-                    {
-                    }
-                }
-                public static partial class holderjs 
-                {
-                    public static partial class src 
-                    {
-                        public static class Assets
-                        {
-                            public const string augment_js = "~/Scripts/bower_components/holderjs/src/augment.js"; 
-                            public const string holder_js = "~/Scripts/bower_components/holderjs/src/holder.js"; 
-                            public const string ondomready_js = "~/Scripts/bower_components/holderjs/src/ondomready.js"; 
-                            public const string polyfills_js = "~/Scripts/bower_components/holderjs/src/polyfills.js"; 
-                        }
-                    }
-                    public static partial class test 
-                    {
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static class Assets
-                    {
-                        public const string gulpfile_js = "~/Scripts/bower_components/holderjs/gulpfile.js"; 
-                        public const string holder_js = "~/Scripts/bower_components/holderjs/holder.js"; 
-                    }
-                }
-                public static partial class mocha 
-                {
-                    public static partial class media 
-                    {
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static class Assets
-                    {
-                        public const string mocha_css = "~/Scripts/bower_components/mocha/mocha.css";
-                        public const string mocha_js = "~/Scripts/bower_components/mocha/mocha.js"; 
-                    }
-                }
-                public static partial class morrisjs 
-                {
-                    public static partial class examples 
-                    {
-                        public static partial class lib 
-                        {
-                            public static class Assets
-                            {
-                                public const string example_css = "~/Scripts/bower_components/morrisjs/examples/lib/example.css";
-                                public const string example_js = "~/Scripts/bower_components/morrisjs/examples/lib/example.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class less 
-                    {
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class lib 
-                    {
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static partial class spec 
-                    {
-                        public static partial class lib 
-                        {
-                            public static partial class area 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static partial class bar 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static partial class donut 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static partial class grid 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static partial class line 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class support 
-                        {
-                            public static class Assets
-                            {
-                            }
-                        }
-                        public static partial class viz 
-                        {
-                            public static partial class exemplary 
-                            {
-                                public static class Assets
-                                {
-                                }
-                            }
-                            public static class Assets
-                            {
-                                public const string examples_js = "~/Scripts/bower_components/morrisjs/spec/viz/examples.js"; 
-                                public const string visual_specs_js = "~/Scripts/bower_components/morrisjs/spec/viz/visual_specs.js"; 
-                            }
-                        }
-                        public static class Assets
-                        {
-                        }
-                    }
-                    public static class Assets
-                    {
-                        public const string Gruntfile_js = "~/Scripts/bower_components/morrisjs/Gruntfile.js"; 
-                        public const string morris_css = "~/Scripts/bower_components/morrisjs/morris.css";
-                        public const string morris_js = "~/Scripts/bower_components/morrisjs/morris.js"; 
-                        public const string morris_min_js = "~/Scripts/bower_components/morrisjs/morris.min.js"; 
-                    }
-                }
-                public static partial class raphael 
-                {
-                    public static partial class dev 
-                    {
-                        public static class Assets
-                        {
-                            public const string amdDev_js = "~/Scripts/bower_components/raphael/dev/amdDev.js"; 
-                            public const string index_js = "~/Scripts/bower_components/raphael/dev/index.js"; 
-                            public const string require_js = "~/Scripts/bower_components/raphael/dev/require.js"; 
-                        }
-                    }
-                    public static class Assets
-                    {
-                        public const string raphael_min_js = "~/Scripts/bower_components/raphael/raphael-min.js"; 
-                        public const string raphael_js = "~/Scripts/bower_components/raphael/raphael.js"; 
-                    }
-                }
-                public static class Assets
-                {
-                    public const string morris_data_js = "~/Scripts/bower_components/morris-data.js"; 
-                }
-            }
             public static partial class jquery_validate 
             {
                 public static class Assets
@@ -2465,43 +583,44 @@ namespace Links
                     public const string jquery_validate_unobtrusive_min_js = "~/Scripts/jquery.validate/jquery.validate.unobtrusive.min.js"; 
                 }
             }
-            public static partial class luckyyu 
+            public static partial class lightbox 
             {
-                public static class Assets
-                {
-                    public const string adminsite_js = "~/Scripts/luckyyu/adminsite.js"; 
-                    public const string lucky_plugin_js = "~/Scripts/luckyyu/lucky.plugin.js"; 
-                    public const string main_js = "~/Scripts/luckyyu/main.js"; 
-                }
-            }
-            public static partial class metisMenu 
-            {
-                public static class Assets
-                {
-                    public const string metisMenu_css = "~/Scripts/metisMenu/metisMenu.css";
-                    public const string metisMenu_js = "~/Scripts/metisMenu/metisMenu.js"; 
-                    public const string metisMenu_min_css = "~/Scripts/metisMenu/metisMenu.min.css";
-                    public const string metisMenu_min_js = "~/Scripts/metisMenu/metisMenu.min.js"; 
-                }
-            }
-            public static partial class others 
-            {
-                public static partial class spinjs 
+                public static partial class css 
                 {
                     public static class Assets
                     {
-                        public const string jquery_spin_js = "~/Scripts/others/spinjs/jquery.spin.js"; 
-                        public const string spin_js = "~/Scripts/others/spinjs/spin.js"; 
+                        public const string lightbox_css = "~/Scripts/lightbox/css/lightbox.css";
+                    }
+                }
+                public static partial class images 
+                {
+                    public static class Assets
+                    {
+                    }
+                }
+                public static partial class js 
+                {
+                    public static class Assets
+                    {
+                        public const string lightbox_plus_jquery_js = "~/Scripts/lightbox/js/lightbox-plus-jquery.js"; 
+                        public const string lightbox_plus_jquery_min_js = "~/Scripts/lightbox/js/lightbox-plus-jquery.min.js"; 
+                        public const string lightbox_js = "~/Scripts/lightbox/js/lightbox.js"; 
+                        public const string lightbox_min_js = "~/Scripts/lightbox/js/lightbox.min.js"; 
                     }
                 }
                 public static class Assets
                 {
-                    public const string html5shiv_js = "~/Scripts/others/html5shiv.js"; 
-                    public const string jquery_isotope_js = "~/Scripts/others/jquery.isotope.js"; 
-                    public const string jquery_prettyPhoto_js = "~/Scripts/others/jquery.prettyPhoto.js"; 
-                    public const string respond_js = "~/Scripts/others/respond.js"; 
-                    public const string respond_min_js = "~/Scripts/others/respond.min.js"; 
-                    public const string wow_js = "~/Scripts/others/wow.js"; 
+                }
+            }
+            public static partial class luckyyu 
+            {
+                public static class Assets
+                {
+                    public const string app_js = "~/Scripts/luckyyu/app.js"; 
+                    public const string app_min_js = "~/Scripts/luckyyu/app.min.js"; 
+                    public const string demo_js = "~/Scripts/luckyyu/demo.js"; 
+                    public const string lucky_plugin_js = "~/Scripts/luckyyu/lucky.plugin.js"; 
+                    public const string main_js = "~/Scripts/luckyyu/main.js"; 
                 }
             }
             public static partial class plupload 
@@ -2510,6 +629,14 @@ namespace Links
                 {
                     public const string plupload_full_min_js = "~/Scripts/plupload/plupload.full.min.js"; 
                     public const string zh_CN_js = "~/Scripts/plupload/zh_CN.js"; 
+                }
+            }
+            public static partial class slimScroll 
+            {
+                public static class Assets
+                {
+                    public const string jquery_slimscroll_js = "~/Scripts/slimScroll/jquery.slimscroll.js"; 
+                    public const string jquery_slimscroll_min_js = "~/Scripts/slimScroll/jquery.slimscroll.min.js"; 
                 }
             }
             public static partial class supersized 
@@ -2544,14 +671,12 @@ namespace Links
                 {
                 }
             }
-            public static partial class sweetalert 
+            public static partial class wow 
             {
                 public static class Assets
                 {
-                    public const string ie9_css = "~/Scripts/sweetalert/ie9.css";
-                    public const string sweet_alert_css = "~/Scripts/sweetalert/sweet-alert.css";
-                    public const string sweet_alert_js = "~/Scripts/sweetalert/sweet-alert.js"; 
-                    public const string sweet_alert_min_js = "~/Scripts/sweetalert/sweet-alert.min.js"; 
+                    public const string wow_js = "~/Scripts/wow/wow.js"; 
+                    public const string wow_min_js = "~/Scripts/wow/wow.min.js"; 
                 }
             }
             public static partial class zTree 
@@ -2632,6 +757,7 @@ namespace Links
             public static class Assets
             {
                 public const string _references_js = "~/Scripts/_references.js"; 
+                public const string html5shiv_js = "~/Scripts/html5shiv.js"; 
                 public const string jquery_2_1_4_intellisense_js = "~/Scripts/jquery-2.1.4.intellisense.js"; 
                 public const string jquery_2_1_4_js = "~/Scripts/jquery-2.1.4.js"; 
                 public const string jquery_2_1_4_min_js = "~/Scripts/jquery-2.1.4.min.js"; 
@@ -2699,12 +825,44 @@ namespace Links
                 {
                 }
             }
+            public static partial class skins 
+            {
+                public static class Assets
+                {
+                    public const string _all_skins_css = "~/Content/skins/_all-skins.css";
+                    public const string _all_skins_min_css = "~/Content/skins/_all-skins.min.css";
+                    public const string skin_black_light_css = "~/Content/skins/skin-black-light.css";
+                    public const string skin_black_light_min_css = "~/Content/skins/skin-black-light.min.css";
+                    public const string skin_black_css = "~/Content/skins/skin-black.css";
+                    public const string skin_black_min_css = "~/Content/skins/skin-black.min.css";
+                    public const string skin_blue_light_css = "~/Content/skins/skin-blue-light.css";
+                    public const string skin_blue_light_min_css = "~/Content/skins/skin-blue-light.min.css";
+                    public const string skin_blue_css = "~/Content/skins/skin-blue.css";
+                    public const string skin_blue_min_css = "~/Content/skins/skin-blue.min.css";
+                    public const string skin_green_light_css = "~/Content/skins/skin-green-light.css";
+                    public const string skin_green_light_min_css = "~/Content/skins/skin-green-light.min.css";
+                    public const string skin_green_css = "~/Content/skins/skin-green.css";
+                    public const string skin_green_min_css = "~/Content/skins/skin-green.min.css";
+                    public const string skin_purple_light_css = "~/Content/skins/skin-purple-light.css";
+                    public const string skin_purple_light_min_css = "~/Content/skins/skin-purple-light.min.css";
+                    public const string skin_purple_css = "~/Content/skins/skin-purple.css";
+                    public const string skin_purple_min_css = "~/Content/skins/skin-purple.min.css";
+                    public const string skin_red_light_css = "~/Content/skins/skin-red-light.css";
+                    public const string skin_red_light_min_css = "~/Content/skins/skin-red-light.min.css";
+                    public const string skin_red_css = "~/Content/skins/skin-red.css";
+                    public const string skin_red_min_css = "~/Content/skins/skin-red.min.css";
+                    public const string skin_yellow_light_css = "~/Content/skins/skin-yellow-light.css";
+                    public const string skin_yellow_light_min_css = "~/Content/skins/skin-yellow-light.min.css";
+                    public const string skin_yellow_css = "~/Content/skins/skin-yellow.css";
+                    public const string skin_yellow_min_css = "~/Content/skins/skin-yellow.min.css";
+                }
+            }
             public static class Assets
             {
-                public const string adminsite_css = "~/Content/adminsite.css";
+                public const string AdminLTE_css = "~/Content/AdminLTE.css";
+                public const string main_css = "~/Content/main.css";
                 public const string prettyPhoto_css = "~/Content/prettyPhoto.css";
                 public const string responsive_css = "~/Content/responsive.css";
-                public const string Site_css = "~/Content/Site.css";
                 public const string toastr_css = "~/Content/toastr.css";
                 public const string toastr_min_css = "~/Content/toastr.min.css";
             }

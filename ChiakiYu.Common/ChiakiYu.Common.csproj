@@ -97,6 +97,7 @@
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\UserAgentHelper.cs" />
+    <Compile Include="Web\WebHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

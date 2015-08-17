@@ -8,148 +8,107 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="@(siteSetting.MetaDescription)">
     <meta name="keywords" content="@(siteSetting.MetaKeyWords)" />
     <meta name="generator" content="@(siteSetting.MetaGenerator)" />
     <meta name="author" content="@(siteSetting.MetaAuthor)">
     <link rel="shortcut icon" href="~/favicon.ico">
     <title>@ViewBag.Title - @(siteSetting.SiteName)</title>
-    @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Content/css")
+
+    @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Scripts/lightbox/css/css")
     @RenderSection("styles", required: false)
-    @Scripts.Render("~/bundles/js")
-    <script src="~/Scripts/luckyyu/lucky.plugin.js"></script>
+    
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-        <script src="@Url.Content("~/Scripts/others/html5shiv.js")"></script>
-        <script src="@Url.Content("~/Scripts/others/respond.min.js")"></script>
+        <script src="@Url.Content("~/Scripts/html5shiv.js")"></script>
+        <script src="@Url.Content("~/Scripts/respond.min.js")"></script>
     <![endif]-->
-</head>
-<body>
-    <header id="header">
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="@Url.Action(MVC.Channel.Home())"><img height="30" src="~/Images/logo.png" alt="LuckyYu"></a>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        @Html.Action(MVC.Channel._Header(activeMenu))
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        @if (User != null && User.Identity != null && string.IsNullOrEmpty(User.Identity.Name))
-                        {
-                            <li>
-                                <a href="javascript:;" data-href="@Url.Action(MVC.Account.Login(Request.RawUrl))" plugin="dialog" title="登录（Modal测试）">登录（Modal测试）</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action(MVC.Account.Login(Request.RawUrl))" title="登录">登录</a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action(MVC.Account.Register())" title="注册">注册</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="dropdown">
-                                <a href="" data-toggle="dropdown"><i class="fa fa-user"></i> <span>@(UserContext.CurrentUser == null ? string.Empty : UserContext.CurrentUser.UserName)</span> <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="@Url.Action(MVC.Account.Logout())"><i class="fa fa-sign-out"></i>注销</a></li>
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    @RenderBody()
 
-    <section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>公司</h3>
-                        <ul>
-                            <li><a href="#">关于我们</a></li>
-                            <li><a href="#">招聘进行时</a></li>
-                            <li><a href="#">团队</a></li>
-                            <li><a href="#">版权</a></li>
-                            <li><a href="#">使用条款</a></li>
-                            <li><a href="#">隐私条例</a></li>
-                            <li><a href="#">联系我们</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>支持</h3>
-                        <ul>
-                            <li><a href="#">Faq</a></li>
-                            <li><a href="#">日志</a></li>
-                            <li><a href="#">论坛</a></li>
-                            <li><a href="#">文档</a></li>
-                            <li><a href="#">退款条例</a></li>
-                            <li><a href="#">票务系统</a></li>
-                            <li><a href="#">计费系统</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>开发人员</h3>
-                        <ul>
-                            <li><a href="#">网站开发</a></li>
-                            <li><a href="#">SEO优化</a></li>
-                            <li><a href="#">主题</a></li>
-                            <li><a href="#">开发</a></li>
-                            <li><a href="#">邮件营销</a></li>
-                            <li><a href="#">插件开发</a></li>
-                            <li><a href="#">编写</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>合作伙伴</h3>
-                        <ul>
-                            <li><a href="#">百度</a></li>
-                            <li><a href="#">谷歌</a></li>
-                            <li><a href="#">腾讯</a></li>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">新浪</a></li>
-                            <li><a href="#">网易</a></li>
-                            <li><a href="#">Blizzard</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.col-md-3-->
-            </div>
-        </div>
-    </section><!--/#bottom-->
-    <footer id="footer" class="midnight-blue">
+
+
+</head><!--/head-->
+<body>
+    @Html.Action(MVC.Channel._Header(activeMenu))
+    @RenderBody()
+    <footer id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank" href="@Url.Action("Home", "Channel")" title="ChiakiYu">ChiakiYu</a>. All Rights Reserved.
+                <div class="col-sm-12 text-center bottom-separator">
+                    <img src="/Images/home/under.png" class="img-responsive inline" alt="">
                 </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="@Url.Action("Home", "Channel")">首页</a></li>
-                        <li><a href="@Url.Action("About", "Channel")">关于我们</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="@Url.Action("ContactUs", "Channel")">联系我们</a></li>
-                    </ul>
+                <div class="col-md-4 col-sm-6">
+                    <div class="testimonial bottom">
+                        <h2>Testimonial</h2>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img src="/Images/home/profile1.png" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <blockquote>Nisi commodo bresaola, leberkas venison eiusmod bacon occaecat labore tail.</blockquote>
+                                <h3><a href="#">- Jhon Kalis</a></h3>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <div class="pull-left">
+                                <a href="#"><img src="/Images/home/profile2.png" alt=""></a>
+                            </div>
+                            <div class="media-body">
+                                <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
+                                <h3><a href="">- Abraham Josef</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="contact-info bottom">
+                        <h2>Contacts</h2>
+                        <address>
+                            E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br>
+                            Phone: +1 (123) 456 7890 <br>
+                            Fax: +1 (123) 456 7891 <br>
+                        </address>
+                        <h2>Address</h2>
+                        <address>
+                            Unit C2, St.Vincent's Trading Est., <br>
+                            Feeder Road, <br>
+                            Bristol, BS2 0UY <br>
+                            United Kingdom <br>
+                        </address>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="contact-form bottom">
+                        <h2>Send a message</h2>
+                        <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="copyright-text text-center">
+                        <p>&copy; ChiakiYu 2014-@(DateTime.Now.Year). All Rights Reserved.</p>
+                        <p>Designed by <a target="_blank" href="#">ChiakiYu</a></p>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer><!--/#footer-->
+    </footer>
+    <!--/#footer-->
+    @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

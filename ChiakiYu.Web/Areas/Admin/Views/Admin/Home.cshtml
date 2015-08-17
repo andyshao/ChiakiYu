@@ -2,251 +2,466 @@
     ViewBag.ActiveMenu = "首页";
     ViewBag.Title = "首页 - 管理后台";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-}
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">首页</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-comments fa-5x"></i>
+}<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            首页
+            <!--<small>Version 2.0</small>-->
+        </h1>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> 管理后台</li>
+            <li class="active"><a href="@Url.Action(MVC.Admin.Admin.Home())">首页</a></li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-aqua"><i class="fa fa-tencent-weibo"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">CPU Traffic</span>
+                        <span class="info-box-number">90<small>%</small></span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Likes</span>
+                        <span class="info-box-number">41,410</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-green"><i class="fa fa-weibo"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Sales</span>
+                        <span class="info-box-number">760</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-qq"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">New Members</span>
+                        <span class="info-box-number">2,000</span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- DIRECT CHAT -->
+                        <div class="box box-warning direct-chat direct-chat-warning">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Direct Chat</h3>
+                                <div class="box-tools pull-right">
+                                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</span>
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle"><i class="fa fa-comments"></i></button>
+                                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div><!-- /.box-header -->
+                            <div class="box-body">
+                                <!-- Conversations are loaded here -->
+                                <div class="direct-chat-messages">
+                                    <!-- Message. Default to the left -->
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                                            <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                                        </div><!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="/Images/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            Is this template really for free? That's unbelievable!
+                                        </div><!-- /.direct-chat-text -->
+                                    </div><!-- /.direct-chat-msg -->
+                                    <!-- Message to the right -->
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                                            <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                                        </div><!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="/Images/user3-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            You better believe it!
+                                        </div><!-- /.direct-chat-text -->
+                                    </div><!-- /.direct-chat-msg -->
+                                    <!-- Message. Default to the left -->
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-left">Alexander Pierce</span>
+                                            <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
+                                        </div><!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="/Images/user1-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            Working with AdminLTE on a great new app! Wanna join?
+                                        </div><!-- /.direct-chat-text -->
+                                    </div><!-- /.direct-chat-msg -->
+                                    <!-- Message to the right -->
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">Sarah Bullock</span>
+                                            <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
+                                        </div><!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="/Images/user3-128x128.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            I would love to.
+                                        </div><!-- /.direct-chat-text -->
+                                    </div><!-- /.direct-chat-msg -->
+                                </div><!--/.direct-chat-messages-->
+                                <!-- Contacts are loaded here -->
+                                <div class="direct-chat-contacts">
+                                    <ul class="contacts-list">
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="/Images/user1-128x128.jpg">
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Count Dracula
+                                                        <small class="contacts-list-date pull-right">2/28/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">How have you been? I was...</span>
+                                                </div><!-- /.contacts-list-info -->
+                                            </a>
+                                        </li><!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="/Images/user7-128x128.jpg">
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Sarah Doe
+                                                        <small class="contacts-list-date pull-right">2/23/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">I will be waiting for...</span>
+                                                </div><!-- /.contacts-list-info -->
+                                            </a>
+                                        </li><!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="/Images/user3-128x128.jpg">
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Nadia Jolie
+                                                        <small class="contacts-list-date pull-right">2/20/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">I'll call you back at...</span>
+                                                </div><!-- /.contacts-list-info -->
+                                            </a>
+                                        </li><!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="/Images/user5-128x128.jpg">
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Nora S. Vans
+                                                        <small class="contacts-list-date pull-right">2/10/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">Where is your new...</span>
+                                                </div><!-- /.contacts-list-info -->
+                                            </a>
+                                        </li><!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="/Images/user6-128x128.jpg">
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        John K.
+                                                        <small class="contacts-list-date pull-right">1/27/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">Can I take a look at...</span>
+                                                </div><!-- /.contacts-list-info -->
+                                            </a>
+                                        </li><!-- End Contact Item -->
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="/Images/user8-128x128.jpg">
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Kenneth M.
+                                                        <small class="contacts-list-date pull-right">1/4/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">Never mind I found...</span>
+                                                </div><!-- /.contacts-list-info -->
+                                            </a>
+                                        </li><!-- End Contact Item -->
+                                    </ul><!-- /.contatcts-list -->
+                                </div><!-- /.direct-chat-pane -->
+                            </div><!-- /.box-body -->
+                            <div class="box-footer">
+                                <form action="#" method="post">
+                                    <div class="input-group">
+                                        <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-warning btn-flat">Send</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div><!-- /.box-footer-->
+                        </div><!--/.direct-chat -->
+                    </div><!-- /.col -->
+                    <div class="col-md-6">
+                        <!-- USERS LIST -->
+                        <div class="box box-danger">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Latest Members</h3>
+                                <div class="box-tools pull-right">
+                                    <span class="label label-danger">8 New Members</span>
+                                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div><!-- /.box-header -->
+                            <div class="box-body no-padding">
+                                <ul class="users-list clearfix">
+                                    <li>
+                                        <img src="/Images/user1-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Alexander Pierce</a>
+                                        <span class="users-list-date">Today</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user8-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Norman</a>
+                                        <span class="users-list-date">Yesterday</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user7-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Jane</a>
+                                        <span class="users-list-date">12 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user6-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">John</a>
+                                        <span class="users-list-date">12 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user2-160x160.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Alexander</a>
+                                        <span class="users-list-date">13 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user5-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Sarah</a>
+                                        <span class="users-list-date">14 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user4-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Nora</a>
+                                        <span class="users-list-date">15 Jan</span>
+                                    </li>
+                                    <li>
+                                        <img src="/Images/user3-128x128.jpg" alt="User Image">
+                                        <a class="users-list-name" href="#">Nadia</a>
+                                        <span class="users-list-date">15 Jan</span>
+                                    </li>
+                                </ul><!-- /.users-list -->
+                            </div><!-- /.box-body -->
+                            <div class="box-footer text-center">
+                                <a href="javascript::" class="uppercase">View All Users</a>
+                            </div><!-- /.box-footer -->
+                        </div><!--/.box -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <!-- TABLE: LATEST ORDERS -->
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Latest Orders</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>新评论!</div>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Item</th>
+                                        <th>Status</th>
+                                        <th>Popularity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                        <td>Call of Duty IV</td>
+                                        <td><span class="label label-success">Shipped</span></td>
+                                        <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                                        <td>Samsung Smart TV</td>
+                                        <td><span class="label label-warning">Pending</span></td>
+                                        <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                        <td>iPhone 6 Plus</td>
+                                        <td><span class="label label-danger">Delivered</span></td>
+                                        <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                        <td>Samsung Smart TV</td>
+                                        <td><span class="label label-info">Processing</span></td>
+                                        <td><div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                                        <td>Samsung Smart TV</td>
+                                        <td><span class="label label-warning">Pending</span></td>
+                                        <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                        <td>iPhone 6 Plus</td>
+                                        <td><span class="label label-danger">Delivered</span></td>
+                                        <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                        <td>Call of Duty IV</td>
+                                        <td><span class="label label-success">Shipped</span></td>
+                                        <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+                    </div><!-- /.box-body -->
+                    <div class="box-footer clearfix">
+                        <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+                        <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+                    </div><!-- /.box-footer -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-md-4">
+                <!-- Info Boxes Style 2 -->
+                <div class="info-box bg-yellow">
+                    <span class="info-box-icon"><i class="fa fa-qq"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Inventory</span>
+                        <span class="info-box-number">5,200</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 50%"></div>
                         </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">查看详情</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-green">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-tasks fa-5x"></i>
+                        <span class="progress-description">
+                            50% Increase in 30 Days
+                        </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+                <div class="info-box bg-green">
+                    <span class="info-box-icon"><i class="fa fa-qq"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Mentions</span>
+                        <span class="info-box-number">92,050</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 20%"></div>
                         </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">12</div>
-                            <div>新任务!</div>
+                        <span class="progress-description">
+                            20% Increase in 30 Days
+                        </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+                <div class="info-box bg-red">
+                    <span class="info-box-icon"><i class="fa fa-qq"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Downloads</span>
+                        <span class="info-box-number">114,381</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 70%"></div>
                         </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">查看详情</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-yellow">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
+                        <span class="progress-description">
+                            70% Increase in 30 Days
+                        </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+                <div class="info-box bg-aqua">
+                    <span class="info-box-icon"><i class="fa fa-qq"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Direct Messages</span>
+                        <span class="info-box-number">163,921</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 40%"></div>
                         </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>新订单!</div>
+                        <span class="progress-description">
+                            40% Increase in 30 Days
+                        </span>
+                    </div><!-- /.info-box-content -->
+                </div><!-- /.info-box -->
+                <!-- PRODUCT LIST -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Recently Added Products</h3>
+                        <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                            <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                         </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">查看详情</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-red">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-support fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">13</div>
-                            <div>反馈!</div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">
-                    <div class="panel-footer">
-                        <span class="pull-left">查看详情</span>
-                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                        <div class="clearfix"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> 用户管理
-                    <div class="pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                排序
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu pull-right" role="menu">
-                                <li>
-                                    <a href="#">时间倒序</a>
-                                </li>
-                                <li>
-                                    <a href="#">时间正序</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">默认顺序</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>用户Id</th>
-                                            <th>用户名</th>
-                                            <th>昵称</th>
-                                            <th>邮箱</th>
-                                            <th>手机号</th>
-                                            <th>创建日期</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @for (int i = 1; i <= 10; i++)
-                                        {
-                                            <tr>
-                                                <td>1000@(i)</td>
-                                                <td>用户1000@(i)</td>
-                                                <td>昵称1000@(i)</td>
-                                                <td>邮箱@(i)@@qq.com</td>
-                                                <td>1000@(i)</td>
-                                                <td>@DateTime.Now.AddDays(-i).ToString("yyyy-MM-dd")</td>
-                                            </tr>
-                                        }
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.col-lg-4 (nested) -->
-                        <!-- /.col-lg-8 (nested) -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-
-        </div>
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <i class="fa fa-bell fa-fw"></i> 通知面板
-                </div>
-                <!-- /.panel-heading -->
-                <div class="panel-body">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-comment fa-fw"></i> 新评论
-                            <span class="pull-right text-muted small">
-                                <em>4分钟前</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-twitter fa-fw"></i> 3个新粉丝
-                            <span class="pull-right text-muted small">
-                                <em>12分钟前</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-envelope fa-fw"></i> 新消息
-                            <span class="pull-right text-muted small">
-                                <em>27分钟前</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-tasks fa-fw"></i> 新任务
-                            <span class="pull-right text-muted small">
-                                <em>43分钟前</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-upload fa-fw"></i> 服务器压力提升
-                            <span class="pull-right text-muted small">
-                                <em>13:32</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-bolt fa-fw"></i> 系统故障
-                            <span class="pull-right text-muted small">
-                                <em>11:13</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-warning fa-fw"></i> 服务器未响应
-                            <span class="pull-right text-muted small">
-                                <em>10:57</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-shopping-cart fa-fw"></i> 新订单
-                            <span class="pull-right text-muted small">
-                                <em>9:49</em>
-                            </span>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <i class="fa fa-money fa-fw"></i> 收款
-                            <span class="pull-right text-muted small">
-                                <em>昨日</em>
-                            </span>
-                        </a>
-                    </div>
-                    <!-- /.list-group -->
-                    <a href="#" class="btn btn-default btn-block">查看所有通知</a>
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-4 -->
-    </div>
-    <!-- /.row -->
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <ul class="products-list product-list-in-box">
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="/Images/default-50x50.gif" alt="Product Image">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript::;" class="product-title">Samsung TV <span class="label label-warning pull-right">$1800</span></a>
+                                    <span class="product-description">
+                                        Samsung 32" 1080p 60Hz LED Smart HDTV.
+                                    </span>
+                                </div>
+                            </li><!-- /.item -->
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="/Images/default-50x50.gif" alt="Product Image">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript::;" class="product-title">Bicycle <span class="label label-info pull-right">$700</span></a>
+                                    <span class="product-description">
+                                        26" Mongoose Dolomite Men's 7-speed, Navy Blue.
+                                    </span>
+                                </div>
+                            </li><!-- /.item -->
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="/Images/default-50x50.gif" alt="Product Image">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript::;" class="product-title">Xbox One <span class="label label-danger pull-right">$350</span></a>
+                                    <span class="product-description">
+                                        Xbox One Console Bundle with Halo Master Chief Collection.
+                                    </span>
+                                </div>
+                            </li><!-- /.item -->
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="/Images/default-50x50.gif" alt="Product Image">
+                                </div>
+                                <div class="product-info">
+                                    <a href="javascript::;" class="product-title">PlayStation 4 <span class="label label-success pull-right">$399</span></a>
+                                    <span class="product-description">
+                                        PlayStation 4 500GB Console (PS4)
+                                    </span>
+                                </div>
+                            </li><!-- /.item -->
+                        </ul>
+                    </div><!-- /.box-body -->
+                    <div class="box-footer text-center">
+                        <a href="javascript::;" class="uppercase">View All Products</a>
+                    </div><!-- /.box-footer -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </section><!-- /.content -->
 </div>
-<!-- /#page-wrapper -->

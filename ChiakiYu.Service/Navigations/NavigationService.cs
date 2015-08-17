@@ -17,13 +17,13 @@ namespace ChiakiYu.Service.Navigations
         public List<Navigation> GetNavigations()
         {
             var query = _navigationRepository.Table;
-            return query.OrderBy(n => n.Level).ToList();
+            return query.Where(n => n.IsEnabled && !n.IsDeleted).OrderBy(n => n.Level).ToList();
         }
 
         public List<Navigation> GetNavigations(PresentArea presentArea)
         {
             var query = _navigationRepository.Table.Where(n => n.PresentArea == presentArea);
-            return query.OrderBy(n => n.Level).ToList();
+            return query.Where(n => n.IsEnabled && !n.IsDeleted).OrderBy(n => n.Level).ToList();
         }
     }
 }

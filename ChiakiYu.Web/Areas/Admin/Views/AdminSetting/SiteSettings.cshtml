@@ -4,92 +4,105 @@
     ViewBag.ActiveMenu = "站点设置";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">站点设置</h1>
-            </div>
-        </div><!-- /.row -->
-        <div class="row">
-            <div class="col-lg-6">
-                @using (Html.BeginForm(MVC.Admin.AdminSetting.SiteSettings(), FormMethod.Post, new { id = "setting", role = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <fieldset>
-                        <div class="form-group input-group input-group">
-                            <span class="input-group-addon">站点名称：</span>
-                            @Html.TextBoxFor(n => n.SiteName, new RouteValueDictionary { { "autofocus", "" }, { "placeholder", "站点名称" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.SiteName)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">站点地址：</span>
-                            @Html.TextBoxFor(n => n.MainSiteRootUrl, new RouteValueDictionary { { "placeholder", "站点地址" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.MainSiteRootUrl)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">站点描述：</span>
-                            @Html.TextAreaFor(n => n.SiteDescription, new RouteValueDictionary { { "placeholder", "站点描述" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.SiteDescription)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">MetaKeyWords：</span>
-                            @Html.TextAreaFor(n => n.MetaKeyWords, new RouteValueDictionary { { "placeholder", "MetaKeyWords" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.MetaKeyWords)
-                        </div>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            站点设置
+            @*<small>站点设置</small>*@
+        </h1>
+        @*<ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#">UI</a></li>
+                <li class="active">General</li>
+            </ol>*@
+    </section>
+    <section class="content">
+        <div class="box box-default color-palette-box">
+            @*<div class="box-header with-border">
+                </div>*@
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        @using (Html.BeginForm(MVC.Admin.AdminSetting.SiteSettings(), FormMethod.Post, new { id = "setting", role = "form" }))
+                        {
+                        @Html.AntiForgeryToken()
+                        <fieldset>
+                            <div class="form-group input-group input-group">
+                                <span class="input-group-addon">站点名称：</span>
+                                @Html.TextBoxFor(n => n.SiteName, new RouteValueDictionary { { "autofocus", "" }, { "placeholder", "站点名称" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.SiteName)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">站点地址：</span>
+                                @Html.TextBoxFor(n => n.MainSiteRootUrl, new RouteValueDictionary { { "placeholder", "站点地址" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.MainSiteRootUrl)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">站点描述：</span>
+                                @Html.TextAreaFor(n => n.SiteDescription, new RouteValueDictionary { { "placeholder", "站点描述" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.SiteDescription)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">MetaKeyWords：</span>
+                                @Html.TextAreaFor(n => n.MetaKeyWords, new RouteValueDictionary { { "placeholder", "MetaKeyWords" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.MetaKeyWords)
+                            </div>
 
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">MetaDescription：</span>
-                            @Html.TextAreaFor(n => n.MetaDescription, new RouteValueDictionary { { "placeholder", "MetaDescription" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.MetaDescription)
-                        </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">MetaDescription：</span>
+                                @Html.TextAreaFor(n => n.MetaDescription, new RouteValueDictionary { { "placeholder", "MetaDescription" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.MetaDescription)
+                            </div>
 
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">MetaGenerator：</span>
-                            @Html.TextBoxFor(n => n.MetaGenerator, new RouteValueDictionary { { "placeholder", "MetaGenerator" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.MetaGenerator)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">MetaAuthor：</span>
-                            @Html.TextBoxFor(n => n.MetaAuthor, new RouteValueDictionary { { "placeholder", "MetaAuthor" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.MetaAuthor)
-                        </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">MetaGenerator：</span>
+                                @Html.TextBoxFor(n => n.MetaGenerator, new RouteValueDictionary { { "placeholder", "MetaGenerator" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.MetaGenerator)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">MetaAuthor：</span>
+                                @Html.TextBoxFor(n => n.MetaAuthor, new RouteValueDictionary { { "placeholder", "MetaAuthor" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.MetaAuthor)
+                            </div>
 
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">备案信息：</span>
-                            @Html.TextAreaFor(n => n.KeepRecordScript, new RouteValueDictionary { { "placeholder", "备案信息" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.KeepRecordScript)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">页脚统计脚本：</span>
-                            @Html.TextAreaFor(n => n.StatScript, new RouteValueDictionary { { "placeholder", "页脚统计脚本" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.StatScript)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">页脚链接：</span>
-                            @Html.TextAreaFor(n => n.Links, new RouteValueDictionary { { "placeholder", "页脚链接" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.Links)
-                        </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">备案信息：</span>
+                                @Html.TextAreaFor(n => n.KeepRecordScript, new RouteValueDictionary { { "placeholder", "备案信息" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.KeepRecordScript)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">页脚统计脚本：</span>
+                                @Html.TextAreaFor(n => n.StatScript, new RouteValueDictionary { { "placeholder", "页脚统计脚本" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.StatScript)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">页脚链接：</span>
+                                @Html.TextAreaFor(n => n.Links, new RouteValueDictionary { { "placeholder", "页脚链接" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.Links)
+                            </div>
 
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">启用分享：</span>
-                            @Html.TextBoxFor(n => n.ShareToThirdIsEnabled, new RouteValueDictionary { { "placeholder", "是否启用分享" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.ShareToThirdIsEnabled)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">分享展示类型：</span>
-                            @Html.TextBoxFor(n => n.ShareToThirdDisplayType, new RouteValueDictionary { { "placeholder", "分享展示类型" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.ShareToThirdDisplayType)
-                        </div>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon">分享图标形式展示大小：</span>
-                            @Html.TextBoxFor(n => n.ShareDisplayIconSize, new RouteValueDictionary { { "placeholder", "分享图标形式展示大小" }, { "class", "form-control" } })
-                            @Html.ValidationMessageFor(n => n.ShareDisplayIconSize)
-                        </div>
-                        <button type="submit" class="btn btn-lg btn-success" plugin="ajaxSubmit">保存</button>
-                    </fieldset>
-                }
-            </div>
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">启用分享：</span>
+                                @Html.TextBoxFor(n => n.ShareToThirdIsEnabled, new RouteValueDictionary { { "placeholder", "是否启用分享" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.ShareToThirdIsEnabled)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">分享展示类型：</span>
+                                @Html.TextBoxFor(n => n.ShareToThirdDisplayType, new RouteValueDictionary { { "placeholder", "分享展示类型" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.ShareToThirdDisplayType)
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">分享图标形式展示大小：</span>
+                                @Html.TextBoxFor(n => n.ShareDisplayIconSize, new RouteValueDictionary { { "placeholder", "分享图标形式展示大小" }, { "class", "form-control" } })
+                                @Html.ValidationMessageFor(n => n.ShareDisplayIconSize)
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-success" plugin="ajaxSubmit">保存</button>
+                        </fieldset>
+                        }
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </section><!-- /.content -->
 </div>

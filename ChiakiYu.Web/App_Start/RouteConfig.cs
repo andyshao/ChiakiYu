@@ -21,7 +21,7 @@ namespace ChiakiYu.Web
             routes.MapRoute(
                 "Channel_SiteHome", // Route name
                 "", // URL with parameters
-                new {controller = "Channel", action = "Home"} // Parameter defaults
+                new { controller = "Channel", action = "Home" } // Parameter defaults
                 );
 
             routes.MapRoute(
@@ -35,46 +35,46 @@ namespace ChiakiYu.Web
             routes.MapRoute(
                 "Channel_About", // Route name
                 "About" + extensionForOldIIS, // URL with parameters
-                new {controller = "Channel", action = "About"} // Parameter defaults
-                );
-
-            routes.MapRoute(
-                "Channel_Blog", // Route name
-                "Blog" + extensionForOldIIS, // URL with parameters
-                new {controller = "Channel", action = "Blog"} // Parameter defaults
-                );
-
-            routes.MapRoute(
-                "Channel_Portfolio", // Route name
-                "Portfolio" + extensionForOldIIS, // URL with parameters
-                new {controller = "Channel", action = "Portfolio"} // Parameter defaults
-                );
-
-            routes.MapRoute(
-                "Channel_Services", // Route name
-                "Services" + extensionForOldIIS, // URL with parameters
-                new {controller = "Channel", action = "Services"} // Parameter defaults
+                new { controller = "Channel", action = "About" } // Parameter defaults
                 );
 
             routes.MapRoute(
                 "Channel_ContactUs", // Route name
                 "ContactUs" + extensionForOldIIS, // URL with parameters
-                new {controller = "Channel", action = "ContactUs"} // Parameter defaults
+                new { controller = "Channel", action = "ContactUs" } // Parameter defaults
                 );
 
             #endregion
 
             #region Account
 
-            routes.MapRoute("Account_Common", "Account/{action}" + extensionForOldIIS,
-                new {controller = "Account", action = "Login"}
+            routes.MapRoute(
+                "Account_Common", 
+                "Account/{action}" + extensionForOldIIS,
+                new { controller = "Account", action = "Login" }
+                );
+
+            #endregion
+
+            #region Blog
+            routes.MapRoute(
+                "Blog_Home", 
+                "Blog" + extensionForOldIIS,
+                new { controller = "Blog", action = "Home" }
+                );
+            routes.MapRoute(
+                "Blog_Common",
+                "Blog/{action}" + extensionForOldIIS,
+                new { controller = "Blog", action = "Home" }
                 );
 
             #endregion
 
 
-            routes.MapRoute("Common", "{controller}/{action}/{id}",
-                new {controller = "Channel", action = "Channel", id = UrlParameter.Optional}
+            routes.MapRoute(
+                "Common", 
+                "{controller}/{action}/{id}",
+                new { controller = "Channel", action = "Channel", id = UrlParameter.Optional }
                 );
         }
     }

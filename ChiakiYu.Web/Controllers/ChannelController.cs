@@ -52,57 +52,6 @@ namespace ChiakiYu.Web.Controllers
             return View();
         }
 
-        ///// <summary>
-        ///// 日志
-        ///// </summary>
-        ///// <returns></returns>
-        //public ActionResult News()
-        //{
-        //    return View();
-        //}
-
-        ///// <summary>
-        ///// 日志详情
-        ///// </summary>
-        ///// <returns></returns>
-        //public ActionResult NewsDetail()
-        //{
-        //    return View();
-        //}
-
-        ///// <summary>
-        ///// 招商
-        ///// </summary>
-        ///// <returns></returns>
-        //public ActionResult Portfolio()
-        //{
-        //    return View();
-        //}
-
-        ///// <summary>
-        ///// 服务
-        ///// </summary>
-        ///// <returns></returns>
-        //public ActionResult Services()
-        //{
-        //    return View();
-        //}
-
-        //public ActionResult Pricing()
-        //{
-        //    return View();
-        //}
-
-        //public ActionResult Error404()
-        //{
-        //    return View();
-        //}
-
-        //public ActionResult ShortCodes()
-        //{
-        //    return View();
-        //}
-
         /// <summary>
         /// 联系方式
         /// </summary>

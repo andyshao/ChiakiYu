@@ -2,73 +2,72 @@
 @{
     var active = Convert.ToString(ViewData["active"]);
 }
-
-@foreach (var item in Model.Where(n => n.Level == 1))
-{
-    <li>
-        @if (Model.All(n => n.ParentId != item.Id))
+<ul class="sidebar-menu">
+    @foreach (var item in Model.Where(n => n.Level == 1))
+    {
+        if (Model.All(n => n.ParentId != item.Id))
         {
-            <a href="@item.Url" class="@(active == item.Name ? "active" : "")">
-                @if (!string.IsNullOrWhiteSpace(item.IconName))
-                {
-                    <i class="@item.IconName"></i>
-                }
-                @item.Name
-            </a>
+            <li class="@(active == item.Name ? "active" : "") treeview">
+                <a href="@item.Url">
+                    @if (!string.IsNullOrWhiteSpace(item.IconName))
+                    {
+                        <i class="@item.IconName"></i>
+                    }<span>@item.Name</span>
+                </a>
+            </li>
         }
         else
         {
-            <a href="#">
-                @if (!string.IsNullOrWhiteSpace(item.IconName))
-                {
-                    <i class="@item.IconName"></i>
-                }
-                @item.Name
-                <span class="fa arrow"></span>
-            </a>
-            var isIn = Model.Where(n => n.ParentId == item.Id).Any(n => n.Name == active);
-            <ul class="nav nav-second-level @(isIn?"in":"")">
-                @foreach (var subItem in Model.Where(n => n.ParentId == item.Id && n.Level != 1))
-                {
-                    <li>
-                        <a href="@subItem.Url" class="@(active == subItem.Name ? "active" : "")">
-                            @if (!string.IsNullOrWhiteSpace(subItem.IconName))
-                            {
-                                <i class="@subItem.IconName"></i>
-                            }
-                            @subItem.Name
-                        </a>
-                    </li>
-                }
-            </ul><!-- /.nav-second-level -->
+            var isActive = Model.Where(n => n.ParentId == item.Id).Any(n => n.Name == active);
+            <li class="@(isActive ? "active" : "") treeview">
+                <a href="#">
+                    @if (!string.IsNullOrWhiteSpace(item.IconName))
+                    {
+                        <i class="@item.IconName"></i>
+                    }
+                    <span>@item.Name</span><i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    @foreach (var subItem in Model.Where(n => n.ParentId == item.Id && n.Level != 1))
+                    {
+                        <li class="@(active == subItem.Name ? "active" : "")">
+                            <a href="@subItem.Url">
+                                @if (!string.IsNullOrWhiteSpace(subItem.IconName))
+                                {
+                                    <i class="@subItem.IconName"></i>
+                                }
+                                @subItem.Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
         }
-    </li>
-}
-@*<li>
-        <a href="#"><i class="fa fa-cogs fa-fw"></i> 系统<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li>
-                <a href="#">站点设置</a>
-            </li>
-            <li>
-                <a href="#">重启站点</a>
-            </li>
-            <li>
-                <a href="#">清理缓存</a>
-            </li>
-            <li>
-                <a href="#">导航管理 <span class="fa arrow"></span></a>
-                <ul class="nav nav-third-level">
-                    <li>
-                        <a href="#">一级导航</a>
-                    </li>
-                    <li>
-                        <a href="#">二级导航</a>
-                    </li>
-                    <li>
-                        <a href="#">三级导航</a>
-                    </li>
-                </ul><!-- /.nav-third-level -->
-            </li>
-        </ul><!-- /.nav-second-level -->
-    </li>*@
+    }
+
+
+    @*<li class="treeview">
+            <a href="#">
+                <i class="fa fa-share"></i> <span>Multilevel</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            </ul>
+        </li>*@
+
+</ul>

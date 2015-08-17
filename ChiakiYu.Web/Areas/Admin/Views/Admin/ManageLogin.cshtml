@@ -7,54 +7,71 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
     <link href="~/favicon.ico" type="image/ico" rel="shortcut icon" />
     <title>登录 - 管理后台</title>
     <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Scripts/metisMenu/metisMenu.min.css" rel="stylesheet" />
-    <link href="~/Content/adminsite.css" rel="stylesheet" />
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <h2 class="text-info text-center">管理后台登录</h2>
-                    <div class="panel-body">
-                        @using (Html.BeginForm(MVC.Admin.Admin.ManageLogin(), FormMethod.Post, new { id = "registerUser", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <fieldset>
-                                @if (!string.IsNullOrEmpty(statusMessageData))
-                                {
-                                    <div class="alert alert-danger alert-dismissible" role="alert">
-                                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
-                                        @statusMessageData
-                                    </div>
-                                }
-                                <div class="form-group">
-                                    @Html.TextBoxFor(n => n.UserName, new RouteValueDictionary { { "autofocus", "" }, { "placeholder", "用户名/邮箱/手机号" }, { "class", "form-control" } })
-                                    @Html.ValidationMessageFor(n => n.UserName)
-                                </div>
-                                <div class="form-group">
-                                    @Html.PasswordFor(n => n.PassWord, new RouteValueDictionary { { "placeholder", "密码" }, { "class", "form-control" } })
-                                    @Html.ValidationMessageFor(n => n.PassWord)
-                                </div>
-                                <button type="submit" class="btn btn-lg btn-success btn-block">登录</button>
-                            </fieldset>
+    <link href="~/Content/AdminLTE.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">*@
 
-                        }
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/others/html5shiv.js"></script>
+        <script src="~/Scripts/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body class="login-page">
+    <div class="login-box">
+
+        <div class="login-box-body">
+            @*<p class="login-box-msg">请登录</p>*@
+            <div class="login-logo">
+                <b>幸运鱼</b><small>后台管理</small>
+            </div><!-- /.login-logo -->
+            @using (Html.BeginForm(MVC.Admin.Admin.ManageLogin(), FormMethod.Post, new { id = "registerUser", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                if (!string.IsNullOrEmpty(statusMessageData))
+                {
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                        @statusMessageData
                     </div>
+                }
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(n => n.UserName, new RouteValueDictionary { { "autofocus", "" }, { "placeholder", "用户名/邮箱/手机号" }, { "class", "form-control" } })
+                    @Html.ValidationMessageFor(n => n.UserName)
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="form-group has-feedback">
+                    @Html.PasswordFor(n => n.PassWord, new RouteValueDictionary { { "placeholder", "密码" }, { "class", "form-control" } })
+                    @Html.ValidationMessageFor(n => n.PassWord)
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" placeholder="验证码">
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                    </div><!-- /.col -->
+                </div>
+            }
+        </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+    <!-- jQuery 2.1.4 -->
     <script src="~/Scripts/jquery-2.1.4.min.js"></script>
     <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
-    <script src="~/Scripts/metisMenu/metisMenu.min.js"></script>
-    <script src="~/Scripts/luckyyu/adminsite.js"></script>
+
+    @*<script>
+            $(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
+            });
+        </script>*@
 </body>
-</html>
