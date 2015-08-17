@@ -35,7 +35,7 @@ namespace ChiakiYu.Web
                         "~/Content/responsive.css"
                     )
                 );
-            //字体
+            //字体图标
             bundles.Add(
                 new StyleBundle("~/Content/font-awesome/css/css")
                     .Include(
