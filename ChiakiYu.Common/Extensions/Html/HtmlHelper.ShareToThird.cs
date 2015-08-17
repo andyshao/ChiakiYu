@@ -32,17 +32,20 @@ namespace ChiakiYu.Common.Extensions.Html
         /// <summary>
         ///     文字
         /// </summary>
-        [Display(Name = "文字")] Word,
+        [Display(Name = "文字")]
+        Word,
 
         /// <summary>
         ///     图标
         /// </summary>
-        [Display(Name = "图标")] Icon,
+        [Display(Name = "图标")]
+        Icon,
 
         /// <summary>
         ///     侧栏
         /// </summary>
-        [Display(Name = "侧栏")] Sidebar
+        [Display(Name = "侧栏")]
+        Sidebar
     }
 
     /// <summary>
@@ -53,16 +56,19 @@ namespace ChiakiYu.Common.Extensions.Html
         /// <summary>
         ///     大图标32*32
         /// </summary>
-        [Display(Name = "大图标")] Big,
+        [Display(Name = "大图标")]
+        Big = 32,
 
         /// <summary>
         ///     中图标24*24
         /// </summary>
-        [Display(Name = "中图标")] Middle,
+        [Display(Name = "中图标")]
+        Middle = 24,
 
         /// <summary>
         ///     小图标16*16
         /// </summary>
-        [Display(Name = "小图标")] Small
+        [Display(Name = "小图标")]
+        Small = 16
     }
 }

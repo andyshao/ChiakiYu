@@ -1,0 +1,69 @@
+﻿@{
+    var shareDisplayType = ViewData.Get<ShareDisplayType>("ShareToThirdDisplayType", ShareDisplayType.Icon);
+    var shareDisplayIconSize = ViewData.Get<ShareDisplayIconSize>("ShareDisplayIconSize", ShareDisplayIconSize.Middle);
+
+}
+
+@switch (shareDisplayType)
+{
+    case ShareDisplayType.Icon:
+        <div class="bdsharebuttonbox" data-tag="share_1">
+            <a class="bds_sqq" data-cmd="sqq" href="#"></a>
+            <a class="bds_qzone" data-cmd="qzone" href="#"></a>
+            <a class="bds_weixin" data-cmd="weixin" href="#"></a>
+            <a class="bds_tsina" data-cmd="tsina" href="#"></a>
+            <a class="bds_tqq" data-cmd="tqq" href="#"></a>
+            <a class="bds_renren" data-cmd="renren" href="#"></a>
+            <a class="bds_more" data-cmd="more"></a>
+        </div>
+        break;
+    case ShareDisplayType.Word:
+    <div class="bdsharebuttonbox" data-tag="share_2">
+        <a href="#" class="bds_more" data-cmd="more">分享到：</a>
+        <a title="分享到QQ好友" href="#" class="bds_sqq" data-cmd="sqq">QQ好友</a>
+        <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone">QQ空间</a>
+        <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信</a>
+        <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">新浪微博</a>
+        <a title="分享到腾讯微博" href="#" class="bds_tqq" data-cmd="tqq">腾讯微博</a>
+        <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren">人人网</a>
+    </div>
+        break;
+    case ShareDisplayType.Sidebar:
+        break;
+    default:
+        break;
+}
+
+<script>
+    window._bd_share_config = {
+        common: {
+            bdText: '分享内容',
+            bdDesc: '分享摘要',
+            bdUrl: '分享url地址',
+            bdPic: '分享图片'
+        }
+        @switch (shareDisplayType)
+            {
+                case ShareDisplayType.Icon:
+                case ShareDisplayType.Word:
+                    <text>, share: [{ "bdSize": '@((int) shareDisplayIconSize)' }]</text>
+
+                    break;
+                case ShareDisplayType.Sidebar:
+                    <text>, slide: [{ bdImg: 0, bdPos: "right", bdTop: 100 }]</text>
+                    break;
+            }
+        ,
+        image: [
+            {
+                viewText: '分享到：',
+                viewType: 'list',
+                viewPos: 'top',
+                viewColor: 'black',
+                viewSize: '16',
+                viewList: ['sqq', 'qzone', 'weixin', 'tsina', 'tqq', 'renren']
+            }
+        ]
+    }
+    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5)];
+</script>

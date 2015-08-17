@@ -410,6 +410,10 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\_Navigation.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\ManageLogin.cshtml" />
+    <Content Include="Plugins\ShareToThird\Baidu.cshtml" />
+    <Content Include="Plugins\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Images\team-member.jpg" />
     <Content Include="Scripts\artDialog\css\ui-dialog.css" />

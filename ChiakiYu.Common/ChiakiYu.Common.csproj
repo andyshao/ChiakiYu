@@ -78,8 +78,10 @@
     <Compile Include="Data\MathHelper.cs" />
     <Compile Include="Data\SerializeHelper.cs" />
     <Compile Include="Data\UserPasswordHelper.cs" />
+    <Compile Include="Data\ValueHelper.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtension.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
