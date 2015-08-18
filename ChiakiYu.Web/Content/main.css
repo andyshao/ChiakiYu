@@ -656,7 +656,7 @@ ul.sub-menu {
   display: table-cell;
   vertical-align: middle;
   width: 100%;
-  position: statice;
+  position: static;
 }
 
 
@@ -1551,7 +1551,7 @@ Blog Default
   content: "";
   border-color: transparent transparent #0884d5 transparent;
   z-index: -1;
-  cursor: initial;
+  /*cursor:initial;*/
 }
 
 .post-overlay span a{
@@ -2604,12 +2604,12 @@ span.stButton_gradient,
   font-weight: 700;
   color: #fff;
   display: inline-block;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 #countdown li.angle-two > span,
 #countdown li.angle-four > span {
-  margin-top: 80px;
+  margin-top: 85px;
 }
 
 
