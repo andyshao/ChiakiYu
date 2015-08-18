@@ -67,6 +67,12 @@ namespace ChiakiYu.Web.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Web.Mvc.ActionResult Eidt()
+        {
+            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Eidt);
+        }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult _CommentList()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames._CommentList);
@@ -89,6 +95,7 @@ namespace ChiakiYu.Web.Controllers
         {
             public readonly string Home = "Home";
             public readonly string Detail = "Detail";
+            public readonly string Eidt = "Eidt";
             public readonly string _CommentList = "_CommentList";
         }
 
@@ -97,6 +104,7 @@ namespace ChiakiYu.Web.Controllers
         {
             public const string Home = "Home";
             public const string Detail = "Detail";
+            public const string Eidt = "Eidt";
             public const string _CommentList = "_CommentList";
         }
 
@@ -106,6 +114,14 @@ namespace ChiakiYu.Web.Controllers
         public ActionParamsClass_Detail DetailParams { get { return s_params_Detail; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_Detail
+        {
+            public readonly string id = "id";
+        }
+        static readonly ActionParamsClass_Eidt s_params_Eidt = new ActionParamsClass_Eidt();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Eidt EidtParams { get { return s_params_Eidt; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Eidt
         {
             public readonly string id = "id";
         }
@@ -129,10 +145,12 @@ namespace ChiakiYu.Web.Controllers
             {
                 public readonly string _CommentList = "_CommentList";
                 public readonly string Detail = "Detail";
+                public readonly string Eidt = "Eidt";
                 public readonly string Home = "Home";
             }
             public readonly string _CommentList = "~/Views/Blog/_CommentList.cshtml";
             public readonly string Detail = "~/Views/Blog/Detail.cshtml";
+            public readonly string Eidt = "~/Views/Blog/Eidt.cshtml";
             public readonly string Home = "~/Views/Blog/Home.cshtml";
         }
     }
@@ -162,6 +180,18 @@ namespace ChiakiYu.Web.Controllers
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Detail);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
             DetailOverride(callInfo, id);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void EidtOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long id);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Eidt(long id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Eidt);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            EidtOverride(callInfo, id);
             return callInfo;
         }
 

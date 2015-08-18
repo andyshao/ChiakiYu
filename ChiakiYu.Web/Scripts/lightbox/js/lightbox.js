@@ -45,7 +45,7 @@
     fitImagesInViewport: true,
     // maxWidth: 800,
     // maxHeight: 600,
-    positionFromTop: 50,
+    positionFromTop:50,
     resizeDuration: 700,
     showImageNumberLabel: true,
     wrapAround: false

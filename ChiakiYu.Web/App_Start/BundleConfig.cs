@@ -44,18 +44,32 @@ namespace ChiakiYu.Web
                 );
             //lightbox
             bundles.Add(
-                new StyleBundle("~/Scripts/lightbox/css/css")
+                new StyleBundle("~/Scripts/lightboxcss/css/css")
                     .Include(
                         "~/Scripts/lightbox/css/lightbox.css"
+                    )
+                );
+
+            //fancybox
+            bundles.Add(
+                new StyleBundle("~/Scripts/fancybox/css")
+                    .Include(
+                        "~/Scripts/fancybox/jquery.fancybox.css"
+                    )
+                );
+
+            bundles.Add(
+                new ScriptBundle("~/bundles/jquery")
+                    .Include(
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-ui-{version}.js",
+                        "~/Scripts/bootstrap/bootstrap.js"
                     )
                 );
 
             bundles.Add(
                 new ScriptBundle("~/bundles/admin/js")
                     .Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-ui-{version}.js",
-                        "~/Scripts/bootstrap/bootstrap.js",
                         "~/Scripts/json2.js",
                         "~/Scripts/modernizr-2.8.3.js",
                         "~/Scripts/moment-with-locales.js",
@@ -68,16 +82,14 @@ namespace ChiakiYu.Web
                         "~/Scripts/slimScroll/jquery.slimscroll.js",
                         "~/Scripts/zTree/js/jquery.ztree.core-3.5.js",
                         "~/Scripts/zTree/js/jquery.ztree.excheck-3.5.js",
-
+                        //"~/Scripts/lightbox/js/lightbox.js",
+                        "~/Scripts/fancybox/jquery.fancybox.js",
                         "~/Scripts/artDialog/js/dialog-plus.js"
                     )
                 );
             bundles.Add(
                 new ScriptBundle("~/bundles/js")
                     .Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery-ui-{version}.js",
-                        "~/Scripts/bootstrap/bootstrap.js",
                         "~/Scripts/json2.js",
                         "~/Scripts/modernizr-2.8.3.js",
                         "~/Scripts/moment-with-locales.js",
@@ -87,12 +99,19 @@ namespace ChiakiYu.Web
                         "~/Scripts/jquery.blockUI.js",
                         "~/Scripts/toastr.js",
                         "~/Scripts/artDialog/js/dialog-plus.js",
-                        "~/Scripts/lightbox/js/lightbox.js",
+                        //"~/Scripts/lightbox/js/lightbox.js",
+                         "~/Scripts/fancybox/jquery.fancybox.js",
                         "~/Scripts/wow/wow.min.js",
                         "~/Scripts/luckyyu/main.js",
                         "~/Scripts/luckyyu/lucky.plugin.js"
                     )
                 );
+            //plupload
+            bundles.Add(new ScriptBundle("~/bundles/plupload")
+                .Include(
+                       "~/Scripts/plupload/plupload.js",
+                       "~/Scripts/plupload/i18n/zh_CN.js.js"
+               ));
         }
     }
 

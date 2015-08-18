@@ -88,6 +88,7 @@
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Link.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Pagination.cs" />
+    <Compile Include="Extensions\Html\HtmlHelper.Upload.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.ShareToThird.cs" />
     <Compile Include="Extensions\LinqToXmlExtensions.cs" />
     <Compile Include="Extensions\NameValueCollectionExtension.cs" />
@@ -98,6 +99,14 @@
     <Compile Include="Extensions\TryCatchExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UEditor\Config.cs" />
+    <Compile Include="UEditor\ConfigHandler.cs" />
+    <Compile Include="UEditor\CrawlerHandler.cs" />
+    <Compile Include="UEditor\Handler.cs" />
+    <Compile Include="UEditor\ListFileHandler.cs" />
+    <Compile Include="UEditor\NotSupportedHandler.cs" />
+    <Compile Include="UEditor\PathFormater.cs" />
+    <Compile Include="UEditor\UploadHandler.cs" />
     <Compile Include="Web\UserAgentHelper.cs" />
     <Compile Include="Web\WebHelper.cs" />
   </ItemGroup>

@@ -76,6 +76,8 @@ namespace ChiakiYu.Web.Controllers
             public readonly string Home = "Home";
             public readonly string About = "About";
             public readonly string ContactUs = "ContactUs";
+            public readonly string Chat = "Chat";
+            public readonly string ComingSoon = "ComingSoon";
             public readonly string Upload = "Upload";
         }
 
@@ -86,6 +88,8 @@ namespace ChiakiYu.Web.Controllers
             public const string Home = "Home";
             public const string About = "About";
             public const string ContactUs = "ContactUs";
+            public const string Chat = "Chat";
+            public const string ComingSoon = "ComingSoon";
             public const string Upload = "Upload";
         }
 
@@ -110,11 +114,15 @@ namespace ChiakiYu.Web.Controllers
             {
                 public readonly string _Header = "_Header";
                 public readonly string About = "About";
+                public readonly string Chat = "Chat";
+                public readonly string ComingSoon = "ComingSoon";
                 public readonly string ContactUs = "ContactUs";
                 public readonly string Home = "Home";
             }
             public readonly string _Header = "~/Views/Channel/_Header.cshtml";
             public readonly string About = "~/Views/Channel/About.cshtml";
+            public readonly string Chat = "~/Views/Channel/Chat.cshtml";
+            public readonly string ComingSoon = "~/Views/Channel/ComingSoon.cshtml";
             public readonly string ContactUs = "~/Views/Channel/ContactUs.cshtml";
             public readonly string Home = "~/Views/Channel/Home.cshtml";
         }
@@ -171,12 +179,34 @@ namespace ChiakiYu.Web.Controllers
         }
 
         [NonAction]
-        partial void UploadOverride(T4MVC_System_Web_Mvc_ContentResult callInfo);
+        partial void ChatOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.ContentResult Upload()
+        public override System.Web.Mvc.ActionResult Chat()
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ContentResult(Area, Name, ActionNames.Upload);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Chat);
+            ChatOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void ComingSoonOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult ComingSoon()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.ComingSoon);
+            ComingSoonOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void UploadOverride(T4MVC_System_Web_Mvc_JsonResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.JsonResult Upload()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.Upload);
             UploadOverride(callInfo);
             return callInfo;
         }

@@ -16,9 +16,9 @@
     <link rel="shortcut icon" href="~/favicon.ico">
     <title>@ViewBag.Title - @(siteSetting.SiteName)</title>
 
-    @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css", "~/Scripts/lightbox/css/css")
+    @Styles.Render("~/bundles/css", "~/Content/font-awesome/css/css",  "~/Scripts/fancybox/css")
     @RenderSection("styles", required: false)
-    
+    @Scripts.Render("~/bundles/jquery")
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

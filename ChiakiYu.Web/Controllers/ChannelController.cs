@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Web.Mvc;
 using ChiakiYu.Model.Navigations;
 using ChiakiYu.Service.Navigations;
@@ -72,10 +73,12 @@ namespace ChiakiYu.Web.Controllers
         }
 
         [HttpPost]
-        public virtual ContentResult Upload()
+        public virtual JsonResult Upload()
         {
-            string savePath; //上传文件的路径 
-            savePath = "\\Uploads\\";
+            var nowTime = DateTime.Now;
+
+            var savePath = string.Format("/Uploads/img/{0}/{1}/{2}/", nowTime.Year,
+                nowTime.Month.ToString("D2"), nowTime.Day.ToString("D2")); //上传文件的路径 
 
             var localPath = Server.MapPath(savePath);
             if (!Directory.Exists(Path.GetDirectoryName(localPath)))
@@ -85,15 +88,17 @@ namespace ChiakiYu.Web.Controllers
             var request = System.Web.HttpContext.Current.Request;
             var src = string.Empty;
 
-            if (request.Files.Count <= 0) return Content(src);
+            if (request.Files.Count <= 0) return Json(new { src, src1 = "111" });
             for (var i = 0; i < request.Files.Count; i++)
             {
                 var file = request.Files[i];
-                var fileName = file.FileName;
+                var extension = Path.GetExtension(file.FileName);
+                var fileName = string.Format("{0}{1}",
+                    DateTime.Now.ToString("HHmmss") + new Random().Next(100000, 999999), extension);
                 file.SaveAs(localPath + fileName);
-                src = "http://" + request.Url.Host + request.ApplicationPath + "/Uploads/" + fileName;
+                src = savePath + fileName;
             }
-            return Content(src);
+            return Json(new { src, src1 = "111" });
         }
     }
 

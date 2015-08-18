@@ -3,6 +3,13 @@
     ViewBag.Title = "关于";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $(".fancybox").fancybox();
+        });
+    </script>
+}
 
 <section id="page-breadcrumb">
     <div class="vertical-center sun">
@@ -23,7 +30,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <img src="/Images/aboutus/1.png" class="img-responsive" alt="">
+                <a class="fancybox" data-fancybox-group="22" href="/Images/aboutus/1.png">
+                    <img src="/Images/aboutus/1.png" class="img-responsive" alt="">
+                </a>
+                <a class="fancybox" data-fancybox-group="22" href="/Images/aboutus/2.jpg">
+                    <img src="/Images/aboutus/2.jpg" class="img-responsive" alt="">
+                </a>
             </div>
             <div class="col-sm-6 padding-top">
                 <p>Shoulder bresaola sausage consequat ground round duis excepteur exercitation landjaeger sunt. Duis officia sed frankfurter dolore pastrami tenderloin.</p>
