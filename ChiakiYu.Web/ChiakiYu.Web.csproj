@@ -689,7 +689,6 @@
     <Content Include="Scripts\UEditor\dialogs\wordimage\tangram.js" />
     <Content Include="Scripts\UEditor\dialogs\wordimage\wordimage.html" />
     <Content Include="Scripts\UEditor\dialogs\wordimage\wordimage.js" />
-    <Content Include="Scripts\UEditor\index.html" />
     <Content Include="Scripts\UEditor\lang\en\en.js" />
     <Content Include="Scripts\UEditor\lang\en\images\addimage.png" />
     <Content Include="Scripts\UEditor\lang\en\images\alldeletebtnhoverskin.png" />
@@ -839,7 +838,6 @@
     <Content Include="Scripts\zTree\css\zTreeStyle\img\zTreeStandard.gif" />
     <Content Include="Scripts\zTree\css\zTreeStyle\img\zTreeStandard.png" />
     <Content Include="Scripts\zTree\css\zTreeStyle\zTreeStyle.css" />
-    <Content Include="Scripts\zTree\js\jquery-1.4.4.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.all-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.all-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.core-3.5.js" />

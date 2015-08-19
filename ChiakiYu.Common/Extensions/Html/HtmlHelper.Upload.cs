@@ -11,9 +11,10 @@ namespace ChiakiYu.Common.Extensions.Html
         /// <summary>
         ///     分享到其他网站
         /// </summary>
-        public static MvcHtmlString Upload(this HtmlHelper htmlHelper, string name, string allowedFileExtensions = "")
+        public static MvcHtmlString Upload(this HtmlHelper htmlHelper, string name, string value = "", string allowedFileExtensions = "jpg,gif,png")
         {
             htmlHelper.ViewData["Name"] = name;
+            htmlHelper.ViewData["Value"] = value;
             htmlHelper.ViewData["FileExtensions"] = allowedFileExtensions;
             return htmlHelper.Partial("~/Plugins/Upload/Plupload.cshtml");
         }

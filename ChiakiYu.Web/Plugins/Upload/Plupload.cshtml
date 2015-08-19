@@ -1,18 +1,24 @@
 ﻿@{
     var name = ViewData.Get<string>("Name", string.Empty);
-    var fileExtensions = ViewData.Get<string>("FileExtensions", string.Empty);
+    var value = ViewData.Get<string>("Value", string.Empty);
+    var fileExtensions = ViewData.Get<string>("FileExtensions", "jpg,gif,png");
 
 }
 @*@Scripts.Render("~/bundles/plupload")*@
+
 <script src="~/Scripts/plupload/plupload.full.min.js"></script>
 <script src="~/Scripts/plupload/i18n/zh_CN.js"></script>
+
 <a class="btn btn-success" id="browse">选择文件</a>
 <span id="message"></span>
-<br />
-<br />
-<div id="imgs">
-    <img id="img" src="~/Images/avatar04.png" width="160" />
+<div id="imgsWithPlupload" style="margin-top: 5px;">
+    @if (!string.IsNullOrEmpty(value))
+    {
+        <img id="imgWithPlupload" src="@value" height="160" alt="标题图"/>
+        <input hidden id="@name" name="@name" value="@value" />
+    }
 </div>
+
 
 
 <script>
@@ -22,7 +28,7 @@
         url: '@Url.Action(MVC.Channel.Upload())', //服务器端的上传页面地址
         filters: {
             mime_types: [ //只允许上传图片文件
-              { title: "图片文件", extensions: "jpg,gif,png" }
+              { title: "图片文件", extensions: "@fileExtensions" }
             ],
             max_file_size: '20mb', //最大只能上传20M的文件
             prevent_duplicates: true //不允许选取重复文件
@@ -48,7 +54,7 @@
         $("#message").text("");//提示消息
         if (uploader.settings.multi_selection)//如果允许多选
         {
-            $("#imgs").html("");
+            $("#imgsWithPlupload").html("");
         }
     });
 
@@ -61,13 +67,13 @@
         //debugger;
         var data = $.parseJSON(responseObject.response);
         var src = data.src;
-        var imgHtml = "<img src='" + src + "' width='160'/>";
+        var imgHtml = "<img src='" + src + "' height='160' alt='标题图'/><input hidden id='@name' name='@name' value='" + src + "' />";
         if (uploader.settings.multi_selection)//如果允许多选
         {
-            $("#imgs").append(imgHtml);
+            $("#imgsWithPlupload").append(imgHtml);
         }
         else {
-            $("#imgs").html(imgHtml);
+            $("#imgsWithPlupload").html(imgHtml);
         }
     });
     //错误信息
