@@ -1,0 +1,77 @@
+﻿@{
+    var name = ViewData.Get<string>("Name", string.Empty);
+    var fileExtensions = ViewData.Get<string>("FileExtensions", string.Empty);
+
+}
+@*@Scripts.Render("~/bundles/plupload")*@
+<script src="~/Scripts/plupload/plupload.full.min.js"></script>
+<script src="~/Scripts/plupload/i18n/zh_CN.js"></script>
+<a class="btn btn-success" id="browse">选择文件</a>
+<span id="message"></span>
+<br />
+<br />
+<div id="imgs">
+    <img id="img" src="~/Images/avatar04.png" width="160" />
+</div>
+
+
+<script>
+    //实例化一个plupload上传对象
+    var uploader = new plupload.Uploader({
+        browse_button: 'browse', //触发文件选择对话框的按钮，为那个元素id
+        url: '@Url.Action(MVC.Channel.Upload())', //服务器端的上传页面地址
+        filters: {
+            mime_types: [ //只允许上传图片文件
+              { title: "图片文件", extensions: "jpg,gif,png" }
+            ],
+            max_file_size: '20mb', //最大只能上传20M的文件
+            prevent_duplicates: true //不允许选取重复文件
+        },
+        resize: {
+            width: 160,
+            //height: 300,
+            crop: false,
+            quality: 100,
+            preserve_headers: false
+        },
+        multi_selection: false,//是否允许多选
+        flash_swf_url: '~/Scripts/Plupload/Moxie.swf', //swf文件，当需要使用swf方式进行上传时需要配置该参数
+        silverlight_xap_url: '~/Scripts/Plupload/Moxie.xap' //silverlight文件，当需要使用silverlight方式进行上传时需要配置该参数
+    });
+
+    //在实例对象上调用init()方法进行初始化
+    uploader.init();
+
+    //绑定文件添加进队列事件
+    uploader.bind('FilesAdded', function (uploader, files) {
+        uploader.start();
+        $("#message").text("");//提示消息
+        if (uploader.settings.multi_selection)//如果允许多选
+        {
+            $("#imgs").html("");
+        }
+    });
+
+    uploader.bind('UploadProgress', function (uploader, file) {
+        $("#message").text(uploader.total.percent + "%");
+    });
+
+    //当队列中的某一个文件上传完成后触发
+    uploader.bind('FileUploaded', function (uploader, file, responseObject) {
+        //debugger;
+        var data = $.parseJSON(responseObject.response);
+        var src = data.src;
+        var imgHtml = "<img src='" + src + "' width='160'/>";
+        if (uploader.settings.multi_selection)//如果允许多选
+        {
+            $("#imgs").append(imgHtml);
+        }
+        else {
+            $("#imgs").html(imgHtml);
+        }
+    });
+    //错误信息
+    uploader.bind('Error', function (uploader, errObject) {
+        $("#message").text(errObject.message);
+    });
+</script>

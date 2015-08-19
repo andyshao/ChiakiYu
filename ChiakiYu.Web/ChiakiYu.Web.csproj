@@ -438,7 +438,7 @@
     <Content Include="Scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
     <Content Include="Scripts\fancybox\jquery.fancybox.css" />
     <Content Include="Scripts\fancybox\jquery.fancybox.js" />
-    <Content Include="Scripts\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\fancybox\jquery.fancybox.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <None Include="Scripts\jquery.validate\jquery.validate-vsdoc.js" />
@@ -452,15 +452,6 @@
     <Content Include="Scripts\jquery.validate\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\json2.min.js" />
-    <Content Include="Scripts\lightbox\css\lightbox.css" />
-    <Content Include="Scripts\lightbox\images\close.png" />
-    <Content Include="Scripts\lightbox\images\loading.gif" />
-    <Content Include="Scripts\lightbox\images\next.png" />
-    <Content Include="Scripts\lightbox\images\prev.png" />
-    <Content Include="Scripts\lightbox\js\lightbox-plus-jquery.js" />
-    <Content Include="Scripts\lightbox\js\lightbox-plus-jquery.min.js" />
-    <Content Include="Scripts\lightbox\js\lightbox.js" />
-    <Content Include="Scripts\lightbox\js\lightbox.min.js" />
     <Content Include="Scripts\luckyyu\app.js" />
     <Content Include="Scripts\luckyyu\app.min.js" />
     <Content Include="Scripts\luckyyu\demo.js" />
@@ -861,8 +852,6 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\lightbox\js\lightbox-plus-jquery.min.map" />
-    <Content Include="Scripts\lightbox\js\lightbox.min.map" />
     <Content Include="Scripts\UEditor\net\config.json" />
     <Content Include="Scripts\UEditor\net\controller.ashx" />
     <Content Include="Scripts\UEditor\third-party\jquery-1.10.2.min.map" />

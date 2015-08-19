@@ -42,19 +42,14 @@ namespace ChiakiYu.Web
                         "~/Content/font-awesome/css/font-awesome.css"
                     )
                 );
-            //lightbox
-            bundles.Add(
-                new StyleBundle("~/Scripts/lightboxcss/css/css")
-                    .Include(
-                        "~/Scripts/lightbox/css/lightbox.css"
-                    )
-                );
 
             //fancybox
             bundles.Add(
                 new StyleBundle("~/Scripts/fancybox/css")
                     .Include(
-                        "~/Scripts/fancybox/jquery.fancybox.css"
+                        "~/Scripts/fancybox/jquery.fancybox.css",
+                        "~/Scripts/fancybox/helpers/jquery.fancybox-thumbs.css"
+                        //"~/Scripts/fancybox/helpers/jquery.fancybox-buttons.css"
                     )
                 );
 
@@ -82,8 +77,6 @@ namespace ChiakiYu.Web
                         "~/Scripts/slimScroll/jquery.slimscroll.js",
                         "~/Scripts/zTree/js/jquery.ztree.core-3.5.js",
                         "~/Scripts/zTree/js/jquery.ztree.excheck-3.5.js",
-                        //"~/Scripts/lightbox/js/lightbox.js",
-                        "~/Scripts/fancybox/jquery.fancybox.js",
                         "~/Scripts/artDialog/js/dialog-plus.js"
                     )
                 );
@@ -99,8 +92,9 @@ namespace ChiakiYu.Web
                         "~/Scripts/jquery.blockUI.js",
                         "~/Scripts/toastr.js",
                         "~/Scripts/artDialog/js/dialog-plus.js",
-                        //"~/Scripts/lightbox/js/lightbox.js",
-                         "~/Scripts/fancybox/jquery.fancybox.js",
+                        "~/Scripts/fancybox/jquery.fancybox.js",
+                        "~/Scripts/fancybox/helpers/jquery.fancybox-thumbs.js",
+                        //"~/Scripts/fancybox/helpers/jquery.fancybox-buttons.js",
                         "~/Scripts/wow/wow.min.js",
                         "~/Scripts/luckyyu/main.js",
                         "~/Scripts/luckyyu/lucky.plugin.js"

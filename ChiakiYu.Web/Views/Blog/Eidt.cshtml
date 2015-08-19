@@ -1,0 +1,101 @@
+﻿@model BlogEditModel
+@{
+    ViewBag.ActiveMenu = "日志";
+    ViewBag.Title = Model.Id > 0 ? "编辑日志" : "新建日志";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <script src="~/Scripts/UEditor/ueditor.config.js"></script>
+    <script src="~/Scripts/UEditor/ueditor.all.min.js"></script>
+    <script src="~/Scripts/UEditor/ueditor.parse.min.js"></script>
+}
+
+
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">@ViewBag.Title</h1>
+                        <p>畅游在书的海洋中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/#page-breadcrumb-->
+<section id="blog-details" class="padding-top padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10 col-sm-12">
+                <div class="box box-default">
+                    @*<div class="box-header with-border">
+                            <h3 class="box-title">General Elements</h3>
+                        </div>*@<!-- /.box-header -->
+                    <div class="box-body">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="请输入日志标题" class="form-control" maxlength="32">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">副标题</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" placeholder="请输入日志副标题" class="form-control" maxlength="64">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">内容</label>
+                                    <div class="col-sm-10">
+                                        <script id="container"></script>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">标题图</label>
+                                    <div class="col-sm-10">
+                                        @*<input type="file">*@
+                                        @Html.Upload("hehe")
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">基本设置</label>
+                                    <div class="col-sm-10">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">仅回复可见
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox">置顶
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /.box-body -->
+                            <div class="box-footer">
+                                <div class="col-sm-offset-4 col-sm-4">
+                                    <button class="btn btn-success btn-lg  btn-block" type="submit">发布</button>
+                                </div><!-- /.box-footer -->
+                            </div>
+                        </form>
+                    </div><!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        var p = {
+            initialFrameHeight: 400  //初始化编辑器高度,默认320
+        };
+        var ue = UE.getEditor('container', p);
+        ue.ready(function () {
+            //ue.setContent();
+        });
+    </script>
+</section>

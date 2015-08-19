@@ -6,7 +6,22 @@
 @section scripts{
     <script>
         $(document).ready(function() {
-            $(".fancybox").fancybox();
+            $(".fancybox").fancybox({
+                padding: 2,
+                loop: false,
+                helpers: {
+                    overlay: {
+                        closeClick: false
+                    },
+                    thumbs: {
+                        width: 60,
+                        height: 60
+                    }
+                },
+                afterLoad: function() {
+                    this.title = (this.title ? this.title + ' - ' : '') + (this.index + 1) + ' / ' + this.group.length;
+                }
+            });
         });
     </script>
 }
@@ -30,10 +45,10 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <a class="fancybox" data-fancybox-group="22" href="/Images/aboutus/1.png">
+                <a class="fancybox" title="答复第三达菲圣的撒范德萨的撒第三方的撒" rel="22" href="/Images/aboutus/1.png">
                     <img src="/Images/aboutus/1.png" class="img-responsive" alt="">
                 </a>
-                <a class="fancybox" data-fancybox-group="22" href="/Images/aboutus/2.jpg">
+                <a class="fancybox" rel="22" title="倒萨范德萨梵蒂冈" href="/Images/aboutus/2.jpg">
                     <img src="/Images/aboutus/2.jpg" class="img-responsive" alt="">
                 </a>
             </div>
