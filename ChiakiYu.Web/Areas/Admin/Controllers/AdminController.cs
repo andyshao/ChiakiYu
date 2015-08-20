@@ -4,10 +4,8 @@ using System.Web.Mvc;
 using System.Web.Security;
 using ChiakiYu.Common.Data;
 using ChiakiYu.Model.Navigations;
-using ChiakiYu.Model.Settings;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Navigations;
-using ChiakiYu.Service.Settings;
 using ChiakiYu.Service.Users;
 using ChiakiYu.Web.Areas.Admin.Controllers.Filters;
 using ChiakiYu.Web.ViewModels.Account;
@@ -30,7 +28,6 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
 
         private readonly IUserService _userService;
         private readonly INavigationService _navigationService;
-        
 
         #endregion
 

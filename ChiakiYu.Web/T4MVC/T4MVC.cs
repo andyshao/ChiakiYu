@@ -29,8 +29,9 @@ public static partial class MVC
 {
     static readonly AdminClass s_Admin = new AdminClass();
     public static AdminClass Admin { get { return s_Admin; } }
+    static readonly BlogClass s_Blog = new BlogClass();
+    public static BlogClass Blog { get { return s_Blog; } }
     public static ChiakiYu.Web.Controllers.AccountController Account = new ChiakiYu.Web.Controllers.T4MVC_AccountController();
-    public static ChiakiYu.Web.Controllers.BlogController Blog = new ChiakiYu.Web.Controllers.T4MVC_BlogController();
     public static ChiakiYu.Web.Controllers.ChannelController Channel = new ChiakiYu.Web.Controllers.T4MVC_ChannelController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
@@ -45,6 +46,13 @@ namespace T4MVC
         public ChiakiYu.Web.Areas.Admin.Controllers.AdminSettingController AdminSetting = new ChiakiYu.Web.Areas.Admin.Controllers.T4MVC_AdminSettingController();
         public ChiakiYu.Web.Areas.Admin.Controllers.AdminUserController AdminUser = new ChiakiYu.Web.Areas.Admin.Controllers.T4MVC_AdminUserController();
         public T4MVC.Admin.SharedController Shared = new T4MVC.Admin.SharedController();
+    }
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class BlogClass
+    {
+        public readonly string Name = "Blog";
+        public ChiakiYu.Web.Areas.Blog.Controllers.BlogController Blog = new ChiakiYu.Web.Areas.Blog.Controllers.T4MVC_BlogController();
+        public T4MVC.Blog.SharedController Shared = new T4MVC.Blog.SharedController();
     }
 }
 
@@ -133,6 +141,38 @@ namespace Links
             public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
         }
     
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class fancybox {
+            private const string URLPATH = "~/Scripts/fancybox";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string blank_gif = Url("blank.gif");
+            public static readonly string fancybox_loading_gif = Url("fancybox_loading.gif");
+            public static readonly string fancybox_loading_2x_gif = Url("fancybox_loading@2x.gif");
+            public static readonly string fancybox_overlay_png = Url("fancybox_overlay.png");
+            public static readonly string fancybox_sprite_png = Url("fancybox_sprite.png");
+            public static readonly string fancybox_sprite_2x_png = Url("fancybox_sprite@2x.png");
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class helpers {
+                private const string URLPATH = "~/Scripts/fancybox/helpers";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                public static readonly string fancybox_buttons_png = Url("fancybox_buttons.png");
+                public static readonly string jquery_fancybox_buttons_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox-buttons.min.css") ? Url("jquery.fancybox-buttons.min.css") : Url("jquery.fancybox-buttons.css");
+                     
+                public static readonly string jquery_fancybox_buttons_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox-buttons.min.js") ? Url("jquery.fancybox-buttons.min.js") : Url("jquery.fancybox-buttons.js");
+                public static readonly string jquery_fancybox_media_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox-media.min.js") ? Url("jquery.fancybox-media.min.js") : Url("jquery.fancybox-media.js");
+                public static readonly string jquery_fancybox_thumbs_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox-thumbs.min.css") ? Url("jquery.fancybox-thumbs.min.css") : Url("jquery.fancybox-thumbs.css");
+                     
+                public static readonly string jquery_fancybox_thumbs_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox-thumbs.min.js") ? Url("jquery.fancybox-thumbs.min.js") : Url("jquery.fancybox-thumbs.js");
+            }
+        
+            public static readonly string jquery_fancybox_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox.min.css") ? Url("jquery.fancybox.min.css") : Url("jquery.fancybox.css");
+                 
+            public static readonly string jquery_fancybox_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.fancybox.min.js") ? Url("jquery.fancybox.min.js") : Url("jquery.fancybox.js");
+            public static readonly string jquery_fancybox_min_js = Url("jquery.fancybox.min.js");
+        }
+    
         public static readonly string html5shiv_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/html5shiv.min.js") ? Url("html5shiv.min.js") : Url("html5shiv.js");
         public static readonly string jquery_2_1_4_intellisense_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.1.4.intellisense.min.js") ? Url("jquery-2.1.4.intellisense.min.js") : Url("jquery-2.1.4.intellisense.js");
         public static readonly string jquery_2_1_4_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-2.1.4.min.js") ? Url("jquery-2.1.4.min.js") : Url("jquery-2.1.4.js");
@@ -156,46 +196,6 @@ namespace Links
     
         public static readonly string json2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/json2.min.js") ? Url("json2.min.js") : Url("json2.js");
         public static readonly string json2_min_js = Url("json2.min.js");
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public static class lightbox {
-            private const string URLPATH = "~/Scripts/lightbox";
-            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class css {
-                private const string URLPATH = "~/Scripts/lightbox/css";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string lightbox_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lightbox.min.css") ? Url("lightbox.min.css") : Url("lightbox.css");
-                     
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class images {
-                private const string URLPATH = "~/Scripts/lightbox/images";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string close_png = Url("close.png");
-                public static readonly string loading_gif = Url("loading.gif");
-                public static readonly string next_png = Url("next.png");
-                public static readonly string prev_png = Url("prev.png");
-            }
-        
-            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-            public static class js {
-                private const string URLPATH = "~/Scripts/lightbox/js";
-                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
-                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string lightbox_plus_jquery_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lightbox-plus-jquery.min.js") ? Url("lightbox-plus-jquery.min.js") : Url("lightbox-plus-jquery.js");
-                public static readonly string lightbox_plus_jquery_min_js = Url("lightbox-plus-jquery.min.js");
-                public static readonly string lightbox_plus_jquery_min_map = Url("lightbox-plus-jquery.min.map");
-                public static readonly string lightbox_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/lightbox.min.js") ? Url("lightbox.min.js") : Url("lightbox.js");
-                public static readonly string lightbox_min_js = Url("lightbox.min.js");
-                public static readonly string lightbox_min_map = Url("lightbox.min.map");
-            }
-        
-        }
-    
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public static class luckyyu {
             private const string URLPATH = "~/Scripts/luckyyu";
@@ -774,7 +774,6 @@ namespace Links
             
             }
         
-            public static readonly string index_html = Url("index.html");
             [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
             public static class lang {
                 private const string URLPATH = "~/Scripts/UEditor/lang";
@@ -1172,7 +1171,6 @@ namespace Links
                 private const string URLPATH = "~/Scripts/zTree/js";
                 public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
                 public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
-                public static readonly string jquery_1_4_4_min_js = Url("jquery-1.4.4.min.js");
                 public static readonly string jquery_ztree_all_3_5_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ztree.all-3.5.min.js") ? Url("jquery.ztree.all-3.5.min.js") : Url("jquery.ztree.all-3.5.js");
                 public static readonly string jquery_ztree_all_3_5_min_js = Url("jquery.ztree.all-3.5.min.js");
                 public static readonly string jquery_ztree_core_3_5_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.ztree.core-3.5.min.js") ? Url("jquery.ztree.core-3.5.min.js") : Url("jquery.ztree.core-3.5.js");
@@ -1354,6 +1352,26 @@ namespace Links
                     public const string bootstrap_min_js = "~/Scripts/bootstrap/bootstrap.min.js"; 
                 }
             }
+            public static partial class fancybox 
+            {
+                public static partial class helpers 
+                {
+                    public static class Assets
+                    {
+                        public const string jquery_fancybox_buttons_css = "~/Scripts/fancybox/helpers/jquery.fancybox-buttons.css";
+                        public const string jquery_fancybox_buttons_js = "~/Scripts/fancybox/helpers/jquery.fancybox-buttons.js"; 
+                        public const string jquery_fancybox_media_js = "~/Scripts/fancybox/helpers/jquery.fancybox-media.js"; 
+                        public const string jquery_fancybox_thumbs_css = "~/Scripts/fancybox/helpers/jquery.fancybox-thumbs.css";
+                        public const string jquery_fancybox_thumbs_js = "~/Scripts/fancybox/helpers/jquery.fancybox-thumbs.js"; 
+                    }
+                }
+                public static class Assets
+                {
+                    public const string jquery_fancybox_css = "~/Scripts/fancybox/jquery.fancybox.css";
+                    public const string jquery_fancybox_js = "~/Scripts/fancybox/jquery.fancybox.js"; 
+                    public const string jquery_fancybox_min_js = "~/Scripts/fancybox/jquery.fancybox.min.js"; 
+                }
+            }
             public static partial class jquery_validate 
             {
                 public static class Assets
@@ -1363,35 +1381,6 @@ namespace Links
                     public const string jquery_validate_min_js = "~/Scripts/jquery.validate/jquery.validate.min.js"; 
                     public const string jquery_validate_unobtrusive_js = "~/Scripts/jquery.validate/jquery.validate.unobtrusive.js"; 
                     public const string jquery_validate_unobtrusive_min_js = "~/Scripts/jquery.validate/jquery.validate.unobtrusive.min.js"; 
-                }
-            }
-            public static partial class lightbox 
-            {
-                public static partial class css 
-                {
-                    public static class Assets
-                    {
-                        public const string lightbox_css = "~/Scripts/lightbox/css/lightbox.css";
-                    }
-                }
-                public static partial class images 
-                {
-                    public static class Assets
-                    {
-                    }
-                }
-                public static partial class js 
-                {
-                    public static class Assets
-                    {
-                        public const string lightbox_plus_jquery_js = "~/Scripts/lightbox/js/lightbox-plus-jquery.js"; 
-                        public const string lightbox_plus_jquery_min_js = "~/Scripts/lightbox/js/lightbox-plus-jquery.min.js"; 
-                        public const string lightbox_js = "~/Scripts/lightbox/js/lightbox.js"; 
-                        public const string lightbox_min_js = "~/Scripts/lightbox/js/lightbox.min.js"; 
-                    }
-                }
-                public static class Assets
-                {
                 }
             }
             public static partial class luckyyu 
@@ -2043,7 +2032,6 @@ namespace Links
                 {
                     public static class Assets
                     {
-                        public const string jquery_1_4_4_min_js = "~/Scripts/zTree/js/jquery-1.4.4.min.js"; 
                         public const string jquery_ztree_all_3_5_js = "~/Scripts/zTree/js/jquery.ztree.all-3.5.js"; 
                         public const string jquery_ztree_all_3_5_min_js = "~/Scripts/zTree/js/jquery.ztree.all-3.5.min.js"; 
                         public const string jquery_ztree_core_3_5_js = "~/Scripts/zTree/js/jquery.ztree.core-3.5.js"; 

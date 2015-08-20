@@ -161,8 +161,9 @@
   <ItemGroup>
     <Compile Include="App_Start\DataInit.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSettingController.cs" />
+    <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Areas\Blog\Controllers\BlogController.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="T4MVC\AccountController.generated.cs">
@@ -193,7 +194,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="T4MVC\BlogController.generated.cs">
+    <Compile Include="T4MVC\Blog.BlogController.generated.cs">
+      <DependentUpon>T4MVC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4MVC\Blog.SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
     <Compile Include="T4MVC\ChannelController.generated.cs">
@@ -209,7 +213,7 @@
     </Compile>
     <Compile Include="ViewModels\Account\LoginViewModel.cs" />
     <Compile Include="ViewModels\Account\RegisterEditModel.cs" />
-    <Compile Include="ViewModels\Blog\BlogEditModel.cs" />
+    <Compile Include="Areas\Blog\ViewModels\BlogEditModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AdminLTE.css" />
@@ -415,6 +419,8 @@
     <Content Include="Plugins\Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Areas\Blog\Views\web.config" />
+    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Images\team-member.jpg" />
     <Content Include="Scripts\artDialog\css\ui-dialog.css" />
@@ -861,12 +867,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -886,12 +886,12 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\_LoginInModal.cshtml" />
     <Content Include="Views\Shared\_Account.cshtml" />
-    <Content Include="Views\Blog\Home.cshtml" />
-    <Content Include="Views\Blog\Detail.cshtml" />
-    <Content Include="Views\Blog\_CommentList.cshtml" />
+    <Content Include="Areas\Blog\Views\Blog\Home.cshtml" />
+    <Content Include="Areas\Blog\Views\Blog\Detail.cshtml" />
+    <Content Include="Areas\Blog\Views\Blog\_CommentList.cshtml" />
     <Content Include="Views\Channel\Chat.cshtml" />
     <Content Include="Views\Channel\ComingSoon.cshtml" />
-    <Content Include="Views\Blog\Eidt.cshtml" />
+    <Content Include="Areas\Blog\Views\Blog\Eidt.cshtml" />
     <Content Include="Plugins\Upload\Plupload.cshtml" />
   </ItemGroup>
   <ItemGroup>

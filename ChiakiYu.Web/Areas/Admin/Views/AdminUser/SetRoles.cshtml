@@ -1,5 +1,4 @@
-﻿@using ChiakiYu.Model.Users
-@model List<ChiakiYu.Service.Roles.Dto.RoleDto>
+﻿@model List<RoleDto>
 @{
     List<UserRole> list = ViewData["UserRoleList"] as List<UserRole>;
     long userId = Convert.ToInt64(ViewData["UserId"]);

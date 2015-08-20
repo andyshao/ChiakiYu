@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ChiakiYu.Web.ViewModels.Blog
+namespace ChiakiYu.Web.Areas.Blog.ViewModels
 {
     public class BlogEditModel
     {

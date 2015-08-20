@@ -23,7 +23,7 @@ using System.Web.Mvc.Ajax;
 using System.Web.Mvc.Html;
 using System.Web.Routing;
 using T4MVC;
-namespace ChiakiYu.Web.Controllers
+namespace ChiakiYu.Web.Areas.Blog.Controllers
 {
     public partial class BlogController
     {
@@ -79,9 +79,9 @@ namespace ChiakiYu.Web.Controllers
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public BlogController Actions { get { return MVC.Blog; } }
+        public BlogController Actions { get { return MVC.Blog.Blog; } }
         [GeneratedCode("T4MVC", "2.0")]
-        public readonly string Area = "";
+        public readonly string Area = "Blog";
         [GeneratedCode("T4MVC", "2.0")]
         public readonly string Name = "Blog";
         [GeneratedCode("T4MVC", "2.0")]
@@ -148,15 +148,15 @@ namespace ChiakiYu.Web.Controllers
                 public readonly string Eidt = "Eidt";
                 public readonly string Home = "Home";
             }
-            public readonly string _CommentList = "~/Views/Blog/_CommentList.cshtml";
-            public readonly string Detail = "~/Views/Blog/Detail.cshtml";
-            public readonly string Eidt = "~/Views/Blog/Eidt.cshtml";
-            public readonly string Home = "~/Views/Blog/Home.cshtml";
+            public readonly string _CommentList = "~/Areas/Blog/Views/Blog/_CommentList.cshtml";
+            public readonly string Detail = "~/Areas/Blog/Views/Blog/Detail.cshtml";
+            public readonly string Eidt = "~/Areas/Blog/Views/Blog/Eidt.cshtml";
+            public readonly string Home = "~/Areas/Blog/Views/Blog/Home.cshtml";
         }
     }
 
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-    public partial class T4MVC_BlogController : ChiakiYu.Web.Controllers.BlogController
+    public partial class T4MVC_BlogController : ChiakiYu.Web.Areas.Blog.Controllers.BlogController
     {
         public T4MVC_BlogController() : base(Dummy.Instance) { }
 

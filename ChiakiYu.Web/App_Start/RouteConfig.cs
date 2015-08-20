@@ -68,19 +68,7 @@ namespace ChiakiYu.Web
 
             #endregion
 
-            #region Blog
-            routes.MapRoute(
-                "Blog_Home", 
-                "Blog" + extensionForOldIIS,
-                new { controller = "Blog", action = "Home" }
-                );
-            routes.MapRoute(
-                "Blog_Common",
-                "Blog/{action}" + extensionForOldIIS,
-                new { controller = "Blog", action = "Home" }
-                );
-
-            #endregion
+            
 
 
             routes.MapRoute(

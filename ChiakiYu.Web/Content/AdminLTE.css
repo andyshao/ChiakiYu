@@ -4424,3 +4424,10 @@ table.text-center th {
 .field-validation-error {
     color: red!important;
 }
+.fa-color-green {
+    color: green!important;
+}
+
+.fa-color-red {
+    color: red!important;
+}
