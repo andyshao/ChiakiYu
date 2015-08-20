@@ -1,39 +1,33 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using ChiakiYu.Core.Domain.Entities;
 using ChiakiYu.Model.Users;
 
-namespace ChiakiYu.Web.Areas.Blog.ViewModels
+namespace ChiakiYu.Model.Blogs
 {
-    public class BlogEditModel
+    public class Blog : FullEntity<long>
     {
         /// <summary>
-        /// 日志Id，主键
+        ///     日志标题
         /// </summary>
-        public long Id { get; set; }
-
-        /// <summary>
-        ///     用户名
-        /// </summary>
-        [Display(Name = "标题")]
-        [Required(ErrorMessage = "请输入标题")]
+        [Required]
         [StringLength(64)]
-        [DataType(DataType.Text)]
         public string Title { get; set; }
 
-        [Display(Name = "摘要")]
-        [DataType(DataType.Text)]
-        public string Summary { get; set; }
-
         /// <summary>
-        /// 内容
+        ///     日志内容
         /// </summary>
-        [Display(Name = "内容")]
-        [Required(ErrorMessage = "请输入内容")]
+        [Required]
         [AllowHtml]
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
+        /// <summary>
+        ///     摘要
+        /// </summary>
+        [StringLength(512)]
+        public string Summary { get; set; }
 
         /// <summary>
         ///     标题图文件（带部分路径）
@@ -75,7 +69,5 @@ namespace ChiakiYu.Web.Areas.Blog.ViewModels
         ///     更新时间
         /// </summary>
         public DateTime? UpdatedTime { get; set; }
-
-
     }
 }

@@ -28,9 +28,6 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
     public partial class BlogController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public BlogController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected BlogController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -67,12 +64,6 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         }
         [NonAction]
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public virtual System.Web.Mvc.ActionResult Eidt()
-        {
-            return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Eidt);
-        }
-        [NonAction]
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public virtual System.Web.Mvc.ActionResult _CommentList()
         {
             return new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames._CommentList);
@@ -95,7 +86,7 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         {
             public readonly string Home = "Home";
             public readonly string Detail = "Detail";
-            public readonly string Eidt = "Eidt";
+            public readonly string Edit = "Edit";
             public readonly string _CommentList = "_CommentList";
         }
 
@@ -104,7 +95,7 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         {
             public const string Home = "Home";
             public const string Detail = "Detail";
-            public const string Eidt = "Eidt";
+            public const string Edit = "Edit";
             public const string _CommentList = "_CommentList";
         }
 
@@ -117,13 +108,14 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         {
             public readonly string id = "id";
         }
-        static readonly ActionParamsClass_Eidt s_params_Eidt = new ActionParamsClass_Eidt();
+        static readonly ActionParamsClass_Edit s_params_Edit = new ActionParamsClass_Edit();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Eidt EidtParams { get { return s_params_Eidt; } }
+        public ActionParamsClass_Edit EditParams { get { return s_params_Edit; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Eidt
+        public class ActionParamsClass_Edit
         {
             public readonly string id = "id";
+            public readonly string model = "model";
         }
         static readonly ActionParamsClass__CommentList s_params__CommentList = new ActionParamsClass__CommentList();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -145,12 +137,12 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
             {
                 public readonly string _CommentList = "_CommentList";
                 public readonly string Detail = "Detail";
-                public readonly string Eidt = "Eidt";
+                public readonly string Edit = "Edit";
                 public readonly string Home = "Home";
             }
             public readonly string _CommentList = "~/Areas/Blog/Views/Blog/_CommentList.cshtml";
             public readonly string Detail = "~/Areas/Blog/Views/Blog/Detail.cshtml";
-            public readonly string Eidt = "~/Areas/Blog/Views/Blog/Eidt.cshtml";
+            public readonly string Edit = "~/Areas/Blog/Views/Blog/Edit.cshtml";
             public readonly string Home = "~/Areas/Blog/Views/Blog/Home.cshtml";
         }
     }
@@ -184,14 +176,26 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         }
 
         [NonAction]
-        partial void EidtOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long id);
+        partial void EditOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long? id);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Eidt(long id)
+        public override System.Web.Mvc.ActionResult Edit(long? id)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Eidt);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Edit);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
-            EidtOverride(callInfo, id);
+            EditOverride(callInfo, id);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void EditOverride(T4MVC_System_Web_Mvc_JsonResult callInfo, ChiakiYu.Web.Areas.Blog.ViewModels.BlogEditModel model);
+
+        [NonAction]
+        public override System.Web.Mvc.JsonResult Edit(ChiakiYu.Web.Areas.Blog.ViewModels.BlogEditModel model)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_JsonResult(Area, Name, ActionNames.Edit);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "model", model);
+            EditOverride(callInfo, model);
             return callInfo;
         }
 

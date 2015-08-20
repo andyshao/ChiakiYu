@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blogs\BlogMapping.cs" />
     <Compile Include="Navigations\NavigationMapping.cs" />
     <Compile Include="Permissions\PermissionSiteMapping.cs" />
     <Compile Include="Permissions\PermissionMapping.cs" />

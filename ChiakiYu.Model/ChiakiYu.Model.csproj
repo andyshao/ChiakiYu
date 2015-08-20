@@ -65,6 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blogs\Blog.cs" />
     <Compile Include="Navigations\Navigation.cs" />
     <Compile Include="Navigations\NavigationEnum.cs" />
     <Compile Include="Permissions\Permission.cs" />
