@@ -32,7 +32,7 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         }
 
         /// <summary>
-        /// 热门博客
+        /// 热门日志
         /// </summary>
         /// <returns></returns>
         [ChildActionOnly]
