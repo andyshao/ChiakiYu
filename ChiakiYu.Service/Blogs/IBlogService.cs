@@ -1,4 +1,5 @@
-﻿using ChiakiYu.Core.Data;
+﻿using System.Collections.Generic;
+using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.Model.Blogs;
 using ChiakiYu.Service.Blogs.Dto;
@@ -19,7 +20,14 @@ namespace ChiakiYu.Service.Blogs
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        PagingList<Blog> GetUsers(GetBlogsInput input);
+        PagingList<Blog> GetBlogs(GetBlogsInput input);
+
+        /// <summary>
+        /// 根据评论数和浏览数获取前topNum条数据
+        /// </summary>
+        /// <param name="topNum">多少条</param>
+        /// <returns></returns>
+        IEnumerable<Blog> GetBlogsList(int topNum);
 
         /// <summary>
         ///     创建角色

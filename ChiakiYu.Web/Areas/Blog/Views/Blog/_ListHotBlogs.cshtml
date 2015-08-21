@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Blog>
+<div class="sidebar-item  recent">
+    <h3>热门帖子</h3>
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="media">
+                @*@if (!string.IsNullOrEmpty(item.FeaturedImage))
+                {
+                    <div class="pull-left">
+                        <a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))"><img width="50" height="50" src="@item.FeaturedImage" alt="@item.Title"></a>
+                    </div>
+                }*@
+                <div class="media-body">
+                    <h4><a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))" title="@item.Title">@item.Title.SubString(13)</a></h4>
+                    <p>
+                        <span title="发表时间">@item.CreatedTime.ToString("yyyy-MM-dd")</span>&nbsp;&nbsp;
+                        <span title="评论数"><i class="fa fa-comments"></i>@item.CommentCount</span>&nbsp;&nbsp;
+                        <span title="浏览数"><i class="fa fa-eye"></i>@item.HitCount</span>
+                    </p>
+                </div>
+            </div>
+        }
+    }
+</div>

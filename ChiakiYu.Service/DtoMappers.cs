@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿using ChiakiYu.Core.AutoMapper;
 using ChiakiYu.Model.Roles;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Roles.Dto;
@@ -10,8 +10,8 @@ namespace ChiakiYu.Service
     {
         public static void MapperRegister()
         {
-            Mapper.CreateMap<User, UserDto>();
-            Mapper.CreateMap<Role, RoleDto>();
+            AutoMapperHelper.CreateMap<User, UserDto>();
+            AutoMapperHelper.CreateMap<Role, RoleDto>();
         }
     }
 }

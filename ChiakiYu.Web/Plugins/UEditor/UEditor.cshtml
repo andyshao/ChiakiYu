@@ -1,0 +1,14 @@
+﻿@*必须手动引入UEditor的js文件,例如：@Scripts.Render("~/bundles/UEditor")*@
+
+<textarea id="Content"></textarea>
+<script type="text/javascript">
+    $(function () {
+        var p = {
+            textarea: "Content",
+            initialFrameHeight: 400 //初始化编辑器高度,默认320
+        };
+        UE.getEditor('Content', p).ready(function () {
+            this.setContent('@Html.Raw(Model.Content)');
+        });
+    });
+</script>

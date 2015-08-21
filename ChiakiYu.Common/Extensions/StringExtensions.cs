@@ -272,6 +272,39 @@ namespace ChiakiYu.Common.Extensions
             return encoding.GetString(bytes);
         }
 
+        /// <summary>
+        ///     对字符串进行截字
+        /// </summary>
+        /// <param name="value">待截字的字符串</param>
+        /// <param name="charLimit">截字的长度</param>
+        /// <param name="appendString">截去字的部分用替代字符串</param>
+        /// <returns></returns>
+        public static string SubString(this string value, int charLimit, string appendString = "...")
+        {
+            if (string.IsNullOrEmpty(value) || value.Length <= charLimit)
+            {
+                return value;
+            }
+
+            //var result = value.Substring(0, charLimit) + appendString;
+            //return result;
+            var rawStringLength = Encoding.UTF8.GetBytes(value).Length;
+            if (rawStringLength <= charLimit * 2)
+                return value;
+            charLimit = charLimit * 2 - Encoding.UTF8.GetBytes(appendString).Length;
+            var checkedStringBuilder = new StringBuilder();
+            var appendedLenth = 0;
+            foreach (var _char in value)
+            {
+                checkedStringBuilder.Append(_char);
+                appendedLenth += _char > 0x80 ? 2 : 1;
+                if (appendedLenth >= charLimit)
+                    break;
+            }
+
+            return checkedStringBuilder.Append(appendString).ToString();
+        }
+
         #endregion
     }
 }

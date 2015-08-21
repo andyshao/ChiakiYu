@@ -1,14 +1,12 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Web.Areas.Blog.ViewModels
 {
     public class BlogEditModel
     {
         /// <summary>
-        /// 日志Id，主键
+        ///     日志Id，主键
         /// </summary>
         public long Id { get; set; }
 
@@ -26,7 +24,7 @@ namespace ChiakiYu.Web.Areas.Blog.ViewModels
         public string Summary { get; set; }
 
         /// <summary>
-        /// 内容
+        ///     内容
         /// </summary>
         [Display(Name = "内容")]
         [Required(ErrorMessage = "请输入内容")]
@@ -34,17 +32,11 @@ namespace ChiakiYu.Web.Areas.Blog.ViewModels
         [DataType(DataType.Html)]
         public string Content { get; set; }
 
-
         /// <summary>
         ///     标题图文件（带部分路径）
         /// </summary>
         [StringLength(256)]
         public string FeaturedImage { get; set; }
-
-        /// <summary>
-        ///     日志作者
-        /// </summary>
-        public User Author { get; set; }
 
         /// <summary>
         ///     是否置顶
@@ -60,22 +52,5 @@ namespace ChiakiYu.Web.Areas.Blog.ViewModels
         ///     是否开启评论后查看
         /// </summary>
         public bool IsViewAfterComment { get; set; }
-
-        /// <summary>
-        ///     评论数
-        /// </summary>
-        public int CommentCount { get; set; }
-
-        /// <summary>
-        ///     浏览数
-        /// </summary>
-        public int HitCount { get; set; }
-
-        /// <summary>
-        ///     更新时间
-        /// </summary>
-        public DateTime? UpdatedTime { get; set; }
-
-
     }
 }

@@ -94,12 +94,19 @@ namespace ChiakiYu.Web
                         "~/Scripts/artDialog/js/dialog-plus.js",
                         "~/Scripts/fancybox/jquery.fancybox.js",
                         "~/Scripts/fancybox/helpers/jquery.fancybox-thumbs.js",
-                        //"~/Scripts/fancybox/helpers/jquery.fancybox-buttons.js",
                         "~/Scripts/wow/wow.min.js",
                         "~/Scripts/luckyyu/main.js",
                         "~/Scripts/luckyyu/lucky.plugin.js"
                     )
                 );
+
+            //UEditor
+            bundles.Add(new ScriptBundle("~/Scripts/UEditor/Js")
+                .Include("~/Scripts/UEditor/ueditor.config.js")
+                .Include("~/Scripts/UEditor/ueditor.all.js")
+                .Include("~/Scripts/UEditor/ueditor.parse.js")
+                );
+
             //plupload
             bundles.Add(new ScriptBundle("~/bundles/plupload")
                 .Include(

@@ -85,6 +85,7 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         public class ActionNamesClass
         {
             public readonly string Home = "Home";
+            public readonly string _ListHotBlogs = "_ListHotBlogs";
             public readonly string Detail = "Detail";
             public readonly string Edit = "Edit";
             public readonly string _CommentList = "_CommentList";
@@ -94,12 +95,22 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         public class ActionNameConstants
         {
             public const string Home = "Home";
+            public const string _ListHotBlogs = "_ListHotBlogs";
             public const string Detail = "Detail";
             public const string Edit = "Edit";
             public const string _CommentList = "_CommentList";
         }
 
 
+        static readonly ActionParamsClass_Home s_params_Home = new ActionParamsClass_Home();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Home HomeParams { get { return s_params_Home; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Home
+        {
+            public readonly string pageSize = "pageSize";
+            public readonly string pageIndex = "pageIndex";
+        }
         static readonly ActionParamsClass_Detail s_params_Detail = new ActionParamsClass_Detail();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public ActionParamsClass_Detail DetailParams { get { return s_params_Detail; } }
@@ -136,11 +147,15 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
             public class _ViewNamesClass
             {
                 public readonly string _CommentList = "_CommentList";
+                public readonly string _ListHotBlogs = "_ListHotBlogs";
+                public readonly string _Sidebar = "_Sidebar";
                 public readonly string Detail = "Detail";
                 public readonly string Edit = "Edit";
                 public readonly string Home = "Home";
             }
             public readonly string _CommentList = "~/Areas/Blog/Views/Blog/_CommentList.cshtml";
+            public readonly string _ListHotBlogs = "~/Areas/Blog/Views/Blog/_ListHotBlogs.cshtml";
+            public readonly string _Sidebar = "~/Areas/Blog/Views/Blog/_Sidebar.cshtml";
             public readonly string Detail = "~/Areas/Blog/Views/Blog/Detail.cshtml";
             public readonly string Edit = "~/Areas/Blog/Views/Blog/Edit.cshtml";
             public readonly string Home = "~/Areas/Blog/Views/Blog/Home.cshtml";
@@ -153,13 +168,26 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         public T4MVC_BlogController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void HomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void HomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int pageSize, int pageIndex);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Home()
+        public override System.Web.Mvc.ActionResult Home(int pageSize, int pageIndex)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Home);
-            HomeOverride(callInfo);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pageSize", pageSize);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pageIndex", pageIndex);
+            HomeOverride(callInfo, pageSize, pageIndex);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void _ListHotBlogsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult _ListHotBlogs()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames._ListHotBlogs);
+            _ListHotBlogsOverride(callInfo);
             return callInfo;
         }
 

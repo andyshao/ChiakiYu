@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using ChiakiYu.Core.Data;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.Model.Blogs;
@@ -20,16 +22,25 @@ namespace ChiakiYu.Service.Blogs
             return _blogRepository.Get(id);
         }
 
-        public PagingList<Blog> GetUsers(GetBlogsInput input)
+        public PagingList<Blog> GetBlogs(GetBlogsInput input)
         {
             var query = _blogRepository.Table;
             if (!string.IsNullOrWhiteSpace(input.NameKeyWords))
                 query = query.Where(m => m.Title.Contains(input.NameKeyWords) || m.Summary.Contains(input.NameKeyWords));
-            var source = query.OrderBy(n => n.Id)
-                .Skip((input.PageIndex - 1)*input.PageSize)
+            var source = query.Include(n => n.Author).OrderByDescending(n => n.IsTop).ThenByDescending(n => n.Id)
+                .Skip((input.PageIndex - 1) * input.PageSize)
                 .Take(input.PageSize);
 
             var result = new PagingList<Blog>(source, input.PageIndex, input.PageSize, query.LongCount());
+            return result;
+        }
+
+        public IEnumerable<Blog> GetBlogsList(int topNum)
+        {
+            var query = _blogRepository.Table;
+            var source = query.OrderByDescending(n => n.CommentCount).ThenByDescending(n => n.HitCount).ThenByDescending(n => n.Id).Take(topNum);
+
+            var result = source.ToList();
             return result;
         }
 

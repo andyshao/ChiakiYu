@@ -88,6 +88,7 @@
     <Compile Include="Extensions\ExpressionExtensions.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Link.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Pagination.cs" />
+    <Compile Include="Extensions\Html\HtmlHelper.UEditor.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Upload.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.ShareToThird.cs" />
     <Compile Include="Extensions\LinqToXmlExtensions.cs" />

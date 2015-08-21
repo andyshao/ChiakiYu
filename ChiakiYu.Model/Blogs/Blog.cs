@@ -38,7 +38,7 @@ namespace ChiakiYu.Model.Blogs
         /// <summary>
         ///     日志作者
         /// </summary>
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
         /// <summary>
         ///     是否置顶

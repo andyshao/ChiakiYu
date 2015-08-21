@@ -9,6 +9,7 @@ namespace ChiakiYu.Mapping.Blogs
         {
             ToTable("Blogs");
             HasRequired(n => n.Author).WithMany().Map(n => n.MapKey("Author"));
+            
         }
     }
 }

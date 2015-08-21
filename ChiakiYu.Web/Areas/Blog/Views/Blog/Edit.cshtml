@@ -3,13 +3,11 @@
     ViewBag.ActiveMenu = "日志";
     ViewBag.Title = Model.Id > 0 ? "编辑日志" : "新建日志";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    <script src="~/Scripts/UEditor/ueditor.config.js"></script>
+    @*<script src="~/Scripts/UEditor/ueditor.config.js"></script>
     <script src="~/Scripts/UEditor/ueditor.all.min.js"></script>
-    <script src="~/Scripts/UEditor/ueditor.parse.min.js"></script>
+    <script src="~/Scripts/UEditor/ueditor.parse.min.js"></script>*@
+    @Scripts.Render("~/Scripts/UEditor/Js")
 }
-
-
 <section id="page-breadcrumb">
     <div class="vertical-center sun">
         <div class="container">
@@ -36,6 +34,7 @@
                     <div class="box-body">
                         @using (Html.BeginForm(MVC.Blog.Blog.Edit(), FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                         {
+                            @Html.HiddenFor(n => n.Id)
                             <div class="box-body">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">标题</label>
@@ -44,24 +43,35 @@
                                         @Html.ValidationMessageFor(n => n.Title)
                                     </div>
                                 </div>
-                                @*<div class="form-group">
-                                        <label class="col-sm-2 control-label"></label>
-                                        <div class="col-sm-8">
-                                            <input type="text" placeholder="请输入日志副标题" class="form-control" maxlength="64">
-                                        </div>
-                                    </div>*@
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">摘要</label>
+                                    <div class="col-sm-8">
+                                        @Html.TextBoxFor(n => n.Summary, new RouteValueDictionary { { "placeholder", "请输入日志摘要" }, { "class", "form-control" }, { "maxlength", "64" } })
+                                        @Html.ValidationMessageFor(n => n.Summary)
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">内容</label>
                                     <div class="col-sm-10">
-                                        <script id="container"></script>
-
+                                        @Html.TextAreaFor(n => n.Content)
                                         @Html.ValidationMessageFor(n => n.Content)
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                var p = {
+                                                    textarea: "Content",
+                                                    initialFrameHeight: 400 //初始化编辑器高度,默认320
+                                                };
+                                                UE.getEditor('Content', p).ready(function () {
+                                                    this.setContent('@Html.Raw(Model.Content)');
+                                                });
+                                            });
+                                        </script>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">标题图</label>
                                     <div class="col-sm-10">
-                                        @Html.Upload("FeaturedImage",Model.FeaturedImage)
+                                        @Html.Upload("FeaturedImage", Model.FeaturedImage)
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -97,15 +107,5 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
 
-        var p = {
-            textarea: "Content",
-            initialFrameHeight: 400  //初始化编辑器高度,默认320
-        };
-        var ue = UE.getEditor('container', p);
-        ue.ready(function () {
-            ue.setContent('@Model.Content');
-        });
-    </script>
 </section>
