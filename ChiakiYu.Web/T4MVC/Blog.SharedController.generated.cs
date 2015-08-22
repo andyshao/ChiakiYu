@@ -38,9 +38,7 @@ namespace T4MVC.Blog
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string _Layout = "_Layout";
             }
-            public readonly string _Layout = "~/Areas/Blog/Views/Shared/_Layout.cshtml";
         }
     }
 

@@ -9,7 +9,9 @@ namespace ChiakiYu.Web.Controllers
     public partial class ChannelController : Controller
     {
         #region 私有字段
+
         private readonly INavigationService _navigationService;
+
         #endregion
 
         #region 构造函数
@@ -21,7 +23,6 @@ namespace ChiakiYu.Web.Controllers
 
         #endregion
 
-
         /// <summary>
         ///     页头
         /// </summary>
@@ -29,7 +30,6 @@ namespace ChiakiYu.Web.Controllers
         [ChildActionOnly]
         public virtual ActionResult _Header(string activeMenu = "")
         {
-
             var list = _navigationService.GetNavigations(PresentArea.Channel);
             ViewData["Active"] = activeMenu;
             return PartialView(list);
@@ -54,7 +54,7 @@ namespace ChiakiYu.Web.Controllers
         }
 
         /// <summary>
-        /// 联系方式
+        ///     联系方式
         /// </summary>
         /// <returns></returns>
         public virtual ActionResult ContactUs()
@@ -88,7 +88,7 @@ namespace ChiakiYu.Web.Controllers
             var request = System.Web.HttpContext.Current.Request;
             var src = string.Empty;
 
-            if (request.Files.Count <= 0) return Json(new { src, src1 = "111" });
+            if (request.Files.Count <= 0) return Json(new {src, src1 = "111"});
             for (var i = 0; i < request.Files.Count; i++)
             {
                 var file = request.Files[i];
@@ -98,8 +98,7 @@ namespace ChiakiYu.Web.Controllers
                 file.SaveAs(localPath + fileName);
                 src = savePath + fileName;
             }
-            return Json(new { src, src1 = "111" });
+            return Json(new {src, src1 = "111"});
         }
     }
-
 }
