@@ -402,7 +402,7 @@ ul.sub-menu {
 
 #footer {
     padding-bottom: 10px;
-    background-image: url(../images/home/footer.png);
+    background-image: url(../images/footer.png);
     background-repeat: repeat-x;
     background-position: bottom;
     background-size: contain;
@@ -904,12 +904,12 @@ ul.sub-menu {
 
 .right.team-carousel-control {
     right: -50px;
-    background-image: url(../images/aboutus/right.png);
+    background-image: url(../images/carousel/right.png);
 }
 
 .left.team-carousel-control {
     left: -50px;
-    background-image: url(../images/aboutus/left.png);
+    background-image: url(../images/carousel/left.png);
 }
 
 .team-carousel-control:hover {
@@ -2549,7 +2549,7 @@ span.stButton_gradient,
     }
 
 #coming-soon {
-    background-image: url("../images/coming-soon-bg.png");
+    background-image: url("../images/comingsoon/coming-soon-bg.png");
     background-position: center top;
     background-repeat: repeat-x;
     padding: 40px 0;
@@ -2590,22 +2590,22 @@ span.stButton_gradient,
     }
 
         #countdown li.angle-one {
-            background-image: url(../images/coming-soon1.png);
+            background-image: url(../images/comingsoon/coming-soon1.png);
             left: 120px;
         }
 
         #countdown li.angle-two {
-            background-image: url(../images/coming-soon2.png);
+            background-image: url(../images/comingsoon/coming-soon2.png);
             left: 40px;
         }
 
         #countdown li.angle-three {
-            background-image: url(../images/coming-soon3.png);
+            background-image: url(../images/comingsoon/coming-soon3.png);
             right: 40px;
         }
 
         #countdown li.angle-four {
-            background-image: url(../images/coming-soon4.png);
+            background-image: url(../images/comingsoon/coming-soon4.png);
             right: 120px;
         }
 

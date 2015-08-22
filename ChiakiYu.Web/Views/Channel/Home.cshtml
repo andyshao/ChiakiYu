@@ -27,33 +27,18 @@
 <section id="services">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                <div class="single-service">
-                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <img src="/Images/home/icon1.png" alt="">
+            @for (int i = 1; i <= 3; i++)
+            {
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="@(300* i)ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <img src="/Images/home/icon.png" alt="">
+                        </div>
+                        <h2>Incredibly Responsive</h2>
+                        <p>Ground round tenderloin flank shank ribeye. Hamkevin meatball swine. Cow shankle beef sirloin chicken ground round.</p>
                     </div>
-                    <h2>Incredibly Responsive</h2>
-                    <p>Ground round tenderloin flank shank ribeye. Hamkevin meatball swine. Cow shankle beef sirloin chicken ground round.</p>
                 </div>
-            </div>
-            <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="single-service">
-                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
-                        <img src="/Images/home/icon2.png" alt="">
-                    </div>
-                    <h2>Superior Typography</h2>
-                    <p>Hamburger ribeye drumstick turkey, strip steak sausage ground round shank pastrami beef brisket pancetta venison.</p>
-                </div>
-            </div>
-            <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
-                <div class="single-service">
-                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
-                        <img src="/Images/home/icon3.png" alt="">
-                    </div>
-                    <h2>Swift Page Builder</h2>
-                    <p>Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>
@@ -122,24 +107,12 @@
                     <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> Ut enim ad minim veniam, quis nostrud </p>
                 </div>
                 <div class="clients-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="/Images/home/client1.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="/Images/home/client2.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="/Images/home/client3.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="/Images/home/client4.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="/Images/home/client5.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="/Images/home/client6.png" class="img-responsive" alt=""></a>
-                    </div>
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <div class="col-xs-3 col-sm-2">
+                            <a href="#"><img src="/Images/home/client.png" class="img-responsive" alt=""></a>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
