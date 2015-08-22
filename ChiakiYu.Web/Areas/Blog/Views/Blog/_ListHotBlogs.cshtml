@@ -15,9 +15,9 @@
                 <div class="media-body">
                     <h4><a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))" title="@item.Title">@item.Title.SubString(13)</a></h4>
                     <p>
-                        <span title="发表时间">@item.CreatedTime.ToString("yyyy-MM-dd")</span>&nbsp;&nbsp;
-                        <span title="评论数"><i class="fa fa-comments"></i>@item.CommentCount</span>&nbsp;&nbsp;
-                        <span title="浏览数"><i class="fa fa-eye"></i>@item.HitCount</span>
+                        <span title="发表时间"><i class="fa fa-clock-o"></i> @item.CreatedTime.ToString("yyyy-MM-dd")</span>&nbsp;&nbsp;
+                        <span title="评论数"><i class="fa fa-comments"></i> @item.CommentCount</span>&nbsp;&nbsp;
+                        <span title="浏览数"><i class="fa fa-eye"></i> @item.HitCount</span>
                     </p>
                 </div>
             </div>

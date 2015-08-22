@@ -2,7 +2,7 @@
 @{
     ViewBag.ActiveMenu = "日志";
     ViewBag.Title = "日志";
-    Layout = MVC.Blog.Shared.Views._Layout;
+    Layout = MVC.Shared.Views._Layout;
 }
 
 <section id="page-breadcrumb">
@@ -43,9 +43,10 @@
                                         </a>
                                     </h2>
                                     <h3 class="post-author">
-                                        <a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))">作者：@item.Author.NickName</a>&nbsp;&nbsp;<small>@item.CreatedTime.ToString("yyyy-MM-dd")</small>
-                                        &nbsp;&nbsp;<a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))" title="评论数"><i class="fa fa-comments"></i>@item.CommentCount</a>
-                                        &nbsp;&nbsp;<a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))" title="浏览数"><i class="fa fa-eye"></i>@item.HitCount</a>
+                                        <a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))"><i class="fa fa-user"></i> @item.Author.NickName</a>&nbsp;&nbsp;
+                                        <small><i class="fa fa-clock-o"></i> @item.CreatedTime.ToString("yyyy-MM-dd")</small> &nbsp; &nbsp;
+                                        <a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))" title="评论数"><i class="fa fa-comments"></i> @item.CommentCount</a>&nbsp;&nbsp;
+                                        <a href="@Url.Action(MVC.Blog.Blog.Detail(item.Id))" title="浏览数"><i class="fa fa-eye"></i> @item.HitCount</a>
                                     </h3>
                                     <p>
                                         @Html.Raw(item.Summary)...
@@ -55,11 +56,11 @@
                         }
                     }
                 </div>
-                @Html.PagingButton(Model, PaginationMode.NumericNextPrevious, 3)
+                @Html.PagingButton(Model, PaginationMode.NumericNextPreviousFirstLast, 3)
             </div>
             <div class="col-md-3 col-sm-5">
                 @Html.Partial("_Sidebar")
-                
+
             </div>
         </div>
     </div>

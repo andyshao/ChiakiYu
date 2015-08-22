@@ -338,6 +338,24 @@ ul.sub-menu {
     color: #fff;
 }
 
+#header .navbar-nav > li.dropdown .user-image {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+@media (max-width: 767px) {
+ #header .navbar-nav > li.dropdown .user-image {
+    float: none;
+    margin-right: 0;
+    margin-top: -8px;
+    line-height: 10px;
+  }
+}
+
+
 .fa-angle-down {
     padding-left: 5px;
 }
@@ -515,7 +533,7 @@ ul.sub-menu {
     margin-top: 70px;
     color: #fff;
     font-size: 16px;
-    padding-bottom: 15px;
+    padding-bottom: 8px;
 }
 
     .copyright-text a {

@@ -157,7 +157,9 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Blog\Views\Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\DataInit.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSettingController.cs" />
@@ -420,7 +422,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Areas\Blog\Views\web.config" />
-    <Content Include="Areas\Blog\Views\Shared\_Layout.cshtml" />
     <Content Include="Plugins\UEditor\UEditor.cshtml" />
     <Content Include="Areas\Blog\Views\Blog\_Sidebar.cshtml" />
     <Content Include="Areas\Blog\Views\Blog\_ListHotBlogs.cshtml" />

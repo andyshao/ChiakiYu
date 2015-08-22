@@ -86,14 +86,14 @@ namespace ChiakiYu.Common.Extensions.Html
             if (totalPages <= 1)
                 return MvcHtmlString.Empty;
 
-            var showFirst = paginationMode == PaginationMode.NextPreviousFirstLast;
+            var showFirst = paginationMode == PaginationMode.NextPreviousFirstLast || paginationMode == PaginationMode.NumericNextPreviousFirstLast;
 
-            var showLast = paginationMode == PaginationMode.NextPreviousFirstLast;
+            var showLast = paginationMode == PaginationMode.NextPreviousFirstLast || paginationMode == PaginationMode.NumericNextPreviousFirstLast;
 
             var showPrevious = true;
             var showNext = true;
 
-            var showNumeric = paginationMode == PaginationMode.NumericNextPrevious;
+            var showNumeric = paginationMode == PaginationMode.NumericNextPrevious || paginationMode == PaginationMode.NumericNextPreviousFirstLast;
 
             //显示多少个数字分页按钮
             //int numericPageButtonCount = 10;
@@ -134,12 +134,12 @@ namespace ChiakiYu.Common.Extensions.Html
             if (showNumeric)
             {
                 int startNumericPageIndex;
-                if (numericPagingButtonCount > totalPages || pagingList.PageIndex - (numericPagingButtonCount/2) <= 0)
+                if (numericPagingButtonCount > totalPages || pagingList.PageIndex - (numericPagingButtonCount / 2) <= 0)
                     startNumericPageIndex = 1;
-                else if (pagingList.PageIndex + (numericPagingButtonCount/2) > totalPages)
+                else if (pagingList.PageIndex + (numericPagingButtonCount / 2) > totalPages)
                     startNumericPageIndex = totalPages - numericPagingButtonCount + 1;
                 else
-                    startNumericPageIndex = pagingList.PageIndex - (numericPagingButtonCount/2);
+                    startNumericPageIndex = pagingList.PageIndex - (numericPagingButtonCount / 2);
 
                 if (startNumericPageIndex < 1)
                     startNumericPageIndex = 1;
@@ -273,6 +273,11 @@ namespace ChiakiYu.Common.Extensions.Html
         /// <summary>
         ///     上一页/下一页 + 数字 模式，例如： 上一页 1 2 3 4 5 下一页
         /// </summary>
-        NumericNextPrevious
+        NumericNextPrevious,
+
+        /// <summary>
+        ///     首页/上一页/下一页/末页 + 数字 模式，例如：首页 上一页 1 2 3 4 5 下一页 末页
+        /// </summary>
+        NumericNextPreviousFirstLast
     }
 }
