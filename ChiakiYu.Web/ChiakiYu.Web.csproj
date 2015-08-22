@@ -157,9 +157,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Areas\Blog\Views\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="App_Start\DataInit.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSettingController.cs" />
