@@ -1,6 +1,9 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
+using System.Reflection;
 using ChiakiYu.Core.Dependency;
 using ChiakiYu.Core.Domain.UnitOfWork;
 
@@ -43,12 +46,25 @@ namespace ChiakiYu.EntityFramework
             //移除一对多的级联删除
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            //注册实体配置信息
-            var assemblys = DatabaseInitializer.MapperAssemblies;
-            foreach (var assembly in assemblys)
+            var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
+                .Where(type => !string.IsNullOrEmpty(type.Namespace))
+                .Where(type => type.BaseType != null && type.BaseType.IsGenericType &&
+                               (type.BaseType.GetGenericTypeDefinition() == typeof (EntityConfiguration<,>) ||
+                                type.BaseType.GetGenericTypeDefinition() == typeof (ComplexConfiguration<,>)));
+            foreach (var type in typesToRegister)
             {
-                modelBuilder.Configurations.AddFromAssembly(assembly);
+                dynamic configurationInstance = Activator.CreateInstance(type);
+                modelBuilder.Configurations.Add(configurationInstance);
             }
+            base.OnModelCreating(modelBuilder);
+
+
+            ////注册实体配置信息
+            //var assemblys = DatabaseInitializer.MapperAssemblies;
+            //foreach (var assembly in assemblys)
+            //{
+            //    modelBuilder.Configurations.AddFromAssembly(assembly);
+            //}
         }
     }
 }

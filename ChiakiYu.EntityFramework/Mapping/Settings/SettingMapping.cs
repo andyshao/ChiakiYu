@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using ChiakiYu.EntityFramework;
 using ChiakiYu.Model.Settings;
 
-namespace ChiakiYu.Mapping.Settings
+namespace ChiakiYu.EntityFramework.Mapping.Settings
 {
     public class SettingMapping : EntityConfiguration<Setting, string>
     {

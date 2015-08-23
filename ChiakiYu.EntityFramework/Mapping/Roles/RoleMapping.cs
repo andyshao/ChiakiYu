@@ -1,6 +1,4 @@
-﻿using ChiakiYu.EntityFramework;
-
-namespace ChiakiYu.Mapping.Roles
+﻿namespace ChiakiYu.EntityFramework.Mapping.Roles
 {
     public class RoleMapping : EntityConfiguration<Model.Roles.Role, int>
     {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using ChiakiYu.Core.Domain.Entities;
 
 namespace ChiakiYu.Model.Users

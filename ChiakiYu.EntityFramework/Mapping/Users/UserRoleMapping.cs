@@ -1,7 +1,6 @@
-﻿using ChiakiYu.EntityFramework;
-using ChiakiYu.Model.Users;
+﻿using ChiakiYu.Model.Users;
 
-namespace ChiakiYu.Mapping.Users
+namespace ChiakiYu.EntityFramework.Mapping.Users
 {
     public class UserRoleMapping : EntityConfiguration<UserRole, string>
     {

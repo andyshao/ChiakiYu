@@ -1,9 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ChiakiYu.Model.Users
+﻿namespace ChiakiYu.Model.Users
 {
-   
-
     /// <summary>
     ///     用户登录状态
     /// </summary>

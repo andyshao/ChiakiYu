@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 using ChiakiYu.Core.Domain.Entities;
-using ChiakiYu.Model.Users;
 
 namespace ChiakiYu.Model.Navigations
 {
@@ -11,7 +8,6 @@ namespace ChiakiYu.Model.Navigations
     /// </summary>
     public class Navigation : FullEntity<long>
     {
-
         #region 持久化属性
 
         /// <summary>

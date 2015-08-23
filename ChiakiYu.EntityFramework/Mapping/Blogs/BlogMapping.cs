@@ -1,7 +1,6 @@
-﻿using ChiakiYu.EntityFramework;
-using ChiakiYu.Model.Blogs;
+﻿using ChiakiYu.Model.Blogs;
 
-namespace ChiakiYu.Mapping.Blogs
+namespace ChiakiYu.EntityFramework.Mapping.Blogs
 {
     public class BlogMapping : EntityConfiguration<Blog, long>
     {
