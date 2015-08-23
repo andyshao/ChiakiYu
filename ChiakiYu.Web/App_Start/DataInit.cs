@@ -29,9 +29,9 @@ namespace ChiakiYu.Web
             {
                  new Navigation(){Id=1001000,Name = "首页",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/Home",IconName = "fa fa-home",Order = 1,IsEnabled = true}
                 ,new Navigation(){Id=1002000,Name = "关于",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/About",IconName = null,Order = 2,IsEnabled = true}
-                ,new Navigation(){Id=1003000,Name = "更多",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/More",IconName = "fa fa-chevron-circle-down",Order = 3,IsEnabled = true}
-                ,new Navigation(){Id=1003001,Name = "新闻详情",PresentArea = PresentArea.Channel,Level = 1,ParentId = 1003000,Url = "/NewsDetail",IconName = null,Order = 4,IsEnabled = true}
-                ,new Navigation(){Id=1004000,Name = "新闻",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/News",IconName = null,Order = 5,IsEnabled = true}
+                ,new Navigation(){Id=1003000,Name = "更多",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "",IconName = "fa fa-chevron-circle-down",Order = 3,IsEnabled = true}
+                ,new Navigation(){Id=1003001,Name = "即时通讯",PresentArea = PresentArea.Channel,Level = 1,ParentId = 1003000,Url = "/Chat",IconName = null,Order = 4,IsEnabled = true}
+                ,new Navigation(){Id=1004000,Name = "日志",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/Blog",IconName = null,Order = 5,IsEnabled = true}
                 ,new Navigation(){Id=1005000,Name = "服务",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/Portfolio",IconName = null,Order = 6,IsEnabled = true}
 
                 ,new Navigation(){Id=2001000,Name = "首页",PresentArea = PresentArea.Admin,Level = 1,ParentId = 0,Url = "/Admin/Home",IconName = "fa fa-home fa-fw",Order = 1,IsEnabled = true}
