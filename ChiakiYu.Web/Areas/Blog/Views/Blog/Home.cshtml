@@ -25,6 +25,29 @@
         <div class="row">
             <div class="col-md-9 col-sm-7">
                 <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="pull-right">
+                            <span>排序条件：</span>
+                            @*@Html.EnumDropDownList("SortBy", Request.QueryString.Get<SortBy?>("sortBy", null))*@
+                            @*@Html.DropDownList("IsActived", null, "全部", new RouteValueDictionary { { "class", "form-control" } })*@
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default">@(Request.QueryString.Get<SortBy?>("sortBy", SortBy.CreatedTimeDesc).EnumMetadataDisplay())</button>
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">排序</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action(MVC.Blog.Blog.Home(sortBy:SortBy.CreatedTime))">发表时间正序</a></li>
+                                    <li><a href="@Url.Action(MVC.Blog.Blog.Home(sortBy:SortBy.CreatedTimeDesc))">发表时间倒序</a></li>
+                                    <li><a href="@Url.Action(MVC.Blog.Blog.Home(sortBy:SortBy.UpdatedTimeDesc))">最后发表</a></li>
+                                    <li><a href="@Url.Action(MVC.Blog.Blog.Home(sortBy:SortBy.HitCount))">浏览最多</a></li>
+                                    <li><a href="@Url.Action(MVC.Blog.Blog.Home(sortBy:SortBy.CommentCount))">评论最多</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     @if (Model.Any())
                     {
                         foreach (var item in Model)

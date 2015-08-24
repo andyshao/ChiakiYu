@@ -27,8 +27,36 @@ namespace ChiakiYu.Service.Blogs
             var query = _blogRepository.Table;
             if (!string.IsNullOrWhiteSpace(input.NameKeyWords))
                 query = query.Where(m => m.Title.Contains(input.NameKeyWords) || m.Summary.Contains(input.NameKeyWords));
-            var source = query.Include(n => n.Author).OrderByDescending(n => n.IsTop).ThenByDescending(n => n.Id)
-                .Skip((input.PageIndex - 1) * input.PageSize)
+            if (input.SortBy.HasValue)
+            {
+                switch (input.SortBy.Value)
+                {
+                    case SortBy.CreatedTime:
+                        query = query.OrderBy(n => n.Id);
+                        break;
+                    case SortBy.CreatedTimeDesc:
+                        query = query.OrderByDescending(n => n.Id);
+                        break;
+                    case SortBy.UpdatedTimeDesc:
+                        query = query.OrderByDescending(n => n.UpdatedTime);
+                        break;
+                    case SortBy.CommentCount:
+                        query = query.OrderByDescending(n => n.CommentCount);
+                        break;
+                    case SortBy.HitCount:
+                        query = query.OrderByDescending(n => n.HitCount);
+                        break;
+                    default:
+                        query = query.OrderByDescending(n => n.IsTop).ThenByDescending(n => n.Id);
+                        break;
+                }
+            }
+            else
+            {
+                query = query.OrderByDescending(n => n.IsTop).ThenByDescending(n => n.Id);
+            }
+            var source = query
+                .Include(n => n.Author).Skip((input.PageIndex - 1) * input.PageSize)
                 .Take(input.PageSize);
 
             var result = new PagingList<Blog>(source, input.PageIndex, input.PageSize, query.LongCount());

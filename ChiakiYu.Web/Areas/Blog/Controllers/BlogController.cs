@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using ChiakiYu.Core.AutoMapper;
+using ChiakiYu.Model.Blogs;
 using ChiakiYu.Service.Blogs;
 using ChiakiYu.Service.Blogs.Dto;
 using ChiakiYu.Web.Areas.Blog.ViewModels;
@@ -20,12 +21,13 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         /// 日志首页，列表页
         /// </summary>
         /// <returns></returns>
-        public virtual ActionResult Home(int pageSize = 8, int pageIndex = 1)
+        public virtual ActionResult Home(int pageSize = 8, int pageIndex = 1, SortBy? sortBy = null)
         {
             var input = new GetBlogsInput
             {
                 PageSize = pageSize,
-                PageIndex = pageIndex
+                PageIndex = pageIndex,
+                SortBy = sortBy
             };
             var list = _blogService.GetBlogs(input);
             return View(list);

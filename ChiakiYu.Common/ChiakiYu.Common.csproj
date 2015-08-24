@@ -86,6 +86,7 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\Html\HtmlHelper.EnumDropDownListFor.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Link.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.Pagination.cs" />
     <Compile Include="Extensions\Html\HtmlHelper.UEditor.cs" />

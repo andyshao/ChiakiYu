@@ -1,4 +1,5 @@
 ﻿using ChiakiYu.Core.Data;
+using ChiakiYu.Model.Blogs;
 
 namespace ChiakiYu.Service.Blogs.Dto
 {
@@ -9,5 +10,9 @@ namespace ChiakiYu.Service.Blogs.Dto
         /// </summary>
         public string NameKeyWords { get; set; }
 
+        /// <summary>
+        /// 排序条件
+        /// </summary>
+        public SortBy? SortBy { get; set; }
     }
 }

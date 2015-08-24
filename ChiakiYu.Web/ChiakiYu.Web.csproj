@@ -198,9 +198,6 @@
     <Compile Include="T4MVC\Blog.BlogController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
-    <Compile Include="T4MVC\Blog.SharedController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
-    </Compile>
     <Compile Include="T4MVC\ChannelController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>

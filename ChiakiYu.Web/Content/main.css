@@ -273,7 +273,7 @@ h3 {
 
 #header .navbar-nav.navbar-right > li a {
     color: #000;
-    font-size: 12px;
+    /*font-size: 12px;*/
     padding: 20px;
     text-transform: uppercase;
     font-weight: 300;

@@ -110,6 +110,7 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         {
             public readonly string pageSize = "pageSize";
             public readonly string pageIndex = "pageIndex";
+            public readonly string sortBy = "sortBy";
         }
         static readonly ActionParamsClass_Detail s_params_Detail = new ActionParamsClass_Detail();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -168,15 +169,16 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         public T4MVC_BlogController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void HomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int pageSize, int pageIndex);
+        partial void HomeOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, int pageSize, int pageIndex, ChiakiYu.Model.Blogs.SortBy? sortBy);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Home(int pageSize, int pageIndex)
+        public override System.Web.Mvc.ActionResult Home(int pageSize, int pageIndex, ChiakiYu.Model.Blogs.SortBy? sortBy)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Home);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pageSize", pageSize);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "pageIndex", pageIndex);
-            HomeOverride(callInfo, pageSize, pageIndex);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "sortBy", sortBy);
+            HomeOverride(callInfo, pageSize, pageIndex, sortBy);
             return callInfo;
         }
 

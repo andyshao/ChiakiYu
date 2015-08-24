@@ -52,7 +52,6 @@ namespace T4MVC
     {
         public readonly string Name = "Blog";
         public ChiakiYu.Web.Areas.Blog.Controllers.BlogController Blog = new ChiakiYu.Web.Areas.Blog.Controllers.T4MVC_BlogController();
-        public T4MVC.Blog.SharedController Shared = new T4MVC.Blog.SharedController();
     }
 }
 
