@@ -289,7 +289,9 @@
     <Content Include="Images\comingsoon\coming-soon4.png" />
     <Content Include="Images\home\client.png" />
     <Content Include="Images\home\clients.png" />
-    <Content Include="Images\home\icon.png" />
+    <Content Include="Images\home\icon1.png" />
+    <Content Include="Images\home\icon2.png" />
+    <Content Include="Images\home\icon3.png" />
     <Content Include="Images\home\image1.png" />
     <Content Include="Images\home\image2.png" />
     <Content Include="Images\home\image3.png" />
