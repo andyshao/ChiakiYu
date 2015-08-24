@@ -1302,8 +1302,8 @@ Portfolio with right sidebar
 
 .sidebar-item .media {
     border-bottom: 1px solid #ececec;
-    padding-bottom: 10px;
-    padding-top: 21px;
+    /*padding-bottom: 10px;*/
+    padding-top:10px;
     margin-top: 0;
     transition: all 0.3s ease 0s;
     -moz-transition: all 0.3s ease 0s;

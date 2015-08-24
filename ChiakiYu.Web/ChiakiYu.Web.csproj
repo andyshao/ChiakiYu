@@ -159,7 +159,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="App_Start\DataInit.cs" />
+    <Compile Include="App_Start\AutoMapperInitialize.cs" />
+    <Compile Include="App_Start\SeedDataInitialize.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSettingController.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />

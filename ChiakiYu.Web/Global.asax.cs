@@ -12,7 +12,6 @@ using ChiakiYu.Core.Dependency;
 using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.EntityFramework;
 using ChiakiYu.EntityFramework.Migrations;
-using ChiakiYu.Service;
 using ChiakiYu.Service.Settings;
 
 namespace ChiakiYu.Web
@@ -23,10 +22,10 @@ namespace ChiakiYu.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AutoMapperInitialize.Initialize();
             AutofacRegister();
             DatabaseInitialize();
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            DtoMappers.MapperRegister();
         }
 
         /// <summary>
@@ -35,9 +34,9 @@ namespace ChiakiYu.Web
         private static void AutofacRegister()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterGeneric(typeof(Repository<,>)).As(typeof(IRepository<,>));
-            builder.RegisterGeneric(typeof(SettingService<>)).As(typeof(ISettingService<>));
-            var baseType = typeof(IDependency);
+            builder.RegisterGeneric(typeof (Repository<,>)).As(typeof (IRepository<,>));
+            builder.RegisterGeneric(typeof (SettingService<>)).As(typeof (ISettingService<>));
+            var baseType = typeof (IDependency);
             var path = AppDomain.CurrentDomain.RelativeSearchPath;
             var assemblies = Directory.GetFiles(path, "*.dll").Select(m => Assembly.LoadFrom(m)).ToArray();
             builder.RegisterAssemblyTypes(assemblies)
@@ -53,12 +52,12 @@ namespace ChiakiYu.Web
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
+        /// <summary>
+        ///     设置数据库初始化
+        /// </summary>
         private static void DatabaseInitialize()
         {
-
-            CreateDatabaseIfNotExistsWithSeed.SeedActions.Add(new DataInit());
-
-
+            CreateDatabaseIfNotExistsWithSeed.SeedActions.Add(new SeedDataInitialize());
             //var file = HttpContext.Current.Server.MapPath("/bin/ChiakiYu.Mapping.dll");
             //var assembly = Assembly.LoadFrom(file);
             //DatabaseInitializer.AddMapperAssembly(assembly);

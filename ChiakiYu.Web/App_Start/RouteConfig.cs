@@ -6,6 +6,10 @@ namespace ChiakiYu.Web
 {
     public class RouteConfig
     {
+        /// <summary>
+        /// 注册路由
+        /// </summary>
+        /// <param name="routes"></param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             #region 对于IIS6.0默认配置不支持无扩展名的url

@@ -2,16 +2,16 @@
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Autofac;
-using ChiakiYu.Core.Domain.Repositories;
 using ChiakiYu.Model.Users;
 using ChiakiYu.Service.Users;
 
 namespace ChiakiYu.Web
 {
+    /// <summary>
+    ///     用户上下文
+    /// </summary>
     public class UserContext
     {
-
         /// <summary>
         ///     获取当前用户
         /// </summary>
@@ -49,9 +49,10 @@ namespace ChiakiYu.Web
                 return null;
             }
 
-            return DependencyResolver.Current.GetService<IUserService>().GetAll().FirstOrDefault(n => n.UserName == httpContext.User.Identity.Name);
-
-            //return UserService.GetAll()
+            return
+                DependencyResolver.Current.GetService<IUserService>()
+                    .GetAll()
+                    .FirstOrDefault(n => n.UserName == httpContext.User.Identity.Name);
         }
     }
 }

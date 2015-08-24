@@ -6,8 +6,15 @@ using ChiakiYu.Common.Web;
 
 namespace ChiakiYu.Web
 {
+    /// <summary>
+    ///     js和css的捆绑压缩
+    /// </summary>
     public static class BundleConfig
     {
+        /// <summary>
+        ///     注册捆绑压缩
+        /// </summary>
+        /// <param name="bundles"></param>
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.IgnoreList.Clear();
@@ -49,7 +56,7 @@ namespace ChiakiYu.Web
                     .Include(
                         "~/Scripts/fancybox/jquery.fancybox.css",
                         "~/Scripts/fancybox/helpers/jquery.fancybox-thumbs.css"
-                        //"~/Scripts/fancybox/helpers/jquery.fancybox-buttons.css"
+                    //"~/Scripts/fancybox/helpers/jquery.fancybox-buttons.css"
                     )
                 );
 
@@ -110,9 +117,9 @@ namespace ChiakiYu.Web
             //plupload
             bundles.Add(new ScriptBundle("~/bundles/plupload")
                 .Include(
-                       "~/Scripts/plupload/plupload.js",
-                       "~/Scripts/plupload/i18n/zh_CN.js.js"
-               ));
+                    "~/Scripts/plupload/plupload.js",
+                    "~/Scripts/plupload/i18n/zh_CN.js.js"
+                ));
         }
     }
 

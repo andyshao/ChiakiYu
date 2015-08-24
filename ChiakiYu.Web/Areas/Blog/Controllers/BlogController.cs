@@ -65,7 +65,6 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
             if (id.HasValue && id.Value > 0)
             {
                 var blog = _blogService.GetBlog(id.Value);
-                AutoMapperHelper.CreateMap<Model.Blogs.Blog, BlogEditModel>();
                 editModel = blog.MapTo<BlogEditModel>();
             }
 
@@ -82,7 +81,6 @@ namespace ChiakiYu.Web.Areas.Blog.Controllers
         {
             if (!ModelState.IsValid)
                 return Json(new { MessageType = 0, MessageContent = "数据未通过验证，请检查。" });
-            AutoMapperHelper.CreateMap<BlogEditModel, Model.Blogs.Blog>();
             Model.Blogs.Blog blog;
 
             if (model.Id > 0)

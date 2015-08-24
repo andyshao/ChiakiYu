@@ -46,7 +46,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">摘要</label>
                                     <div class="col-sm-8">
-                                        @Html.TextBoxFor(n => n.Summary, new RouteValueDictionary { { "placeholder", "请输入日志摘要" }, { "class", "form-control" }, { "maxlength", "64" } })
+                                        @Html.TextBoxFor(n => n.Summary, new RouteValueDictionary { { "placeholder", "请输入日志摘要" }, { "class", "form-control" }, { "maxlength", "512" } })
                                         @Html.ValidationMessageFor(n => n.Summary)
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                             </div><!-- /.box-body -->
                             <div class="box-footer">
                                 <div class="col-sm-offset-4 col-sm-4">
-                                    <button class="btn btn-success btn-lg  btn-block" type="submit">发布</button>
+                                    <button class="btn btn-success btn-lg  btn-block" type="submit" plugin="ajaxSubmit">发布</button>
                                 </div><!-- /.box-footer -->
                             </div>
                         }

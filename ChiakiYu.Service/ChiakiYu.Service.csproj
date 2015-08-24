@@ -56,7 +56,6 @@
     <Compile Include="Blogs\Dto\GetBlogsInput.cs" />
     <Compile Include="Blogs\IBlogService.cs" />
     <Compile Include="Blogs\BlogService.cs" />
-    <Compile Include="DtoMappers.cs" />
     <Compile Include="Navigations\INavigationService.cs" />
     <Compile Include="Navigations\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
