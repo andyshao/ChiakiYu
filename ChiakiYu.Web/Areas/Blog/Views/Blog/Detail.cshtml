@@ -39,35 +39,44 @@
                                 <h2 class="post-title bold">
                                     <span>@Model.Title</span>
                                 </h2>
-                                <h3 class="post-author"><a href="#">作者：@Model.Author.NickName</a></h3>
-                                @Html.Raw(Model.Content)
-                                <div class="post-bottom overflow">
-                                    <ul class="nav navbar-nav post-nav">
-                                        <li><a href="javascript:;" title="收藏数"><i class="fa fa-heart"></i>@Model.CommentCount</a></li>
-                                        <li><a href="javascript:;" title="评论数"><i class="fa fa-comments"></i>@Model.CommentCount</a></li>
-                                        <li><a href="javascript:;" title="浏览数"><i class="fa fa-eye"></i>@Model.HitCount</a></li>
+                                <span class="post-author">
+                                    <a href="#">@Model.Author.NickName</a>
+                                </span>
+                                <span>发表于 @Model.CreatedTime.ToString("yyyy-MM-dd HH:mm")</span>&nbsp;&nbsp;
+                                <span title="评论数"><i class="fa fa-comments"></i> @Model.CommentCount</span>&nbsp;&nbsp;
+                                <span title="浏览数"><i class="fa fa-eye"></i> @Model.HitCount</span>
+                                <div class="btn-group padding-left">
+                                    <button class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" type="button">
+                                        操作
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul role="menu" class="dropdown-menu" style="min-width: 80px; left: auto; right: 0;">
+                                        <li><a href="@Url.Action(MVC.Blog.Blog.Edit(Model.Id))">编辑</a></li>
+                                        <li><a href="#">删除</a></li>
+                                        <li><a href="#">置顶</a></li>
                                     </ul>
                                 </div>
-                                <div class="blog-share">
-                                    <span class='st_facebook_hcount'></span>
-                                    <span class='st_twitter_hcount'></span>
-                                    <span class='st_linkedin_hcount'></span>
-                                    <span class='st_pinterest_hcount'></span>
-                                    <span class='st_email_hcount'></span>
-                                </div>
-                                <div class="author-profile padding">
-                                    <div class="row">
-                                        <div class="col-sm-2">
-                                            <img src="/Images/avatar_default.jpg" alt="">
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <h3>Q</h3>
-                                            <p>来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
-                                            <p>来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
-                                            <p>来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
-                                        </div>
+                                @Html.Raw(Model.Content)
+                                @*<div class="blog-share">
+                                        <span class='st_facebook_hcount'></span>
+                                        <span class='st_twitter_hcount'></span>
+                                        <span class='st_linkedin_hcount'></span>
+                                        <span class='st_pinterest_hcount'></span>
+                                        <span class='st_email_hcount'></span>
                                     </div>
-                                </div>
+                                    <div class="author-profile padding">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <img src="/Images/avatar_default.jpg" alt="">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <h3>Q</h3>
+                                                <p>来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
+                                                <p>来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
+                                                <p>来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
+                                            </div>
+                                        </div>
+                                    </div>*@
                                 @Html.Action(MVC.Blog.Blog._CommentList(1))
                             </div>
                         </div>
