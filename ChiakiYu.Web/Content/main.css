@@ -1833,7 +1833,7 @@ Blog Details
 *****************************/
 
 .navbar-nav.post-nav li {
-    margin-right: 60px;
+    margin-left: 60px;
 }
 
 .single-blog.blog-details .post-content {
@@ -1892,43 +1892,45 @@ span.stButton_gradient,
     }
 
 .post-comment {
-    padding-left: 70px;
-    padding-top: 36px;
+    padding-left: 10px;
+    padding-top: 16px;
     border-top: 1px solid #f1e8dd;
 }
 
     .post-comment .pull-left img {
-        margin-right: 60px;
-        border-left: 3px solid #0884d5;
+        margin-right: 10px;
+        width:36px;
+        height:36px;
+        /*border-left: 3px solid #0884d5;*/
     }
 
     .post-comment .media-body {
-        padding-top: 6px;
+        /*padding-top: 6px;*/
         border-bottom: 0;
-        padding-bottom: 50px;
+        padding-bottom: 10px;
     }
 
-        .post-comment .media-body p {
+        /*.post-comment .media-body p {
             margin-top: 10px;
         }
 
         .post-comment .media-body span i {
             color: #C03035;
             margin-right: 10px;
-        }
+        }*/
 
-        .post-comment .media-body span a {
+        /*.post-comment .media-body span a {
             color: #C03035;
             font-weight: 700;
-        }
+        }*/
 
         .post-comment .media-body .post-nav li a {
             font-weight: 300;
         }
 
-.parrent .media-list {
-    margin-left: 190px;
-}
+/*.parrent .media-list {
+    margin-left: 10px;
+}*/
 
 .parrent .post-comment {
     padding-left: 0;
