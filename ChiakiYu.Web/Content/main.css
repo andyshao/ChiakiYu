@@ -776,7 +776,7 @@ ul.sub-menu {
 }
 
 #team {
-    padding: 85px 0;
+    padding: 10px 0;
 }
 
 #team-carousel {
@@ -791,7 +791,7 @@ ul.sub-menu {
     height: 85px;
 }
 
-.tour-button {
+/*.tour-button {
     background-image: url(../images/home/tour-icon2.png);
     height: 100%;
     background-repeat: no-repeat;
@@ -799,7 +799,7 @@ ul.sub-menu {
     width: 100%;
     left: 0;
     background-position: 151px 4px;
-}
+}*/
 
 .about-image {
     padding: 90px 90px 0;

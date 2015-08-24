@@ -73,13 +73,16 @@
                     else
                     {
                         <li class="dropdown">
-                            <a href="#">@*<i class="fa fa-user"></i>*@
+                            <a href="#">
+                                @*<i class="fa fa-user"></i>*@
                                 <img src="/Images/avatar_default.jpg" class="user-image" alt="User Image">
-                             <span>@(UserContext.CurrentUser == null ? string.Empty : UserContext.CurrentUser.NickName)</span> <b class="caret"></b></a>
+                                <span>@(UserContext.CurrentUser == null ? string.Empty : UserContext.CurrentUser.NickName)</span> <b class="caret"></b>
+                            </a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="@Url.Action(MVC.Account.Logout())"><i class="fa fa-sign-out"></i>注销</a></li>
                             </ul>
                         </li>
+                        
                     }
                 </ul>
             </div>
