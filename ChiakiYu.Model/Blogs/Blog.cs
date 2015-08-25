@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using ChiakiYu.Core.Domain.Entities;
@@ -8,6 +9,8 @@ namespace ChiakiYu.Model.Blogs
 {
     public class Blog : FullEntity<long>
     {
+        private ICollection<BlogComment> _blogComments;
+
         /// <summary>
         ///     日志标题
         /// </summary>
@@ -69,5 +72,14 @@ namespace ChiakiYu.Model.Blogs
         ///     更新时间
         /// </summary>
         public DateTime? UpdatedTime { get; set; }
+
+        /// <summary>
+        /// 日志评论列表
+        /// </summary>
+        public virtual ICollection<BlogComment> BlogComments
+        {
+            get { return _blogComments ?? (_blogComments = new List<BlogComment>()); }
+            protected set { _blogComments = value; }
+        }
     }
 }

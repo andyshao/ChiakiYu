@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blogs\Blog.cs" />
+    <Compile Include="Blogs\BlogComment.cs" />
     <Compile Include="Blogs\BlogEnum.cs" />
     <Compile Include="Navigations\Navigation.cs" />
     <Compile Include="Navigations\NavigationEnum.cs" />

@@ -51,6 +51,7 @@
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="EntityConfiguration.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Mapping\Blogs\BlogCommentMapping.cs" />
     <Compile Include="Mapping\Blogs\BlogMapping.cs" />
     <Compile Include="Mapping\Navigations\NavigationMapping.cs" />
     <Compile Include="Mapping\Permissions\PermissionMapping.cs" />
