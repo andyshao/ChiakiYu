@@ -10,8 +10,8 @@
                     <a href="#">v差别:</a>
                     <p>第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论第一条评论</p>
                     <ul class="nav navbar-nav post-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-clock-o"></i>2015-8-24 11:26</a></li>
-                        <li><a href="#"><i class="fa fa-reply"></i>回复(2)</a></li>
+                        <li><span title="时间"><i class="fa fa-clock-o"></i> 2015-8-24 11:26</span></li>
+                        <li><a id="blogcommentreply" href="javascript:;"><span>展开回复</span>(2)</a></li>
                     </ul>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                             <a href="#">阿斯顿发多少:</a>
                             <p>回复第一条评论回复第一条评论回复第一条评论</p>
                             <ul class="nav navbar-nav post-nav navbar-right">
-                                <li><a href="#"><i class="fa fa-clock-o"></i>2015-8-24 11:26</a></li>
+                                <li><span title="时间"><i class="fa fa-clock-o"></i> 2015-8-24 11:26</span></li>
                             </ul>
                         </div>
                     </li>
@@ -37,7 +37,7 @@
                             <a href="#">阿斯顿发多少:</a>
                             <p>回复第一条评论回复第一条评论回复第一条评论回复第一条评论回复第一条评论回复第一条评论回复第一条评论回复第一条评论回复第一条评论</p>
                             <ul class="nav navbar-nav post-nav navbar-right">
-                                <li><a href="#"><i class="fa fa-clock-o"></i>2015-8-24 11:26</a></li>
+                                <li><span title="时间"><i class="fa fa-clock-o"></i> 2015-8-24 11:26</span></li>
                             </ul>
                         </div>
                     </li>
@@ -53,8 +53,8 @@
                     <a href="#">分工会官方:</a>
                     <p>第二条评论第二条评论第二条评论第二条评论第二条评论</p>
                     <ul class="nav navbar-nav post-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-clock-o"></i>2015-8-24 11:26</a></li>
-                        <li><a href="#"><i class="fa fa-reply"></i>回复</a></li>
+                        <li><span title="时间"><i class="fa fa-clock-o"></i> 2015-8-24 11:26</span></li>
+                        <li><a href="javascript:;"><i class="fa fa-reply"></i>回复</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,3 +62,18 @@
 
     </ul>
 </div><!--/Response-area-->
+<script>
+    $(function () {
+        $("div.parrent").hide();
+        $("#blogcommentreply").click(function () {
+            $(this).parents("li.media").children("div.parrent").slideToggle("fast");
+            var spanSelector = $(this).children("span");
+            if (spanSelector.html() == "展开回复") {
+                spanSelector.html("收起回复");
+            } else {
+                spanSelector.html("展开回复");
+            }
+        });
+
+    });
+</script>
