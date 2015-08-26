@@ -2,7 +2,10 @@
 
 namespace ChiakiYu.Core.Data
 {
-     [Serializable]
+    /// <summary>
+    ///     分页Dto
+    /// </summary>
+    [Serializable]
     public class PagingDto : IPaging
     {
         /// <summary>

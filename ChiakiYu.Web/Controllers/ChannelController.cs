@@ -72,6 +72,10 @@ namespace ChiakiYu.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 上传
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public virtual JsonResult Upload()
         {

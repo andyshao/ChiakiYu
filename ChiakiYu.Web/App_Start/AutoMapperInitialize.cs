@@ -18,8 +18,17 @@ namespace ChiakiYu.Web
         /// </summary>
         public static void Initialize()
         {
-            AutoMapperHelper.CreateMap<User, UserDto>();
-            AutoMapperHelper.CreateMap<Role, RoleDto>();
+            #region User
+
+            AutoMapperHelper.CreateMap<User, UserDto>(); 
+            
+            #endregion
+
+            #region Role
+
+            AutoMapperHelper.CreateMap<Role, RoleDto>(); 
+            
+            #endregion
 
             #region Blog
 

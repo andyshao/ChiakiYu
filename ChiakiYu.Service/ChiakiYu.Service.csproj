@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authorization\AuthorizationService.cs" />
-    <Compile Include="Authorization\Dto\GetUserRolesInput.cs" />
     <Compile Include="Authorization\IAuthorizationService.cs" />
     <Compile Include="Blogs\Dto\GetBlogsInput.cs" />
     <Compile Include="Blogs\IBlogService.cs" />

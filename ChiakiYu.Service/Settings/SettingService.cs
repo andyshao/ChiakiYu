@@ -23,9 +23,6 @@ namespace ChiakiYu.Service.Settings
             return setting == null
                 ? null
                 : JsonHelper.FromJson<T>(setting.Settings);
-            //if (setting == null) return null;
-            //var settings = JsonHelper.FromJson<T>(setting.Settings);
-            //return settings;
         }
 
         /// <summary>

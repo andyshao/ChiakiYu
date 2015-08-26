@@ -77,12 +77,22 @@ namespace ChiakiYu.Web.Areas.Admin.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// 编译用户
+        /// </summary>
+        /// <param name="userId">用户Id</param>
+        /// <returns></returns>
+        [HttpGet]
         public virtual ActionResult EidtUser(long userId)
         {
             var model = new UserEditModel();
             return View(model);
         }
 
+        /// <summary>
+        /// 编辑用户提交
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public virtual JsonResult EidtUser()
         {

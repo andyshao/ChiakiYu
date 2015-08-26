@@ -18,11 +18,19 @@ namespace ChiakiYu.Service.Users
             _userRepository = userRepository;
         }
 
+        /// <summary>
+        ///     获取 用户信息查询数据集
+        /// </summary>
         public IQueryable<User> GetAll()
         {
             return _userRepository.Table;
         }
 
+        /// <summary>
+        ///     根据主键获取实体
+        /// </summary>
+        /// <param name="userId">用户Id</param>
+        /// <returns></returns>
         public User GetUser(long userId)
         {
             return _userRepository.Get(userId);
@@ -51,11 +59,22 @@ namespace ChiakiYu.Service.Users
             return result;
         }
 
+        /// <summary>
+        ///     创建角色
+        /// </summary>
+        /// <param name="user">用户实体</param>
+        /// <returns></returns>
         public User AddUser(User user)
         {
             return _userRepository.Insert(user);
         }
 
+        /// <summary>
+        ///     验证用户名密码
+        /// </summary>
+        /// <param name="userName">用户名/注册邮箱/注册手机</param>
+        /// <param name="password">密码</param>
+        /// <returns></returns>
         public UserLoginStatus ValidateUser(string userName, string password)
         {
             var user =
@@ -69,6 +88,10 @@ namespace ChiakiYu.Service.Users
             return !user.IsActived ? UserLoginStatus.NotActivated : UserLoginStatus.Success;
         }
 
+        /// <summary>
+        ///     更新用户
+        /// </summary>
+        /// <param name="user">用户实体</param>
         public User UpdateUser(User user)
         {
             return _userRepository.Update(user);

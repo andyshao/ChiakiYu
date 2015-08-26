@@ -9,6 +9,9 @@ using ChiakiYu.Service.Roles.Dto;
 
 namespace ChiakiYu.Service.Roles
 {
+    /// <summary>
+    /// 角色Service
+    /// </summary>
     public class RoleService : IRoleService
     {
         private readonly IRepository<Role, int> _roleRepository;
@@ -18,6 +21,11 @@ namespace ChiakiYu.Service.Roles
             _roleRepository = roleRepository;
         }
 
+        /// <summary>
+        ///     获取所有角色分页列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public PagingList<RoleDto> GetRoles(GetRolesInput input)
         {
             var query = _roleRepository.Table;
@@ -29,17 +37,31 @@ namespace ChiakiYu.Service.Roles
             return result;
         }
 
-        List<RoleDto> IRoleService.GetRoles()
+        /// <summary>
+        ///     获取所有角色列表
+        /// </summary>
+        /// <returns></returns>
+        public List<RoleDto> GetRoles()
         {
             var query = _roleRepository.Table;
             return query.MapTo<List<RoleDto>>();
         }
 
+        /// <summary>
+        ///     创建角色
+        /// </summary>
+        /// <param name="role">角色实体</param>
+        /// <returns></returns>
         public Role AddRole(Role role)
         {
             return _roleRepository.Insert(role);
         }
 
+        /// <summary>
+        ///     获取角色
+        /// </summary>
+        /// <param name="roleId">角色Id</param>
+        /// <returns></returns>
         public Role GetRole(int roleId)
         {
             var role = _roleRepository
@@ -49,6 +71,11 @@ namespace ChiakiYu.Service.Roles
             return role;
         }
 
+        /// <summary>
+        ///     修改角色
+        /// </summary>
+        /// <param name="role">角色实体</param>
+        /// <returns></returns>
         public Role UpdateRole(Role role)
         {
             return _roleRepository.Update(role);

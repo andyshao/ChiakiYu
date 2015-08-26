@@ -6,6 +6,9 @@ using ChiakiYu.Service.Roles.Dto;
 
 namespace ChiakiYu.Service.Roles
 {
+    /// <summary>
+    /// 角色Service接口
+    /// </summary>
     public interface IRoleService : IDependency
     {
         /// <summary>
@@ -24,7 +27,7 @@ namespace ChiakiYu.Service.Roles
         /// <summary>
         ///     创建角色
         /// </summary>
-        /// <param name="role"></param>
+        /// <param name="role">角色实体</param>
         /// <returns></returns>
         Role AddRole(Role role);
 
@@ -35,6 +38,11 @@ namespace ChiakiYu.Service.Roles
         /// <returns></returns>
         Role GetRole(int roleId);
 
+        /// <summary>
+        ///     修改角色
+        /// </summary>
+        /// <param name="role">角色实体</param>
+        /// <returns></returns>
         Role UpdateRole(Role role);
     }
 }

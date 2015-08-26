@@ -4,14 +4,11 @@ using ChiakiYu.Model.Navigations;
 
 namespace ChiakiYu.Service.Navigations
 {
+    /// <summary>
+    /// 导航Service接口
+    /// </summary>
     public interface INavigationService : IDependency 
     {
-        /// <summary>
-        ///     获取所有导航
-        /// </summary>
-        /// <returns></returns>
-        List<Navigation> GetNavigations();
-
         /// <summary>
         ///     根据某个区域的导航
         /// </summary>

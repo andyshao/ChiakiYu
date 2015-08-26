@@ -2,6 +2,10 @@
 
 namespace ChiakiYu.Service.Settings
 {
+    /// <summary>
+    /// 设置Service接口
+    /// </summary>
+    /// <typeparam name="T">设置的实体类型</typeparam>
     public interface ISettingService<T> : IDependency where T : class
     {
         /// <summary>

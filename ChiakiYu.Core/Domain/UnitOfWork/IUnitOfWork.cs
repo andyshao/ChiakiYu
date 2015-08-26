@@ -2,6 +2,9 @@
 
 namespace ChiakiYu.Core.Domain.UnitOfWork
 {
+    /// <summary>
+    /// 业务单元操作接口
+    /// </summary>
     public interface IUnitOfWork : IDependency
     {
         #region 属性

@@ -16,12 +16,20 @@ namespace ChiakiYu.Service.Blogs
         {
             _blogRepository = blogRepository;
         }
-
+        /// <summary>
+        ///     根据主键获取实体
+        /// </summary>
+        /// <param name="id">日志id</param>
+        /// <returns></returns>
         public Blog GetBlog(long id)
         {
             return _blogRepository.Get(id);
         }
-
+        /// <summary>
+        ///     获取所有用户分页列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public PagingList<Blog> GetBlogs(GetBlogsInput input)
         {
             var query = _blogRepository.Table;
@@ -63,6 +71,11 @@ namespace ChiakiYu.Service.Blogs
             return result;
         }
 
+        /// <summary>
+        /// 根据评论数和浏览数获取前topNum条数据
+        /// </summary>
+        /// <param name="topNum">多少条</param>
+        /// <returns></returns>
         public IEnumerable<Blog> GetBlogsList(int topNum)
         {
             var query = _blogRepository.Table;
@@ -72,16 +85,30 @@ namespace ChiakiYu.Service.Blogs
             return result;
         }
 
+        /// <summary>
+        ///     创建角色
+        /// </summary>
+        /// <param name="blog"></param>
+        /// <returns></returns>
         public Blog AddBlog(Blog blog)
         {
             return _blogRepository.Insert(blog);
         }
 
+        /// <summary>
+        ///     更新用户
+        /// </summary>
+        /// <param name="blog"></param>
         public Blog UpdateBlog(Blog blog)
         {
             return _blogRepository.Update(blog);
         }
 
+        /// <summary>
+        /// 添加或更新日志：不存在则添加，存在则更新
+        /// </summary>
+        /// <param name="blog">日志实体</param>
+        /// <returns></returns>
         public Blog AddOrUpdateBlog(Blog blog)
         {
             return _blogRepository.InsertOrUpdate(blog);

@@ -9,6 +9,11 @@ using ChiakiYu.Core.Domain.UnitOfWork;
 
 namespace ChiakiYu.EntityFramework
 {
+    /// <summary>
+    /// EntityFramework的仓储实现
+    /// </summary>
+    /// <typeparam name="T">实体类型</typeparam>
+    /// <typeparam name="TKey">主键类型</typeparam>
     public class Repository<T, TKey> : IRepository<T, TKey>
         where T : class, IEntity<TKey>
     {
@@ -28,16 +33,25 @@ namespace ChiakiYu.EntityFramework
 
         #region 属性
 
+        /// <summary>
+        /// 获取 当前单元操作对象
+        /// </summary>
         public IUnitOfWork UnitOfWork
         {
             get { return _unitOfWork; }
         }
 
+        /// <summary>
+        /// 获取 当前实体类型的查询数据集
+        /// </summary>
         public IQueryable<T> Table
         {
             get { return _dbSet; }
         }
 
+        /// <summary>
+        /// 获取 当前实体类型的查询数据集(不追踪)
+        /// </summary>
         public IQueryable<T> TableNoTracking
         {
             get { return _dbSet.AsNoTracking(); }
@@ -45,20 +59,37 @@ namespace ChiakiYu.EntityFramework
         #endregion
 
         #region Get方法
+
+        /// <summary>
+        /// 查找指定主键的实体
+        /// </summary>
+        /// <param name="id">实体主键</param>
+        /// <returns>符合主键的实体，不存在时返回null</returns>
         public T Get(TKey id)
         {
             return _dbSet.Find(id);
         }
+
         #endregion
 
         #region Insert方法
 
+        /// <summary>
+        /// 插入实体
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>添加的实体对象</returns>
         public T Insert(T entity)
         {
             _dbSet.Add(entity);
             return SaveChanges() > 0 ? entity : null;
         }
 
+        /// <summary>
+        /// 插入或者更新实体：不存在则插入实体，存在则更新
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>添加或更新的实体对象</returns>
         public T InsertOrUpdate(T entity)
         {
 
@@ -68,6 +99,11 @@ namespace ChiakiYu.EntityFramework
             : Update(entity);
         }
 
+        /// <summary>
+        /// 批量插入实体
+        /// </summary>
+        /// <param name="entities">实体对象集合</param>
+        /// <returns>操作影响的行数</returns>
         public int Insert(IEnumerable<T> entities)
         {
             entities = entities as T[] ?? entities.ToArray();
@@ -79,12 +115,21 @@ namespace ChiakiYu.EntityFramework
 
         #region Update方法
 
+        /// <summary>
+        /// 更新实体对象
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>更新后的实体对象</returns>
         public T Update(T entity)
         {
             var entityUpdate = ((DbContext)_unitOfWork).Update<T, TKey>(entity);
             return SaveChanges() > 0 ? entityUpdate : null;
         }
 
+        /// <summary>
+        /// 批量更新实体对象
+        /// </summary>
+        /// <param name="entities">实体对象集合</param>
         public void Update(IEnumerable<T> entities)
         {
             foreach (var entity in entities)
@@ -98,6 +143,11 @@ namespace ChiakiYu.EntityFramework
 
         #region Delete方法
 
+        /// <summary>
+        /// 删除实体
+        /// </summary>
+        /// <param name="entity">实体对象</param>
+        /// <returns>成功与否</returns>
         public bool Delete(T entity)
         {
             if (entity is ISoftDelete)
@@ -112,13 +162,22 @@ namespace ChiakiYu.EntityFramework
             return SaveChanges() > 0;
         }
 
+
+        /// <summary>
+        /// 根据主键删除实体
+        /// </summary>
+        /// <param name="id">实体主键</param>
+        /// <returns>成功与否</returns>
         public bool Delete(TKey id)
         {
             var entity = _dbSet.Find(id);
             return entity != null && Delete(entity);
         }
 
-
+        /// <summary>
+        /// 删除所有符合特定条件的实体
+        /// </summary>
+        /// <param name="predicate">查询条件谓语表达式</param>
         public void Delete(Expression<Func<T, bool>> predicate)
         {
             foreach (var entity in Table.Where(predicate).ToList())
@@ -136,6 +195,10 @@ namespace ChiakiYu.EntityFramework
             SaveChanges();
         }
 
+        /// <summary>
+        /// 批量删除删除实体
+        /// </summary>
+        /// <param name="entities">实体对象集合</param>
         public void Delete(IEnumerable<T> entities)
         {
             foreach (var entity in entities)

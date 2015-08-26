@@ -11,7 +11,7 @@ namespace ChiakiYu.Service.Blogs
         /// <summary>
         ///     根据主键获取实体
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">日志id</param>
         /// <returns></returns>
         Blog GetBlog(long id);
 
@@ -42,6 +42,11 @@ namespace ChiakiYu.Service.Blogs
         /// <param name="blog"></param>
         Blog UpdateBlog(Blog blog);
 
+        /// <summary>
+        /// 添加或更新日志：不存在则添加，存在则更新
+        /// </summary>
+        /// <param name="blog">日志实体</param>
+        /// <returns></returns>
         Blog AddOrUpdateBlog(Blog blog);
     }
 }

@@ -3,19 +3,14 @@ using ChiakiYu.Core.Dependency;
 using ChiakiYu.Model.Permissions;
 using ChiakiYu.Model.Roles;
 using ChiakiYu.Model.Users;
-using ChiakiYu.Service.Authorization.Dto;
 
 namespace ChiakiYu.Service.Authorization
 {
-    public interface IAuthorizationService : IDependency 
+    /// <summary>
+    ///     权限业务逻辑
+    /// </summary>
+    public interface IAuthorizationService : IDependency
     {
-        /// <summary>
-        ///     获取用户角色
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        List<UserRole> GetUserRoles(GetUserRolesInput input);
-
         /// <summary>
         ///     创建用户角色
         /// </summary>
@@ -29,13 +24,23 @@ namespace ChiakiYu.Service.Authorization
         /// <param name="userId">用户Id</param>
         void DeleteUserRole(long userId);
 
+        /// <summary>
+        ///     删除该角色的所有权限
+        /// </summary>
+        /// <param name="roleId"></param>
         void DeleteRolePermission(int roleId);
 
+        /// <summary>
+        ///     新增角色权限
+        /// </summary>
+        /// <param name="rolePermission"></param>
+        /// <returns></returns>
         string AddRolePermission(RolePermission rolePermission);
 
-        List<RolePermission> GetRolePermissions(string name, int roleId);
-
-
+        /// <summary>
+        ///     获取站点的所有权限
+        /// </summary>
+        /// <returns></returns>
         List<PermissionSite> GetPermissionAll();
     }
 }
