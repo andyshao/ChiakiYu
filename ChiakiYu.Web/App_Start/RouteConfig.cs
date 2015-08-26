@@ -72,9 +72,6 @@ namespace ChiakiYu.Web
 
             #endregion
 
-            
-
-
             routes.MapRoute(
                 "Common", 
                 "{controller}/{action}/{id}",

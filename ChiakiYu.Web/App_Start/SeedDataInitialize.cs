@@ -33,241 +33,27 @@ namespace ChiakiYu.Web
 
             var navigationList = new List<Navigation>
             {
-                new Navigation
-                {
-                    Id = 1001000,
-                    Name = "首页",
-                    PresentArea = PresentArea.Channel,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = "/Home",
-                    IconName = "fa fa-home",
-                    Order = 1,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 1002000,
-                    Name = "关于",
-                    PresentArea = PresentArea.Channel,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = "/About",
-                    IconName = null,
-                    Order = 2,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 1003000,
-                    Name = "更多",
-                    PresentArea = PresentArea.Channel,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = "",
-                    IconName = "fa fa-chevron-circle-down",
-                    Order = 3,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 1003001,
-                    Name = "即时通讯",
-                    PresentArea = PresentArea.Channel,
-                    Level = 1,
-                    ParentId = 1003000,
-                    Url = "/Chat",
-                    IconName = null,
-                    Order = 4,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 1004000,
-                    Name = "日志",
-                    PresentArea = PresentArea.Channel,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = "/Blog",
-                    IconName = null,
-                    Order = 5,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 1005000,
-                    Name = "服务",
-                    PresentArea = PresentArea.Channel,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = "/Portfolio",
-                    IconName = null,
-                    Order = 6,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2001000,
-                    Name = "首页",
-                    PresentArea = PresentArea.Admin,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = "/Admin/Home",
-                    IconName = "fa fa-home fa-fw",
-                    Order = 1,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2002000,
-                    Name = "用户",
-                    PresentArea = PresentArea.Admin,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = null,
-                    IconName = "fa fa-users fa-fw",
-                    Order = 2,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2002001,
-                    Name = "用户管理",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2002000,
-                    Url = "/AdminUser/ManageUsers",
-                    IconName = null,
-                    Order = 3,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2002002,
-                    Name = "角色管理",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2002000,
-                    Url = "/AdminUser/ManageRoles",
-                    IconName = null,
-                    Order = 4,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2003000,
-                    Name = "新闻",
-                    PresentArea = PresentArea.Admin,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = null,
-                    IconName = "fa fa-newspaper-o fa-fw",
-                    Order = 5,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2003001,
-                    Name = "新闻管理",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2003000,
-                    Url = null,
-                    IconName = null,
-                    Order = 6,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2003002,
-                    Name = "新闻类别",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2003000,
-                    Url = null,
-                    IconName = null,
-                    Order = 7,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2003003,
-                    Name = "发布新闻",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2003000,
-                    Url = null,
-                    IconName = null,
-                    Order = 8,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2004000,
-                    Name = "系统",
-                    PresentArea = PresentArea.Admin,
-                    Level = 1,
-                    ParentId = 0,
-                    Url = null,
-                    IconName = "fa fa-cogs fa-fw",
-                    Order = 9,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2004001,
-                    Name = "站点设置",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2004000,
-                    Url = "/AdminSetting/SiteSettings",
-                    IconName = null,
-                    Order = 10,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2004002,
-                    Name = "重启站点",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2004000,
-                    Url = null,
-                    IconName = null,
-                    Order = 11,
-                    IsEnabled = true
-                }
-                ,
-                new Navigation
-                {
-                    Id = 2004003,
-                    Name = "清理缓存",
-                    PresentArea = PresentArea.Admin,
-                    Level = 2,
-                    ParentId = 2004000,
-                    Url = null,
-                    IconName = null,
-                    Order = 12,
-                    IsEnabled = true
-                }
+                 new Navigation{Id = 1001000,Name = "首页",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/",IconName = "fa fa-home",Order = 1001000,IsEnabled = true}
+                ,new Navigation{Id = 1002000,Name = "关于",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/About",IconName = null,Order = 1002000,IsEnabled = true}
+                ,new Navigation{Id = 1003000,Name = "日志",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "/Blog",IconName = null,Order = 1003000,IsEnabled = true}
+                ,new Navigation{Id = 1004000,Name = "更多",PresentArea = PresentArea.Channel,Level = 1,ParentId = 0,Url = "",IconName = "fa fa-chevron-circle-down",Order =1004000,IsEnabled = true}
+                ,new Navigation{Id = 1004001,Name = "即时通讯",PresentArea = PresentArea.Channel,Level = 1,ParentId = 1004000,Url = "/Chat",IconName = null,Order =1004001,IsEnabled = true}
+                ,new Navigation{Id = 1004002,Name = "倒计时",PresentArea = PresentArea.Channel,Level = 1,ParentId = 1004000,Url = "/ComingSoon",IconName = null,Order = 1004002,IsEnabled = true}
+                
+                ,new Navigation{Id = 2001000,Name = "首页",PresentArea = PresentArea.Admin,Level = 1,ParentId = 0,Url = "/Admin/Home",IconName = "fa fa-home fa-fw",Order = 2001000,IsEnabled = true}
+                ,new Navigation{Id = 2002000,Name = "用户",PresentArea = PresentArea.Admin,Level = 1,ParentId = 0,Url = null,IconName = "fa fa-users fa-fw",Order = 2002000,IsEnabled = true}
+                ,new Navigation{Id = 2002001,Name = "用户管理",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2002000,Url = "/AdminUser/ManageUsers",IconName = null,Order = 2002001,IsEnabled = true}
+                ,new Navigation{Id = 2002002,Name = "角色管理",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2002000,Url = "/AdminUser/ManageRoles",IconName = null,Order = 2002002,IsEnabled = true}
+                ,new Navigation{Id = 2003000,Name = "日志",PresentArea = PresentArea.Admin,Level = 1,ParentId = 0,Url = null,IconName = "fa fa-newspaper-o fa-fw",Order = 2003000,IsEnabled = true}
+                ,new Navigation{Id = 2003001,Name = "日志管理",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2003000,Url = null,IconName = null,Order = 2003001,IsEnabled = true}
+                ,new Navigation{Id = 2003002,Name = "日志类别",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2003000,Url = null,IconName = null,Order = 2003002,IsEnabled = true}
+                ,new Navigation{Id = 2003003,Name = "发表日志",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2003000,Url = null,IconName = null,Order = 2003003,IsEnabled = true}
+                ,new Navigation{Id = 2004000,Name = "系统",PresentArea = PresentArea.Admin,Level = 1,ParentId = 0,Url = null,IconName = "fa fa-cogs fa-fw",Order = 2004000,IsEnabled = true}
+                ,new Navigation{Id = 2004001,Name = "站点设置",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = "/AdminSetting/SiteSettings",IconName = null,Order = 2004001,IsEnabled = true}
+                ,new Navigation{Id = 2004002,Name = "重启站点",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = null,IconName = null,Order = 2004002,IsEnabled = true}
+                ,new Navigation{Id = 2004003,Name = "清理缓存",PresentArea = PresentArea.Admin,Level = 2,ParentId = 2004000,Url = null,IconName = null,Order = 2004003,IsEnabled = true}
             };
-            context.Set<Navigation>().AddOrUpdate(m => new {m.Name}, navigationList.ToArray());
+            context.Set<Navigation>().AddOrUpdate(m => new { m.Name }, navigationList.ToArray());
 
             #endregion
 
@@ -289,7 +75,7 @@ namespace ChiakiYu.Web
                     IsActived = true
                 }
             };
-            context.Set<User>().AddOrUpdate(m => new {m.UserName, m.AccountEmail, m.AccountMobile}, userList.ToArray());
+            context.Set<User>().AddOrUpdate(m => new { m.UserName, m.AccountEmail, m.AccountMobile }, userList.ToArray());
 
             #endregion
 
@@ -303,7 +89,7 @@ namespace ChiakiYu.Web
                 ,
                 new Role {Name = "User", DisplayName = "普通用户", IsStatic = true, IsDefault = true}
             };
-            context.Set<Role>().AddOrUpdate(m => new {m.Name}, roleList.ToArray());
+            context.Set<Role>().AddOrUpdate(m => new { m.Name }, roleList.ToArray());
 
             #endregion
 
@@ -322,50 +108,22 @@ namespace ChiakiYu.Web
             var permissionAll = new List<PermissionSite>
             {
                 new PermissionSite {Id = 1, PId = 0, PermissionName = "Page", Name = "页面"}
-                ,
-                new PermissionSite {Id = 11, PId = 1, PermissionName = "Page.Channel", Name = "首页"}
-                ,
-                new PermissionSite {Id = 12, PId = 1, PermissionName = "Page.Users", Name = "用户"}
-                ,
-                new PermissionSite {Id = 121, PId = 12, PermissionName = "Page.Users.Manage", Name = "用户管理"}
-                ,
-                new PermissionSite {Id = 1211, PId = 121, PermissionName = "Page.Users.Manage.Add", Name = "添加用户"}
-                ,
-                new PermissionSite {Id = 1212, PId = 121, PermissionName = "Page.Users.Manage.Delete", Name = "删除用户"}
-                ,
-                new PermissionSite {Id = 1213, PId = 121, PermissionName = "Page.Users.Manage.Edit", Name = "编辑用户"}
-                ,
-                new PermissionSite {Id = 1214, PId = 121, PermissionName = "Page.Users.Manage.SetRoles", Name = "设置角色"}
-                ,
-                new PermissionSite
-                {
-                    Id = 1215,
-                    PId = 121,
-                    PermissionName = "Page.Users.Manage.SetPermissions",
-                    Name = "设置权限"
-                }
-                ,
-                new PermissionSite {Id = 122, PId = 12, PermissionName = "Page.Roles.Manage", Name = "角色管理"}
-                ,
-                new PermissionSite {Id = 1221, PId = 122, PermissionName = "Page.Roles.Manage.Add", Name = "添加角色"}
-                ,
-                new PermissionSite {Id = 1222, PId = 122, PermissionName = "Page.Roles.Manage.Delete", Name = "删除角色"}
-                ,
-                new PermissionSite {Id = 1223, PId = 122, PermissionName = "Page.Roles.Manage.Edit", Name = "编辑角色"}
-                ,
-                new PermissionSite
-                {
-                    Id = 1224,
-                    PId = 122,
-                    PermissionName = "Page.Roles.Manage.SetPermissions",
-                    Name = "设置权限"
-                }
-                ,
-                new PermissionSite {Id = 14, PId = 1, PermissionName = "Login", Name = "登录"}
-                ,
-                new PermissionSite {Id = 141, PId = 14, PermissionName = "Login.Channel", Name = "登录前台"}
-                ,
-                new PermissionSite {Id = 142, PId = 14, PermissionName = "Login.Admin", Name = "登录后台"}
+                ,new PermissionSite {Id = 11, PId = 1, PermissionName = "Page.Channel", Name = "首页"}
+                ,new PermissionSite {Id = 12, PId = 1, PermissionName = "Page.Users", Name = "用户"}
+                ,new PermissionSite {Id = 121, PId = 12, PermissionName = "Page.Users.Manage", Name = "用户管理"}
+                ,new PermissionSite {Id = 1211, PId = 121, PermissionName = "Page.Users.Manage.Add", Name = "添加用户"}
+                ,new PermissionSite {Id = 1212, PId = 121, PermissionName = "Page.Users.Manage.Delete", Name = "删除用户"}
+                ,new PermissionSite {Id = 1213, PId = 121, PermissionName = "Page.Users.Manage.Edit", Name = "编辑用户"}
+                ,new PermissionSite {Id = 1214, PId = 121, PermissionName = "Page.Users.Manage.SetRoles", Name = "设置角色"}
+                ,new PermissionSite {Id = 1215,PId = 121,PermissionName = "Page.Users.Manage.SetPermissions",Name = "设置权限"}
+                ,new PermissionSite {Id = 122, PId = 12, PermissionName = "Page.Roles.Manage", Name = "角色管理"}
+                ,new PermissionSite {Id = 1221, PId = 122, PermissionName = "Page.Roles.Manage.Add", Name = "添加角色"}
+                ,new PermissionSite {Id = 1222, PId = 122, PermissionName = "Page.Roles.Manage.Delete", Name = "删除角色"}
+                ,new PermissionSite {Id = 1223, PId = 122, PermissionName = "Page.Roles.Manage.Edit", Name = "编辑角色"}
+                ,new PermissionSite {Id = 1224,PId = 122,PermissionName = "Page.Roles.Manage.SetPermissions",Name = "设置权限"}
+                ,new PermissionSite {Id = 14, PId = 1, PermissionName = "Login", Name = "登录"}
+                ,new PermissionSite {Id = 141, PId = 14, PermissionName = "Login.Channel", Name = "登录前台"}
+                ,new PermissionSite {Id = 142, PId = 14, PermissionName = "Login.Admin", Name = "登录后台"}
             };
             context.Set<PermissionSite>().AddOrUpdate(permissionAll.ToArray());
 
