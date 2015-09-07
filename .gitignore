@@ -6,3 +6,4 @@ bin
 Logs
 /ChiakiYu.Web/Web.Debug.config
 /ChiakiYu.Web/Web.Release.config
+/ChiakiYu.Web/aspnet_client
